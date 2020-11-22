@@ -3,14 +3,25 @@
 % The following code was adapted from the 2IFC template provided by Martin Szinte's Programming course
 % http://www.martinszinte.net/Martin_Szinte/Teaching_files/Prog_c6.pdf
 
+% On macOS Catlina and Big Sur Psychtoolbox does not have keyboard access by default
+% see: https://psychtoolbox.discourse.group/t/kbdemo-not-working-mac-osx-catalina/3042
+% Install PsychoPy as a workaround
+
 %% Initial settings
 % Initial closing :
 clear all;clear mex;clear functions;
 close all;home;ListenChar(1);tic
+addpath(genpath(pwd));
+
+const.DEBUG = 1; % Debug flag
 
 % General settings
 const.expName      = 'Heeley_BuchananSmith_92';          % experiment name and folder
-const.expStart     = 1;                     % Start of a recording exp  0 = NO   , 1 = YES
+if const.DEBUG
+    const.expStart     = 0; % Start of a recording exp  0 = NO   , 1 = YES
+else
+    const.expStart     = 1; % Start of a recording exp  0 = NO   , 1 = YES
+end
 
 % Screen
 const.desiredFD    = 60;   % Desired refresh rate (change this later)

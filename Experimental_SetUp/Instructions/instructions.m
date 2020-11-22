@@ -13,7 +13,7 @@ function instructions(scr,const,my_key,text,button)
 % Output(s):
 % (none)
 % ----------------------------------------------------------------------
-while KbCheck; end 
+while KbCheck(-1); end
 KbName('UnifyKeyNames');
 
 push_button = 0;
@@ -40,8 +40,8 @@ while ~push_button
         Screen('DrawText',scr.main,button{b_lines,:},scr.x_mid-bound(3)/2,first_line+addi*espace, const.orange);
     end
     Screen('Flip',scr.main);
-
-    [ keyIsDown, seconds, keyCode ] = KbCheck;
+    
+    [ keyIsDown, seconds, keyCode ] = KbCheck(-1);
     if keyIsDown
         if keyCode(my_key.space)
             push_button=1;

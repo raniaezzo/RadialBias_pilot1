@@ -11,7 +11,9 @@ function main(const)
 % Output(s):
 % none
 % ----------------------------------------------------------------------
-Screen('Preference','SkipSyncTests', 1); % override time error 
+% PsychDefaultSetup(2); % Setup unified keymapping and unit color range
+PsychImaging('PrepareConfiguration'); % First step in starting pipeline
+Screen('Preference','SkipSyncTests', 1); % override sync error (not good) 
 
 % File directory :
 [const] = dirSaveFile(const);
@@ -32,9 +34,15 @@ Screen('Preference','SkipSyncTests', 1); % override time error
 [textExp,button] = instructionConfig;
 
 % Open screen window :
-[scr.main,scr.rect] = Screen('OpenWindow',scr.scr_num,[0 0 0],[],[],2);
-% [scr.main,scr.rect] = PsychImaging('OpenWindow', screenNumber, grey, [], 32, 2,...
-%     [], [],  kPsychNeed32BPCFloat);   % just added
+if const.DEBUG
+    winRect = [0 0 1024 820];
+else
+    winRect = [];
+end
+% [scr.main,scr.rect] = Screen('OpenWindow',scr.scr_num,[0 0 0],[],[],2);
+[scr.main,scr.rect] = PsychImaging('OpenWindow', scr.scr_num, [.5 .5 .5], winRect, 32, 2,...
+     [], [],  kPsychNeed32BPCFloat);   % just added
+
 
 Screen('BlendFunction', scr.main, GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 priorityLevel = MaxPriority(scr.main);Priority(priorityLevel);

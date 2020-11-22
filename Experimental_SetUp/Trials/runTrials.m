@@ -18,7 +18,7 @@ function runTrials(scr,const,expDes,my_key,textExp,button)
 % none
 % ----------------------------------------------------------------------
 
-%% Gereral instructions:
+%% General instructions:
 instructions(scr,const,my_key,textExp.instruction1,button.instruction1);
 
 %% Main Loop
