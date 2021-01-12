@@ -31,18 +31,18 @@ button.end =  {end_b1};
 %% Main instruction :
 
 instruction_l1  =  'For each of the following trials, a fixation dot will appear'; 
-instruction_l2  =  'on the screen. A drifting pattern will appear at some distance';
-instruction_l3  =  'from the center. Your task is to determine whether the pattern';
-instruction_l4  =  'is drifting clockwise or counterclockwise relative to the reference.';
-instruction_l5  =  '';
+instruction_l2  =  'on the screen. A circular aperature will appear at some distance';
+instruction_l3  =  'from the center. Your task is to determine which';
+instruction_l4  =  'interval (first or second) moves in the most clockwise direction.';
+instruction_l5  =  'Please remain fixated on the dot throughout the trials.';
 instruction_l6  =  '';
 instruction_l7  =  '';
-instruction_l8  =  'Please remain fixated on the dot throughout the trials.';
+instruction_l8  =  'After your answer for a trial, press the space bar to continue.';
 instruction_l9  =  '';
-instruction_l10 =  'Press the RIGHT ARROW for clockwise direction';
-instruction_l11 =  'Press the LEFT ARROW for counterclockwise direction';
+instruction_l10 =  'If 1st interval stimulus moves in more clockwise direction : press 1 [RIGHT SHIFT]';
+instruction_l11 =  'If 2nd interval stimulus moves in more clockwise direction : press 2 [LEFT SHIFT]';
 
-instruction_b1 = '-----------------  PRESS [SPACE] TO START  -----------------';
+instruction_b1 = '-----------------  PRESS [SPACE] TO CONTINUE  -----------------';
 
 textExp.instruction1= {instruction_l1;instruction_l2;instruction_l3;instruction_l4;instruction_l5;...
                        instruction_l6;instruction_l7;instruction_l8;instruction_l9;instruction_l10;instruction_l11};
