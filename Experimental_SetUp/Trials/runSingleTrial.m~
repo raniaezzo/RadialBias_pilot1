@@ -98,10 +98,8 @@ disp(orientation)
 
 if orientation > standard
     disp('counterclockwise')
-    clockwise = 0;
 else
     disp('clockwise')
-    clockwise = 1;
 end
 
 %save staircase values
@@ -140,7 +138,7 @@ tRT = tRT - vbl;
 if key_press.rightShift == 1
     resMat = [2,tRT];
     % evaluate correct/incorrect
-    if clockwise == 1 %clockwise_target == 1 % when stimulus is clockwise relative to standard
+    if clockwise_target == 1 % when stimulus is clockwise relative to standard
         correct = 1;
     else
         correct = 0;
@@ -148,7 +146,7 @@ if key_press.rightShift == 1
 elseif key_press.leftShift == 1
     resMat = [1,tRT];
     % evaluate correct/incorrect
-    if clockwise == 0 %clockwise_target == -1 % when stimulus is clockwise relative to standard
+    if clockwise_target == -1 % when stimulus is clockwise relative to standard
         correct = 1;
     else
         correct = 0;

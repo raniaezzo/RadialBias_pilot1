@@ -15,7 +15,7 @@ function [my_key]=keyConfig
 KbName('UnifyKeyNames');
 my_key.escape       = KbName('ESCAPE');
 my_key.space        = KbName('Space');
-my_key.rightShift   = KbName('RightShift');
-my_key.leftShift    = KbName('LeftShift');
+my_key.rightShift   = KbName('RightArrow'); %('RightShift');
+my_key.leftShift    = KbName('LeftArrow'); %('LeftShift');
 
 end

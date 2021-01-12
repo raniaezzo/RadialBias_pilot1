@@ -15,7 +15,7 @@ function [scr]=scrConfig(const)
 % Number of the exp screen:
 scr.all = Screen('Screens');
 scr.scr_num = max(scr.all);
-%scr.scr_num = 1; % temp
+scr.scr_num = 1; % temp
 
 % Size of the display :
 [scr.disp_sizeX,scr.disp_sizeY] = Screen('DisplaySize',scr.scr_num);

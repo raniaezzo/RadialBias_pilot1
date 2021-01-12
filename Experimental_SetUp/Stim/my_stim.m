@@ -1,4 +1,4 @@
-function my_stim(scr,const,color,tframes, endframe)
+function my_stim(scr,const,color,tframes, endframe, xDist, yDist, orientation, motionsign)
 % ----------------------------------------------------------------------
 % my_stim(scr,color,x,y,sideX,sideY)
 % ----------------------------------------------------------------------
@@ -21,8 +21,13 @@ function my_stim(scr,const,color,tframes, endframe)
 % xCenter = scr.x_mid;
 % yCenter = scr.y_mid;
 
+% for fixation
 xCenter = x;
 yCenter = y;
+
+% for annulus
+xLoc = x+xDist;
+yLoc = y+yDist;
 
 % added
 % Dimensions
@@ -32,8 +37,8 @@ gaborDimPix = const.gaborDim_xpix;
 sigma = gaborDimPix / 6;
 
 % Obvious Parameters
-orientation = 0; 
-contrast = 0.5;
+%orientation = 0; 
+contrast = 1; %0.5;
 aspectRatio = 1.0;
 
 % Spatial Frequency (Cycles Per Pixel)
@@ -52,6 +57,7 @@ x=0 ; y=0;
 % Calculate the distance in "Gabor numbers" of each gabor from the center
 % of the array
 dist = sqrt(x.^2 + y.^2);
+%dist = sqrt(xLoc.^2 + yLoc.^2);
 
 % Cut out an inner annulus
 innerDist = 0;
@@ -60,10 +66,14 @@ innerDist = 0;
 outerDist = 10;
 x(dist >= outerDist) = nan;
 y(dist >= outerDist) = nan;
+%xLoc(dist >= outerDist) = nan;
+%yLoc(dist >= outerDist) = nan;
 
 % Center the annulus coordinates in the centre of the screen
-xPos = x .* gaborDimPix + xCenter;
-yPos = y .* gaborDimPix + yCenter;
+%xPos = x .* gaborDimPix + xCenter;
+%yPos = y .* gaborDimPix + yCenter;
+xPos = x .* gaborDimPix + xLoc;
+yPos = y .* gaborDimPix + yLoc;
 
 % Count how many Gabors there are
 nGabors = numel(xPos);
@@ -88,7 +98,7 @@ degPerFrame =  degPerSec * ifi;
 % angle we use. We re-orientate the array when drawing
 
 % try using this instead?
-angle_options = [0, 45, 90, 135]; 
+angle_options = [orientation]; %[45, 135, 225, 315]; %I think I only need 2 orientations 
 randomIndex = randi(length(angle_options), 1);
 gaborAngles = angle_options(randomIndex);
 %%gaborAngles = rand(1, nGabors) .* 180 - 90;
@@ -101,7 +111,7 @@ degPerFrameGabors =  cosd(gaborAngles) .* degPerFrame;
 % Not just orientation and drift rate as we are doing here.
 % This is the power of using procedural textures
 
-phaseLine = rand(1, nGabors) .* 360;
+phaseLine = 360;          %rand(1, nGabors) .* 360;
 propertiesMat = repmat([NaN, freq, sigma, contrast, aspectRatio, 0, 0, 0],...
     nGabors, 1);
 propertiesMat(:, 1) = phaseLine';
@@ -132,12 +142,12 @@ for i = tframes:endframe
         % Draw the fixation point
         Screen('DrawDots', scr.main, [xCenter; yCenter], const.fixation_xdiam, color, [], 2);
 
-
         % Flip our drawing to the screen
         vbl = Screen('Flip', scr.main, vbl + (waitframes - 0.5) * ifi);
 
         % Increment the phase of our Gabors
-        phaseLine = phaseLine + degPerFrameGabors;
+        %phaseLine = phaseLine + degPerFrameGabors;
+        phaseLine = phaseLine + (degPerFrameGabors)*motionsign; % determined dir of motion
         propertiesMat(:, 1) = phaseLine';
 
 end

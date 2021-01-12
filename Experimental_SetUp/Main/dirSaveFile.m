@@ -63,6 +63,7 @@ addpath('../../../../Conversion/');
 addpath('../../../../Data/');
 addpath('../../../../Instructions/');
 addpath('../../../../Main/');
+addpath('../../../../Staircase/');
 addpath('../../../../Stim/');
 addpath('../../../../Trials/');
 

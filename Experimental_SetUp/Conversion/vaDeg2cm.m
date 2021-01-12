@@ -18,5 +18,7 @@ function [cm] = vaDeg2cm (vaDeg,scr)
 % Version : -
 % ----------------------------------------------------------------------
 
-cm = (2*scr.dist*tan(0.5*pi/180))*vaDeg;
+%cm = (2*scr.dist*tan(0.5*pi/180))*vaDeg; 
+% fixed based on https://courses.washington.edu/matlab1/matlab/angle2pix.m
+cm = 2*scr.dist*tan(pi*vaDeg/(2*180));
 end

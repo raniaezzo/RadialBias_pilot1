@@ -31,7 +31,7 @@ while ~expDone
         while ~trialDone
 
             [resMat] = runSingleTrial(scr,const,expDes,my_key,t);
-            if resMat == -1
+            if resMat == -1 % im not sure if this if statement does anything?
                 % Exit button  => send a new trial + save trial configuration for later presentation
                 trialDone = 1;
                 newJ = newJ+1;

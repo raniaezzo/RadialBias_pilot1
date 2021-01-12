@@ -35,7 +35,7 @@ const.fixation_val = 0.5;  % diameter of the fixation (deg)
 [const.fixation_xdiam,const.fixation_ydiam] = vaDeg2pix(const.fixation_val,scr); % diameter of the answer fixation (pix)
 
 % grating spatial frequency
-const.numCycles_deg = 2.5; % cycles per degree 
+const.numCycles_deg = 1; %2.5; % cycles per degree 
 [numCycles_cm] =  vaDeg2cm(const.numCycles_deg,scr); % cycles per pixel (double check calc)
 const.numCycles_cm = numCycles_cm;
 
@@ -43,6 +43,11 @@ const.gaborDim_deg = 4;
 [gaborDim_xpix, gaborDim_ypix] =  vaDeg2pix(const.gaborDim_deg,scr);
 const.gaborDim_xpix = round(gaborDim_xpix);
 const.gaborDim_ypix = round(gaborDim_ypix);
+
+const.gaborDist_deg = 7;
+[gaborDist_xpix, gaborDist_ypix] =  vaDeg2pix(const.gaborDist_deg,scr);
+const.gaborDist_xpix = round(gaborDist_xpix);
+const.gaborDist_ypix = round(gaborDist_ypix);
 
 % TO DO: set up stimulus angles/speed beforehand
 % angle_options = [0, 45, 90, 135]; 
@@ -56,20 +61,13 @@ const.gaborDim_ypix = round(gaborDim_ypix);
 
 % Experiental timing settings
 const.T1  = 1.0;                % fixation time 1       = 1  sec
-const.T2  = 0.050;              % isi (fix this to match Heeley paper)
+const.T2  = 0.05;              % isi (fix this to match Heeley paper)
 const.T3  = 1.0;                % stimulus presentation = 1  sec
-
-const.T4  = const.T1;
-const.T5  = const.T2; 
-const.T6  = const.T3;  
 
 const.numFrm_T1  =  round(const.T1/scr.frame_duration);
 const.numFrm_T2  =  round(const.T2/scr.frame_duration);
 const.numFrm_T3  =  round(const.T3/scr.frame_duration);
-const.numFrm_T4  =  round(const.T4/scr.frame_duration);
-const.numFrm_T5  =  round(const.T5/scr.frame_duration);
-const.numFrm_T6  =  round(const.T6/scr.frame_duration);
-const.numFrm_Tot =  const.numFrm_T1 + const.numFrm_T2 + const.numFrm_T3 + const.numFrm_T4 + const.numFrm_T5 + const.numFrm_T6;
+const.numFrm_Tot =  const.numFrm_T1 + const.numFrm_T2 + const.numFrm_T3;
 
 const.numFrm_T1_start  = 1;                              
 const.numFrm_T1_end  =  const.numFrm_T1_start  + const.numFrm_T1-1;
@@ -77,12 +75,26 @@ const.numFrm_T2_start  = const.numFrm_T1_end+1;
 const.numFrm_T2_end  =  const.numFrm_T2_start  + const.numFrm_T2-1;
 const.numFrm_T3_start  = const.numFrm_T2_end+1;          
 const.numFrm_T3_end  =  const.numFrm_T3_start  + const.numFrm_T3-1;
-const.numFrm_T4_start  = const.numFrm_T3_end+1;          
-const.numFrm_T4_end  =  const.numFrm_T4_start  + const.numFrm_T4-1;
-const.numFrm_T5_start  = const.numFrm_T4_end+1;          
-const.numFrm_T5_end  =  const.numFrm_T5_start  + const.numFrm_T5-1;
-const.numFrm_T6_start  = const.numFrm_T5_end+1;          
-const.numFrm_T6_end  =  const.numFrm_T6_start  + const.numFrm_T6-1;
+
+% For staircase procedure (99-practice 0-thresholding 1-experimental)
+
+if const.use_staircase
+    stairParams.whichStair = 1; % QUEST = 2, bestPEST = 1;
+    stairParams.alphaRange = [0.25:0.25:3, 3.5:0.5:7];  % values copied from aysun (make sure this makes sense) -- this is one array (e.g. T1)
+    stairParams.fitBeta = 2; % params for the psychoetric fn
+    stairParams.fitLambda = 0.01; 
+    stairParams.fitGamma = 0.5; 
+    stairParams.perfLevel =0.75; % performance
+    stairParams.useMyPrior = [];
+    const.stairs = usePalamedesStaircase(stairParams); % is this needed here (maybe outside of the loop)?
+    const.stairs.xCurrent = const.currStair;
+    fprintf('\nStaircase is ON\n');
+else
+    const.stairs.xCurrent = const.currStair; % same as above..
+end
+
+% not sure if this is needed? I added this
+const.stairvec = [];
 
 %% Saving procedure :
 const_file = fopen(const.const_fileDat,'w');
