@@ -43,8 +43,8 @@ aspectRatio = 1.0;
 
 % Spatial Frequency (Cycles Per Pixel)
 % One Cycle = Grey-Black-Grey-White-Grey i.e. One Black and One White Lobe
-numCycles = const.numCycles_cm;
-freq = numCycles / gaborDimPix;
+numCycles = const.gaborSF_xpix; % correction: pixels per cycle
+freq = 1/numCycles;
 
 % Build a procedural gabor texture
 gabortex = CreateProceduralGabor(scr.main, gaborDimPix, gaborDimPix,...
@@ -88,7 +88,7 @@ end
 ifi = Screen('GetFlipInterval', scr.main);
 
 % Drift speed for the 2D global motion
-degPerSec = 360 * const.numCycles_deg;
+degPerSec = 360 * const.numCycles_deg * 4; % added the 4 for 4 deg/sec
 degPerFrame =  degPerSec * ifi;
 
 % Randomise the Gabor orientations and determine the drift speeds of each gabor.

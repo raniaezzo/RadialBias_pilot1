@@ -20,6 +20,9 @@ Screen('CloseAll');
 timeDur=toc/60;
 fprintf(1,'\nTotal time : %2.0f min.\n\n',timeDur);
 
+%PsychPortAudio('Stop', const.pahandle);
+%PsychPortAudio('Close', const.pahandle); %added
+
 clear mex;
 clear fun;
 

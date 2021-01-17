@@ -36,10 +36,15 @@ const.fixation_val = 0.5;  % diameter of the fixation (deg)
 
 % grating spatial frequency
 const.numCycles_deg = 1; %2.5; % cycles per degree 
-[numCycles_cm] =  vaDeg2cm(const.numCycles_deg,scr); % cycles per pixel (double check calc)
+[numCycles_cm] =  vaDeg2cm(const.numCycles_deg,scr); 
 const.numCycles_cm = numCycles_cm;
+[gaborSF_xpix, gaborSF_ypix] =  vaDeg2pix(const.numCycles_deg,scr); % cycles per pixel (double check calc)
+const.gaborSF_xpix = round(gaborSF_xpix);
+const.gaborSF_ypix = round(gaborSF_ypix);
 
-const.gaborDim_deg = 4;
+const.gaborDim_deg = 2.5; %was 4
+[gaborDim_cm] =  vaDeg2cm(const.gaborDim_deg,scr); 
+const.gaborDim_cm = gaborDim_cm;
 [gaborDim_xpix, gaborDim_ypix] =  vaDeg2pix(const.gaborDim_deg,scr);
 const.gaborDim_xpix = round(gaborDim_xpix);
 const.gaborDim_ypix = round(gaborDim_ypix);
@@ -59,9 +64,16 @@ const.gaborDist_ypix = round(gaborDist_ypix);
 % Center position of screen
 %[scr.x_mid, scr.y_mid] = RectCenter(scr.rect);
 
+% sound settings
+%InitializePsychSound(1);
+%reqlatencyclass = 2; % Level 2 means: Take full control over the audio device, even if this causes other sound applications to fail or shutdown.
+%InitializePsychSound(1);
+%const.pahandle = PsychPortAudio('Open', [], [], reqlatencyclass, 44100, 1); % 1 = single-channel
+%PsychPortAudio('Volume', const.pahandle, 0.5); % 1 denotes 100% volume.
+
 % Experiental timing settings
-const.T1  = 1.0;                % fixation time 1       = 1  sec
-const.T2  = 0.05;              % isi (fix this to match Heeley paper)
+const.T1  = 0.5; %1.0;                % fixation time 1       = 0.5  sec
+const.T2  = 0.3; %0.05;              % isi (fix this to match Heeley paper)
 const.T3  = 1.0;                % stimulus presentation = 1  sec
 
 const.numFrm_T1  =  round(const.T1/scr.frame_duration);
@@ -80,17 +92,18 @@ const.numFrm_T3_end  =  const.numFrm_T3_start  + const.numFrm_T3-1;
 
 if const.use_staircase
     stairParams.whichStair = 1; % QUEST = 2, bestPEST = 1;
-    stairParams.alphaRange = [0.25:0.25:3, 3.5:0.5:7];  % values copied from aysun (make sure this makes sense) -- this is one array (e.g. T1)
+    % (make sure this makes sense) -- this is one array (e.g. T1)
+    stairParams.alphaRange = [0.25:0.25:3, 3.5:0.5:7];  % values same as aysun's exp 
     stairParams.fitBeta = 2; % params for the psychoetric fn
     stairParams.fitLambda = 0.01; 
     stairParams.fitGamma = 0.5; 
     stairParams.perfLevel =0.75; % performance
     stairParams.useMyPrior = [];
-    const.stairs = usePalamedesStaircase(stairParams); % is this needed here (maybe outside of the loop)?
-    const.stairs.xCurrent = const.currStair;
+    const.stairs = usePalamedesStaircase(stairParams); % is this needed here (move to outside of the loop)?
+    const.stairs.xCurrent = const.currStair; % starting point: defined in expLauncher
     fprintf('\nStaircase is ON\n');
 else
-    const.stairs.xCurrent = const.currStair; % same as above..
+    const.stairs.xCurrent = const.currStair; % same as above.. defined in expLauncher
 end
 
 % not sure if this is needed? I added this
