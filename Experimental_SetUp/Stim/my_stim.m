@@ -143,8 +143,8 @@ for i = tframes:endframe
         Screen('DrawDots', scr.main, [xCenter; yCenter], const.fixation_xdiam, color, [], 2);
         
         % added for debugging
-        Screen('DrawDots', scr.main, [xLoc; yLoc], const.fixation_xdiam, color, [], 2);
-        Screen('DrawDots', scr.main, [-xLoc; -yLoc], const.fixation_xdiam, color, [], 2);        
+        %Screen('DrawDots', scr.main, [xLoc; yLoc], const.fixation_xdiam, color, [], 2);
+        %Screen('DrawDots', scr.main, [-xLoc; -yLoc], const.fixation_xdiam, color, [], 2);        
 
         % Flip our drawing to the screen
         vbl = Screen('Flip', scr.main, vbl + (waitframes - 0.5) * ifi);
