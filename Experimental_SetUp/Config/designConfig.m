@@ -22,7 +22,7 @@ expDes.oneV =[1:2]';
     % ** can also change to 135 and 315 for another subject
 
 % Var 2 : Motion/Orientation references [4 modalities - 1]
-expDes.twoV = [1:2]';  % [1:4]';  to include radial & tangential
+expDes.twoV = [str2double(const.motion_type)]';  % [1:4]';  to include radial & tangential
    
 % Var 3 : CounterClockwise / Clockwise
 expDes.threeV = [1:2]';
@@ -61,7 +61,7 @@ expDes.nb_var4= numel(expDes.var4_list);
 expDes.nb_var  = 2; %expDes.nb_var  = 3;
 expDes.nb_rand = 1;
 
-expDes.nb_repeat = 4; % changed this from 1
+expDes.nb_repeat = 40; % changed this from 1
 %expDes.nb_trials = expDes.nb_var1 * expDes.nb_var2 * expDes.nb_var3 * expDes.nb_var4 * expDes.nb_repeat;
 expDes.nb_trials = expDes.nb_var1 * expDes.nb_var2 * expDes.nb_var3 * expDes.nb_repeat;
 

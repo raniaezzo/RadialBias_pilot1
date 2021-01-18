@@ -21,7 +21,7 @@ else
 end
 
 if const.expStart
-    expDir = sprintf('ExpData/Block%i',const.fromBlock);
+    expDir = sprintf('Data/%s/ExpData/Block%i',const.sjct,const.fromBlock);
     if ~isdir(expDir)
         mkdir(expDir);
         cd(expDir);
@@ -49,13 +49,23 @@ else
 
 end
 
+if const.motion_type == '1'
+    motion_type = 'tangential_counterclockwise';
+elseif const.motion_type == '2'
+    motion_type = 'tangential_clockwise';
+elseif const.motion_type == '3'
+    motion_type = 'radial_inward';
+elseif const.motion_type == '4'
+    motion_type = 'radial_outward';
+end
+
 % Defines saving file names
-const.scr_fileDat =         sprintf('scr_file%s.dat',const.sjctCode);
-const.scr_fileMat =         sprintf('scr_file%s.mat',const.sjctCode);
-const.const_fileDat =       sprintf('const_file%s.dat',const.sjctCode);
-const.const_fileMat =       sprintf('const_file%s.mat',const.sjctCode);
-const.expRes_fileCsv =      sprintf('expRes%s.csv',const.sjctCode);
-const.design_fileMat =      sprintf('design%s.mat',const.sjctCode);
+const.scr_fileDat =         sprintf('scr_file%s_%s.dat',const.sjctCode, motion_type);
+const.scr_fileMat =         sprintf('scr_file%s_%s.mat',const.sjctCode, motion_type);
+const.const_fileDat =       sprintf('const_file%s_%s.dat',const.sjctCode, motion_type);
+const.const_fileMat =       sprintf('const_file%s_%s.mat',const.sjctCode, motion_type);
+const.expRes_fileCsv =      sprintf('expRes%s_%s.csv',const.sjctCode, motion_type);
+const.design_fileMat =      sprintf('design%s_%s.mat',const.sjctCode, motion_type);
 
 % Add path from the location of the data file folder
 addpath('../../../../Config/');

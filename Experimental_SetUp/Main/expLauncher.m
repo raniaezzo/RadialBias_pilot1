@@ -26,6 +26,12 @@ Answer        = inputdlg(Prompt,'Info',1);
 session_type   = Answer{1};
 %end
 
+% which condition to test (1= tang counterclock; 2= tang clock; 3= radial
+% inwards, 4 = radial outwards)
+Prompt        = {'Motion Type (1-tang counterclock, 2-tang clock, 3-radial inw, 4-radial-out):'};
+Answer    = inputdlg(Prompt,'Info',1);
+const.motion_type   = Answer{1};
+
 switch session_type
     case '0'
         const.session_type = 'thresholding';

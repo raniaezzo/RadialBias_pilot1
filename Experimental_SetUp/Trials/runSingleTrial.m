@@ -31,41 +31,48 @@ FlushEvents('KeyDown');
 loc_target = expDes.expMat(t, 3); % this is the first exp variable
 motiondir_target = expDes.expMat(t, 4); % this is the second exp variable
 test_target = expDes.expMat(t,5); % this is the counterclockwise vs clockwise shift
+
+% motiondir_target = 3; % just for debugging % get rid of
+
 if loc_target == 1   % loc 1 = lower right, loc 2 = upper left
     xDist = const.gaborDist_xpix;
     yDist = const.gaborDist_ypix;
-    % 1= radial outwards, 2 = radial inwards, 3 = clockwise tang, 4 =
-    % counterclock tang
-    if motiondir_target == 1        % define motion/orientation directions based on location
-        orientation = 45;
-        motionsign = -1; % 1 or -1 (relative to screen not fixation -- no need to save var)
-    elseif motiondir_target == 2
+    if motiondir_target == 1 %counterclock tang motion
+        orientation = 45;  % is actually 135 deg gratational coordinates
+        motionsign = -1;
+        abs_motiondir = 0; % to calculate abs motion dir (grav coord)
+    elseif motiondir_target == 2 % clockwise tang motion
         orientation = 45;
         motionsign = 1;
-    elseif motiondir_target == 3
+        abs_motiondir = 180;
+    elseif motiondir_target == 3 % radial inwards
         orientation = 135;
         motionsign = 1;
-    elseif motiondir_target == 4
+        abs_motiondir = 0;
+    elseif motiondir_target == 4 % radial outwards
         orientation = 135;
         motionsign = -1;
+        abs_motiondir = 180; 
     end
 elseif loc_target == 2
     xDist = -(const.gaborDist_xpix);
     yDist = -(const.gaborDist_ypix);
-    % 1= radial outwards, 2 = radial inwards, 3 = clockwise tang, 4 =
-    % counterclock tang
-    if motiondir_target == 1    % define motion/orientation directions based on location
+    if motiondir_target == 1 %counterclock tang motion
         orientation = 45;
-        motionsign = 1; % 1 or -1 (relative to screen not fixation -- no need to save var)
-    elseif motiondir_target == 2
+        motionsign = 1; 
+        abs_motiondir = 180;
+    elseif motiondir_target == 2 % clockwise tang motion
         orientation = 45;
         motionsign = -1;
-    elseif motiondir_target == 3
+        abs_motiondir = 0;
+    elseif motiondir_target == 3 % radial inwards
         orientation = 135;
         motionsign = -1;
-    elseif motiondir_target == 4
+        abs_motiondir = 180;
+    elseif motiondir_target == 4 % radial outwards
         orientation = 135;
         motionsign = 1;
+        abs_motiondir = 0;
     end
 else % center if code # is not defined
     xDist = 0;
@@ -107,6 +114,7 @@ end
 %save staircase values
 stairValues(t, :) = [const.stairs.xCurrent];
 
+
 %% Main loop
 
 for tframes = 1:const.numFrm_Tot
@@ -140,24 +148,28 @@ end
 tRT = tRT - vbl;
 
 if key_press.rightShift == 1
-    resMat = [2,tRT];
     % evaluate correct/incorrect
     if clockwise == 1 %clockwise_target == 1 % when stimulus is clockwise relative to standard
         correct = 1;
     else
         correct = 0;
     end
+    % orientation+90 gives static orientation of grating (0=90 deg)
+    % standard+90 gives static orientation of internal grating (0=90 deg)
+    % orientation*motionsign absolute motion direction (in degrees) --
+    % orthogonal to orientation (direction)
+    resMat = [standard+90, orientation+90, standard+abs_motiondir, orientation+abs_motiondir, clockwise, 2,tRT, correct]; % was just 2, tRT before
 elseif key_press.leftShift == 1
-    resMat = [1,tRT];
     % evaluate correct/incorrect
     if clockwise == 0 %clockwise_target == -1 % when stimulus is clockwise relative to standard
         correct = 1;
     else
         correct = 0;
     end
+    resMat = [standard+90, orientation+90, standard+abs_motiondir, orientation+abs_motiondir, clockwise, 1,tRT, correct];
 elseif key_press.space == 1
-    resMat = [-1,tRT];
     correct = 0;
+    resMat = [standard+90, orientation+90, standard+abs_motiondir, orientation+abs_motiondir, clockwise, -1,tRT, correct];
 elseif key_press.escape == 1
     overDone;
 end
@@ -174,7 +186,9 @@ if const.use_staircase
     disp('Adjusted tilt to add')
     disp(const.stairs.xCurrent)
     xUpdate_tilt = const.stairs.xCurrent; % added new tilt
-    const.stairvec = [const.stairvec, const.stairs];  
+    const.stairvec = [const.stairvec, const.stairs]; 
+else
+    xUpdate_tilt = const.stairs.xCurrent; % use current if not staircased
 end
 
 disp('~~~~~~~~~~~~~~~ end of trial ~~~~~~~~~~~~~~')
