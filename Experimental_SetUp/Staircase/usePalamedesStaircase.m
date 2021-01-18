@@ -111,7 +111,7 @@ function staircase = initStaircase(stairParams)
 % Initialize the staircase
 switch stairParams.whichStair
     case 1 % best PEST
-        meanMode = 'mode';
+        meanMode = 'mean'; %'mode';
         if ~isempty(stairParams.useMyPrior)
             prior = stairParams.useMyPrior;
         else

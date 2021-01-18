@@ -1,4 +1,4 @@
-function [resMat]=runSingleTrial(scr,const,expDes,my_key,t)
+function [resMat, xUpdate_tilt]=runSingleTrial(scr,const,expDes,my_key,t)
 % ----------------------------------------------------------------------
 % [resMat] = runSingleTrial(scr,const,expDes,my_key,t)
 % ----------------------------------------------------------------------
@@ -120,7 +120,9 @@ for tframes = 1:const.numFrm_Tot
     
     % T2
     if tframes == const.numFrm_T2_start
-        my_sound(1); % isi
+    %if tframes >= const.numFrm_T2_start && tframes <= const.numFrm_T2_end
+        %my_sound(1); % isi
+        my_sound(const);
     end
     
     % T3
@@ -167,6 +169,11 @@ disp(correct)
 if const.use_staircase
     % for now just assume all are correct (just to check code)
     const.stairs = usePalamedesStaircase(const.stairs, correct); 
+    disp('Palamedes output')
+    disp(const.stairs)
+    disp('Adjusted tilt to add')
+    disp(const.stairs.xCurrent)
+    xUpdate_tilt = const.stairs.xCurrent; % added new tilt
     const.stairvec = [const.stairvec, const.stairs];  
 end
 

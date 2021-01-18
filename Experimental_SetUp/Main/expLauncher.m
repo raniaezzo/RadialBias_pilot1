@@ -19,29 +19,31 @@ const.DEBUG = 1; % Debug flag
 % which uses manual input determined from staircase
 
 session_type = [];
-while isempty(session_type)
-    Prompt        = {'Session Type (99-practice 0-thresholding 1-experimental):'};
-    Answer        = inputdlg(Prompt,'Info',1);
-    session_type   = str2double(Answer{1});
-end
+%while isempty(session_type)
+Prompt        = {'Session Type (0-thresholding, 1-experimental, otherkey-practice):'};
+Answer        = inputdlg(Prompt,'Info',1);
+    %session_type   = str2double(Answer{1});
+session_type   = Answer{1};
+%end
 
 switch session_type
-    case 99
-        const.session_type = 'practice';
-        const.use_staircase = 0;
-        const.currStair = 8;
-    case 0
+    case '0'
         const.session_type = 'thresholding';
         const.use_staircase = 1;
         const.currStair = 8;
-    case 1
+        disp('thresholding')
+    case '1'
         const.session_type = 'experimental';
         const.use_staircase = 0;
-        %while isempty(currStair)  % aysun just sets this to 8 -- why?
+        %while isempty(currStair)  % was set to 8 -- why?
         const.currStair = input('\n stairs = [0.25 0.5 1 1.5 2 3 4 5 7 8] \n Enter stair (value) obtained from the thresholding session: \n');
         %end
+        disp('experimental')
     otherwise
-        error('Wrong input!')
+        const.session_type = 'practice';
+        const.use_staircase = 0;
+        const.currStair = 8;
+        disp('practice')
 end
 
 % General settings
