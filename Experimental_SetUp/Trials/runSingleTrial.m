@@ -54,25 +54,25 @@ if loc_target == 1   % loc 1 = lower right, loc 2 = upper left
         motionsign = -1;
         abs_motiondir = 180; 
     end
-elseif loc_target == 2
+elseif loc_target == 2 % get rid of this section (due to recent changes)
     xDist = -(const.gaborDist_xpix);
     yDist = -(const.gaborDist_ypix);
     if motiondir_target == 1 %counterclock tang motion
         orientation = 45;
-        motionsign = 1; 
-        abs_motiondir = 180;
+        motionsign = -1; %1; 
+        abs_motiondir = 0; %180;
     elseif motiondir_target == 2 % clockwise tang motion
         orientation = 45;
-        motionsign = -1;
-        abs_motiondir = 0;
+        motionsign = 1; %-1;
+        abs_motiondir = 180; %0;
     elseif motiondir_target == 3 % radial inwards
         orientation = 135;
-        motionsign = -1;
-        abs_motiondir = 180;
+        motionsign = 1; %-1;
+        abs_motiondir = 0; %180;
     elseif motiondir_target == 4 % radial outwards
         orientation = 135;
-        motionsign = 1;
-        abs_motiondir = 0;
+        motionsign = -1; %1;
+        abs_motiondir = 180; %0;
     end
 else % center if code # is not defined
     xDist = 0;
@@ -92,17 +92,18 @@ end
 
 % take value of staircase and add (+ or -) angle shift for clockwise /
 % counterclockwise motion [note: orientation and motion cc value is the same]
-disp('standard (in terms of orientation)')
-standard = orientation;
-disp(standard)
-orientation = orientation + (const.stairs.xCurrent * clockwise_target); 
 disp('location')
 disp(loc_target)
-disp('motiondir (in/out)')
+disp('motiondir (reference type)')
 disp(motiondir_target)
-disp('orientation (updated w/ tilt)')
+disp('standard (in terms of direction)')
+standard = orientation; % orienation of 0 is vertical (+90); this value = motion direction
+disp(standard)
+disp('direction (updated w/ tilt)')
+orientation = orientation + (const.stairs.xCurrent * clockwise_target); 
 disp(orientation)
 
+%same as standard+abs_motiondir, orientation+abs_motiondir
 if orientation > standard
     disp('counterclockwise')
     clockwise = 0;
@@ -129,8 +130,7 @@ for tframes = 1:const.numFrm_Tot
     % T2
     if tframes == const.numFrm_T2_start
     %if tframes >= const.numFrm_T2_start && tframes <= const.numFrm_T2_end
-        %my_sound(1); % isi
-        my_sound(const);
+        %my_sound(const); % do not use sound (replace w/ feedback)
     end
     
     % T3
@@ -174,6 +174,9 @@ elseif key_press.escape == 1
     overDone;
 end
 
+if correct == 0
+    my_sound(const)
+end
 disp('Correct = ')
 disp(correct)
 
@@ -188,7 +191,9 @@ if const.use_staircase
     xUpdate_tilt = const.stairs.xCurrent; % added new tilt
     const.stairvec = [const.stairvec, const.stairs]; 
 else
-    xUpdate_tilt = const.stairs.xCurrent; % use current if not staircased
+    %xUpdate_tilt = const.stairs.xCurrent; % use current if not staircased
+    constant_stimuli = [1, 2, 2.5, 3, 5, 6, 8];
+    xUpdate_tilt = randsample(constant_stimuli,1);
 end
 
 disp('~~~~~~~~~~~~~~~ end of trial ~~~~~~~~~~~~~~')

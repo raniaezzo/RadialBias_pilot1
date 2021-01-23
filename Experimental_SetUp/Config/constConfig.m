@@ -51,8 +51,8 @@ const.gaborDim_ypix = round(gaborDim_ypix);
 
 const.gaborDist_deg = 7;
 [gaborDist_xpix, gaborDist_ypix] =  vaDeg2pix(const.gaborDist_deg,scr);
-const.gaborDist_xpix = round(gaborDist_xpix);
 const.gaborDist_ypix = round(gaborDist_ypix);
+const.gaborDist_xpix = const.gaborDist_ypix; %round(gaborDist_xpix);
 
 % TO DO: set up stimulus angles/speed beforehand
 % angle_options = [0, 45, 90, 135]; 

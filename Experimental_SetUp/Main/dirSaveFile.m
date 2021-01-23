@@ -12,16 +12,26 @@ function [const] = dirSaveFile(const)
 % const : struct containing a lot of constant configuration
 % ----------------------------------------------------------------------
 
-% Creates Directory
-if ~isdir(sprintf('Data/%s',const.sjct))
-    mkdir(sprintf('Data/%s',const.sjct));
-    cd (sprintf('Data/%s',const.sjct));
-else
-    cd (sprintf('Data/%s',const.sjct));
+
+[currentpath] = sprintf(cd);
+[~, ParentFolderName] = fileparts(currentpath);
+if ParentFolderName ~= 'Experimental_SetUp'
+    disp('Not in correct directory. Please run code from Experimental_SetUp dir.')
 end
 
+% Creates Directory
+if ~isdir(sprintf('%s/Data/%s',currentpath,const.sjct))
+    mkdir(sprintf('%s/Data/%s',currentpath,const.sjct));
+    cd (sprintf('%s/Data/%s',currentpath,const.sjct));
+else
+    cd (sprintf('%s/Data/%s',currentpath,const.sjct));
+end
+
+[currentpath] = sprintf(cd);
+
 if const.expStart
-    expDir = sprintf('Data/%s/ExpData/Block%i',const.sjct,const.fromBlock);
+    %expDir = sprintf('Data/%s/ExpData/Block%i',const.sjct,const.fromBlock);
+    expDir = sprintf('%s/ExpData/Block%i',currentpath,const.fromBlock);
     if ~isdir(expDir)
         mkdir(expDir);
         cd(expDir);
@@ -39,7 +49,7 @@ if const.expStart
 else
     const.c = clock;
     
-    debugDir = sprintf('DebugData/%i-%i_trials/',const.c(2),const.c(3));
+    debugDir = sprintf('%s/DebugData/%i-%i_trials/',currentpath, const.c(2),const.c(3));
     if ~isdir(debugDir)
         mkdir(debugDir);
         cd (debugDir);

@@ -13,7 +13,7 @@ clear all;clear mex;clear functions;
 close all;home;ListenChar(1);tic
 addpath(genpath(pwd));
 
-const.DEBUG = 1; % Debug flag
+const.DEBUG = 0; % Debug flag
 
 % exp_mode is either practice, threshold to find thresh using staircase procedure, or experiment
 % which uses manual input determined from staircase
@@ -28,7 +28,8 @@ session_type   = Answer{1};
 
 % which condition to test (1= tang counterclock; 2= tang clock; 3= radial
 % inwards, 4 = radial outwards)
-Prompt        = {'Motion Type (1-tang counterclock, 2-tang clock, 3-radial inw, 4-radial-out):'};
+%Prompt        = {'Motion Type (1-tang counterclock, 2-tang clock, 3-radial inw, 4-radial-out):'};
+Prompt        = {'Motion Reference (1-tang_a, 2-tang_LL, 3-radial_UL, 4-radial_LR):'};
 Answer    = inputdlg(Prompt,'Info',1);
 const.motion_type   = Answer{1};
 

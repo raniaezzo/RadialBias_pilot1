@@ -97,10 +97,10 @@ degPerFrame =  degPerSec * ifi;
 % Here the global motion direction is 0. So it is just the cosine of the
 % angle we use. We re-orientate the array when drawing
 
-% try using this instead?
-angle_options = [orientation]; %[45, 135, 225, 315]; %I think I only need 2 orientations 
+angle_options = [orientation]; 
 randomIndex = randi(length(angle_options), 1);
 gaborAngles = angle_options(randomIndex);
+gaborAngles = orientation; % added to replace
 %%gaborAngles = rand(1, nGabors) .* 180 - 90;
 
 
@@ -122,10 +122,18 @@ vbl = Screen('Flip', scr.main);
 % Numer of frames to wait before re-drawing
 waitframes = 1;
 
+% for debugging 
+xCoords = [-xDist xDist]; %xLoc / yLoc
+yCoords = [-yDist yDist];
+allCoords = [xCoords; yCoords];
+lineWidthPix = 3;
+
 % Animation loop 
 %while ~KbCheck
 for i = tframes:endframe
-
+        % just for debugging
+        %Screen('DrawLines', scr.main, allCoords, lineWidthPix, const.white, [xCenter yCenter], 2);
+    
         % Set the right blend function for drawing the gabors
         Screen('BlendFunction', scr.main, 'GL_ONE', 'GL_ZERO');
 
