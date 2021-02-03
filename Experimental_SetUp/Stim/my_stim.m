@@ -1,4 +1,4 @@
-function my_stim(scr,const,color,tframes, endframe, xDist, yDist, orientation, motionsign)
+function my_stim(scr,const,color,tframes, endframe, xDist, yDist, orientation, motionsign, trialnumber)
 % ----------------------------------------------------------------------
 % my_stim(scr,color,x,y,sideX,sideY)
 % ----------------------------------------------------------------------
@@ -14,6 +14,7 @@ function my_stim(scr,const,color,tframes, endframe, xDist, yDist, orientation, m
 % ----------------------------------------------------------------------
 % Output(s):
 % ----------------------------------------------------------------------
+moviepath = sprintf('%s/Movies/%i',pwd, trialnumber);
 
 % Get the centre coordinate of the window
 [x, y] = RectCenter(scr.rect);
@@ -35,9 +36,11 @@ gaborDimPix = const.gaborDim_xpix;
 
 % Sigma of Gaussian
 sigma = gaborDimPix / 6;
+disp('sigma')
+disp(sigma)
 
 % Obvious Parameters
-%orientation = 0; 
+%orientation = 0;  % just for debugging
 contrast = 1; %0.5;
 aspectRatio = 1.0;
 
@@ -46,9 +49,15 @@ aspectRatio = 1.0;
 numCycles = const.gaborSF_xpix; % correction: pixels per cycle
 freq = 1/numCycles;
 
+%disp('before gabortex')
+
 % Build a procedural gabor texture
-gabortex = CreateProceduralGabor(scr.main, gaborDimPix, gaborDimPix,...
-    [], [0.5 0.5 0.5 0.0], 1, 0.5);
+%gabortex = CreateProceduralGabor(scr.main, gaborDimPix, gaborDimPix,...
+%    [], [0.5 0.5 0.5 0.0], 1, 0.5);
+
+%disp('after gabortex')
+
+gabortex = const.gabortex;
 
 % Positions of the Gabors
 %dim = 10;
@@ -97,9 +106,9 @@ degPerFrame =  degPerSec * ifi;
 % Here the global motion direction is 0. So it is just the cosine of the
 % angle we use. We re-orientate the array when drawing
 
-angle_options = [orientation]; 
-randomIndex = randi(length(angle_options), 1);
-gaborAngles = angle_options(randomIndex);
+%angle_options = [orientation]; 
+%randomIndex = randi(length(angle_options), 1);
+%gaborAngles = angle_options(randomIndex);    % commented these 3 lines out
 gaborAngles = orientation; % added to replace
 %%gaborAngles = rand(1, nGabors) .* 180 - 90;
 
@@ -111,7 +120,7 @@ degPerFrameGabors =  cosd(gaborAngles) .* degPerFrame;
 % Not just orientation and drift rate as we are doing here.
 % This is the power of using procedural textures
 
-phaseLine = 360;          %rand(1, nGabors) .* 360;
+phaseLine = orientation; %was 360;          %rand(1, nGabors) .* 360;
 propertiesMat = repmat([NaN, freq, sigma, contrast, aspectRatio, 0, 0, 0],...
     nGabors, 1);
 propertiesMat(:, 1) = phaseLine';
@@ -130,9 +139,8 @@ lineWidthPix = 3;
 
 % Animation loop 
 %while ~KbCheck
+movieframe_n = 1;
 for i = tframes:endframe
-        % just for debugging
-        %Screen('DrawLines', scr.main, allCoords, lineWidthPix, const.white, [xCenter yCenter], 2);
     
         % Set the right blend function for drawing the gabors
         Screen('BlendFunction', scr.main, 'GL_ONE', 'GL_ZERO');
@@ -161,6 +169,18 @@ for i = tframes:endframe
         %phaseLine = phaseLine + degPerFrameGabors;
         phaseLine = phaseLine + (degPerFrameGabors)*motionsign; % determined dir of motion
         propertiesMat(:, 1) = phaseLine';
+        
+        % just for debugging
+        %Screen('DrawLines', scr.main, allCoords, lineWidthPix, const.red, [xCenter yCenter], 2);
+    
+        
+        if movieframe_n == 1  % save first frame of each movie (not the rest for speed)
+            rect = [];
+            % added to save movie clip
+            M = Screen('GetImage', scr.main,rect,[],0,1);
+            imwrite(M,[moviepath, '/Image_',num2str(movieframe_n),'.png']);
+            movieframe_n = movieframe_n + 1;
+        end
 
 end
 

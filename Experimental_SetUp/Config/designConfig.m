@@ -27,6 +27,11 @@ expDes.twoV = [str2double(const.motion_type)]';  % [1:4]';  to include radial & 
 % Var 3 : CounterClockwise / Clockwise
 expDes.threeV = [1:2]';
 
+% Var 4 : Angles
+expDes.fourV = [0.5, 0.75, 1, 1.25, 1.5]';
+% FIRST BLOCK RUN [0.5, 0.75, 1, 1.25, 1.5]'; % angles (constants)
+% SECOND BLOCK RUN [2, 2.5, 3, 4]'
+
 % unused
 % Var 3 : Target interval [2 modalitie(s)]
 %expDes.threeV = [1;2];
@@ -37,7 +42,7 @@ expDes.threeV = [1:2]';
 % unused
 % Var 4 : Experimental condition [4 modalitie(s)]
 %expDes.fourV = [1:2]';
-expDes.fourV = [1]'; % drifting gratings only (also code for plaids)
+expDes.fiveV = [1]'; % drifting gratings only (also code for plaids)
     %  1 = Drifting gratings
     %  2 = Stationary plaids
     %  3 = Drifting plaids
@@ -54,6 +59,8 @@ expDes.var3_list = expDes.threeV;
 expDes.nb_var3= numel(expDes.var3_list);
 expDes.var4_list = expDes.fourV;
 expDes.nb_var4= numel(expDes.var4_list);
+expDes.var5_list = expDes.fiveV;
+expDes.nb_var5= numel(expDes.var5_list);
 
 %expDes.random1_list = expDes.oneR;
 %expDes.nb_random1= numel(expDes.random1_list);
@@ -61,9 +68,14 @@ expDes.nb_var4= numel(expDes.var4_list);
 expDes.nb_var  = 2; %expDes.nb_var  = 3;
 expDes.nb_rand = 1;
 
-expDes.nb_repeat = 40; % changed this from 1
+% 10 = 20 across 2 locations / 20 = 40 across 2 locations
+if (const.motion_type == '4') || (const.motion_type == '3')
+     expDes.nb_repeat = 20; %20 (for radial); 
+elseif (const.motion_type == '2') || (const.motion_type == '1')
+    expDes.nb_repeat = 10; % 10 (for tang) b/c combining the 2 conditions
+end
 %expDes.nb_trials = expDes.nb_var1 * expDes.nb_var2 * expDes.nb_var3 * expDes.nb_var4 * expDes.nb_repeat;
-expDes.nb_trials = expDes.nb_var1 * expDes.nb_var2 * expDes.nb_var3 * expDes.nb_repeat;
+expDes.nb_trials = expDes.nb_var1 * expDes.nb_var2 * expDes.nb_var3 * expDes.nb_var4 * expDes.nb_var5* expDes.nb_repeat;
 
 expDes.timePauseMin = 15;
 expDes.timePause = expDes.timePauseMin*60;
@@ -74,11 +86,14 @@ ii = 0;
 for iv1=1:expDes.nb_var1
     for iv2=1:expDes.nb_var2
         for iv3=1:expDes.nb_var3
-            for rr= 1:expDes.nb_repeat
-                ii = ii + 1;
-                trialMat(ii, 1) = iv1;
-                trialMat(ii, 2) = iv2;
-                trialMat(ii, 3) = iv3;
+            for iv4=1:expDes.nb_var4 % angles
+                for rr= 1:expDes.nb_repeat
+                    ii = ii + 1;
+                    trialMat(ii, 1) = iv1;
+                    trialMat(ii, 2) = iv2;
+                    trialMat(ii, 3) = iv3;
+                    trialMat(ii, 4) = iv4;
+                end
             end
         end
     end
@@ -91,6 +106,7 @@ for t_trial = 1:expDes.nb_trials
     rand_var1 = expDes.var1_list(trialMat(t_trial,1),:);
     rand_var2 = expDes.var2_list(trialMat(t_trial,2),:);
     rand_var3 = expDes.var3_list(trialMat(t_trial,3),:);
+    rand_var4 = expDes.var4_list(trialMat(t_trial,4),:);
     
     %randVal1 = randperm(expDes.nb_random1); rand_random1 = expDes.oneR(randVal1(1));
     
@@ -101,7 +117,7 @@ for t_trial = 1:expDes.nb_trials
     
     expDes.j = t_trial;
     %expDes.expMat(expDes.j,:)= [const.fromBlock,t_trial,rand_var1,rand_var2,rand_var3,rand_random1];
-    expDes.expMat(expDes.j,:)= [const.fromBlock,t_trial,rand_var1,rand_var2,rand_var3]; %,rand_random1];
+    expDes.expMat(expDes.j,:)= [const.fromBlock,t_trial,rand_var1,rand_var2,rand_var3, rand_var4]; %,rand_random1];
 end
 
 

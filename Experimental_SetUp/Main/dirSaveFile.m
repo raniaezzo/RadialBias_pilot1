@@ -37,13 +37,20 @@ if const.expStart
         cd(expDir);
     else
         aswErase = input('\n This file allready exist, do you want to overwrite it ? (Y or N)    ','s');
-        if aswErase == 'N'
+        if ismember(aswErase, ['N','n'])
             error('Please restart the program with correct input.')
-        elseif aswErase == 'Y'
+        elseif ismember(aswErase, ['Y','y'])
             cd(expDir);
         else
             error('Incorrect input => Please restart the program with correct input.')
         end
+    end
+    
+    % delete any saved movies
+    movieDir = sprintf('%s/Movies',expDir);
+    if isdir(movieDir)
+        %delete(sprintf('%\*', movieDir));
+        rmdir(movieDir, 's')
     end
 
 else
@@ -60,13 +67,13 @@ else
 end
 
 if const.motion_type == '1'
-    motion_type = 'tangential_counterclockwise';
+    motion_type = 'tang_UR';
 elseif const.motion_type == '2'
-    motion_type = 'tangential_clockwise';
+    motion_type = 'tang_LL';
 elseif const.motion_type == '3'
-    motion_type = 'radial_inward';
+    motion_type = 'radial_UL';
 elseif const.motion_type == '4'
-    motion_type = 'radial_outward';
+    motion_type = 'radial_LR';
 end
 
 % Defines saving file names

@@ -29,28 +29,38 @@ session_type   = Answer{1};
 % which condition to test (1= tang counterclock; 2= tang clock; 3= radial
 % inwards, 4 = radial outwards)
 %Prompt        = {'Motion Type (1-tang counterclock, 2-tang clock, 3-radial inw, 4-radial-out):'};
-Prompt        = {'Motion Reference (1-tang_a, 2-tang_LL, 3-radial_UL, 4-radial_LR):'};
+Prompt        = {'Motion Reference 1-tang_UR, 2-tang_LL, 3-radial_UL, 4-radial_LR (default):'};
 Answer    = inputdlg(Prompt,'Info',1);
 const.motion_type   = Answer{1};
+
+if isempty(const.motion_type)
+    const.motion_type = '4';
+    disp('Motion type (set to default):')
+    disp(const.motion_type)  
+else
+    disp('Motion type:')
+    disp(const.motion_type)  
+end
 
 switch session_type
     case '0'
         const.session_type = 'thresholding';
         const.use_staircase = 1;
         const.currStair = 8;
-        disp('thresholding')
+        disp('Session type: thresholding')
     case '1'
         const.session_type = 'experimental';
         const.use_staircase = 0;
         %while isempty(currStair)  % was set to 8 -- why?
-        const.currStair = input('\n stairs = [0.25 0.5 1 1.5 2 3 4 5 7 8] \n Enter stair (value) obtained from the thresholding session: \n');
+        const.currStair = NaN;
+        %input('\n angles = [0.25 0.5 1 1.5 2 3 4 5 7 8] \n Enter stair (value) obtained from the thresholding session: \n');
         %end
-        disp('experimental')
+        disp('Session type: experimental')
     otherwise
         const.session_type = 'practice';
         const.use_staircase = 0;
         const.currStair = 8;
-        disp('practice')
+        disp('Session type: practice (default)')
 end
 
 % General settings
@@ -62,8 +72,19 @@ else
 end
 
 % Screen
-const.desiredFD    = 60;   % Desired refresh rate (change this later)
-const.desiredRes   = [1024 820];  % Desired resolution
+screen_details = Screen('Computer');
+switch screen_details.localHostName
+    case 'Ranias-MacBook-Pro-2'
+        const.desiredFD    = 60;   % Desired refresh rate (change this later)
+        const.desiredRes   = [1024 820];  % Desired resolution
+    case 'Bas-iMac'
+        disp('Undefined screen configuration for this computer.')
+        const.desiredFD    = 60; 
+        const.desiredRes   = []; 
+    otherwise
+        disp('Undefined screen configuration for this computer.')
+        const.DEBUG = 0;
+end
 
 % Path :
 dir = (which('expLauncher'));cd(dir(1:end-18));

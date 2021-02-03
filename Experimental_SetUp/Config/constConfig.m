@@ -72,9 +72,9 @@ const.gaborDist_xpix = const.gaborDist_ypix; %round(gaborDist_xpix);
 %PsychPortAudio('Volume', const.pahandle, 0.5); % 1 denotes 100% volume.
 
 % Experiental timing settings
-const.T1  = 0.5; %1.0;                % fixation time 1       = 0.5  sec
+const.T1  = 1.0; %0.5;                % fixation time 1       = 0.5  sec
 const.T2  = 0.3; %0.05;              % isi (fix this to match Heeley paper)
-const.T3  = 1.0;                % stimulus presentation = 1  sec
+const.T3  = 0.5;                % stimulus presentation = 0.5  sec
 
 const.numFrm_T1  =  round(const.T1/scr.frame_duration);
 const.numFrm_T2  =  round(const.T2/scr.frame_duration);

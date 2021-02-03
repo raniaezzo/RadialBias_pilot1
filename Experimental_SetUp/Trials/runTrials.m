@@ -21,12 +21,20 @@ function runTrials(scr,const,expDes,my_key,textExp,button)
 %% General instructions:
 instructions(scr,const,my_key,textExp.instruction1,button.instruction1);
 
+% gabor
+const.gabortex = CreateProceduralGabor(scr.main, const.gaborDim_xpix, const.gaborDim_xpix,...
+    [], [0.5 0.5 0.5 0.0], 1, 0.5);
+
 %% Main Loop
 expDone = 0;
 newJ = 0;
 startJ = 1;
 while ~expDone
     for t = startJ:expDes.j
+        
+        % create a directory for movie of that trial
+        mkdir(sprintf('%s/Movies/%i',pwd, t));
+        
         trialDone = 0;
         while ~trialDone
 
