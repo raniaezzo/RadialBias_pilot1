@@ -16,7 +16,8 @@ ListenChar(1);
 %WaitSecs(2.0);
 
 ShowCursor;
-Screen('CloseAll');
+%Screen('CloseAll');
+sca;
 timeDur=toc/60;
 fprintf(1,'\nTotal time : %2.0f min.\n\n',timeDur);
 

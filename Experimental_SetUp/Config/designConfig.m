@@ -28,9 +28,11 @@ expDes.twoV = [str2double(const.motion_type)]';  % [1:4]';  to include radial & 
 expDes.threeV = [1:2]';
 
 % Var 4 : Angles
-expDes.fourV = [0.5, 0.75, 1, 1.25, 1.5]';
-% FIRST BLOCK RUN [0.5, 0.75, 1, 1.25, 1.5]'; % angles (constants)
-% SECOND BLOCK RUN [2, 2.5, 3, 4]'
+expDes.fourV = [0.5, 1, 1.5, 2.5, 4]';
+% FIRST BLOCK RE RUN [0.5, 0.75, 1, 1.25, 1.5]'; % angles (constants)
+% SECOND BLOCK RE RUN [2, 2.5, 3, 4]'
+% FIRST BLOCK SK RUN [0.5, 1, 1.5, 2.5, 4]'; % angles (constants)
+% SECOND BLOCK SK RUN [0.75, 1.25, 2, 3]'
 
 % unused
 % Var 3 : Target interval [2 modalitie(s)]

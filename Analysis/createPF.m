@@ -6,7 +6,8 @@ clear all;
 
 % create PF figure
 
-sets = {'Sets_Combined'}; %{'Set1','Set2'};
+sets = {'SetA'}; %{'Set1','Set2','Sets_Combined'};
+subject = 'SK';
 figure
 
 
@@ -15,13 +16,13 @@ for ss=1:length(sets)
     setname = sets{ss};
 
     % first run
-    storedStructure = load(sprintf('./%s/Datasummary_RE_radial_out.mat',setname));
+    storedStructure = load(sprintf('./%s/Datasummary_%s_radial_out.mat',setname, subject));
     radial_out = storedStructure.radial_out;
     clear('storedStructure');
-    storedStructure = load(sprintf('./%s/Datasummary_RE_radial_in.mat',setname));
+    storedStructure = load(sprintf('./%s/Datasummary_%s_radial_in.mat',setname, subject));
     radial_in = storedStructure.radial_in;
     clear('storedStructure');
-    storedStructure = load(sprintf('./%s/Datasummary_RE_tang.mat',setname));
+    storedStructure = load(sprintf('./%s/Datasummary_%s_tang.mat',setname, subject));
     tang = storedStructure.tang;
     clear('storedStructure');
 
@@ -156,5 +157,6 @@ for ss=1:length(sets)
     title('Cumulative Normal Fit')
     ax = gca; 
     ax.FontSize = 40;
-    savefig('PF')
+    stringsave = sprintf('PF_%s',subject);
+    savefig(stringsave)
 end

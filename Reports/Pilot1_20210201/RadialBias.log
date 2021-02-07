@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  3 FEB 2021 10:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  7 FEB 2021 13:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -593,38 +593,39 @@ Overfull \hbox (73.5536pt too wide) in alignment at lines 160--170
 <Images/PF_angles_old.png, id=103, 2890.8pt x 1521.685pt>
 File: Images/PF_angles_old.png Graphic file (type png)
 <use Images/PF_angles_old.png>
-Package pdftex.def Info: Images/PF_angles_old.png  used on input line 220.
+Package pdftex.def Info: Images/PF_angles_old.png  used on input line 238.
 (pdftex.def)             Requested size: 231.26872pt x 121.73729pt.
 <Images/PF_overlayed.png, id=104, 2890.8pt x 1521.685pt>
 File: Images/PF_overlayed.png Graphic file (type png)
 <use Images/PF_overlayed.png>
-Package pdftex.def Info: Images/PF_overlayed.png  used on input line 221.
+Package pdftex.def Info: Images/PF_overlayed.png  used on input line 239.
 (pdftex.def)             Requested size: 231.26872pt x 121.73729pt.
 <Images/PF_combined.png, id=105, 2890.8pt x 1521.685pt>
 File: Images/PF_combined.png Graphic file (type png)
 <use Images/PF_combined.png>
-Package pdftex.def Info: Images/PF_combined.png  used on input line 222.
+Package pdftex.def Info: Images/PF_combined.png  used on input line 240.
 (pdftex.def)             Requested size: 231.26872pt x 121.73729pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 226.
- [5 <./Images/PF_angles_old.png (PNG copy)> <./Images/PF_overlayed.png (PNG cop
+ [5]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 244.
+ [6 <./Images/PF_angles_old.png (PNG copy)> <./Images/PF_overlayed.png (PNG cop
 y)> <./Images/PF_combined.png (PNG copy)>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 226.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 244.
  (./RadialBias.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 226.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 226.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 244.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 244.
 Package rerunfilecheck Info: File `RadialBias.out' has not changed.
 (rerunfilecheck)             Checksum: 4121662E13D4021C25FA29ABA7065A00;668.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 226.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 244.
  ) 
 Here is how much of TeX's memory you used:
- 10694 strings out of 480608
- 203491 string characters out of 5903631
+ 10696 strings out of 480608
+ 203521 string characters out of 5903631
  488008 words of memory out of 5000000
- 26374 multiletter control sequences out of 15000+600000
+ 26375 multiletter control sequences out of 15000+600000
  546045 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  39i,9n,46p,771b,836s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -636,10 +637,10 @@ sr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
 /local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/l
 ocal/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/lo
 cal/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on RadialBias.pdf (5 pages, 1228690 bytes).
+Output written on RadialBias.pdf (6 pages, 1232956 bytes).
 PDF statistics:
- 144 PDF objects out of 1000 (max. 8388607)
- 117 compressed objects within 2 object streams
- 29 named destinations out of 1000 (max. 500000)
+ 148 PDF objects out of 1000 (max. 8388607)
+ 120 compressed objects within 2 object streams
+ 30 named destinations out of 1000 (max. 500000)
  129 words of extra memory for PDF output out of 10000 (max. 10000000)
 

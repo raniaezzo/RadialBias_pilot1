@@ -4,7 +4,7 @@ clear all;
 % general stats
 
 % subject list
-subjects = {'RE'};
+subjects = {'SK'}; % RE
 conditions = {'tang_UR','tang_LL','radial_UL','radial_LR'};
 
 M_radialout = [];
@@ -46,7 +46,7 @@ end
 
 
 %%
-conditions = {'tang', 'radial_out','radial_in'};
+conditions = {'tang','radial_out','radial_in'};
 
 for sub=1:length(subjects)
     for cond=1:length(conditions)

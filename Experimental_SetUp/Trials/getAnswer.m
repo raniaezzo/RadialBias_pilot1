@@ -23,7 +23,8 @@ key_press.space = 0;
 
 
 % Keyboard checking :
-while ~key_press.push_button
+%while ~key_press.push_button
+while ~key_press.leftShift && ~key_press.rightShift && ~key_press.space
     Screen('FillRect',scr.main,const.colBG);
     my_fixation(scr,const,const.red);
     
