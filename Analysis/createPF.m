@@ -6,8 +6,8 @@ clear all;
 
 % create PF figure
 
-sets = {'SetA'}; %{'Set1','Set2','Sets_Combined'};
-subject = 'SK';
+sets = {'Sets_Combined'}; %{'SetA'}; %{'Set1','Set2','Sets_Combined'};
+subject = 'RE'; %'RE','SK'
 figure
 
 
@@ -66,6 +66,17 @@ for ss=1:length(sets)
     xlabel('added tilt (deg)')
     ylabel('clockwise response')
     hold on
+    
+    % for CI
+    data_radialout.x = total_conditions; data_radialout.y = clockResp; data_radialout.n = numTrials;
+    pfhb = PAL_PFHB_fitModel(data_radialout,'PF','cumulativenormal','g',repmat(.01,1,length(data_radialout.y)),'parallel',1);
+    %undo natural log of slope:
+    radialout_beta_mean = exp(pfhb.summStats.b.mean);
+    radialout_CI_beta_low = exp(pfhb.summStats.b.HDI68low);
+    radialout_CI_beta_high = exp(pfhb.summStats.b.HDI68high);
+    radialout_alpha_mean = pfhb.summStats.a.mean;
+    radialout_CI_alpha_low = pfhb.summStats.a.HDI68low;
+    radialout_CI_alpha_high = pfhb.summStats.a.HDI68high;
 
     % for radial in
 
@@ -106,6 +117,17 @@ for ss=1:length(sets)
     xlabel('added tilt (deg)')
     ylabel('clockwise response')
     hold on
+    
+    % for CI
+    data_radialin.x = total_conditions; data_radialin.y = clockResp; data_radialin.n = numTrials;
+    pfhb = PAL_PFHB_fitModel(data_radialin,'PF','cumulativenormal','g',repmat(.01,1,length(data_radialin.y)),'parallel',1);
+    %undo natural log of slope:
+    radialin_beta_mean = exp(pfhb.summStats.b.mean);
+    radialin_CI_beta_low = exp(pfhb.summStats.b.HDI68low);
+    radialin_CI_beta_high = exp(pfhb.summStats.b.HDI68high);
+    radialin_alpha_mean = pfhb.summStats.a.mean;
+    radialin_CI_alpha_low = pfhb.summStats.a.HDI68low;
+    radialin_CI_alpha_high = pfhb.summStats.a.HDI68high;
 
     % tang
 
@@ -145,6 +167,17 @@ for ss=1:length(sets)
     xlabel('added tilt (deg)')
     ylabel('clockwise response')
     hold on
+    
+    % for CI
+    data_tang.x = total_conditions; data_tang.y = clockResp; data_tang.n = numTrials;
+    pfhb = PAL_PFHB_fitModel(data_tang,'PF','cumulativenormal','g',repmat(.01,1,length(data_tang.y)),'parallel',1);
+    %undo natural log of slope:
+    tang_beta_mean = exp(pfhb.summStats.b.mean);
+    tang_CI_beta_low = exp(pfhb.summStats.b.HDI68low);
+    tang_CI_beta_high = exp(pfhb.summStats.b.HDI68high);
+    tang_alpha_mean = pfhb.summStats.a.mean;
+    tang_CI_alpha_low = pfhb.summStats.a.HDI68low;
+    tang_CI_alpha_high = pfhb.summStats.a.HDI68high;
 
     scatter(total_conditions, PC1, sz, 'MarkerEdgeColor',[0 1, 0], 'MarkerFaceColor',[0 1 0])
     hold on
@@ -160,3 +193,68 @@ for ss=1:length(sets)
     stringsave = sprintf('PF_%s',subject);
     savefig(stringsave)
 end
+
+%%
+figure
+n_sets = [1,2,3];
+n_means = [radialout_beta_mean, radialin_beta_mean, tang_beta_mean];
+n_lows = [radialout_CI_beta_low, radialin_CI_beta_low, tang_CI_beta_low];
+n_lows = n_means - n_lows;
+n_highs = [radialout_CI_beta_high, radialin_CI_beta_high, tang_CI_beta_high];
+n_highs = n_highs-n_means;
+bar(n_sets,n_means)                
+hold on
+er = errorbar(n_sets, n_means,n_lows,n_highs, 'k', 'LineStyle','none', 'linewidth', 3);
+set(gca,'xticklabel',{'radialout','radialin','tang'})
+ylabel('mean beta')
+title('SK Mean Slope w/ 68% CI')
+ax = gca; 
+ax.FontSize = 20;
+stringsave = sprintf('MeanSlopeError_68ci_%s',subject);
+savefig(stringsave)
+
+%%
+
+figure
+n_sets = [1,2,3];
+n_means = [radialout_alpha_mean, radialin_alpha_mean, tang_alpha_mean];
+n_lows = [radialout_CI_alpha_low, radialin_CI_alpha_low, tang_CI_alpha_low];
+n_lows = n_means - n_lows;
+n_highs = [radialout_CI_alpha_high, radialin_CI_alpha_high, tang_CI_alpha_high];
+n_highs = n_highs-n_means;
+bar(n_sets,n_means)                
+hold on
+er = errorbar(n_sets, n_means,n_lows,n_highs, 'k', 'LineStyle','none', 'linewidth', 3);
+set(gca,'xticklabel',{'radialout','radialin','tang'})
+ylabel('mean alpha')
+ylim([-1,2])
+title('SK Mean Bias w/ 68% CI')
+ax = gca; 
+ax.FontSize = 20;
+stringsave = sprintf('MeanBiasError_68ci_%s',subject);
+savefig(stringsave)
+
+%%
+% data_tang.x = total_conditions; data_tang.y = clockResp; data_tang.n = numTrials;
+% figure
+%  [paramsValues LL exitflag] = PAL_PFML_Fit(total_conditions,NumPos, ...
+%     OutOfNum,searchGrid,bool_paramsFree, PF);
+% set(gcf, 'Units', 'Normalized', 'OuterPosition', [0, 0.04, 1, 0.96])
+% sz = 100;
+% StimLevelsFine = [min(total_conditions):max((total_conditions) - min(total_conditions))./1000:max(total_conditions)];
+% Fit = PF(paramsValues, StimLevelsFine);
+% %rng('twister');
+% pfhb = PAL_PFHB_fitModel(data_tang,'PF','cumulativenormal','g',repmat(.01,1,length(data_tang.y)),'parallel',1);
+% %undo natural log of slope:
+% data_tang.x = total_conditions; data_tang.y = clockResp; data_tang.n = numTrials;
+% tang_mean = exp(pfhb.summStats.b.mean);
+% tang_CI_low = exp(pfhb.summStats.b.HDI95low);
+% tang_CI_high = exp(pfhb.summStats.b.HDI95high);
+% if ss == 1
+%     plot(StimLevelsFine, Fit, 'r-','linewidth', 2)
+% else
+%     plot(StimLevelsFine, Fit, 'r--','linewidth', 2)
+% end
+% xlabel('added tilt (deg)')
+% ylabel('clockwise response')
+

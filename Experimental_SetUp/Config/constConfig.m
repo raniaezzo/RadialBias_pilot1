@@ -35,12 +35,13 @@ const.fixation_val = 0.5;  % diameter of the fixation (deg)
 [const.fixation_xdiam,const.fixation_ydiam] = vaDeg2pix(const.fixation_val,scr); % diameter of the answer fixation (pix)
 
 % grating spatial frequency
-const.numCycles_deg = 1; %2.5; % cycles per degree 
-[numCycles_cm] =  vaDeg2cm(const.numCycles_deg,scr); 
-const.numCycles_cm = numCycles_cm;
-[gaborSF_xpix, gaborSF_ypix] =  vaDeg2pix(const.numCycles_deg,scr); % cycles per pixel (double check calc)
-const.gaborSF_xpix = round(gaborSF_xpix);
-const.gaborSF_ypix = round(gaborSF_ypix);
+const.numCycles_deg = 1; % cycles per degree (visual angle dist)
+const.numCycles_cm = 1/vaDeg2cm(const.numCycles_deg,scr); 
+
+% 1/numCycles per pixel
+[xpix_in_VA, ypix_in_VA] = vaDeg2pix(const.numCycles_deg,scr);
+const.gaborSF_xpix = 1/xpix_in_VA; %not rounded
+const.gaborSF_ypix = 1/ypix_in_VA; %not rounded
 
 const.gaborDim_deg = 2.5; %was 4
 [gaborDim_cm] =  vaDeg2cm(const.gaborDim_deg,scr); 
@@ -52,29 +53,15 @@ const.gaborDim_ypix = round(gaborDim_ypix);
 const.gaborDist_deg = 7;
 [gaborDist_xpix, gaborDist_ypix] =  vaDeg2pix(const.gaborDist_deg,scr);
 const.gaborDist_ypix = round(gaborDist_ypix);
-const.gaborDist_xpix = const.gaborDist_ypix; %round(gaborDist_xpix);
+const.gaborDist_xpix = round(gaborDist_xpix); %const.gaborDist_ypix (is this correct?)
 
-% TO DO: set up stimulus angles/speed beforehand
-% angle_options = [0, 45, 90, 135]; 
-% randomIndex = randi(length(angle_options), 1);
-% gaborAngles = angle_options(randomIndex);
-
-%const.freq = const.numCycles_xpix / const.gaborDim_xpix;
-
-% Center position of screen
-%[scr.x_mid, scr.y_mid] = RectCenter(scr.rect);
-
-% sound settings
-%InitializePsychSound(1);
-%reqlatencyclass = 2; % Level 2 means: Take full control over the audio device, even if this causes other sound applications to fail or shutdown.
-%InitializePsychSound(1);
-%const.pahandle = PsychPortAudio('Open', [], [], reqlatencyclass, 44100, 1); % 1 = single-channel
-%PsychPortAudio('Volume', const.pahandle, 0.5); % 1 denotes 100% volume.
+const.locations.xDistsign = [-1 1 1 -1 0 0 1 -1]; % need to fix this (cardinal should be further)
+const.locations.yDistsign = [-1 1 -1 1 -1 1 0 0];
 
 % Experiental timing settings
-const.T1  = 1.0; %0.5;                % fixation time 1       = 0.5  sec
-const.T2  = 0.3; %0.05;              % isi (fix this to match Heeley paper)
-const.T3  = 0.5;                % stimulus presentation = 0.5  sec
+const.T1  = 1.0;                % fixation time = 1  sec
+const.T2  = 0.3;                % isi (fix this to match Heeley paper)
+const.T3  = 5;                % stimulus presentation = 0.5  sec
 
 const.numFrm_T1  =  round(const.T1/scr.frame_duration);
 const.numFrm_T2  =  round(const.T2/scr.frame_duration);

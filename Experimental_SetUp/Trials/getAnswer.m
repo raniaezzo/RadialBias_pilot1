@@ -23,30 +23,38 @@ key_press.space = 0;
 
 
 % Keyboard checking :
-%while ~key_press.push_button
-while ~key_press.leftShift && ~key_press.rightShift && ~key_press.space
-    Screen('FillRect',scr.main,const.colBG);
-    my_fixation(scr,const,const.red);
-    
-    Screen('Flip',scr.main);
-    [keyIsDown, seconds, keyCode] = KbCheck;
-    if keyIsDown
-        % TO DO : make sure variables save before exiting
-        if (keyCode(my_key.escape))   % && ~const.expStart
-            overDone;
-        elseif (keyCode(my_key.space))
-            key_press.push_button = 1;
-            key_press.space = 1;
-            tRt = seconds;
-        elseif (keyCode(my_key.rightShift))
-            key_press.rightShift = 1;
-            key_press.push_button = 1;
-            tRt = seconds;
-        elseif (keyCode(my_key.leftShift))
-            key_press.leftShift = 1;
-            key_press.push_button = 1;
-            tRt = seconds;
+while ~key_press.push_button
+%while ~key_press.leftShift && ~key_press.rightShift && ~key_press.space
+    try
+        Screen('FillRect',scr.main,const.colBG);
+        my_fixation(scr,const,const.red);
+
+        Screen('Flip',scr.main);
+        [keyIsDown, seconds, keyCode] = KbCheck;
+        if keyIsDown
+            % TO DO : make sure variables save before exiting
+            if (keyCode(my_key.escape))   % && ~const.expStart
+                key_press.push_button = 1;
+                key_press.escape = 0;
+                tRt = seconds;
+                overDone;
+            elseif (keyCode(my_key.space))
+                key_press.push_button = 1;
+                key_press.space = 1;
+                tRt = seconds;
+            elseif (keyCode(my_key.rightShift))
+                key_press.rightShift = 1;
+                key_press.push_button = 1;
+                tRt = seconds;
+            elseif (keyCode(my_key.leftShift))
+                key_press.leftShift = 1;
+                key_press.push_button = 1;
+                tRt = seconds;
+            end
         end
+    catch
+       overDone; 
     end
 end
+
 end

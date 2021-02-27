@@ -67,13 +67,21 @@ else
 end
 
 if const.motion_type == '1'
-    motion_type = 'tang_UR';
+    motion_type = 'UR';
 elseif const.motion_type == '2'
-    motion_type = 'tang_LL';
+    motion_type = 'LL';
 elseif const.motion_type == '3'
-    motion_type = 'radial_UL';
+    motion_type = 'UL';
 elseif const.motion_type == '4'
-    motion_type = 'radial_LR';
+    motion_type = 'LR';
+elseif const.motion_type == '5'
+    motion_type = 'VU';
+elseif const.motion_type == '6'
+    motion_type = 'VL';
+elseif const.motion_type == '7'
+    motion_type = 'HR';
+elseif const.motion_type == '8'
+    motion_type = 'HL';
 end
 
 % Defines saving file names

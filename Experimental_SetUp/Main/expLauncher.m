@@ -12,6 +12,7 @@
 clear all;clear mex;clear functions;
 close all;home;ListenChar(1);tic
 addpath(genpath(pwd));
+load('./Config/conditions.mat')
 
 const.DEBUG = 0; % Debug flag
 
@@ -29,18 +30,35 @@ session_type   = Answer{1};
 % which condition to test (1= tang counterclock; 2= tang clock; 3= radial
 % inwards, 4 = radial outwards)
 %Prompt        = {'Motion Type (1-tang counterclock, 2-tang clock, 3-radial inw, 4-radial-out):'};
-Prompt        = {'Motion Reference 1-tang_UR, 2-tang_LL, 3-radial_UL, 4-radial_LR (default):'};
+Prompt        = {'Motion Reference [oblique loc] 1-UR, 2-LL, 3-UL, 4-LR (default) [cardinal loc] 5-VU, 6-VL, 7-HR, 8-HL:'};
 Answer    = inputdlg(Prompt,'Info',1);
 const.motion_type   = Answer{1};
 
 if isempty(const.motion_type)
     const.motion_type = '4';
+    const.params = conditions.LR;
     disp('Motion type (set to default):')
     disp(const.motion_type)  
-else
-    disp('Motion type:')
-    disp(const.motion_type)  
+elseif const.motion_type == '1'
+    const.params = conditions.UR;
+elseif const.motion_type == '2'
+    const.params = conditions.LL;
+elseif const.motion_type == '3'
+    const.params = conditions.UL;
+elseif const.motion_type == '4'
+    const.params = conditions.LR;
+elseif const.motion_type == '5'
+    const.params = conditions.VU;
+elseif const.motion_type == '6'
+    const.params = conditions.VL;
+elseif const.motion_type == '7'
+    const.params = conditions.HR;
+elseif const.motion_type == '8'
+    const.params = conditions.HL;
 end
+
+disp('Motion type:')
+disp(const.motion_type)
 
 switch session_type
     case '0'

@@ -1,4 +1,4 @@
-function my_stim(scr,const,color,tframes, endframe, xDist, yDist, orientation, motionsign, trialnumber)
+function my_stim(scr,const,color,tframes, endframe, xDist, yDist, orientation, trialnumber)
 % ----------------------------------------------------------------------
 % my_stim(scr,color,x,y,sideX,sideY)
 % ----------------------------------------------------------------------
@@ -15,173 +15,158 @@ function my_stim(scr,const,color,tframes, endframe, xDist, yDist, orientation, m
 % Output(s):
 % ----------------------------------------------------------------------
 moviepath = sprintf('%s/Movies/%i',pwd, trialnumber);
+gray = const.gray(1);
+white = const.white(1);
 
 % Get the centre coordinate of the window
 [x, y] = RectCenter(scr.rect);
-
-% xCenter = scr.x_mid;
-% yCenter = scr.y_mid;
-
-% for fixation
 xCenter = x;
 yCenter = y;
 
-% for annulus
-xLoc = x+xDist;
-yLoc = y+yDist;
+angle = orientation; % [0 is vertical]
+cyclespersecond = 4; 
+f = const.gaborSF_xpix; % cycles per pixel:
+drawmask = 1; 
+gratingsize = const.gaborDim_xpix; %400
 
-% added
-% Dimensions
-gaborDimPix = const.gaborDim_xpix;
+movieDurationSecs=const.T3;   % Abort demo after N seconds.
+inc=white-gray;
 
-% Sigma of Gaussian
-sigma = gaborDimPix / 6;
-disp('sigma')
-disp(sigma)
+% Define Half-Size of the grating image.
+texsize=gratingsize / 2;
+filterparam = mean(texsize)/2; % I created this temporarily, figure out how to measure this
+% in terms of sigma
 
-% Obvious Parameters
-%orientation = 0;  % just for debugging
-contrast = 1; %0.5;
-aspectRatio = 1.0;
+%[w screenRect]=Screen('OpenWindow',screenNumber, gray); %already defined?
 
-% Spatial Frequency (Cycles Per Pixel)
-% One Cycle = Grey-Black-Grey-White-Grey i.e. One Black and One White Lobe
-numCycles = const.gaborSF_xpix; % correction: pixels per cycle
-freq = 1/numCycles;
+% was here
 
-%disp('before gabortex')
+% First we compute pixels per cycle, rounded up to full pixels, as we
+% need this to create a grating of proper size below:
+p=ceil(1/f);
+    
+% Also need frequency in radians:
+fr=f*2*pi;
+    
+% This is the visible size of the grating. It is twice the half-width
+% of the texture plus one pixel to make sure it has an odd number of
+% pixels and is therefore symmetric around the center of the texture:
+visiblesize=2*texsize+1;
+   
+% Need 2 * texsize + p columns, i.e. the visible size
+% of the grating extended by the length of 1 period (repetition) of the
+% sine-wave in pixels 'p':
+x = meshgrid(-texsize:texsize + p, 1);
 
-% Build a procedural gabor texture
-%gabortex = CreateProceduralGabor(scr.main, gaborDimPix, gaborDimPix,...
-%    [], [0.5 0.5 0.5 0.0], 1, 0.5);
+% Compute actual cosine grating:
+grating=gray + inc*cos(fr*x);
 
-%disp('after gabortex')
+% Store 1-D single row grating in texture:
+gratingtex=Screen('MakeTexture', scr.main, grating);
 
-gabortex = const.gabortex;
+mask=ones(2*texsize+1, 2*texsize+1, 2) * gray;
+[x,y]=meshgrid(-1*texsize:1*texsize,-1*texsize:1*texsize);
+mask(:, :, 2)= round(white * (1 - exp(-((x/filterparam).^2)-((y/filterparam).^2)))); 
+masktex=Screen('MakeTexture', scr.main, mask);
 
-% Positions of the Gabors
-%dim = 10;
-x=0 ; y=0;
+% Query maximum useable priorityLevel on this system:
+priorityLevel=MaxPriority(scr.main);
 
-% Calculate the distance in "Gabor numbers" of each gabor from the center
-% of the array
-dist = sqrt(x.^2 + y.^2);
-%dist = sqrt(xLoc.^2 + yLoc.^2);
+%dstRect=[0 0 visiblesize visiblesize];
+%dstRect=CenterRect(dstRect, scr.rect); % change the location
+xDist = xCenter+xDist-(visiblesize/2); % center + (+- distance added in pixels)
+yDist = yCenter+yDist-(visiblesize/2);  % check with -(vis part.. 
+dstRect=[xDist yDist visiblesize+xDist visiblesize+yDist];
 
-% Cut out an inner annulus
-innerDist = 0;
- 
-% Cut out an outer annulus
-outerDist = 10;
-x(dist >= outerDist) = nan;
-y(dist >= outerDist) = nan;
-%xLoc(dist >= outerDist) = nan;
-%yLoc(dist >= outerDist) = nan;
+% Query duration of one monitor refresh interval:
+ifi=Screen('GetFlipInterval', scr.main);
 
-% Center the annulus coordinates in the centre of the screen
-%xPos = x .* gaborDimPix + xCenter;
-%yPos = y .* gaborDimPix + yCenter;
-xPos = x .* gaborDimPix + xLoc;
-yPos = y .* gaborDimPix + yLoc;
-
-% Count how many Gabors there are
-nGabors = numel(xPos);
-
-% Make the destination rectangles for all the Gabors in the array
-baseRect = [0 0 gaborDimPix gaborDimPix];
-allRects = nan(4, nGabors);
-for i = 1:nGabors
-    allRects(:, i) = CenterRectOnPointd(baseRect, xPos(i), yPos(i));
-end
-
-ifi = Screen('GetFlipInterval', scr.main);
-
-% Drift speed for the 2D global motion
-degPerSec = 360 * const.numCycles_deg * 4; % added the 4 for 4 deg/sec
-degPerFrame =  degPerSec * ifi;
-
-% Randomise the Gabor orientations and determine the drift speeds of each gabor.
-% This is given by multiplying the global motion speed by the cosine
-% difference between the global motion direction and the global motion.
-% Here the global motion direction is 0. So it is just the cosine of the
-% angle we use. We re-orientate the array when drawing
-
-%angle_options = [orientation]; 
-%randomIndex = randi(length(angle_options), 1);
-%gaborAngles = angle_options(randomIndex);    % commented these 3 lines out
-gaborAngles = orientation; % added to replace
-%%gaborAngles = rand(1, nGabors) .* 180 - 90;
-
-
-degPerFrameGabors =  cosd(gaborAngles) .* degPerFrame;
-
-% Randomise the phase of the Gabors and make a properties matrix. We could
-% if we want have each Gabor with different properties in all dimensions.
-% Not just orientation and drift rate as we are doing here.
-% This is the power of using procedural textures
-
-phaseLine = orientation; %was 360;          %rand(1, nGabors) .* 360;
-propertiesMat = repmat([NaN, freq, sigma, contrast, aspectRatio, 0, 0, 0],...
-    nGabors, 1);
-propertiesMat(:, 1) = phaseLine';
-
-% Perform initial flip to gray background and sync us to the retrace:
-vbl = Screen('Flip', scr.main);
-
-% Numer of frames to wait before re-drawing
+%waitframes = 1 means: Redraw every monitor refresh
 waitframes = 1;
 
-% for debugging 
-xCoords = [-xDist xDist]; %xLoc / yLoc
-yCoords = [-yDist yDist];
-allCoords = [xCoords; yCoords];
-lineWidthPix = 3;
-
-% Animation loop 
-%while ~KbCheck
-movieframe_n = 1;
-for i = tframes:endframe
+% Translate frames into seconds for screen update interval:
+waitduration = waitframes * ifi;
     
-        % Set the right blend function for drawing the gabors
-        Screen('BlendFunction', scr.main, 'GL_ONE', 'GL_ZERO');
+% Recompute p, this time without the ceil() operation from above.
+% Otherwise we will get wrong drift speed due to rounding errors!
+p=1/f;  % pixels/cycle  
 
-        % Batch draw all  of the Gabors to screen
-%         Screen('DrawTextures', scr.main, gabortex, [], allRects, gaborAngles - 90,...
-%             [], [], [], [], kPsychDontDoRotation, propertiesMat');
-        Screen('DrawTextures', scr.main, gabortex, [], allRects, gaborAngles,...
-            [], [], [], [], kPsychDontDoRotation, propertiesMat');
+% Translate requested speed of the grating (in cycles per second) into
+% a shift value in "pixels per frame", for given waitduration: This is
+% the amount of pixels to shift our srcRect "aperture" in horizontal
+% directionat each redraw:
+shiftperframe= cyclespersecond * p * waitduration;
 
-        % Change the blend function to draw an antialiased fixation point
-        % in the centre of the array
-        Screen('BlendFunction', scr.main, 'GL_SRC_ALPHA', 'GL_ONE_MINUS_SRC_ALPHA');
+% Perform initial Flip to sync us to the VBL and for getting an initial
+% VBL-Timestamp as timing baseline for our redraw loop:
+vbl=Screen('Flip', scr.main);
 
-        % Draw the fixation point
-        Screen('DrawDots', scr.main, [xCenter; yCenter], const.fixation_xdiam, color, [], 2);
-        
-        % added for debugging
-        %Screen('DrawDots', scr.main, [xLoc; yLoc], const.fixation_xdiam, color, [], 2);
-        %Screen('DrawDots', scr.main, [-xLoc; -yLoc], const.fixation_xdiam, color, [], 2);        
-
-        % Flip our drawing to the screen
-        vbl = Screen('Flip', scr.main, vbl + (waitframes - 0.5) * ifi);
-
-        % Increment the phase of our Gabors
-        %phaseLine = phaseLine + degPerFrameGabors;
-        phaseLine = phaseLine + (degPerFrameGabors)*motionsign; % determined dir of motion
-        propertiesMat(:, 1) = phaseLine';
-        
-        % just for debugging
-        %Screen('DrawLines', scr.main, allCoords, lineWidthPix, const.red, [xCenter yCenter], 2);
+% We run at most 'movieDurationSecs' seconds if user doesn't abort via keypress.
+vblendtime = vbl + movieDurationSecs;
+i=0;
     
+% Animationloop:
+while vbl < vblendtime
+    % Shift the grating by "shiftperframe" pixels per frame:
+    % the mod'ulo operation makes sure that our "aperture" will snap
+    % back to the beginning of the grating, once the border is reached.
+    % Fractional values of 'xoffset' are fine here. The GPU will
+    % perform proper interpolation of color values in the grating
+    % texture image to draw a grating that corresponds as closely as
+    % technical possible to that fractional 'xoffset'. GPU's use
+    % bilinear interpolation whose accuracy depends on the GPU at hand.
+    % Consumer ATI hardware usually resolves 1/64 of a pixel, whereas
+    % consumer NVidia hardware usually resolves 1/256 of a pixel. You
+    % can run the script "DriftTexturePrecisionTest" to test your
+    % hardware...
+    xoffset = mod(i*shiftperframe,p);
+    i=i+1;
         
-        if movieframe_n == 1  % save first frame of each movie (not the rest for speed)
-            rect = [];
-            % added to save movie clip
-            M = Screen('GetImage', scr.main,rect,[],0,1);
-            imwrite(M,[moviepath, '/Image_',num2str(movieframe_n),'.png']);
-            movieframe_n = movieframe_n + 1;
-        end
+    % Define shifted srcRect that cuts out the properly shifted rectangular
+    % area from the texture: We cut out the range 0 to visiblesize in
+    % the vertical direction although the texture is only 1 pixel in
+    % height! This works because the hardware will automatically
+    % replicate pixels in one dimension if we exceed the real borders
+    % of the stored texture. This allows us to save storage space here,
+    % as our 2-D grating is essentially only defined in 1-D:
+    srcRect=[xoffset 0 xoffset + visiblesize visiblesize];
+       
+    % Draw the fixation point
+    Screen('DrawDots', scr.main, [xCenter; yCenter], const.fixation_xdiam, color, [], 2);
+    
+    % Draw grating texture, rotated by "angle":
+    Screen('DrawTexture', scr.main, gratingtex, srcRect, dstRect, angle);
 
+    %if drawmask==1
+    % Draw gaussian mask over grating:
+    Screen('DrawTexture', scr.main, masktex, [0 0 visiblesize visiblesize], dstRect, angle);
+    %Screen('DrawTexture', scr.main, masktex, srcRect, dstRect, angle);
+    %end
+
+    % Flip 'waitframes' monitor refresh intervals after last redraw.
+    % Providing this 'when' timestamp allows for optimal timing
+    % precision in stimulus onset, a stable animation framerate and at
+    % the same time allows the built-in "skipped frames" detector to
+    % work optimally and report skipped frames due to hardware
+    % overload:
+    vbl = Screen('Flip', scr.main, vbl + (waitframes - 0.5) * ifi);
+    
+%     % added for debugging
+%     Screen('DrawDots', scr.main, [xLoc; yLoc], const.fixation_xdiam, color, [], 2);
+%     Screen('DrawDots', scr.main, [-xLoc; -yLoc], const.fixation_xdiam, color, [], 2); 
+    
+%     if movieframe_n == 1  % save first frame of each movie (not the rest for speed)
+%         rect = [];
+%         % added to save movie clip
+%         M = Screen('GetImage', scr.main,rect,[],0,1);
+%         imwrite(M,[moviepath, '/Image_',num2str(movieframe_n),'.png']);
+%         movieframe_n = movieframe_n + 1;
+%     end
+
+    % Abort demo if any key is pressed:
+    if KbCheck
+        break;
+    end
 end
 
 end

@@ -21,6 +21,10 @@ function runTrials(scr,const,expDes,my_key,textExp,button)
 %% General instructions:
 instructions(scr,const,my_key,textExp.instruction1,button.instruction1);
 
+% Enable alpha blending for proper combination of the gaussian aperture
+% with the drifting sine grating:
+Screen('BlendFunction', scr.main, GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
 % gabor
 const.gabortex = CreateProceduralGabor(scr.main, const.gaborDim_xpix, const.gaborDim_xpix,...
     [], [0.5 0.5 0.5 0.0], 1, 0.5);
