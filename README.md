@@ -6,10 +6,13 @@ This experiment includes 3 modalities: practice, thresholding, and experimental.
 determine optimal spacing of the clockwise/counterclockwise tilt relative to the internal reference frame.
 
 
-Requires:
+Experimental Code Requires:
 
 Palamedes Toolbox: http://www.palamedestoolbox.org
 
+Analysis Requires:
+
+JAGS: http://mcmc-jags.sourceforge.net/
 
 Running instructions:
 
