@@ -43,17 +43,21 @@ const.numCycles_cm = 1/vaDeg2cm(const.numCycles_deg,scr);
 const.gaborSF_xpix = 1/xpix_in_VA; %not rounded
 const.gaborSF_ypix = 1/ypix_in_VA; %not rounded
 
-const.gaborDim_deg = 2.5; %was 4
+const.gaborDim_deg = 2.5;
 [gaborDim_cm] =  vaDeg2cm(const.gaborDim_deg,scr); 
 const.gaborDim_cm = gaborDim_cm;
 [gaborDim_xpix, gaborDim_ypix] =  vaDeg2pix(const.gaborDim_deg,scr);
 const.gaborDim_xpix = round(gaborDim_xpix);
 const.gaborDim_ypix = round(gaborDim_ypix);
 
-const.gaborDist_deg = 7;
+const.gaborDist_deg = 7; %14
+% add code to calculate x/y distance for diagonals (add after pilot)
+%if (const.motion_type == '1') || (const.motion_type == '2') || (const.motion_type == '3') || (const.motion_type == '4')
+%    const.gaborDist_deg = sqrt(gaborDist_deg^2/2);
+%end
 [gaborDist_xpix, gaborDist_ypix] =  vaDeg2pix(const.gaborDist_deg,scr);
 const.gaborDist_ypix = round(gaborDist_ypix);
-const.gaborDist_xpix = round(gaborDist_xpix); %const.gaborDist_ypix (is this correct?)
+const.gaborDist_xpix = const.gaborDist_ypix; %round(gaborDist_xpix); % this was causing alignment issue
 
 const.locations.xDistsign = [-1 1 1 -1 0 0 1 -1]; % need to fix this (cardinal should be further)
 const.locations.yDistsign = [-1 1 -1 1 -1 1 0 0];
@@ -61,7 +65,7 @@ const.locations.yDistsign = [-1 1 -1 1 -1 1 0 0];
 % Experiental timing settings
 const.T1  = 1.0;                % fixation time = 1  sec
 const.T2  = 0.3;                % isi (fix this to match Heeley paper)
-const.T3  = 5;                % stimulus presentation = 0.5  sec
+const.T3  = 0.5;                % stimulus presentation = 0.5  sec
 
 const.numFrm_T1  =  round(const.T1/scr.frame_duration);
 const.numFrm_T2  =  round(const.T2/scr.frame_duration);

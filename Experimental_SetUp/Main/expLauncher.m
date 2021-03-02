@@ -95,13 +95,16 @@ switch screen_details.localHostName
     case 'Ranias-MacBook-Pro-2'
         const.desiredFD    = 60;   % Desired refresh rate (change this later)
         const.desiredRes   = [1024 820];  % Desired resolution
+        const.experimenter = 'RE';
     case 'Bas-iMac'
         disp('Undefined screen configuration for this computer.')
         const.desiredFD    = 60; 
         const.desiredRes   = []; 
+        const.experimenter = 'Bas';
     otherwise
         disp('Undefined screen configuration for this computer.')
         const.DEBUG = 0;
+        const.experimenter = 'Unknown';
 end
 
 % Path :

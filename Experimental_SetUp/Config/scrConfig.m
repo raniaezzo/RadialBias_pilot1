@@ -14,7 +14,12 @@ function [scr]=scrConfig(const)
 
 % Number of the exp screen:
 scr.all = Screen('Screens');
-scr.scr_num = max(scr.all);
+if const.experimenter == 'RE'
+    scr.scr_num = 1;
+else
+    scr.scr_num = max(scr.all);
+end
+
 % scr.scr_num = 1; % temp
 
 % Size of the display :
@@ -43,7 +48,7 @@ if (scr.hz >= 1.1*const.desiredFD || scr.hz <= 0.9*const.desiredFD) && const.exp
 end
 
 % Subject dist
-scr.dist = 60;
+scr.dist = 60; %30;
 
 % Center of the screen :
 % xCenter = scr.x_mid;

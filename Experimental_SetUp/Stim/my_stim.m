@@ -24,7 +24,7 @@ xCenter = x;
 yCenter = y;
 
 angle = orientation; % [0 is vertical]
-cyclespersecond = 4; 
+cyclespersecond = 6.5; %was 4
 f = const.gaborSF_xpix; % cycles per pixel:
 drawmask = 1; 
 gratingsize = const.gaborDim_xpix; %400
@@ -60,6 +60,7 @@ x = meshgrid(-texsize:texsize + p, 1);
 
 % Compute actual cosine grating:
 grating=gray + inc*cos(fr*x);
+contrast = 0.7;
 
 % Store 1-D single row grating in texture:
 gratingtex=Screen('MakeTexture', scr.main, grating);
@@ -104,6 +105,8 @@ vbl=Screen('Flip', scr.main);
 % We run at most 'movieDurationSecs' seconds if user doesn't abort via keypress.
 vblendtime = vbl + movieDurationSecs;
 i=0;
+
+movieframe_n = 1;
     
 % Animationloop:
 while vbl < vblendtime
@@ -134,11 +137,12 @@ while vbl < vblendtime
     % Draw the fixation point
     Screen('DrawDots', scr.main, [xCenter; yCenter], const.fixation_xdiam, color, [], 2);
     
-    % Draw grating texture, rotated by "angle":
+    % Draw grating texture, rotated by "angle": % this was prior settings (1 line
+    % below)
     Screen('DrawTexture', scr.main, gratingtex, srcRect, dstRect, angle);
-
+    
     %if drawmask==1
-    % Draw gaussian mask over grating:
+    % Draw gaussian mask over grating: 
     Screen('DrawTexture', scr.main, masktex, [0 0 visiblesize visiblesize], dstRect, angle);
     %Screen('DrawTexture', scr.main, masktex, srcRect, dstRect, angle);
     %end
@@ -155,13 +159,13 @@ while vbl < vblendtime
 %     Screen('DrawDots', scr.main, [xLoc; yLoc], const.fixation_xdiam, color, [], 2);
 %     Screen('DrawDots', scr.main, [-xLoc; -yLoc], const.fixation_xdiam, color, [], 2); 
     
-%     if movieframe_n == 1  % save first frame of each movie (not the rest for speed)
-%         rect = [];
-%         % added to save movie clip
-%         M = Screen('GetImage', scr.main,rect,[],0,1);
-%         imwrite(M,[moviepath, '/Image_',num2str(movieframe_n),'.png']);
-%         movieframe_n = movieframe_n + 1;
-%     end
+     %if movieframe_n == 1  % save first frame of each movie (not the rest for speed)
+     %    rect = [];
+     %    % added to save movie clip
+     %    M = Screen('GetImage', scr.main,rect,[],0,1);
+     %    imwrite(M,[moviepath, '/Image_',num2str(movieframe_n),'.png']);
+     %    movieframe_n = movieframe_n + 1;
+     %end
 
     % Abort demo if any key is pressed:
     if KbCheck

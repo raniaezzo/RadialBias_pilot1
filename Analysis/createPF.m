@@ -6,7 +6,7 @@ clear all;
 
 % create PF figure
 
-sets = {'Sets_Combined'}; %{'SetA'}; %{'Set1','Set2','Sets_Combined'};
+sets = {'Speed_6.5'}; %{'Sets_Combined'}; %{'SetA'}; %{'Set1','Set2','Sets_Combined'};
 subject = 'RE'; %'RE','SK'
 figure
 
@@ -187,7 +187,7 @@ for ss=1:length(sets)
     hold on
     alpha(.3)
     legend('outward','inward','tang', 'Location','Northwest')
-    title('Cumulative Normal Fit')
+    title('Cumulative Normal Fit (Speed 6.5 d/s)')
     ax = gca; 
     ax.FontSize = 40;
     stringsave = sprintf('PF_%s',subject);

@@ -4,8 +4,9 @@ clear all;
 % general stats
 
 % subject list
-subjects = {'SK'}; % RE
-conditions = {'tang_UR','tang_LL','radial_UL','radial_LR'};
+subjects = {'RE'}; % RE, SK
+conditions = {'UL','LR', 'UR', 'LL'};
+%conditions = {'tang_UR','tang_LL','radial_UL','radial_LR'};
 
 M_radialout = [];
 M_radialin = [];
@@ -20,13 +21,13 @@ for sub=1:length(subjects)
         path = sprintf('../Experimental_SetUp/Data/%s/ExpData/Block1/expRes%s_RadialBias_pilot1_%s.csv', subject,subject, condition);
         if isfile(path)
             M_raw = csvread(path);
-            if strcmp(condition, 'radial_LR')
+            if strcmp(condition, 'LR')
                 M_radialout = [M_radialout; M_raw(M_raw(:,3) == 1,:)]; % lower right vector, lower right location
                 M_radialin = [M_radialin; M_raw(M_raw(:,3) == 2,:)]; % lower right vector, upper left location
-            elseif strcmp(condition,'radial_UL')
+            elseif strcmp(condition,'UL')
                 M_radialout = [M_radialout; M_raw(M_raw(:,3) == 2,:)]; % upper left vector, upper left location
                 M_radialin = [M_radialin; M_raw(M_raw(:,3) == 1,:)]; % upper left vector, lower right location
-            elseif strcmp(condition, 'tang_LL') || strcmp(condition, 'tang_UR')
+            elseif strcmp(condition, 'LL') || strcmp(condition, 'UR')
                     M_raw = csvread(path);
                     M_tang = [M_tang; M_raw(:,:)]; % all locations treated the same for tang
             end
@@ -46,7 +47,7 @@ end
 
 
 %%
-conditions = {'tang','radial_out','radial_in'};
+conditions = {'radial_out','radial_in','tang'};
 
 for sub=1:length(subjects)
     for cond=1:length(conditions)
