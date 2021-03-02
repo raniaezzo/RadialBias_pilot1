@@ -5,7 +5,6 @@ The internal reference frame will either be the radial axis (relative to central
 This experiment includes 3 modalities: practice, thresholding, and experimental (default). The thresholding uses a staircase method to
 determine optimal spacing of the clockwise/counterclockwise tilt relative to the internal reference frame.
 
-
 Experimental Code Requires:
 
 Palamedes Toolbox: http://www.palamedestoolbox.org
