@@ -48,7 +48,7 @@ if (scr.hz >= 1.1*const.desiredFD || scr.hz <= 0.9*const.desiredFD) && const.exp
 end
 
 % Subject dist
-scr.dist = 60; %30;
+scr.dist = 40; %60;
 
 % Center of the screen :
 % xCenter = scr.x_mid;

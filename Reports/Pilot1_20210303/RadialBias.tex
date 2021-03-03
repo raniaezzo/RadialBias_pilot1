@@ -165,6 +165,7 @@ Tangential alpha = [test 0.6407]
 \end{figure}
 
 \newpage
+\subsection{TESTING SPEED 6.5 deg / s (eccentricity = 7 deg)}
 \begin{figure}[H]
 \centering % centers the figure
 \includegraphics[scale=.08]{Images/PF_speed6.5.png}
@@ -174,6 +175,19 @@ Tangential alpha = [test 0.6407]
 \includegraphics[scale=.2]{Images/MeanBiasError_68ci_RE_speed6.5.png}
 \includegraphics[scale=.2]{Images/MeanBiasError_95ci_RE_speed6.5.png}
 \caption{Top right/left: RE data (40 trails per angle -- new data).  Same layout as previous pages, but for speed 6.5 deg /s. Note: not all angles tested.}
+\end{figure}
+
+\newpage
+\subsection{TESTING ECCENTRICITY 14 deg (speed = 4 deg / s)}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.08]{Images/PF_eccen14.png}
+\\
+\includegraphics[scale=.2]{Images/MeanSlopeError_68ci_RE_eccen14.png}
+\includegraphics[scale=.2]{Images/MeanSlopeError_95ci_RE_eccen14.png}
+\includegraphics[scale=.2]{Images/MeanBiasError_68ci_RE_eccen14.png}
+\includegraphics[scale=.2]{Images/MeanBiasError_95ci_RE_eccen14.png}
+\caption{Top right/left: RE data (40 trails per angle -- new data).  Same layout as previous pages, but for double eccentricity (speed of 4 deg /s). Note: not all angles tested.}
 \end{figure}
 
 \newpage
@@ -251,11 +265,18 @@ Ans\_clock is the percentage of the observer answering clockwise out of the N\_T
 	\end{itemize}
 \item For discussion
 	\begin{itemize}
+	\item \textbf{Why not seeing an effect with greater eccentricity?}
+		\begin{itemize}
+			\item{Could be out the range of the radial bias}
+			\item{Could be the corners of my monitor (maybe need to re-test in eye tracker room}
+			\item{Need to ensure stimulus diameter is at 2.5 deg -- right now testing at home and distance not controlled by chin rest}
+		\end{itemize}
 	\item \textbf{Will use eye tracker L1 for testing and finalization, and then hallway eye tracker for data collection}
 	\item \textbf{Significant learning effect reported from my data..}
 	\item \textbf{Note: how to ensure motion direction (and not orientation) is used by subject to determine c or cc for all conditions?}
 		\begin{itemize}
 			\item{I suggest increasing speed and lowering contrast to make motion more pronounced and orientation less pronounced.}
+			\item{Is 2.5 stimulus diameter optimal? Or should increase?}
 		\end{itemize}
 	\item \textbf{Note: Radial condition block requires 1 internal vector (crossing fixation) while tang requires translating internal vector position base on stimulus location}
 		\begin{itemize}

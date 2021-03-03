@@ -24,7 +24,7 @@ xCenter = x;
 yCenter = y;
 
 angle = orientation; % [0 is vertical]
-cyclespersecond = 6.5; %was 4
+cyclespersecond = 4; %was 4
 f = const.gaborSF_xpix; % cycles per pixel:
 drawmask = 1; 
 gratingsize = const.gaborDim_xpix; %400

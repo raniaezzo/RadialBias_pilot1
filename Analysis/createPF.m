@@ -6,7 +6,7 @@ clear all;
 
 % create PF figure
 
-sets = {'Speed_6.5'}; %{'Sets_Combined'}; %{'SetA'}; %{'Set1','Set2','Sets_Combined'};
+sets = {'Eccen_14_actx'}; %{'Sets_Combined'}; %{'SetA'}; %{'Set1','Set2','Sets_Combined'};
 subject = 'RE'; %'RE','SK'
 figure
 
@@ -72,11 +72,11 @@ for ss=1:length(sets)
     pfhb = PAL_PFHB_fitModel(data_radialout,'PF','cumulativenormal','g',repmat(.01,1,length(data_radialout.y)),'parallel',1);
     %undo natural log of slope:
     radialout_beta_mean = exp(pfhb.summStats.b.mean);
-    radialout_CI_beta_low = exp(pfhb.summStats.b.HDI95low);
-    radialout_CI_beta_high = exp(pfhb.summStats.b.HDI95high);
+    radialout_CI_beta_low = exp(pfhb.summStats.b.HDI68low);
+    radialout_CI_beta_high = exp(pfhb.summStats.b.HDI68high);
     radialout_alpha_mean = pfhb.summStats.a.mean;
-    radialout_CI_alpha_low = pfhb.summStats.a.HDI95low;
-    radialout_CI_alpha_high = pfhb.summStats.a.HDI95high;
+    radialout_CI_alpha_low = pfhb.summStats.a.HDI68low;
+    radialout_CI_alpha_high = pfhb.summStats.a.HDI68high;
 
     % for radial in
 
@@ -123,11 +123,11 @@ for ss=1:length(sets)
     pfhb = PAL_PFHB_fitModel(data_radialin,'PF','cumulativenormal','g',repmat(.01,1,length(data_radialin.y)),'parallel',1);
     %undo natural log of slope:
     radialin_beta_mean = exp(pfhb.summStats.b.mean);
-    radialin_CI_beta_low = exp(pfhb.summStats.b.HDI95low);
-    radialin_CI_beta_high = exp(pfhb.summStats.b.HDI95high);
+    radialin_CI_beta_low = exp(pfhb.summStats.b.HDI68low);
+    radialin_CI_beta_high = exp(pfhb.summStats.b.HDI68high);
     radialin_alpha_mean = pfhb.summStats.a.mean;
-    radialin_CI_alpha_low = pfhb.summStats.a.HDI95low;
-    radialin_CI_alpha_high = pfhb.summStats.a.HDI95high;
+    radialin_CI_alpha_low = pfhb.summStats.a.HDI68low;
+    radialin_CI_alpha_high = pfhb.summStats.a.HDI68high;
 
     % tang
 
@@ -173,11 +173,11 @@ for ss=1:length(sets)
     pfhb = PAL_PFHB_fitModel(data_tang,'PF','cumulativenormal','g',repmat(.01,1,length(data_tang.y)),'parallel',1);
     %undo natural log of slope:
     tang_beta_mean = exp(pfhb.summStats.b.mean);
-    tang_CI_beta_low = exp(pfhb.summStats.b.HDI95low);
-    tang_CI_beta_high = exp(pfhb.summStats.b.HDI95high);
+    tang_CI_beta_low = exp(pfhb.summStats.b.HDI68low);
+    tang_CI_beta_high = exp(pfhb.summStats.b.HDI68high);
     tang_alpha_mean = pfhb.summStats.a.mean;
-    tang_CI_alpha_low = pfhb.summStats.a.HDI95low;
-    tang_CI_alpha_high = pfhb.summStats.a.HDI95high;
+    tang_CI_alpha_low = pfhb.summStats.a.HDI68low;
+    tang_CI_alpha_high = pfhb.summStats.a.HDI68high;
 
     scatter(total_conditions, PC1, sz, 'MarkerEdgeColor',[0 1, 0], 'MarkerFaceColor',[0 1 0])
     hold on
@@ -187,7 +187,7 @@ for ss=1:length(sets)
     hold on
     alpha(.3)
     legend('outward','inward','tang', 'Location','Northwest')
-    title('Cumulative Normal Fit (Speed 6.5 d/s)')
+    title('Cumulative Normal Fit (Eccen 14 deg)')
     ax = gca; 
     ax.FontSize = 40;
     stringsave = sprintf('PF_%s',subject);
@@ -207,10 +207,10 @@ hold on
 er = errorbar(n_sets, n_means,n_lows,n_highs, 'k', 'LineStyle','none', 'linewidth', 3);
 set(gca,'xticklabel',{'radialout','radialin','tang'})
 ylabel('mean beta')
-title('RE Mean Slope w/ 95% CI (Speed 6.5 d/s)')
+title('RE Mean Slope w/ 68% CI (Eccen 14 deg)')
 ax = gca; 
 ax.FontSize = 20;
-stringsave = sprintf('MeanSlopeError_95ci_%s',subject);
+stringsave = sprintf('MeanSlopeError_68ci_%s',subject);
 savefig(stringsave)
 
 %%
@@ -228,10 +228,10 @@ er = errorbar(n_sets, n_means,n_lows,n_highs, 'k', 'LineStyle','none', 'linewidt
 set(gca,'xticklabel',{'radialout','radialin','tang'})
 ylabel('mean alpha')
 ylim([-1,2])
-title('RE Mean Bias w/ 95% CI (Speed 6.5 d/s)')
+title('RE Mean Bias w/ 68% CI (Eccen 14 deg)')
 ax = gca; 
 ax.FontSize = 20;
-stringsave = sprintf('MeanBiasError_95ci_%s',subject);
+stringsave = sprintf('MeanBiasError_68ci_%s',subject);
 savefig(stringsave)
 
 %%

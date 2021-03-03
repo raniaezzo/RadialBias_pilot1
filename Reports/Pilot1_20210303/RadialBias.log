@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  1 MAR 2021 21:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  2 MAR 2021 22:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -547,88 +547,88 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  [1
 
 {/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<Images/Radial_sequence.png, id=85, 712.6625pt x 326.21875pt>
+<Images/Radial_sequence.png, id=95, 712.6625pt x 326.21875pt>
 File: Images/Radial_sequence.png Graphic file (type png)
 <use Images/Radial_sequence.png>
 Package pdftex.def Info: Images/Radial_sequence.png  used on input line 64.
 (pdftex.def)             Requested size: 285.05995pt x 130.48518pt.
-<Images/Tang_sequence.png, id=87, 714.67pt x 326.21875pt>
+<Images/Tang_sequence.png, id=97, 714.67pt x 326.21875pt>
 File: Images/Tang_sequence.png Graphic file (type png)
 <use Images/Tang_sequence.png>
 Package pdftex.def Info: Images/Tang_sequence.png  used on input line 66.
 (pdftex.def)             Requested size: 285.86293pt x 130.48518pt.
-<Images/Blocks.png, id=88, 592.2125pt x 181.67876pt>
+<Images/Blocks.png, id=98, 592.2125pt x 181.67876pt>
 File: Images/Blocks.png Graphic file (type png)
 <use Images/Blocks.png>
 Package pdftex.def Info: Images/Blocks.png  used on input line 75.
 (pdftex.def)             Requested size: 236.8808pt x 72.6702pt.
- [2 <./Images/Radial_sequence.png> <./Images/Tang_sequence.png> <./Images/Block
-s.png>] [3]
-<Images/PF_set1.png, id=114, 2890.8pt x 1521.685pt>
+ [2 <./Images/Radial_sequence.png> <./Images/Tang_sequence.png>]
+[3 <./Images/Blocks.png>]
+<Images/PF_set1.png, id=124, 2890.8pt x 1521.685pt>
 File: Images/PF_set1.png Graphic file (type png)
 <use Images/PF_set1.png>
 Package pdftex.def Info: Images/PF_set1.png  used on input line 107.
 (pdftex.def)             Requested size: 231.26872pt x 121.73729pt.
-<Images/PF_set2.png, id=115, 2890.8pt x 1521.685pt>
+<Images/PF_set2.png, id=125, 2890.8pt x 1521.685pt>
 File: Images/PF_set2.png Graphic file (type png)
 <use Images/PF_set2.png>
 Package pdftex.def Info: Images/PF_set2.png  used on input line 108.
 (pdftex.def)             Requested size: 231.26872pt x 121.73729pt.
-<Images/PF_combined.png, id=116, 2890.8pt x 1521.685pt>
+<Images/PF_combined.png, id=126, 2890.8pt x 1521.685pt>
 File: Images/PF_combined.png Graphic file (type png)
 <use Images/PF_combined.png>
 Package pdftex.def Info: Images/PF_combined.png  used on input line 109.
 (pdftex.def)             Requested size: 231.26872pt x 121.73729pt.
-<Images/PF_SK.png, id=117, 1343.0175pt x 746.79pt>
+<Images/PF_SK.png, id=127, 1343.0175pt x 746.79pt>
 File: Images/PF_SK.png Graphic file (type png)
 <use Images/PF_SK.png>
 Package pdftex.def Info: Images/PF_SK.png  used on input line 110.
 (pdftex.def)             Requested size: 214.88719pt x 119.48883pt.
  [4 <./Images/PF_set1.png (PNG copy)> <./Images/PF_set2.png (PNG copy)> <./Imag
 es/PF_combined.png (PNG copy)> <./Images/PF_SK.png (PNG copy)>]
-<Images/MeanSlopeError_68ci_RE.png, id=123, 1124.2pt x 843.15pt>
+<Images/MeanSlopeError_68ci_RE.png, id=133, 1124.2pt x 843.15pt>
 File: Images/MeanSlopeError_68ci_RE.png Graphic file (type png)
 <use Images/MeanSlopeError_68ci_RE.png>
 Package pdftex.def Info: Images/MeanSlopeError_68ci_RE.png  used on input line 
 150.
 (pdftex.def)             Requested size: 224.83601pt x 168.627pt.
-<Images/MeanSlopeError_95ci_RE.png, id=124, 1124.2pt x 843.15pt>
+<Images/MeanSlopeError_95ci_RE.png, id=134, 1124.2pt x 843.15pt>
 File: Images/MeanSlopeError_95ci_RE.png Graphic file (type png)
 <use Images/MeanSlopeError_95ci_RE.png>
 Package pdftex.def Info: Images/MeanSlopeError_95ci_RE.png  used on input line 
 151.
 (pdftex.def)             Requested size: 224.83601pt x 168.627pt.
-<Images/MeanSlopeError_68ci_SK.png, id=125, 1124.2pt x 843.15pt>
+<Images/MeanSlopeError_68ci_SK.png, id=135, 1124.2pt x 843.15pt>
 File: Images/MeanSlopeError_68ci_SK.png Graphic file (type png)
 <use Images/MeanSlopeError_68ci_SK.png>
 Package pdftex.def Info: Images/MeanSlopeError_68ci_SK.png  used on input line 
 152.
 (pdftex.def)             Requested size: 224.83601pt x 168.627pt.
-<Images/MeanSlopeError_95ci_SK.png, id=126, 1124.2pt x 843.15pt>
+<Images/MeanSlopeError_95ci_SK.png, id=136, 1124.2pt x 843.15pt>
 File: Images/MeanSlopeError_95ci_SK.png Graphic file (type png)
 <use Images/MeanSlopeError_95ci_SK.png>
 Package pdftex.def Info: Images/MeanSlopeError_95ci_SK.png  used on input line 
 153.
 (pdftex.def)             Requested size: 224.83601pt x 168.627pt.
-<Images/MeanBiasError_68ci_RE.png, id=127, 1124.2pt x 843.15pt>
+<Images/MeanBiasError_68ci_RE.png, id=137, 1124.2pt x 843.15pt>
 File: Images/MeanBiasError_68ci_RE.png Graphic file (type png)
 <use Images/MeanBiasError_68ci_RE.png>
 Package pdftex.def Info: Images/MeanBiasError_68ci_RE.png  used on input line 1
 60.
 (pdftex.def)             Requested size: 224.83601pt x 168.627pt.
-<Images/MeanBiasError_95ci_RE.png, id=128, 1124.2pt x 843.15pt>
+<Images/MeanBiasError_95ci_RE.png, id=138, 1124.2pt x 843.15pt>
 File: Images/MeanBiasError_95ci_RE.png Graphic file (type png)
 <use Images/MeanBiasError_95ci_RE.png>
 Package pdftex.def Info: Images/MeanBiasError_95ci_RE.png  used on input line 1
 61.
 (pdftex.def)             Requested size: 224.83601pt x 168.627pt.
-<Images/MeanBiasError_68ci_SK.png, id=129, 1124.2pt x 843.15pt>
+<Images/MeanBiasError_68ci_SK.png, id=139, 1124.2pt x 843.15pt>
 File: Images/MeanBiasError_68ci_SK.png Graphic file (type png)
 <use Images/MeanBiasError_68ci_SK.png>
 Package pdftex.def Info: Images/MeanBiasError_68ci_SK.png  used on input line 1
 62.
 (pdftex.def)             Requested size: 224.83601pt x 168.627pt.
-<Images/MeanBiasError_95ci_SK.png, id=130, 1124.2pt x 843.15pt>
+<Images/MeanBiasError_95ci_SK.png, id=140, 1124.2pt x 843.15pt>
 File: Images/MeanBiasError_95ci_SK.png Graphic file (type png)
 <use Images/MeanBiasError_95ci_SK.png>
 Package pdftex.def Info: Images/MeanBiasError_95ci_SK.png  used on input line 1
@@ -640,87 +640,121 @@ es/MeanSlopeError_95ci_SK.png (PNG copy)>] [6 <./Images/MeanBiasError_68ci_RE.p
 ng (PNG copy)> <./Images/MeanBiasError_95ci_RE.png (PNG copy)> <./Images/MeanBi
 asError_68ci_SK.png (PNG copy)> <./Images/MeanBiasError_95ci_SK.png (PNG copy)>
 ]
-<Images/PF_speed6.5.png, id=141, 2890.8pt x 1529.715pt>
+<Images/PF_speed6.5.png, id=151, 2890.8pt x 1529.715pt>
 File: Images/PF_speed6.5.png Graphic file (type png)
 <use Images/PF_speed6.5.png>
-Package pdftex.def Info: Images/PF_speed6.5.png  used on input line 170.
+Package pdftex.def Info: Images/PF_speed6.5.png  used on input line 171.
 (pdftex.def)             Requested size: 231.26872pt x 122.3797pt.
-<Images/MeanSlopeError_68ci_RE_speed6.5.png, id=142, 1124.2pt x 843.15pt>
+<Images/MeanSlopeError_68ci_RE_speed6.5.png, id=152, 1124.2pt x 843.15pt>
 File: Images/MeanSlopeError_68ci_RE_speed6.5.png Graphic file (type png)
 <use Images/MeanSlopeError_68ci_RE_speed6.5.png>
 Package pdftex.def Info: Images/MeanSlopeError_68ci_RE_speed6.5.png  used on in
-put line 172.
+put line 173.
 (pdftex.def)             Requested size: 224.83601pt x 168.627pt.
-<Images/MeanSlopeError_95ci_RE_speed6.5.png, id=143, 1124.2pt x 843.15pt>
+<Images/MeanSlopeError_95ci_RE_speed6.5.png, id=153, 1124.2pt x 843.15pt>
 File: Images/MeanSlopeError_95ci_RE_speed6.5.png Graphic file (type png)
 <use Images/MeanSlopeError_95ci_RE_speed6.5.png>
 Package pdftex.def Info: Images/MeanSlopeError_95ci_RE_speed6.5.png  used on in
-put line 173.
+put line 174.
 (pdftex.def)             Requested size: 224.83601pt x 168.627pt.
-<Images/MeanBiasError_68ci_RE_speed6.5.png, id=144, 1124.2pt x 843.15pt>
+<Images/MeanBiasError_68ci_RE_speed6.5.png, id=154, 1124.2pt x 843.15pt>
 File: Images/MeanBiasError_68ci_RE_speed6.5.png Graphic file (type png)
 <use Images/MeanBiasError_68ci_RE_speed6.5.png>
 Package pdftex.def Info: Images/MeanBiasError_68ci_RE_speed6.5.png  used on inp
-ut line 174.
+ut line 175.
 (pdftex.def)             Requested size: 224.83601pt x 168.627pt.
-<Images/MeanBiasError_95ci_RE_speed6.5.png, id=145, 1124.2pt x 843.15pt>
+<Images/MeanBiasError_95ci_RE_speed6.5.png, id=155, 1124.2pt x 843.15pt>
 File: Images/MeanBiasError_95ci_RE_speed6.5.png Graphic file (type png)
 <use Images/MeanBiasError_95ci_RE_speed6.5.png>
 Package pdftex.def Info: Images/MeanBiasError_95ci_RE_speed6.5.png  used on inp
-ut line 175.
+ut line 176.
 (pdftex.def)             Requested size: 224.83601pt x 168.627pt.
  [7 <./Images/PF_speed6.5.png (PNG copy)> <./Images/MeanSlopeError_68ci_RE_spee
 d6.5.png (PNG copy)> <./Images/MeanSlopeError_95ci_RE_speed6.5.png (PNG copy)> 
 <./Images/MeanBiasError_68ci_RE_speed6.5.png (PNG copy)> <./Images/MeanBiasErro
 r_95ci_RE_speed6.5.png (PNG copy)>]
-Overfull \hbox (43.23497pt too wide) in alignment at lines 186--196
+<Images/PF_eccen14.png, id=162, 2890.8pt x 1521.685pt>
+File: Images/PF_eccen14.png Graphic file (type png)
+<use Images/PF_eccen14.png>
+Package pdftex.def Info: Images/PF_eccen14.png  used on input line 184.
+(pdftex.def)             Requested size: 231.26872pt x 121.73729pt.
+<Images/MeanSlopeError_68ci_RE_eccen14.png, id=163, 1124.2pt x 843.15pt>
+File: Images/MeanSlopeError_68ci_RE_eccen14.png Graphic file (type png)
+<use Images/MeanSlopeError_68ci_RE_eccen14.png>
+Package pdftex.def Info: Images/MeanSlopeError_68ci_RE_eccen14.png  used on inp
+ut line 186.
+(pdftex.def)             Requested size: 224.83601pt x 168.627pt.
+<Images/MeanSlopeError_95ci_RE_eccen14.png, id=164, 1124.2pt x 843.15pt>
+File: Images/MeanSlopeError_95ci_RE_eccen14.png Graphic file (type png)
+<use Images/MeanSlopeError_95ci_RE_eccen14.png>
+Package pdftex.def Info: Images/MeanSlopeError_95ci_RE_eccen14.png  used on inp
+ut line 187.
+(pdftex.def)             Requested size: 224.83601pt x 168.627pt.
+<Images/MeanBiasError_68ci_RE_eccen14.png, id=165, 1124.2pt x 843.15pt>
+File: Images/MeanBiasError_68ci_RE_eccen14.png Graphic file (type png)
+<use Images/MeanBiasError_68ci_RE_eccen14.png>
+Package pdftex.def Info: Images/MeanBiasError_68ci_RE_eccen14.png  used on inpu
+t line 188.
+(pdftex.def)             Requested size: 224.83601pt x 168.627pt.
+<Images/MeanBiasError_95ci_RE_eccen14.png, id=166, 1124.2pt x 843.15pt>
+File: Images/MeanBiasError_95ci_RE_eccen14.png Graphic file (type png)
+<use Images/MeanBiasError_95ci_RE_eccen14.png>
+Package pdftex.def Info: Images/MeanBiasError_95ci_RE_eccen14.png  used on inpu
+t line 189.
+(pdftex.def)             Requested size: 224.83601pt x 168.627pt.
+ [8 <./Images/PF_eccen14.png (PNG copy)> <./Images/MeanSlopeError_68ci_RE_eccen
+14.png (PNG copy)> <./Images/MeanSlopeError_95ci_RE_eccen14.png (PNG copy)> <./
+Images/MeanBiasError_68ci_RE_eccen14.png (PNG copy)> <./Images/MeanBiasError_95
+ci_RE_eccen14.png (PNG copy)>]
+Overfull \hbox (43.23497pt too wide) in alignment at lines 200--210
 [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (44.90166pt too wide) in alignment at lines 202--212
+Overfull \hbox (44.90166pt too wide) in alignment at lines 216--226
 [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (73.5536pt too wide) in alignment at lines 219--229
+Overfull \hbox (73.5536pt too wide) in alignment at lines 233--243
 [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
-[8] [9]
-<Images/PF_angles_old.png, id=161, 2890.8pt x 1521.685pt>
+[9] [10]
+<Images/PF_angles_old.png, id=182, 2890.8pt x 1521.685pt>
 File: Images/PF_angles_old.png Graphic file (type png)
 <use Images/PF_angles_old.png>
-Package pdftex.def Info: Images/PF_angles_old.png  used on input line 291.
+Package pdftex.def Info: Images/PF_angles_old.png  used on input line 312.
 (pdftex.def)             Requested size: 231.26872pt x 121.73729pt.
-<Images/PF_overlayed.png, id=162, 2890.8pt x 1521.685pt>
+<Images/PF_overlayed.png, id=183, 2890.8pt x 1521.685pt>
 File: Images/PF_overlayed.png Graphic file (type png)
 <use Images/PF_overlayed.png>
-Package pdftex.def Info: Images/PF_overlayed.png  used on input line 292.
+Package pdftex.def Info: Images/PF_overlayed.png  used on input line 313.
 (pdftex.def)             Requested size: 231.26872pt x 121.73729pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 303.
- [10 <./Images/PF_angles_old.png (PNG copy)> <./Images/PF_overlayed.png (PNG co
-py)>] [11]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 303.
+ [11 <./Images/PF_angles_old.png (PNG copy)> <./Images/PF_overlayed.png (PNG co
+py)>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 324.
+ [12]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 324.
  (./RadialBias.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 303.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 303.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 324.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 324.
 Package rerunfilecheck Info: File `RadialBias.out' has not changed.
-(rerunfilecheck)             Checksum: 3ECE0C86E4F8CD06E07ECC4D43E74132;867.
+(rerunfilecheck)             Checksum: 898046C9B47C217EBDAFD173A00F655A;1066.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 303.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 324.
  ) 
 Here is how much of TeX's memory you used:
- 10798 strings out of 480608
- 206636 string characters out of 5903631
- 485017 words of memory out of 5000000
- 26448 multiletter control sequences out of 15000+600000
+ 10834 strings out of 480608
+ 207869 string characters out of 5903631
+ 485018 words of memory out of 5000000
+ 26475 multiletter control sequences out of 15000+600000
  546045 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,9n,46p,771b,834s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 39i,9n,46p,771b,900s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 }</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
 </usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
@@ -729,10 +763,10 @@ sr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
 /local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/l
 ocal/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/lo
 cal/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on RadialBias.pdf (11 pages, 1883538 bytes).
+Output written on RadialBias.pdf (12 pages, 2189149 bytes).
 PDF statistics:
- 211 PDF objects out of 1000 (max. 8388607)
- 164 compressed objects within 2 object streams
- 45 named destinations out of 1000 (max. 500000)
- 223 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 232 PDF objects out of 1000 (max. 8388607)
+ 179 compressed objects within 2 object streams
+ 49 named destinations out of 1000 (max. 500000)
+ 264 words of extra memory for PDF output out of 10000 (max. 10000000)
 
