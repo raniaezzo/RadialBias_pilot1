@@ -48,6 +48,18 @@ elseif loc_target == 3
 elseif loc_target == 4
     xDist = (const.gaborDist_xpix);
     yDist = -(const.gaborDist_ypix);
+elseif loc_target == 5 % added here and below for cardinal
+    xDist = 0;
+    yDist = -(const.gaborDist_ypix);
+elseif loc_target == 6
+    xDist = 0;
+    yDist = (const.gaborDist_ypix);
+elseif loc_target == 7
+    xDist = -(const.gaborDist_xpix);
+    yDist = 0;
+elseif loc_target == 8
+    xDist = (const.gaborDist_xpix);
+    yDist = 0;
 end
 
 % update the added tilt based on the staircase or just use constant (for
@@ -147,35 +159,53 @@ elseif key_press.leftShift == 1
         correct = 0;
     end
     resMat = [OUT_stand_orientation, OUT_test_orientation, OUT_stand_direction, OUT_test_direction, clockwise, 1,tRT, correct];
-elseif key_press.space == 1
-    correct = 0;
+elseif key_press.space == 1  % pause
+    correct = NaN;
     resMat = [OUT_stand_orientation, OUT_test_orientation, OUT_stand_direction, OUT_test_direction, clockwise, -1,tRT, correct];
 elseif key_press.escape == 1
-    overDone;
+    correct = NaN;
+    resMat = [OUT_stand_orientation, OUT_test_orientation, OUT_stand_direction, OUT_test_direction, clockwise, NaN,tRT, correct];
+    %overDone;
 end
 
-if correct == 0
-    my_sound(const)
-end
-disp('Correct = ')
-disp(correct)
 
-% adjust staircase level
-if const.use_staircase
-    % for now just assume all are correct (just to check code)
-    const.stairs = usePalamedesStaircase(const.stairs, correct); 
-    disp('Palamedes output')
-    disp(const.stairs)
-    disp('Adjusted tilt to add')
-    disp(const.stairs.xCurrent)
-    xUpdate_tilt = const.stairs.xCurrent; % added new tilt
-    const.stairvec = [const.stairvec, const.stairs]; 
-else
-    %xUpdate_tilt = const.stairs.xCurrent; % use current if not staircased
-    %constant_stimuli = ; %[1, 2, 2.5, 3, 5, 6, 8];
-    xUpdate_tilt = NaN; %randsample(constant_stimuli,1);
+if (key_press.rightShift == 1) || (key_press.leftShift == 1)
+    %if correct == 0
+    %    my_sound(const) % no longer using
+    %end
+    if correct == 0
+        makeBeep(.1,400)
+    elseif correct == 1
+        makeBeep(.1,800)
+    end
+    disp('Correct = ')
+    disp(correct)
+
+    % adjust staircase level
+    if const.use_staircase
+        % for now just assume all are correct (just to check code)
+        const.stairs = usePalamedesStaircase(const.stairs, correct); 
+        disp('Palamedes output')
+        disp(const.stairs)
+        disp('Adjusted tilt to add')
+        disp(const.stairs.xCurrent)
+        xUpdate_tilt = const.stairs.xCurrent; % added new tilt
+        const.stairvec = [const.stairvec, const.stairs]; 
+    else
+        %xUpdate_tilt = const.stairs.xCurrent; % use current if not staircased
+        %constant_stimuli = ; %[1, 2, 2.5, 3, 5, 6, 8];
+        xUpdate_tilt = NaN; %randsample(constant_stimuli,1);
+    end
+    disp('~~~~~~~~~~~~~~~ end of trial ~~~~~~~~~~~~~~')
+elseif key_press.space == 1
+    xUpdate_tilt = NaN;
+    disp('~~~~~~~~~~~~~~~ requested break ~~~~~~~~~~~~~~')
+elseif key_press.escape == 1
+    xUpdate_tilt = NaN;
+    %overDone;
+    disp('~~~~~~~~~~~~~~~ aborted trial ~~~~~~~~~~~~~~')
 end
 
-disp('~~~~~~~~~~~~~~~ end of trial ~~~~~~~~~~~~~~')
+
 
 end

@@ -1,4 +1,4 @@
-function my_sound (const)
+function my_sound (correct)
 % ----------------------------------------------------------------------
 % my_sound(t)
 % ----------------------------------------------------------------------
@@ -24,7 +24,15 @@ function my_sound (const)
 %    % Ready Signal (Auditory tone)
 
 InitializePsychSound(1);
-Snd('Play',[repmat(0.3,1,150) linspace(0.4,0.0,50)].*[zeros(1,100) sin(1:100)],3000); 
+
+% put back
+%Snd('Play',[repmat(0.3,1,150) linspace(0.4,0.0,50)].*[zeros(1,100) sin(1:100)],3000); 
+
+if correct == 0
+    makeBeep(.1,400)
+elseif correct == 1
+    makeBeep(.1,800)
+
 %end
 %Snd('Play',sin(0:100));
 %Snd('Wait');              % wait until end of all sounds currently in channel

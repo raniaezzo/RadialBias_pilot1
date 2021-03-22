@@ -14,7 +14,7 @@ function [scr]=scrConfig(const)
 
 % Number of the exp screen:
 scr.all = Screen('Screens');
-if const.experimenter == 'RE'
+if const.experimenter == 'Rania'
     scr.scr_num = 1;
 else
     scr.scr_num = max(scr.all);
@@ -48,7 +48,7 @@ if (scr.hz >= 1.1*const.desiredFD || scr.hz <= 0.9*const.desiredFD) && const.exp
 end
 
 % Subject dist
-scr.dist = 40; %60;
+scr.dist = 60; %40 to expand (closer to screen);
 
 % Center of the screen :
 % xCenter = scr.x_mid;

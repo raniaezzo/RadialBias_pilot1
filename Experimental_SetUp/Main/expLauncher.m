@@ -9,10 +9,17 @@
 
 %% Initial settings
 % Initial closing :
+warning('off'); sca, Screen('CloseAll'); clc; commandwindow; % added
+%Screen('Preference', 'SkipSyncTests', 1); % change to 0 for real exp
+InitializePsychSound(1);
+
 clear all;clear mex;clear functions;
 close all;home;ListenChar(1);tic
 addpath(genpath(pwd));
 load('./Config/conditions.mat')
+
+EL_mode = 1; % 0 = no eyelink; 1 = eyelink
+EL_modes = {'OFF','ON'};
 
 const.DEBUG = 0; % Debug flag
 
@@ -20,16 +27,10 @@ const.DEBUG = 0; % Debug flag
 % which uses manual input determined from staircase
 
 session_type = [];
-%while isempty(session_type)
 Prompt        = {'Session Type (0-thresholding, 1-experimental, otherkey-practice):'};
 Answer        = inputdlg(Prompt,'Info',1);
-    %session_type   = str2double(Answer{1});
 session_type   = Answer{1};
-%end
 
-% which condition to test (1= tang counterclock; 2= tang clock; 3= radial
-% inwards, 4 = radial outwards)
-%Prompt        = {'Motion Type (1-tang counterclock, 2-tang clock, 3-radial inw, 4-radial-out):'};
 Prompt        = {'Motion Reference [oblique loc] 1-UR, 2-LL, 3-UL, 4-LR (default) [cardinal loc] 5-VU, 6-VL, 7-HR, 8-HL:'};
 Answer    = inputdlg(Prompt,'Info',1);
 const.motion_type   = Answer{1};
@@ -95,12 +96,17 @@ switch screen_details.localHostName
     case 'Ranias-MacBook-Pro-2'
         const.desiredFD    = 60;   % Desired refresh rate (change this later)
         const.desiredRes   = [1024 820];  % Desired resolution
-        const.experimenter = 'RE';
+        const.experimenter = 'Rania';
     case 'Bas-iMac'
         disp('Undefined screen configuration for this computer.')
         const.desiredFD    = 60; 
         const.desiredRes   = []; 
         const.experimenter = 'Bas';
+    case 'fechner' % R1 eyetracker
+        const.desiredFD    = 60;
+        const.desiredRes   = [1280 960];
+        const.experimenter = 'Carrasco-R1';
+        disp('fechner')
     otherwise
         disp('Undefined screen configuration for this computer.')
         const.DEBUG = 0;
@@ -128,6 +134,8 @@ else
 end
 const.sjctCode = sprintf('%s_%s',const.sjct,const.expName);
 
+% added
+fprintf('Subject: %s, %s, eye-tracker %s.\n ',const.sjct, const.session_type, EL_modes{EL_mode+1})
 
 %% Main experimental code
 for block = const.fromBlock:(const.fromBlock+numBlockMain-1)

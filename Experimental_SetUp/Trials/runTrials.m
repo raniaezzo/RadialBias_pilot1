@@ -33,26 +33,48 @@ const.gabortex = CreateProceduralGabor(scr.main, const.gaborDim_xpix, const.gabo
 expDone = 0;
 newJ = 0;
 startJ = 1;
+sectionsize=expDes.j/4;  % break size
 while ~expDone
-    for t = startJ:expDes.j
+    for t = startJ:expDes.j   % 1 to numTrials
         
         % create a directory for movie of that trial
-        mkdir(sprintf('%s/Movies/%i',pwd, t));
+        %mkdir(sprintf('%s/Movies/%i',pwd, t));
+        
+        % break (just added)
+        if ~rem(t,sectionsize) && (t~=expDes.j)
+            instructions(scr,const,my_key,textExp.pause,button.pause);
+        end
         
         trialDone = 0;
         while ~trialDone
 
-            [resMat, xUpdate_tilt] = runSingleTrial(scr,const,expDes,my_key,t);
-            const.stairs.xCurrent = xUpdate_tilt; % added
-            if resMat == -1 % im not sure if this if statement does anything?
-                % Exit button  => send a new trial + save trial configuration for later presentation
+            try
+                [resMat, xUpdate_tilt] = runSingleTrial(scr,const,expDes,my_key,t);
+                const.stairs.xCurrent = xUpdate_tilt; % added
+                % maybe change this so that it is not selective pauses but
+                % blocked pauses
+                if resMat(end-2) == -1 % if pausing experiment (space)
+                    trialDone = 1;
+                    newJ = newJ+1;
+                    expDes.expMatAdd(newJ,:) = expDes.expMat(t,:);
+                    instructions(scr,const,my_key,textExp.pause,button.pause);
+                else
+                    trialDone = 1; % completed trials
+                    expResMat(t,:)= [expDes.expMat(t,:),resMat];
+                    csvwrite(const.expRes_fileCsv,expResMat);
+                end
+            catch                         % for esc
                 trialDone = 1;
-                newJ = newJ+1;
-                expDes.expMatAdd(newJ,:) = expDes.expMat(t,:);
-            else
-                trialDone = 1;
+                newJ = 0;                 % no added trials
+                expDone = 1;              % stop exp loop
                 expResMat(t,:)= [expDes.expMat(t,:),resMat];
                 csvwrite(const.expRes_fileCsv,expResMat);
+                % copied below for whenever exiting function
+                const.my_clock_end = clock;
+                const_file = fopen(const.const_fileDat,'a+');
+                fprintf(const_file,'Ending time :\t%ih%i',const.my_clock_end(4),const.my_clock_end(5));
+                fclose('all');
+                return;
             end
         end
     end

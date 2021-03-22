@@ -50,11 +50,11 @@ const.gaborDim_cm = gaborDim_cm;
 const.gaborDim_xpix = round(gaborDim_xpix);
 const.gaborDim_ypix = round(gaborDim_ypix);
 
-const.gaborDist_deg = 14; %7
+const.gaborDist_deg = 7;
 % add code to calculate x/y distance for diagonals (add after pilot)
-%if (const.motion_type == '1') || (const.motion_type == '2') || (const.motion_type == '3') || (const.motion_type == '4')
-%    const.gaborDist_deg = sqrt(gaborDist_deg^2/2);
-%end
+if (const.motion_type == '1') || (const.motion_type == '2') || (const.motion_type == '3') || (const.motion_type == '4')
+    const.gaborDist_deg = sqrt(const.gaborDist_deg^2/2); % calculate hypotenuse
+end
 [gaborDist_xpix, gaborDist_ypix] =  vaDeg2pix(const.gaborDist_deg,scr);
 const.gaborDist_ypix = round(gaborDist_ypix);
 const.gaborDist_xpix = const.gaborDist_ypix; %round(gaborDist_xpix); % this was causing alignment issue

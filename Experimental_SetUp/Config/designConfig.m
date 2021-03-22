@@ -29,7 +29,7 @@ expDes.threeV = [1:2]';
 
 % Var 4 : Angles
 tilts=exp(linspace(log(0.5),log(8),5)); % logarithmically spaced from 0.5 - 8
-expDes.fourV = [0.5, 1, 1.5, 2.5, 4]'; %tilts';
+expDes.fourV = tilts'; %[0.5, 1, 1.5, 2.5, 4]'; %tilts';
 % FIRST BLOCK RE RUN [0.5, 0.75, 1, 1.25, 1.5]'; % angles (constants)
 % SECOND BLOCK RE RUN [2, 2.5, 3, 4]'
 % FIRST BLOCK SK RUN [0.5, 1, 1.5, 2.5, 4]'; % angles (constants)
@@ -73,13 +73,14 @@ expDes.nb_rand = 1;
 
 % fix this to account for added locations
 % 10 = 20 across 2 locations / 20 = 40 across 2 locations
-if (const.motion_type == '4') || (const.motion_type == '3')
-     expDes.nb_repeat = 20; %20 (for radial); 
-elseif (const.motion_type == '2') || (const.motion_type == '1')
-    expDes.nb_repeat = 10; % 10 (for tang) b/c combining the 2 conditions
-else
-    expDes.nb_repeat = 10;
-end
+%if (const.motion_type == '4') || (const.motion_type == '3')
+%     expDes.nb_repeat = 20; %20 (for radial); 
+%elseif (const.motion_type == '2') || (const.motion_type == '1')
+%    expDes.nb_repeat = 10; % 10 (for tang) b/c combining the 2 conditions
+%else
+%    expDes.nb_repeat = 10;
+%end
+expDes.nb_repeat = 20; % to evenly distribute
 %expDes.nb_trials = expDes.nb_var1 * expDes.nb_var2 * expDes.nb_var3 * expDes.nb_var4 * expDes.nb_repeat;
 expDes.nb_trials = expDes.nb_var1 * expDes.nb_var2 * expDes.nb_var3 * expDes.nb_var4 * expDes.nb_var5* expDes.nb_repeat;
 

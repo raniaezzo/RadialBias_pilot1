@@ -24,8 +24,8 @@ xCenter = x;
 yCenter = y;
 
 angle = orientation; % [0 is vertical]
-cyclespersecond = 4; %was 4
-f = const.gaborSF_xpix; % cycles per pixel:
+cyclespersecond = 8*6; %just for testing (8 deg/s with SF=6)
+f = const.gaborSF_xpix*6; % cycles per pixel (just for testing)
 drawmask = 1; 
 gratingsize = const.gaborDim_xpix; %400
 
@@ -159,6 +159,7 @@ while vbl < vblendtime
 %     Screen('DrawDots', scr.main, [xLoc; yLoc], const.fixation_xdiam, color, [], 2);
 %     Screen('DrawDots', scr.main, [-xLoc; -yLoc], const.fixation_xdiam, color, [], 2); 
     
+    % if PUT BACK, changes needed to runTrials.m
      %if movieframe_n == 1  % save first frame of each movie (not the rest for speed)
      %    rect = [];
      %    % added to save movie clip

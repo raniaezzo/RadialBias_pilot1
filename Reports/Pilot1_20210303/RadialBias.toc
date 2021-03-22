@@ -9,8 +9,9 @@
 \contentsline {subsection}{\numberline {2.4}TESTING SPEED 6.5 deg / s (eccentricity = 7 deg)}{7}{subsection.2.4}%
 \contentsline {subsection}{\numberline {2.5}TESTING ECCENTRICITY 14 deg (speed = 4 deg / s)}{8}{subsection.2.5}%
 \contentsline {subsection}{\numberline {2.6}Current number of trials (RE only)}{9}{subsection.2.6}%
-\contentsline {section}{\numberline {3}Updates}{10}{section.3}%
-\contentsline {section}{\numberline {4}To Do}{11}{section.4}%
-\contentsline {section}{\numberline {5}Extra Figures}{11}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Psychometric Function (Cumulative normal)}{11}{subsection.5.1}%
-\contentsline {section}{\numberline {6}Software to Cite}{11}{section.6}%
+\contentsline {section}{\numberline {3}Current Goals}{9}{section.3}%
+\contentsline {section}{\numberline {4}Updates}{10}{section.4}%
+\contentsline {section}{\numberline {5}To Do}{11}{section.5}%
+\contentsline {section}{\numberline {6}Extra Figures}{11}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Psychometric Function (Cumulative normal)}{11}{subsection.6.1}%
+\contentsline {section}{\numberline {7}Software to Cite}{11}{section.7}%
