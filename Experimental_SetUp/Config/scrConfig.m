@@ -14,10 +14,11 @@ function [scr]=scrConfig(const)
 
 % Number of the exp screen:
 scr.all = Screen('Screens');
-if const.experimenter == 'Rania'
-    scr.scr_num = 1;
-else
-    scr.scr_num = max(scr.all);
+switch const.experimenter
+    case 'Rania'
+        scr.scr_num = 1;
+    otherwise
+        scr.scr_num = max(scr.all);
 end
 
 % scr.scr_num = 1; % temp

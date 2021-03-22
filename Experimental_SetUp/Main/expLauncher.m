@@ -16,12 +16,12 @@ InitializePsychSound(1);
 clear all;clear mex;clear functions;
 close all;home;ListenChar(1);tic
 addpath(genpath(pwd));
-load('./Config/conditions.mat')
+load('../Config/conditions.mat')
 
 EL_mode = 1; % 0 = no eyelink; 1 = eyelink
 EL_modes = {'OFF','ON'};
 
-const.DEBUG = 0; % Debug flag
+const.DEBUG = 1; %0; % Debug flag
 
 % exp_mode is either practice, threshold to find thresh using staircase procedure, or experiment
 % which uses manual input determined from staircase
@@ -97,10 +97,10 @@ switch screen_details.localHostName
         const.desiredFD    = 60;   % Desired refresh rate (change this later)
         const.desiredRes   = [1024 820];  % Desired resolution
         const.experimenter = 'Rania';
-    case 'Bas-iMac'
+    case 'Bass-iMac'
         disp('Undefined screen configuration for this computer.')
         const.desiredFD    = 60; 
-        const.desiredRes   = []; 
+        const.desiredRes   = [1280 720]; 
         const.experimenter = 'Bas';
     case 'fechner' % R1 eyetracker
         const.desiredFD    = 60;
