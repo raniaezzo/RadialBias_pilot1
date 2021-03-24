@@ -25,7 +25,7 @@ yCenter = y;
 
 angle = orientation; % [0 is vertical]
 speed = 8; % deg/s
-sf = 1/2; % cyc/deg
+sf = 3; % cyc/deg
 f = sf*const.gaborSF_xpix; % spatial frequency (cycles per pixel) (just for testing)
 cyclespersecond = sf*speed; % temporal frequency just for testing (8 deg/s with SF=6)
 

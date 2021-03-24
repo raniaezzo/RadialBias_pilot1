@@ -5,7 +5,7 @@ clear all;
 
 % subject list
 subjects = {'RE'}; % RE, SK
-conditions = {'VU','LL','HL','UR','VL','UL','HR','LR'};
+conditions = {'UR','UL','LL','LR'}; %{'VU','LL','HL','UR','VL','UL','HR','LR'};
 %{'LL','UR','UL','LR'};
 %{'VU','HL','VL','HR'};
 %{'VU','LL','HL','UR','VL','UL','HR','LR'};

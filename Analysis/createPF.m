@@ -7,7 +7,7 @@ clear all;
 % create PF figure
 rng('default')
 
-sets = {'Final_ecc7_speed8_card'};
+sets = {'SF_3'};
 %{'Final_ecc7_speed8_cardobl'}; %{'Sets_Combined'}; %{'SetA'}; %{'Set1','Set2','Sets_Combined'};
 subject = 'RE'; %'RE','SK'
 figure
@@ -97,7 +97,7 @@ for ss=1:length(sets)
     PF = @PAL_CumulativeNormal; %@PAL_Logistic; %
     bool_paramsFree = [1 1 0 0];
     searchGrid.alpha = [min(total_conditions):0.01:max(total_conditions)];
-    searchGrid.beta = [0.5:0.01:15]; %maybe need to change?
+    searchGrid.beta = [0.03:0.01:20]; %maybe need to change?
     searchGrid.gamma = 0;
     searchGrid.lambda = 0;
 
@@ -201,7 +201,7 @@ for ss=1:length(sets)
     hold on
     alpha(.3)
     legend('outward','inward','tang', 'Location','Northwest')
-    title('Cumulative Normal Fit (Cardinal data)')
+    title('Cumulative Normal Fit (SF-3, LR Loc)')
     ax = gca; 
     ax.FontSize = 40;
     stringsave = sprintf('PF_%s',subject);
@@ -227,7 +227,7 @@ n_highs = n_highs-n_means;
 er = errorbar(n_sets, n_means,n_lows,n_highs, 'r', 'LineStyle','none', 'linewidth', 2);
 set(gca,'xticklabel',{'radialout','radialin','tang'})
 ylabel('mean beta')
-title('RE Mean Slope w/ CI (Diagonal data)')
+title('RE Mean Slope w/ CI (SF-3, LR Loc)')
 %ylim([0.5 1])
 ax = gca; 
 ax.FontSize = 20;
@@ -255,7 +255,7 @@ er = errorbar(n_sets, n_means,n_lows,n_highs, 'r', 'LineStyle','none', 'linewidt
 set(gca,'xticklabel',{'radialout','radialin','tang'})
 ylabel('mean alpha')
 ylim([-2,2])
-title('RE Mean Bias w/ CI (Diagonal data)')
+title('RE Mean Bias w/ CI (SF-3, LR Loc)')
 ax = gca; 
 ax.FontSize = 20;
 stringsave = sprintf('MeanBiasError_ci_%s',subject);
