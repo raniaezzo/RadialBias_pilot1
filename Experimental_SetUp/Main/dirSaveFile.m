@@ -13,7 +13,7 @@ function [const] = dirSaveFile(const)
 % ----------------------------------------------------------------------
 
 
-[currentpath] = sprintf(cd);
+[currentpath] = fullfile(cd);
 [~, ParentFolderName] = fileparts(currentpath);
 if ParentFolderName ~= 'Experimental_SetUp'
     disp('Not in correct directory. Please run code from Experimental_SetUp dir.')

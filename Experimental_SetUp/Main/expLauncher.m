@@ -92,25 +92,32 @@ end
 
 % Screen
 screen_details = Screen('Computer');
-switch screen_details.localHostName
-    case 'Ranias-MacBook-Pro-2'
-        const.desiredFD    = 60;   % Desired refresh rate (change this later)
-        const.desiredRes   = [1024 820];  % Desired resolution
-        const.experimenter = 'Rania';
-    case 'Bass-iMac'
-        disp('Undefined screen configuration for this computer.')
-        const.desiredFD    = 60; 
-        const.desiredRes   = [1280 720]; 
-        const.experimenter = 'Bas';
-    case 'fechner' % R1 eyetracker
-        const.desiredFD    = 60;
-        const.desiredRes   = [1280 960];
-        const.experimenter = 'Carrasco-R1';
-        disp('fechner')
-    otherwise
-        disp('Undefined screen configuration for this computer.')
-        const.DEBUG = 0;
-        const.experimenter = 'Unknown';
+
+if strcmp(screen_details.system, 'NT-10.0.9200 - ')
+    const.desiredFD    = 60;   % Desired refresh rate (change this later)
+    const.desiredRes   = [1024 768];  % Desired resolution
+    const.experimenter = 'RM-956';
+else
+    switch screen_details.localHostName
+        case 'Ranias-MacBook-Pro-2'
+            const.desiredFD    = 60;   % Desired refresh rate (change this later)
+            const.desiredRes   = [1024 820];  % Desired resolution
+            const.experimenter = 'Rania';
+        case 'Bass-iMac'
+            disp('Undefined screen configuration for this computer.')
+            const.desiredFD    = 60; 
+            const.desiredRes   = [1280 720]; 
+            const.experimenter = 'Bas';
+        case 'fechner' % R1 eyetracker
+            const.desiredFD    = 60;
+            const.desiredRes   = [1280 960];
+            const.experimenter = 'Carrasco-R1';
+            disp('fechner')
+        otherwise
+            disp('Undefined screen configuration for this computer.')
+            const.DEBUG = 0;
+            const.experimenter = 'Unknown';
+    end
 end
 
 % Path :
