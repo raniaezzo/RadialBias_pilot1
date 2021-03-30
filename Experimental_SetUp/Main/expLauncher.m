@@ -21,7 +21,7 @@ load('conditions.mat')
 EL_mode = 1; % 0 = no eyelink; 1 = eyelink
 EL_modes = {'OFF','ON'};
 
-const.DEBUG = 0; %0; % Debug flag
+const.DEBUG = 0; % Debug flag
 
 % exp_mode is either practice, threshold to find thresh using staircase procedure, or experiment
 % which uses manual input determined from staircase
