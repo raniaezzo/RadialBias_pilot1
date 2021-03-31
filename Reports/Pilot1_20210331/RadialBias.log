@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  31 MAR 2021 09:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  31 MAR 2021 10:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -719,7 +719,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 289.
 Here is how much of TeX's memory you used:
  10819 strings out of 480608
  206698 string characters out of 5903631
- 474915 words of memory out of 5000000
+ 475915 words of memory out of 5000000
  26463 multiletter control sequences out of 15000+600000
  542629 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -734,7 +734,7 @@ local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/lo
 cal/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local
 /texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/
 texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on RadialBias.pdf (10 pages, 3130037 bytes).
+Output written on RadialBias.pdf (10 pages, 3130119 bytes).
 PDF statistics:
  236 PDF objects out of 1000 (max. 8388607)
  174 compressed objects within 2 object streams
