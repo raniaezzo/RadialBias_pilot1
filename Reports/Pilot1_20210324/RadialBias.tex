@@ -25,7 +25,7 @@
 
 % declare the title, date and author
 \title{Radial Bias Pilot 1}
-\date{Mar 24, 2021}
+\date{Mar 31, 2021}
 \author{Rania Ezzo}
 
 % This is where the actual document starts
@@ -125,9 +125,23 @@ Radial in alpha = [cardinal \& diagonal directions =  -0.21, cardinal = -0.18, d
 \\
 Tangential alpha = [cardinal \& diagonal directions =  0.67, cardinal = -0.25, diagonal = -1.17]
 
+\newpage
+\subsection{Polar Angle Plot}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.5]{Images/performance_polarplot.png}
+\caption{Polar plots by performance (range 50-100\%). Each point is 400 trials (collapsed across blocks).}
+\end{figure}
+\subsection{Quality Control \& Misc.}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.25]{Images/block_performance.png}
+\caption{To check that performance does not vary too much between blocks. Cardinal blocks are interweaved with diagonal blocks, and consistently show better performance.}
+\end{figure}
+
 %% testing SF
 \newpage
-\section{Data}
+\section{Spatial Frequency Data}
 \subsection{Psychometric Function (Cumulative normal)}
 \begin{figure}[H]
 \centering % centers the figure
@@ -167,29 +181,52 @@ Tangential alpha = [Low SF = -0.12, High SF = -0.45]
 
 
 \newpage
-\subsection{Polar Angle Plot}
-\begin{figure}[H]
-\centering % centers the figure
-\includegraphics[scale=.5]{Images/performance_polarplot.png}
-\caption{Polar plots by performance (range 50-100\%). Each point is 400 trials (collapsed across blocks).}
-\end{figure}
-\subsection{Quality Control \& Misc.}
-\begin{figure}[H]
-\centering % centers the figure
-\includegraphics[scale=.25]{Images/block_performance.png}
-\caption{To check that performance does not vary too much between blocks. Cardinal blocks are interweaved with diagonal blocks, and consistently show better performance.}
-\end{figure}
-
-\newpage
 \section{Current Goals} 
 \begin{enumerate}
-	\item Does radial bias occur in respect to motion direction or orientation of 1D drifting gratings? So far, evidence points to motion direction (but potentially conflicts with Hong paper).
-	\item Is there a difference in sensitivity to radial-inward vs. radial-outwards motion? So far, there doesn't seem to be a difference at 7 deg eccentricity.
-	\item Does radial bias increase with eccentricity? Within radial condition, does difference of sensitivity between inwards/outwards motion increase with eccentricity?
-	\item Is sensitivity to cardinal locations (i.e. orientations/directions) greater than sensitivity to diagonal locations (oblique orientations/directions)? Radial bias and cardinal bias might jointly result in better performance.
-	\item Is there an HVA or VMA present at given eccentricities?
-	\item How does this extend to plaid stimuli? Does the bias apply to the component motion direction or the apparent motion direction?
+	\item Does radial bias occur in respect to motion direction or orientation w/ 1D drifting gratings? 
+	\begin{itemize}
+	\item{Interesting because there is evidence for both, but these effects are at odds.} 
+	\item{So far, evidence points to radial bias in respect to motion domain (conflict w/ Hong).}
+	\end{itemize}
+	\item Is sensitivity to cardinal locations (i.e. orientations/directions) greater than sensitivity to diagonal locations (oblique orientations/directions)? 
+	\begin{itemize}
+	\item{Cardinal bias might enhance performance for orientation, which cancels out the radial differences on the cardinal axis.}
+	\end{itemize}
+	\item Is there an HVA or VMA present for any/all of the conditions? (SF in design matters in this case)
+	\end{enumerate}
+	\begin{figure}[H]
+	\centering % centers the figure
+	\includegraphics[scale=.25]{Images/Cartoon1.png}
+	\end{figure}
+	\begin{figure}[H]
+	\centering % centers the figure
+	\includegraphics[scale=.25]{Images/Cartoon2.png}
+	\includegraphics[scale=.25]{Images/Cartoon3.png}
+	\end{figure}
+	\begin{figure}[H]
+	\centering % centers the figure
+	\includegraphics[scale=.25]{Images/Cartoon4.png}
+	\includegraphics[scale=.25]{Images/Cartoon5.png}
+	\includegraphics[scale=.25]{Images/Cartoon6.png}
+	\end{figure}
+	
+\newpage
+\section{Questions to think about some more} 
+\begin{enumerate}
+	\item How does this extend to plaid stimuli? Does the bias apply to the component motion direction or the perceived motion direction?
+	\begin{figure}[H]
+	\centering % centers the figure
+	\includegraphics[scale=.25]{Images/Cartoon7.png}
+	\\
+	\includegraphics[scale=.25]{Images/Cartoon8.png}
+	\end{figure}
+	\item Is there a difference in sensitivity to radial-inward vs. radial-outwards motion? 
+	\begin{itemize}
+	\item{So far, there doesn't seem to be a difference at 7 deg eccentricity.}
+	\end{itemize}
+	\item Maybe abandon question about how these biases change w/ eccentricity.
 \end{enumerate}
+
 
 \newpage
 \section{Updates} 
@@ -200,13 +237,11 @@ Tangential alpha = [Low SF = -0.12, High SF = -0.45]
 		\begin{itemize}
 			\item{Note: For cardinal locations, it feels difficult to not perform task based on orientation}
 		\end{itemize}
-	\item Implemented log spacing (0.5 - 8) for stimuli for whenever eye tracking.
-	\item Same number of trials run for tangential left/right, and radial in/out for balance.
 	\end{itemize}
 \item Analysis Related
 	\begin{itemize}
-	\item Changed permanently to higher speed (8 deg / s) and full block runs for all polar angles.
 	\item Running 2 spatial frequencies at one location (to test differences)
+	\item I feel it's harder to not use orientation to complete task with higher SFs.
 	\end{itemize}
 \item Other improvements
 	\begin{itemize}
@@ -216,7 +251,7 @@ Tangential alpha = [Low SF = -0.12, High SF = -0.45]
 	\begin{itemize}
 	\item \textbf{Eye tracker in RM 956}
 		\begin{itemize}
-			\item{No server connection in that room.}
+			\item{No server connection in that room. Where to store data?}
 			\item{Need to calibrate CRT monitor.}
 		\end{itemize}
 	\item \textbf{Subject payments, grant}

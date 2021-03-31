@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  24 MAR 2021 15:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  31 MAR 2021 09:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -541,68 +541,68 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  [1
 
 {/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<Images/Radial_sequence.png, id=85, 712.6625pt x 326.21875pt>
+<Images/Radial_sequence.png, id=90, 712.6625pt x 326.21875pt>
 File: Images/Radial_sequence.png Graphic file (type png)
 <use Images/Radial_sequence.png>
 Package pdftex.def Info: Images/Radial_sequence.png  used on input line 64.
 (pdftex.def)             Requested size: 285.05995pt x 130.48518pt.
-<Images/Tang_sequence.png, id=87, 714.67pt x 326.21875pt>
+<Images/Tang_sequence.png, id=92, 714.67pt x 326.21875pt>
 File: Images/Tang_sequence.png Graphic file (type png)
 <use Images/Tang_sequence.png>
 Package pdftex.def Info: Images/Tang_sequence.png  used on input line 66.
 (pdftex.def)             Requested size: 285.86293pt x 130.48518pt.
-<Images/Blocks.png, id=88, 539.01375pt x 295.1025pt>
+<Images/Blocks.png, id=93, 539.01375pt x 295.1025pt>
 File: Images/Blocks.png Graphic file (type png)
 <use Images/Blocks.png>
 Package pdftex.def Info: Images/Blocks.png  used on input line 75.
 (pdftex.def)             Requested size: 215.60167pt x 118.0389pt.
  [2 <./Images/Radial_sequence.png> <./Images/Tang_sequence.png>]
 [3 <./Images/Blocks.png>]
-<Images/PF_cardobl.png, id=110, 2890.8pt x 1523.6925pt>
+<Images/PF_cardobl.png, id=115, 2890.8pt x 1523.6925pt>
 File: Images/PF_cardobl.png Graphic file (type png)
 <use Images/PF_cardobl.png>
 Package pdftex.def Info: Images/PF_cardobl.png  used on input line 100.
 (pdftex.def)             Requested size: 173.44052pt x 91.4176pt.
-<Images/MeanSlopeError_cardobl.png, id=111, 1124.2pt x 843.15pt>
+<Images/MeanSlopeError_cardobl.png, id=116, 1124.2pt x 843.15pt>
 File: Images/MeanSlopeError_cardobl.png Graphic file (type png)
 <use Images/MeanSlopeError_cardobl.png>
 Package pdftex.def Info: Images/MeanSlopeError_cardobl.png  used on input line 
 101.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/MeanBiasError_cardobl.png, id=112, 1124.2pt x 843.15pt>
+<Images/MeanBiasError_cardobl.png, id=117, 1124.2pt x 843.15pt>
 File: Images/MeanBiasError_cardobl.png Graphic file (type png)
 <use Images/MeanBiasError_cardobl.png>
 Package pdftex.def Info: Images/MeanBiasError_cardobl.png  used on input line 1
 02.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/PF_obl.png, id=113, 2890.8pt x 1523.6925pt>
+<Images/PF_obl.png, id=118, 2890.8pt x 1523.6925pt>
 File: Images/PF_obl.png Graphic file (type png)
 <use Images/PF_obl.png>
 Package pdftex.def Info: Images/PF_obl.png  used on input line 103.
 (pdftex.def)             Requested size: 173.44052pt x 91.4176pt.
-<Images/MeanSlopeError_obl.png, id=114, 1124.2pt x 843.15pt>
+<Images/MeanSlopeError_obl.png, id=119, 1124.2pt x 843.15pt>
 File: Images/MeanSlopeError_obl.png Graphic file (type png)
 <use Images/MeanSlopeError_obl.png>
 Package pdftex.def Info: Images/MeanSlopeError_obl.png  used on input line 104.
 
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/MeanBiasError_obl.png, id=115, 1124.2pt x 843.15pt>
+<Images/MeanBiasError_obl.png, id=120, 1124.2pt x 843.15pt>
 File: Images/MeanBiasError_obl.png Graphic file (type png)
 <use Images/MeanBiasError_obl.png>
 Package pdftex.def Info: Images/MeanBiasError_obl.png  used on input line 105.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/PF_card.png, id=116, 2890.8pt x 1587.9325pt>
+<Images/PF_card.png, id=121, 2890.8pt x 1587.9325pt>
 File: Images/PF_card.png Graphic file (type png)
 <use Images/PF_card.png>
 Package pdftex.def Info: Images/PF_card.png  used on input line 106.
 (pdftex.def)             Requested size: 173.44052pt x 95.27184pt.
-<Images/MeanSlopeError_card.png, id=117, 1124.2pt x 843.15pt>
+<Images/MeanSlopeError_card.png, id=122, 1124.2pt x 843.15pt>
 File: Images/MeanSlopeError_card.png Graphic file (type png)
 <use Images/MeanSlopeError_card.png>
 Package pdftex.def Info: Images/MeanSlopeError_card.png  used on input line 107
 .
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/MeanBiasError_card.png, id=118, 1124.2pt x 843.15pt>
+<Images/MeanBiasError_card.png, id=123, 1124.2pt x 843.15pt>
 File: Images/MeanBiasError_card.png Graphic file (type png)
 <use Images/MeanBiasError_card.png>
 Package pdftex.def Info: Images/MeanBiasError_card.png  used on input line 108.
@@ -613,74 +613,117 @@ PNG copy)> <./Images/MeanBiasError_cardobl.png (PNG copy)> <./Images/PF_obl.png
  (PNG copy)> <./Images/MeanSlopeError_obl.png (PNG copy)> <./Images/MeanBiasErr
 or_obl.png (PNG copy)> <./Images/PF_card.png (PNG copy)> <./Images/MeanSlopeErr
 or_card.png (PNG copy)> <./Images/MeanBiasError_card.png (PNG copy)>]
-<Images/PF_SF0.5.png, id=124, 2890.8pt x 1525.7pt>
-File: Images/PF_SF0.5.png Graphic file (type png)
-<use Images/PF_SF0.5.png>
-Package pdftex.def Info: Images/PF_SF0.5.png  used on input line 134.
-(pdftex.def)             Requested size: 173.44052pt x 91.53804pt.
-<Images/MeanSlopeError_SF0.5.png, id=125, 1124.2pt x 843.15pt>
-File: Images/MeanSlopeError_SF0.5.png Graphic file (type png)
-<use Images/MeanSlopeError_SF0.5.png>
-Package pdftex.def Info: Images/MeanSlopeError_SF0.5.png  used on input line 13
-5.
-(pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/MeanBiasError_SF0.5.png, id=126, 1124.2pt x 843.15pt>
-File: Images/MeanBiasError_SF0.5.png Graphic file (type png)
-<use Images/MeanBiasError_SF0.5.png>
-Package pdftex.def Info: Images/MeanBiasError_SF0.5.png  used on input line 136
-.
-(pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/PF_SF3.png, id=127, 2890.8pt x 1525.7pt>
-File: Images/PF_SF3.png Graphic file (type png)
-<use Images/PF_SF3.png>
-Package pdftex.def Info: Images/PF_SF3.png  used on input line 137.
-(pdftex.def)             Requested size: 173.44052pt x 91.53804pt.
-<Images/MeanSlopeError_SF3.png, id=128, 1124.2pt x 843.15pt>
-File: Images/MeanSlopeError_SF3.png Graphic file (type png)
-<use Images/MeanSlopeError_SF3.png>
-Package pdftex.def Info: Images/MeanSlopeError_SF3.png  used on input line 138.
-
-(pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/MeanBiasError_SF3.png, id=129, 1124.2pt x 843.15pt>
-File: Images/MeanBiasError_SF3.png Graphic file (type png)
-<use Images/MeanBiasError_SF3.png>
-Package pdftex.def Info: Images/MeanBiasError_SF3.png  used on input line 139.
-(pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
- [5 <./Images/PF_SF0.5.png (PNG copy)> <./Images/MeanSlopeError_SF0.5.png (PNG 
-copy)> <./Images/MeanBiasError_SF0.5.png (PNG copy)> <./Images/PF_SF3.png (PNG 
-copy)> <./Images/MeanSlopeError_SF3.png (PNG copy)> <./Images/MeanBiasError_SF3
-.png (PNG copy)>]
-<Images/performance_polarplot.png, id=135, 562.1pt x 421.575pt>
+<Images/performance_polarplot.png, id=129, 562.1pt x 421.575pt>
 File: Images/performance_polarplot.png Graphic file (type png)
 <use Images/performance_polarplot.png>
 Package pdftex.def Info: Images/performance_polarplot.png  used on input line 1
-73.
+32.
 (pdftex.def)             Requested size: 281.04932pt x 210.78697pt.
-<Images/block_performance.png, id=136, 1124.2pt x 843.15pt>
+<Images/block_performance.png, id=130, 1124.2pt x 843.15pt>
 File: Images/block_performance.png Graphic file (type png)
 <use Images/block_performance.png>
-Package pdftex.def Info: Images/block_performance.png  used on input line 179.
+Package pdftex.def Info: Images/block_performance.png  used on input line 138.
 (pdftex.def)             Requested size: 281.04932pt x 210.78697pt.
- [6 <./Images/performance_polarplot.png (PNG copy)> <./Images/block_performance
-.png (PNG copy)>] [7] [8]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 254.
- [9]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 254.
+ [5 <./Images/performance_polarplot.png (PNG copy)> <./Images/block_performance
+.png (PNG copy)>]
+<Images/PF_SF0.5.png, id=137, 2890.8pt x 1525.7pt>
+File: Images/PF_SF0.5.png Graphic file (type png)
+<use Images/PF_SF0.5.png>
+Package pdftex.def Info: Images/PF_SF0.5.png  used on input line 148.
+(pdftex.def)             Requested size: 173.44052pt x 91.53804pt.
+<Images/MeanSlopeError_SF0.5.png, id=138, 1124.2pt x 843.15pt>
+File: Images/MeanSlopeError_SF0.5.png Graphic file (type png)
+<use Images/MeanSlopeError_SF0.5.png>
+Package pdftex.def Info: Images/MeanSlopeError_SF0.5.png  used on input line 14
+9.
+(pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
+<Images/MeanBiasError_SF0.5.png, id=139, 1124.2pt x 843.15pt>
+File: Images/MeanBiasError_SF0.5.png Graphic file (type png)
+<use Images/MeanBiasError_SF0.5.png>
+Package pdftex.def Info: Images/MeanBiasError_SF0.5.png  used on input line 150
+.
+(pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
+<Images/PF_SF3.png, id=140, 2890.8pt x 1525.7pt>
+File: Images/PF_SF3.png Graphic file (type png)
+<use Images/PF_SF3.png>
+Package pdftex.def Info: Images/PF_SF3.png  used on input line 151.
+(pdftex.def)             Requested size: 173.44052pt x 91.53804pt.
+<Images/MeanSlopeError_SF3.png, id=141, 1124.2pt x 843.15pt>
+File: Images/MeanSlopeError_SF3.png Graphic file (type png)
+<use Images/MeanSlopeError_SF3.png>
+Package pdftex.def Info: Images/MeanSlopeError_SF3.png  used on input line 152.
+
+(pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
+<Images/MeanBiasError_SF3.png, id=142, 1124.2pt x 843.15pt>
+File: Images/MeanBiasError_SF3.png Graphic file (type png)
+<use Images/MeanBiasError_SF3.png>
+Package pdftex.def Info: Images/MeanBiasError_SF3.png  used on input line 153.
+(pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
+ [6 <./Images/PF_SF0.5.png (PNG copy)> <./Images/MeanSlopeError_SF0.5.png (PNG 
+copy)> <./Images/MeanBiasError_SF0.5.png (PNG copy)> <./Images/PF_SF3.png (PNG 
+copy)> <./Images/MeanSlopeError_SF3.png (PNG copy)> <./Images/MeanBiasError_SF3
+.png (PNG copy)>]
+<Images/Cartoon1.png, id=148, 780.9175pt x 370.38374pt>
+File: Images/Cartoon1.png Graphic file (type png)
+<use Images/Cartoon1.png>
+Package pdftex.def Info: Images/Cartoon1.png  used on input line 199.
+(pdftex.def)             Requested size: 195.2289pt x 92.5957pt.
+<Images/Cartoon2.png, id=149, 774.895pt x 331.2375pt>
+File: Images/Cartoon2.png Graphic file (type png)
+<use Images/Cartoon2.png>
+Package pdftex.def Info: Images/Cartoon2.png  used on input line 203.
+(pdftex.def)             Requested size: 193.72327pt x 82.80916pt.
+<Images/Cartoon3.png, id=150, 779.91376pt x 331.2375pt>
+File: Images/Cartoon3.png Graphic file (type png)
+<use Images/Cartoon3.png>
+Package pdftex.def Info: Images/Cartoon3.png  used on input line 204.
+(pdftex.def)             Requested size: 194.97797pt x 82.80916pt.
+<Images/Cartoon4.png, id=151, 52.195pt x 3.01125pt>
+File: Images/Cartoon4.png Graphic file (type png)
+<use Images/Cartoon4.png>
+Package pdftex.def Info: Images/Cartoon4.png  used on input line 208.
+(pdftex.def)             Requested size: 13.0487pt x 0.7528pt.
+<Images/Cartoon5.png, id=152, 523.9575pt x 316.18124pt>
+File: Images/Cartoon5.png Graphic file (type png)
+<use Images/Cartoon5.png>
+Package pdftex.def Info: Images/Cartoon5.png  used on input line 209.
+(pdftex.def)             Requested size: 130.98904pt x 79.0451pt.
+<Images/Cartoon6.png, id=153, 560.0925pt x 314.17375pt>
+File: Images/Cartoon6.png Graphic file (type png)
+<use Images/Cartoon6.png>
+Package pdftex.def Info: Images/Cartoon6.png  used on input line 210.
+(pdftex.def)             Requested size: 140.02278pt x 78.54324pt.
+ [7 <./Images/Cartoon1.png> <./Images/Cartoon2.png> <./Images/Cartoon3.png> <./
+Images/Cartoon4.png> <./Images/Cartoon5.png> <./Images/Cartoon6.png>]
+<Images/Cartoon7.png, id=169, 747.79375pt x 425.59pt>
+File: Images/Cartoon7.png Graphic file (type png)
+<use Images/Cartoon7.png>
+Package pdftex.def Info: Images/Cartoon7.png  used on input line 219.
+(pdftex.def)             Requested size: 186.94797pt x 106.39723pt.
+<Images/Cartoon8.png, id=170, 368.37625pt x 432.61626pt>
+File: Images/Cartoon8.png Graphic file (type png)
+<use Images/Cartoon8.png>
+Package pdftex.def Info: Images/Cartoon8.png  used on input line 221.
+(pdftex.def)             Requested size: 92.09383pt x 108.1538pt.
+ [8 <./Images/Cartoon7.png> <./Images/Cartoon8.png>] [9]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 289.
+ [10]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 289.
  (./RadialBias.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 254.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 254.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 289.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 289.
 Package rerunfilecheck Info: File `RadialBias.out' has not changed.
-(rerunfilecheck)             Checksum: F66766272597D14E1792EDFB3F8CE3D1;828.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 254.
+(rerunfilecheck)             Checksum: 2642272FE528F9C306CFB3C749FFF10E;916.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 289.
  ) 
 Here is how much of TeX's memory you used:
- 10768 strings out of 480608
- 205663 string characters out of 5903631
- 475915 words of memory out of 5000000
- 26422 multiletter control sequences out of 15000+600000
+ 10819 strings out of 480608
+ 206698 string characters out of 5903631
+ 474915 words of memory out of 5000000
+ 26463 multiletter control sequences out of 15000+600000
  542629 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,6n,46p,833b,776s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 39i,7n,46p,833b,776s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 }</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
 </usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
@@ -691,10 +734,10 @@ local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/lo
 cal/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local
 /texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/
 texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on RadialBias.pdf (9 pages, 1695325 bytes).
+Output written on RadialBias.pdf (10 pages, 3130037 bytes).
 PDF statistics:
- 211 PDF objects out of 1000 (max. 8388607)
- 166 compressed objects within 2 object streams
- 45 named destinations out of 1000 (max. 500000)
- 213 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 236 PDF objects out of 1000 (max. 8388607)
+ 174 compressed objects within 2 object streams
+ 47 named destinations out of 1000 (max. 500000)
+ 261 words of extra memory for PDF output out of 10000 (max. 10000000)
 
