@@ -142,7 +142,8 @@ while vbl < vblendtime
     
     % Draw grating texture, rotated by "angle": % this was prior settings (1 line
     % below)
-    Screen('DrawTexture', scr.main, gratingtex, srcRect, dstRect, angle);
+    %alpha = 0.5 (contrast)
+    Screen('DrawTexture', scr.main, gratingtex, srcRect, dstRect, angle, [],  0.5);
     
     %if drawmask==1
     % Draw gaussian mask over grating: 

@@ -9,7 +9,8 @@
 \contentsline {section}{\numberline {3}Spatial Frequency Data}{6}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Psychometric Function (Cumulative normal)}{6}{subsection.3.1}%
 \contentsline {section}{\numberline {4}Current Goals}{7}{section.4}%
-\contentsline {section}{\numberline {5}Questions to think about some more}{8}{section.5}%
-\contentsline {section}{\numberline {6}Updates}{9}{section.6}%
-\contentsline {section}{\numberline {7}To Do}{9}{section.7}%
-\contentsline {section}{\numberline {8}Software to Cite}{10}{section.8}%
+\contentsline {section}{\numberline {5}Extending to Plaid Stimuli}{8}{section.5}%
+\contentsline {section}{\numberline {6}Supplemental Questions}{8}{section.6}%
+\contentsline {section}{\numberline {7}Updates}{9}{section.7}%
+\contentsline {section}{\numberline {8}To Do}{9}{section.8}%
+\contentsline {section}{\numberline {9}Software to Cite}{10}{section.9}%
