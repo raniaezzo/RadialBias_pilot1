@@ -142,7 +142,7 @@ while vbl < vblendtime
     
     % Draw grating texture, rotated by "angle": % this was prior settings (1 line
     % below)
-    %alpha = 0.5 (contrast)
+    %alpha = 0.5 or 1 (0-1 ocontrast)
     Screen('DrawTexture', scr.main, gratingtex, srcRect, dstRect, angle, [],  0.5);
     
     %if drawmask==1
