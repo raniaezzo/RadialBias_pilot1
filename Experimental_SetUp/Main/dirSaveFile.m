@@ -20,7 +20,7 @@ if ParentFolderName ~= 'Experimental_SetUp'
 end
 
 % Creates Directory
-if ~isdir(sprintf('%s/Data/%s',currentpath,const.sjct))
+if ~isfolder(sprintf('%s/Data/%s',currentpath,const.sjct))
     mkdir(sprintf('%s/Data/%s',currentpath,const.sjct));
     cd (sprintf('%s/Data/%s',currentpath,const.sjct));
 else
@@ -32,7 +32,7 @@ end
 if const.expStart
     %expDir = sprintf('Data/%s/ExpData/Block%i',const.sjct,const.fromBlock);
     expDir = sprintf('%s/ExpData/Block%i',currentpath,const.fromBlock);
-    if ~isdir(expDir)
+    if ~isfolder(expDir)
         mkdir(expDir);
         cd(expDir);
     else
@@ -48,7 +48,7 @@ if const.expStart
     
     % delete any saved movies
     movieDir = sprintf('%s/Movies',expDir);
-    if isdir(movieDir)
+    if isfolder(movieDir)
         %delete(sprintf('%\*', movieDir));
         rmdir(movieDir, 's')
     end
@@ -57,7 +57,7 @@ else
     const.c = clock;
     
     debugDir = sprintf('%s/DebugData/%i-%i_trials/',currentpath, const.c(2),const.c(3));
-    if ~isdir(debugDir)
+    if ~isfolder(debugDir)
         mkdir(debugDir);
         cd (debugDir);
     else
@@ -84,6 +84,9 @@ elseif const.motion_type == '8'
     motion_type = 'HL';
 end
 
+const.eyeDataDir = 'eyedata';
+const.eyeFile = sprintf('eyedata_%s%s_%s', const.sjctCode,datestr(now, 'YYYYmmddHH'),  motion_type);
+
 % Defines saving file names
 const.scr_fileDat =         sprintf('scr_file%s_%s.dat',const.sjctCode, motion_type);
 const.scr_fileMat =         sprintf('scr_file%s_%s.mat',const.sjctCode, motion_type);
@@ -95,6 +98,7 @@ const.design_fileMat =      sprintf('design%s_%s.mat',const.sjctCode, motion_typ
 % Add path from the location of the data file folder
 addpath('../../../../Config/');
 addpath('../../../../Conversion/');
+addpath('../../../../Eyetracking/');
 addpath('../../../../Data/');
 addpath('../../../../Instructions/');
 addpath('../../../../Main/');

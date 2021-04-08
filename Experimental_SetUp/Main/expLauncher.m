@@ -129,7 +129,7 @@ const.numBlockTot  = 10;                    % total number of block before analy
 
 % Subject configuration :
 if const.expStart
-    const.sjct = input(sprintf('\n\tInitials: '),'s');
+    const.sjct = input(sprintf('\n\tInitials (2 letters): '),'s');
     const.sjctCode = sprintf('%s_%s',const.sjct,const.expName);
     const.fromBlock  = input(sprintf('\n\tFrom Block nb: '));
     if const.fromBlock == 1
@@ -141,8 +141,9 @@ else
 end
 const.sjctCode = sprintf('%s_%s',const.sjct,const.expName);
 
-% added
-fprintf('Subject: %s, %s, eye-tracker %s.\n ',const.sjct, const.session_type, EL_modes{EL_mode+1})
+% eyetracker state (controlled by user)
+fprintf('Subject: %s, %s, if available, eye-tracker %s.\n ',const.sjct, const.session_type, EL_modes{EL_mode+1})
+const.EL_mode = EL_mode;
 
 %% Main experimental code
 for block = const.fromBlock:(const.fromBlock+numBlockMain-1)

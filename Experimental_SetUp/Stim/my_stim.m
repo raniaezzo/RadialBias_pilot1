@@ -25,9 +25,9 @@ yCenter = y;
 
 angle = orientation; % [0 is vertical]
 speed = 8; % deg/s
-sf = 3; % cyc/deg
-f = sf*const.gaborSF_xpix; % spatial frequency (cycles per pixel) (just for testing)
-cyclespersecond = sf*speed; % temporal frequency just for testing (8 deg/s with SF=6)
+sf = 1; % cyc/deg
+f = sf*const.gaborSF_xpix; % spatial frequency (cycles per pixel)
+cyclespersecond = sf*speed; % temporal frequency
 
 drawmask = 1; 
 gratingsize = const.gaborDim_xpix; %400
