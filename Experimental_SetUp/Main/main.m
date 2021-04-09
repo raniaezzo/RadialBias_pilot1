@@ -48,12 +48,12 @@ Screen('BlendFunction', scr.main, GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 priorityLevel = MaxPriority(scr.main);Priority(priorityLevel);
 
 % Initialize eyetracking
-if const.EL_mode, EL = initEyetracking(const, scr.main, const); end
-EL.ON = EL_mode;
+if const.EL_mode, EL = initEyetracking(const, scr.main); end
+EL.ON = const.EL_mode; % I dont think I need this line
 
 % Main part :
 if const.expStart;ListenChar(2);end
-GetSecs;runTrials(scr,const,expDes,my_key,textExp,button);
+GetSecs;runTrials(scr,const,expDes,my_key,textExp,button,EL);
 
 % End
 overDone

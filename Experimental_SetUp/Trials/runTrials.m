@@ -1,4 +1,4 @@
-function runTrials(scr,const,expDes,my_key,textExp,button)
+function runTrials(scr,const,expDes,my_key,textExp,button,EL)
 % ----------------------------------------------------------------------
 % runTrials(scr,const,expDes,my_key,textExp,button)
 % ----------------------------------------------------------------------
@@ -20,6 +20,14 @@ function runTrials(scr,const,expDes,my_key,textExp,button)
 
 %% General instructions:
 instructions(scr,const,my_key,textExp.instruction1,button.instruction1);
+
+% Check for eyetracking
+if const.EL_mode
+    [~, exitFlag] = initEyelinkStates('calibrate', scr.main, EL);
+    %if exitFlag, return, end
+    % maybe add a Quit option too?
+end
+
 
 % Enable alpha blending for proper combination of the gaussian aperture
 % with the drifting sine grating:

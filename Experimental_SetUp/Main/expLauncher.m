@@ -130,6 +130,9 @@ const.numBlockTot  = 10;                    % total number of block before analy
 % Subject configuration :
 if const.expStart
     const.sjct = input(sprintf('\n\tInitials (2 letters): '),'s');
+    while length(const.sjct) ~= 2
+        const.sjct = input(sprintf('\n\tInitials (MUST BE 2 LETTER INITIAL): '),'s');
+    end
     const.sjctCode = sprintf('%s_%s',const.sjct,const.expName);
     const.fromBlock  = input(sprintf('\n\tFrom Block nb: '));
     if const.fromBlock == 1

@@ -27,7 +27,7 @@ else
     cd (sprintf('%s/Data/%s',currentpath,const.sjct));
 end
 
-[currentpath] = sprintf(cd);
+[currentpath] = fullfile(cd);
 
 if const.expStart
     %expDir = sprintf('Data/%s/ExpData/Block%i',const.sjct,const.fromBlock);
@@ -85,7 +85,9 @@ elseif const.motion_type == '8'
 end
 
 const.eyeDataDir = 'eyedata';
-const.eyeFile = sprintf('eyedata_%s%s_%s', const.sjctCode,datestr(now, 'YYYYmmddHH'),  motion_type);
+const.eyeFile = sprintf('%s%s', motion_type,datestr(now, 'mmddHH'));
+
+if length(const.eyeFile) > 8, error('EYELINK SET UP: filename must be <= 8 digits!'),end
 
 % Defines saving file names
 const.scr_fileDat =         sprintf('scr_file%s_%s.dat',const.sjctCode, motion_type);

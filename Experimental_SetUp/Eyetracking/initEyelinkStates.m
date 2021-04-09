@@ -68,7 +68,8 @@ switch command
         edfFile = sprintf('%s.edf', eyeFile);
         edfFileStatus = Eyelink('OpenFile', edfFile);
         if edfFileStatus == 0
-            fprintf('\nEye file opened.\n\n')
+            fprintf('\nEye file opened in:\n\n')
+            fprintf('%s\n\n', pwd)
         else
             fprintf('\nCannot open eye file (check if the eyelink is really shut down!).\n');
             Screen('CloseAll')

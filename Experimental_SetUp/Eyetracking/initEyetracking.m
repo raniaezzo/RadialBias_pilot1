@@ -1,4 +1,4 @@
-function EL = initEyetracking(const, w_ptr, scr)
+function EL = initEyetracking(const, w_ptr)
 
 %% Initialize Eyetracker
 
