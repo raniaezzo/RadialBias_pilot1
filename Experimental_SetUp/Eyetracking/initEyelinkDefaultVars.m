@@ -79,6 +79,7 @@ el.targetdisplaysound='EyelinkTargetBeep';
 el.calibrationfailedsound='EyelinkErrorBeep';
 el.calibrationsuccesssound='EyelinkSuccessBeep';
 el.targetbeep=1;  % sound a beep when a target is presented
+el.feedbackbeep=1; % RE added
 
 % define beep sounds (frequency, volume, duration);
 el.cal_target_beep=[1250 0.6 0.05];
@@ -283,18 +284,17 @@ el.INPUTEVENT=28;  % /* change of input port */
 el.LOSTDATAEVENT=hex2dec('3F'); %/*new addition v2.1, returned by eyelink_get_next_data() to flag a gap in the data stream due to queue filling up (need to get data more frequently)
                                 %/*described in 'EyeLink Programmers Guide.pdf' section 7.2.2, 13.3.2, 18.5.4
 
-% if exist('EyelinkDispatchCallback') %#ok<EXIST>
-%     el.callback = 'EyelinkDispatchCallback';
-% else
-%     el.callback = [];
-% end
+%if exist('EyelinkDispatchCallback') %#ok<EXIST>
+%    el.callback = 'EyelinkDispatchCallback';
+%else
+%    el.callback = [];
+%end
 
 if exist('PsychEyelinkDispatchCallback') %#ok<EXIST>
     el.callback = 'PsychEyelinkDispatchCallback';
 else
     el.callback = [];
 end
-
 
 EyelinkUpdateDefaults(el);
 

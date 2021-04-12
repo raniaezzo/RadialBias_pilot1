@@ -19,15 +19,39 @@ function runTrials(scr,const,expDes,my_key,textExp,button,EL)
 % ----------------------------------------------------------------------
 
 %% General instructions:
-instructions(scr,const,my_key,textExp.instruction1,button.instruction1);
+keyPressed = instructions(scr,const,my_key,textExp.instruction1,button.instruction1);
+
+% added
+while KbCheck; end
+FlushEvents('KeyDown');
+clear KbCheck;
+[keyIsDown, ~, keyCode] = KbCheck(-1);
+
+% Proceed after eyetracking instructions
+%CorrectKeyPressed = 0;
+%keyCode = 0;
+%while ~ CorrectKeyPressed
+%    [ ~, ~, keyCode ] = KbCheck(-1);
+%    if sum(keyCode) > 0
+%        keyPressed = find(keyCode);
+%        CorrectKeyPressed = 1;
+%    end
+%end
+
+%DisableKeysForKbCheck([13]); % stuck down?
 
 % Check for eyetracking
-if const.EL_mode
-    [~, exitFlag] = initEyelinkStates('calibrate', scr.main, EL);
-    %if exitFlag, return, end
-    % maybe add a Quit option too?
+switch keyPressed
+    case 32 % space on PC
+        if const.EL_mode
+            [~, exitFlag] = initEyelinkStates('calibrate', scr.main, EL);
+            if exitFlag, return, end
+        end
+    case 81 % 'q' on PC
+        if const.EL_mode, Eyelink('Shutdown'); end
+        makeBeep([.1 .1], 1000)
+        Screen('CloseAll'); error('Alert: Experiment stopped by user!');
 end
-
 
 % Enable alpha blending for proper combination of the gaussian aperture
 % with the drifting sine grating:

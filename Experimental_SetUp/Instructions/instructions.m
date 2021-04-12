@@ -1,4 +1,4 @@
-function instructions(scr,const,my_key,text,button)
+function keyPressed = instructions(scr,const,my_key,text,button)
 % ----------------------------------------------------------------------
 % instructions(scr,const,my_key,text,button)
 % ----------------------------------------------------------------------
@@ -49,4 +49,8 @@ while ~push_button
             overDone;
         end
     end
+end
+
+keyPressed = find(keyCode);
+
 end

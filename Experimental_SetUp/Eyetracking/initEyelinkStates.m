@@ -88,14 +88,21 @@ switch command
         DrawFormattedText(window, cali_string, 'center', 'center', 1, []);
         Screen('Flip', window, 0, 1); 
         
+        % eyetracker instructions until space/q is pressed
         contKey = '';
         while isempty(find(strcmp(contKey,'space'), 1))
             keyIsDown = 0;
             while ~keyIsDown
                 [keyIsDown, ~, keyCode] = KbCheck(-1); %% listen to all keyboards
+                disp(find(keyCode))
             end
             contKey = KbName(find(keyCode));
         end
+        
+        % clear keyBoard events
+        while KbCheck; end
+        FlushEvents('KeyDown');
+        clear KbCheck;
         
         if strcmp(contKey,'q')
             ListenChar(0);
@@ -108,7 +115,7 @@ switch command
         end
         Screen('Flip', window, 0, 1);
         
-        cali = EyelinkDoTrackerSetup(EL);
+        cali = EyelinkDoTrackerSetup(EL);    % this fails --
         if cali == EL.TERMINATE_KEY, exitFlag = 1;return, end
         
         output = cali;
