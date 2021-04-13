@@ -27,19 +27,6 @@ FlushEvents('KeyDown');
 clear KbCheck;
 [keyIsDown, ~, keyCode] = KbCheck(-1);
 
-% Proceed after eyetracking instructions
-%CorrectKeyPressed = 0;
-%keyCode = 0;
-%while ~ CorrectKeyPressed
-%    [ ~, ~, keyCode ] = KbCheck(-1);
-%    if sum(keyCode) > 0
-%        keyPressed = find(keyCode);
-%        CorrectKeyPressed = 1;
-%    end
-%end
-
-%DisableKeysForKbCheck([13]); % stuck down?
-
 % Check for eyetracking
 switch keyPressed
     case 32 % space on PC
@@ -81,7 +68,7 @@ while ~expDone
         while ~trialDone
 
             try
-                [resMat, xUpdate_tilt] = runSingleTrial(scr,const,expDes,my_key,t);
+                [resMat, xUpdate_tilt] = runSingleTrial(scr,const,expDes,my_key,t,EL);
                 const.stairs.xCurrent = xUpdate_tilt; % added
                 % maybe change this so that it is not selective pauses but
                 % blocked pauses
@@ -95,7 +82,7 @@ while ~expDone
                     expResMat(t,:)= [expDes.expMat(t,:),resMat];
                     csvwrite(const.expRes_fileCsv,expResMat);
                 end
-            catch                         % for esc
+            catch                         % for esc & broken fixation
                 trialDone = 1;
                 newJ = 0;                 % no added trials
                 expDone = 1;              % stop exp loop
@@ -109,6 +96,7 @@ while ~expDone
                 return;
             end
         end
+        if const.EL_mode, Eyelink('message', 'TRIAL_END'); end
     end
     %% If error of fixation of volontary missed trial
     if ~newJ

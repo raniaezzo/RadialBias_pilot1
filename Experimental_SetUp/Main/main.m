@@ -43,7 +43,6 @@ end
 [scr.main,scr.rect] = PsychImaging('OpenWindow', scr.scr_num, [.5 .5 .5], winRect, 32, 2,...
      [], [],  kPsychNeed32BPCFloat);   % just added
 
-
 Screen('BlendFunction', scr.main, GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 priorityLevel = MaxPriority(scr.main);Priority(priorityLevel);
 
@@ -54,6 +53,12 @@ EL.ON = const.EL_mode; % I dont think I need this line
 % Main part :
 if const.expStart;ListenChar(2);end
 GetSecs;runTrials(scr,const,expDes,my_key,textExp,button,EL);
+
+% saving eye tracking file
+if const.EL_mode
+    if ~exist(const.eyeDataDir,'dir'), mkdir(const.eyeDataDir); end
+    initEyelinkStates('eyestop', scr.main, {const.eyeFile, const.eyeDataDir})
+end
 
 % End
 overDone

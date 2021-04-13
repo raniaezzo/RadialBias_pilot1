@@ -62,6 +62,9 @@ scr.x_mid = (scr.scr_sizeX/2.0); %
 scr.y_mid = (scr.scr_sizeY/2.0); %
 scr.mid = [scr.x_mid,scr.y_mid]; %
 
+scr.ppd = vaDeg2pix(1, scr); % screen pixel per degree
+scr.rad = 1.5 * scr.ppd; % screen radius (for fixation forgiveness)
+
 %% Saving procedure :
 scr_file = fopen(const.scr_fileDat,'w');
 fprintf(scr_file,'Resolution size X (pxl):\t%i\n',scr.scr_sizeX);

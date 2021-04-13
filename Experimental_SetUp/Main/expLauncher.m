@@ -95,7 +95,7 @@ screen_details = Screen('Computer');
 
 if strcmp(screen_details.system, 'NT-10.0.9200 - ')
     const.desiredFD    = 60;   % Desired refresh rate (change this later)
-    const.desiredRes   = [1024 768];  % Desired resolution
+    const.desiredRes   = [1152, 864]; %[1024 768];  % Desired resolution
     const.experimenter = 'RM-956';
 else
     switch screen_details.localHostName

@@ -1,4 +1,4 @@
-function [resMat, xUpdate_tilt]=runSingleTrial(scr,const,expDes,my_key,t)
+function [resMat, xUpdate_tilt]=runSingleTrial(scr,const,expDes,my_key,t,EL)
 % ----------------------------------------------------------------------
 % [resMat] = runSingleTrial(scr,const,expDes,my_key,t)
 % ----------------------------------------------------------------------
@@ -99,39 +99,71 @@ end
 
 
 %% Main loop
+eventsDone = 0;
+while ~ eventsDone
+    for tframes = 1:const.numFrm_Tot
+        Screen('FillRect',scr.main,const.colBG);
 
-for tframes = 1:const.numFrm_Tot
-    Screen('FillRect',scr.main,const.colBG);
+        %% First interval
+        % T1
+        if tframes >= const.numFrm_T1_start && tframes <= const.numFrm_T1_end
+            my_fixation(scr,const,const.black);
+            % eyetracking
+            if const.EL_mode
+                initEyelinkStates('trialstart', scr.main, {EL, t, scr.x_mid, scr.y_mid, scr.rad})
+            end
+            fixation = 1;
+        end
 
-    %% First interval
-    % T1
-    if tframes >= const.numFrm_T1_start && tframes <= const.numFrm_T1_end
-        my_fixation(scr,const,const.black);
+        % T2
+        %if tframes == const.numFrm_T2_start
+        if tframes >= const.numFrm_T2_start && tframes <= const.numFrm_T2_end
+             if const.EL_mode
+                fixation = initEyelinkStates('fixcheck', scr.main, {scr.x_mid, scr.y_mid, scr.rad});
+             end
+            if ~ fixation
+                DrawFormattedText(scr.main, sprintf('Please fixate'), 'center', 'center')
+                Screen('Flip', scr.main); WaitSecs(1)
+                stopThisTrial = 1; eventsDone = 1;
+            end
+        end
+
+        % T3
+        %if tframes >= const.numFrm_T3_start && tframes <= const.numFrm_T3_end
+        if tframes == const.numFrm_T3_start
+            my_stim(scr,const,const.black, tframes, const.numFrm_T3_end,xDist,yDist, orientation, t);
+            if const.EL_mode
+                fixation = initEyelinkStates('fixcheck', scr.main, {scr.x_mid, scr.y_mid, scr.rad});
+             end
+            if ~ fixation
+                DrawFormattedText(scr.main, sprintf('Please fixate'), 'center', 'center')
+                Screen('Flip', scr.main); WaitSecs(1)
+                stopThisTrial = 1; eventsDone = 1;
+            end
+        end
+
+        vbl = Screen('Flip',scr.main);
+
+        % Answer screen
+        if tframes >= const.numFrm_T3_end
+            [key_press,tRT]=getAnswer(scr,const,my_key);
+            tRT = tRT - vbl;
+        end
+
     end
-    
-    % T2
-    %if tframes == const.numFrm_T2_start
-    if tframes >= const.numFrm_T2_start && tframes <= const.numFrm_T2_end
-        %my_sound(const); % do not use sound (replace w/ feedback)
-    end
-    
-    % T3
-    %if tframes >= const.numFrm_T3_start && tframes <= const.numFrm_T3_end
-    if tframes == const.numFrm_T3_start
-        my_stim(scr,const,const.black, tframes, const.numFrm_T3_end,xDist,yDist, orientation, t);
-    end
-
-    vbl = Screen('Flip',scr.main);
-
-%end
-
-% Answer screen
-    if tframes >= const.numFrm_T3_end
-        [key_press,tRT]=getAnswer(scr,const,my_key);
-        tRT = tRT - vbl;
-    end
-
+    eventsDone = 1;
 end
+
+%% saving some EYELINK data (not sure what this actually does?)
+switch fixation
+    case 0
+        if const.EL_mode, Eyelink('command', 'draw text 100 100 42 Fixation break'); end
+    case 1
+        if const.EL_mode, Eyelink('message', 'EVENT_ClearScreen'); end
+end
+
+
+%% making angles intelligible
 
 OUT_stand_direction = flipangle(standard);
 OUT_test_direction = flipangle(orientation);
@@ -143,69 +175,74 @@ if OUT_stand_direction == 0 % make counterclockwise for 0 e.g. -5 instead of 355
     OUT_test_direction = (360-OUT_test_direction)*-1;
 end
 
-if key_press.rightShift == 1
-    % evaluate correct/incorrect
-    if clockwise == 1 %clockwise_target == 1 % when stimulus is clockwise relative to standard
-        correct = 1;
-    else
-        correct = 0;
-    end
-    resMat = [OUT_stand_orientation, OUT_test_orientation, OUT_stand_direction, OUT_test_direction, clockwise, 2,tRT, correct]; % was just 2, tRT before
-elseif key_press.leftShift == 1
-    % evaluate correct/incorrect
-    if clockwise == 0 %clockwise_target == -1 % when stimulus is clockwise relative to standard
-        correct = 1;
-    else
-        correct = 0;
-    end
-    resMat = [OUT_stand_orientation, OUT_test_orientation, OUT_stand_direction, OUT_test_direction, clockwise, 1,tRT, correct];
-elseif key_press.space == 1  % pause
-    correct = NaN;
-    resMat = [OUT_stand_orientation, OUT_test_orientation, OUT_stand_direction, OUT_test_direction, clockwise, -1,tRT, correct];
-elseif key_press.escape == 1
+%%
+
+if stopThisTrial % lost fixation (broken trial)
+    disp('~~~~~~~~~~~~~~~ broken fixation ~~~~~~~~~~~~~~')
     correct = NaN;
     resMat = [OUT_stand_orientation, OUT_test_orientation, OUT_stand_direction, OUT_test_direction, clockwise, NaN,tRT, correct];
-    %overDone;
-end
-
-
-if (key_press.rightShift == 1) || (key_press.leftShift == 1)
-    %if correct == 0
-    %    my_sound(const) % no longer using
-    %end
-    if correct == 0
-        makeBeep(.1,400)
-    elseif correct == 1
-        makeBeep(.1,800)
-    end
-    disp('Correct = ')
-    disp(correct)
-
-    % adjust staircase level
-    if const.use_staircase
-        % for now just assume all are correct (just to check code)
-        const.stairs = usePalamedesStaircase(const.stairs, correct); 
-        disp('Palamedes output')
-        disp(const.stairs)
-        disp('Adjusted tilt to add')
-        disp(const.stairs.xCurrent)
-        xUpdate_tilt = const.stairs.xCurrent; % added new tilt
-        const.stairvec = [const.stairvec, const.stairs]; 
-    else
-        %xUpdate_tilt = const.stairs.xCurrent; % use current if not staircased
-        %constant_stimuli = ; %[1, 2, 2.5, 3, 5, 6, 8];
-        xUpdate_tilt = NaN; %randsample(constant_stimuli,1);
-    end
-    disp('~~~~~~~~~~~~~~~ end of trial ~~~~~~~~~~~~~~')
-elseif key_press.space == 1
     xUpdate_tilt = NaN;
-    disp('~~~~~~~~~~~~~~~ requested break ~~~~~~~~~~~~~~')
-elseif key_press.escape == 1
-    xUpdate_tilt = NaN;
-    %overDone;
-    disp('~~~~~~~~~~~~~~~ aborted trial ~~~~~~~~~~~~~~')
+else % if trial was completed successfully
+    % evaluate correct/incorrect
+    if key_press.rightShift == 1
+        if clockwise == 1 %clockwise_target == 1 % when stimulus is clockwise relative to standard
+            correct = 1;
+        else
+            correct = 0;
+        end
+        resMat = [OUT_stand_orientation, OUT_test_orientation, OUT_stand_direction, OUT_test_direction, clockwise, 2,tRT, correct]; % was just 2, tRT before
+    elseif key_press.leftShift == 1
+        if clockwise == 0 %clockwise_target == -1 % when stimulus is clockwise relative to standard
+            correct = 1;
+        else
+            correct = 0;
+        end
+        resMat = [OUT_stand_orientation, OUT_test_orientation, OUT_stand_direction, OUT_test_direction, clockwise, 1,tRT, correct];
+    elseif key_press.space == 1  % pause
+        correct = NaN;
+        resMat = [OUT_stand_orientation, OUT_test_orientation, OUT_stand_direction, OUT_test_direction, clockwise, -1,tRT, correct];
+    elseif key_press.escape == 1
+        correct = NaN;
+        resMat = [OUT_stand_orientation, OUT_test_orientation, OUT_stand_direction, OUT_test_direction, clockwise, NaN,tRT, correct];
+        %overDone;
+    end
+
+    % for trials w/ valid answers
+    if (key_press.rightShift == 1) || (key_press.leftShift == 1)
+        % sound feedback
+        if correct == 0
+            makeBeep(.1,400)
+        elseif correct == 1
+            makeBeep(.1,800)
+        end
+        disp('Correct = ')
+        disp(correct)
+
+        % adjust staircase level
+        if const.use_staircase
+            % for now just assume all are correct (just to check code)
+            const.stairs = usePalamedesStaircase(const.stairs, correct); 
+            disp('Palamedes output')
+            disp(const.stairs)
+            disp('Adjusted tilt to add')
+            disp(const.stairs.xCurrent)
+            xUpdate_tilt = const.stairs.xCurrent; % added new tilt
+            const.stairvec = [const.stairvec, const.stairs]; 
+        else
+            %xUpdate_tilt = const.stairs.xCurrent; % use current if not staircased
+            %constant_stimuli = ; %[1, 2, 2.5, 3, 5, 6, 8];
+            xUpdate_tilt = NaN; %randsample(constant_stimuli,1);
+        end
+        disp('~~~~~~~~~~~~~~~ end of trial ~~~~~~~~~~~~~~')
+    elseif key_press.space == 1
+        xUpdate_tilt = NaN;
+        disp('~~~~~~~~~~~~~~~ requested break ~~~~~~~~~~~~~~')
+    elseif key_press.escape == 1
+        xUpdate_tilt = NaN;
+        %overDone;
+        disp('~~~~~~~~~~~~~~~ aborted trial ~~~~~~~~~~~~~~')
+    end
+
 end
-
-
 
 end
