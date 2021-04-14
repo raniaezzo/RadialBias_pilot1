@@ -97,61 +97,62 @@ else
     clockwise = 0;
 end
 
+%if ~ const.EL_mode
+%    fixation = 1;
+if const.EL_mode
+    disp('const.EL_mode = 1')
+    [x, y] = RectCenter(scr.rect); % can just use scr. values?
+    initEyelinkStates('trialstart', scr.main, {EL, t, x, y, scr.rad})
+    disp('tracking..')
+end
+fixation = 1; % for both eyetracking and no eyetracking
 
 %% Main loop
-eventsDone = 0;
-while ~ eventsDone
-    for tframes = 1:const.numFrm_Tot
-        Screen('FillRect',scr.main,const.colBG);
+stopThisTrial = 0;
+for tframes = 1:const.numFrm_Tot
+    Screen('FillRect',scr.main,const.colBG);
 
-        %% First interval
-        % T1
-        if tframes >= const.numFrm_T1_start && tframes <= const.numFrm_T1_end
-            my_fixation(scr,const,const.black);
-            % eyetracking
-            if const.EL_mode
-                initEyelinkStates('trialstart', scr.main, {EL, t, scr.x_mid, scr.y_mid, scr.rad})
-            end
-            fixation = 1;
-        end
-
-        % T2
-        %if tframes == const.numFrm_T2_start
-        if tframes >= const.numFrm_T2_start && tframes <= const.numFrm_T2_end
-             if const.EL_mode
-                fixation = initEyelinkStates('fixcheck', scr.main, {scr.x_mid, scr.y_mid, scr.rad});
-             end
-            if ~ fixation
-                DrawFormattedText(scr.main, sprintf('Please fixate'), 'center', 'center')
-                Screen('Flip', scr.main); WaitSecs(1)
-                stopThisTrial = 1; eventsDone = 1;
-            end
-        end
-
-        % T3
-        %if tframes >= const.numFrm_T3_start && tframes <= const.numFrm_T3_end
-        if tframes == const.numFrm_T3_start
-            my_stim(scr,const,const.black, tframes, const.numFrm_T3_end,xDist,yDist, orientation, t);
-            if const.EL_mode
-                fixation = initEyelinkStates('fixcheck', scr.main, {scr.x_mid, scr.y_mid, scr.rad});
-             end
-            if ~ fixation
-                DrawFormattedText(scr.main, sprintf('Please fixate'), 'center', 'center')
-                Screen('Flip', scr.main); WaitSecs(1)
-                stopThisTrial = 1; eventsDone = 1;
-            end
-        end
-
-        vbl = Screen('Flip',scr.main);
-
-        % Answer screen
-        if tframes >= const.numFrm_T3_end
-            [key_press,tRT]=getAnswer(scr,const,my_key);
-            tRT = tRT - vbl;
-        end
-
+    %% First interval
+    % T1
+    if ((tframes >= const.numFrm_T1_start) && (tframes <= const.numFrm_T1_end) && (stopThisTrial == 0))
+        my_fixation(scr,const,const.black);
+        % eyetracking
     end
-    eventsDone = 1;
+
+    % T2 (pause)
+    if (tframes >= const.numFrm_T2_start) && (tframes <= const.numFrm_T2_end) && (stopThisTrial == 0)
+         if const.EL_mode
+            fixation = initEyelinkStates('fixcheck', scr.main, {scr.x_mid, scr.y_mid, scr.rad});
+         end
+        if ~ fixation
+            DrawFormattedText(scr.main, sprintf('Please fixate'), 'center', 'center')
+            Screen('Flip', scr.main); WaitSecs(1)
+            stopThisTrial = 1;
+            tframes = const.numFrm_Tot; % trying this?
+        end
+    end
+
+    % T3
+    %if tframes >= const.numFrm_T3_start && tframes <= const.numFrm_T3_end
+    if tframes == const.numFrm_T3_start
+        complete = my_stim(scr,const,const.black, tframes, const.numFrm_T3_end,xDist,yDist, orientation, t, fixation);
+        if (const.EL_mode) && (complete == 0)
+            fixation = 0;
+            DrawFormattedText(scr.main, sprintf('Please fixate'), 'center', 'center')
+            Screen('Flip', scr.main); WaitSecs(1)
+            stopThisTrial = 1;
+            tframes = const.numFrm_Tot; % trying this?
+        end
+    end
+
+    vbl = Screen('Flip',scr.main);
+
+    % Answer screen
+    if (tframes >= const.numFrm_T3_end) && (stopThisTrial == 0)
+        [key_press,tRT]=getAnswer(scr,const,my_key);
+        tRT = tRT - vbl;
+    end
+
 end
 
 %% saving some EYELINK data (not sure what this actually does?)
@@ -180,7 +181,8 @@ end
 if stopThisTrial % lost fixation (broken trial)
     disp('~~~~~~~~~~~~~~~ broken fixation ~~~~~~~~~~~~~~')
     correct = NaN;
-    resMat = [OUT_stand_orientation, OUT_test_orientation, OUT_stand_direction, OUT_test_direction, clockwise, NaN,tRT, correct];
+    tRT = NaN;
+    resMat = [OUT_stand_orientation, OUT_test_orientation, OUT_stand_direction, OUT_test_direction, clockwise, -2,tRT, correct];
     xUpdate_tilt = NaN;
 else % if trial was completed successfully
     % evaluate correct/incorrect
@@ -229,9 +231,7 @@ else % if trial was completed successfully
             xUpdate_tilt = const.stairs.xCurrent; % added new tilt
             const.stairvec = [const.stairvec, const.stairs]; 
         else
-            %xUpdate_tilt = const.stairs.xCurrent; % use current if not staircased
-            %constant_stimuli = ; %[1, 2, 2.5, 3, 5, 6, 8];
-            xUpdate_tilt = NaN; %randsample(constant_stimuli,1);
+            xUpdate_tilt = NaN;
         end
         disp('~~~~~~~~~~~~~~~ end of trial ~~~~~~~~~~~~~~')
     elseif key_press.space == 1

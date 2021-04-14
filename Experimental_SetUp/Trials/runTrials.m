@@ -67,34 +67,36 @@ while ~expDone
         trialDone = 0;
         while ~trialDone
 
-            try
+            %try
                 [resMat, xUpdate_tilt] = runSingleTrial(scr,const,expDes,my_key,t,EL);
                 const.stairs.xCurrent = xUpdate_tilt; % added
-                % maybe change this so that it is not selective pauses but
-                % blocked pauses
-                if resMat(end-2) == -1 % if pausing experiment (space)
+                if resMat(end-2) == -1 % if pausing experiment (space) (code = -1)
                     trialDone = 1;
                     newJ = newJ+1;
                     expDes.expMatAdd(newJ,:) = expDes.expMat(t,:);
                     instructions(scr,const,my_key,textExp.pause,button.pause);
+                elseif resMat(end-2) == -2 % broken fixation (code = -2)
+                    trialDone = 1;
+                    newJ = newJ+1;
+                    expDes.expMatAdd(newJ,:) = expDes.expMat(t,:);
                 else
                     trialDone = 1; % completed trials
                     expResMat(t,:)= [expDes.expMat(t,:),resMat];
                     csvwrite(const.expRes_fileCsv,expResMat);
                 end
-            catch                         % for esc & broken fixation
-                trialDone = 1;
-                newJ = 0;                 % no added trials
-                expDone = 1;              % stop exp loop
-                expResMat(t,:)= [expDes.expMat(t,:),resMat];
-                csvwrite(const.expRes_fileCsv,expResMat);
-                % copied below for whenever exiting function
-                const.my_clock_end = clock;
-                const_file = fopen(const.const_fileDat,'a+');
-                fprintf(const_file,'Ending time :\t%ih%i',const.my_clock_end(4),const.my_clock_end(5));
-                fclose('all');
-                return;
-            end
+            %catch                         % for esc
+            %    trialDone = 1;
+            %    newJ = 0;                 % no added trials
+            %    expDone = 1;              % stop exp loop
+            %    expResMat(t,:)= [expDes.expMat(t,:),resMat];
+            %    csvwrite(const.expRes_fileCsv,expResMat);
+            %    % copied below for whenever exiting function
+            %    const.my_clock_end = clock;
+            %    const_file = fopen(const.const_fileDat,'a+');
+            %    fprintf(const_file,'Ending time :\t%ih%i',const.my_clock_end(4),const.my_clock_end(5));
+            %    fclose('all');
+            %    return;
+            %end
         end
         if const.EL_mode, Eyelink('message', 'TRIAL_END'); end
     end
@@ -114,6 +116,13 @@ const.my_clock_end = clock;
 const_file = fopen(const.const_fileDat,'a+');
 fprintf(const_file,'Ending time :\t%ih%i',const.my_clock_end(4),const.my_clock_end(5));
 fclose('all');
-instructions(scr,const,my_key,textExp.end,button.end);
+
+% saving eye tracking file
+if const.EL_mode
+    if ~exist(const.eyeDataDir,'dir'), mkdir(const.eyeDataDir); end
+    initEyelinkStates('eyestop', scr.main, {const.eyeFile, const.eyeDataDir})
+end
+
+instructions(scr,const,my_key,textExp.end,button.end); % thank you message
 
 end

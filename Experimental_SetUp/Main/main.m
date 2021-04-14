@@ -54,12 +54,6 @@ EL.ON = const.EL_mode; % I dont think I need this line
 if const.expStart;ListenChar(2);end
 GetSecs;runTrials(scr,const,expDes,my_key,textExp,button,EL);
 
-% saving eye tracking file
-if const.EL_mode
-    if ~exist(const.eyeDataDir,'dir'), mkdir(const.eyeDataDir); end
-    initEyelinkStates('eyestop', scr.main, {const.eyeFile, const.eyeDataDir})
-end
-
 % End
 overDone
 

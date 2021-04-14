@@ -1,4 +1,4 @@
-function my_stim(scr,const,color,tframes, endframe, xDist, yDist, orientation, trialnumber)
+function complete = my_stim(scr,const,color,tframes, endframe, xDist, yDist, orientation, trialnumber, fixation)
 % ----------------------------------------------------------------------
 % my_stim(scr,color,x,y,sideX,sideY)
 % ----------------------------------------------------------------------
@@ -7,12 +7,21 @@ function my_stim(scr,const,color,tframes, endframe, xDist, yDist, orientation, t
 % ----------------------------------------------------------------------
 % Input(s) :
 % scr = Window Pointer                              ex : w
-% color = color of the circle in RBG or RGBA        ex : color = [0 0 0]
 % const = structure containing constant configurations.
+% color = color of the circle in RBG or RGBA        ex : color = [0 0 0]
 % tframes = current frame
 % endframe = frame to end the stimulus
+% xDist = x eccentricity distance (pixels)?
+% yDist = y eccentricity distance (pixels)
+% orientation = orientation of grating w/ added tilt (0 deg = vertical)
+% trialnumber = trial iteration n
+% fixation = whether fixation is maintained         ex : 0 (broken
+% fixation)
 % ----------------------------------------------------------------------
 % Output(s):
+% complete : whether the stimulus was fully presented
+%   1 = complete
+%   0 = incomplete (due to break in fixation)
 % ----------------------------------------------------------------------
 moviepath = sprintf('%s/Movies/%i',pwd, trialnumber);
 gray = const.gray(1);
@@ -112,7 +121,19 @@ i=0;
 movieframe_n = 1;
     
 % Animationloop:
-while vbl < vblendtime
+while (vbl < vblendtime) && fixation
+    
+    
+    if const.EL_mode
+        fixation = initEyelinkStates('fixcheck', scr.main, {scr.x_mid, scr.y_mid, scr.rad});
+    end
+    if ~ fixation
+        DrawFormattedText(scr.main, sprintf('Please fixate'), 'center', 'center')
+        Screen('Flip', scr.main); WaitSecs(1)
+        complete = 0;
+        return
+    end
+    
     % Shift the grating by "shiftperframe" pixels per frame:
     % the mod'ulo operation makes sure that our "aperture" will snap
     % back to the beginning of the grating, once the border is reached.
@@ -178,4 +199,5 @@ while vbl < vblendtime
     end
 end
 
+complete = 1;
 end

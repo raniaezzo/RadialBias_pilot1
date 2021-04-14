@@ -141,7 +141,7 @@ switch command
     case 'trialstart'
         %% trial start
         % start only when we are recording and the subject is fixating
-        % rd_eyeLink('trialstart', window, {EL, run.itrial, screen.centerX, screen.centerX, screen.rad})
+        % initEyelinkStates('trialstart', window, {EL, run.itrial, screen.centerX, screen.centerX, screen.rad})
         EL = input{1};
         itrial = input{2};
         cx = input{3};
@@ -157,17 +157,17 @@ switch command
         while ~ready
             % Check that we are recording
             err = Eyelink('CheckRecording'); % report 0 is recording in progress
-            if err ~= 0, rd_eyeLink('startrecording', window, EL); end
+            if err ~= 0, initEyelinkStates('startrecording', window, EL); end
             
             % Verify that the subject is holding fixation for some set
             % time before allowing the trial to start. A
             % timeout period is built into this function.
-            fixation = rd_eyeLink('fixholdcheck', window, {cx, cy, rad});
+            fixation = initEyelinkStates('fixholdcheck', window, {cx, cy, rad});
             
             % Drift correct if fixation timed out
 
             if ~fixation
-                rd_eyeLink('driftcorrect', window, {EL, cx, cy});
+                initEyelinkStates('driftcorrect', window, {EL, cx, cy});
                 driftCorrected = 1;
                 ready = 0;
             else
@@ -281,7 +281,7 @@ switch command
         
         % if still recording, stop recording
         err = Eyelink('CheckRecording');
-        if err==0, rd_eyeLink('stoprecording'); end
+        if err==0, initEyelinkStates('stoprecording'); end
         
         fprintf('\n\nSaving file %s/%s ...\n', eyeDataDir, eyeFile)
         
@@ -290,5 +290,5 @@ switch command
         Eyelink('Shutdown');
         
     otherwise
-        error('[rd_eyeLink]: ''command'' argument not recognized. See help for available commands.')
+        error('[initEyelinkStates]: ''command'' argument not recognized. See help for available commands.')
 end

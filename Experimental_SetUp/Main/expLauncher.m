@@ -21,7 +21,8 @@ load('conditions.mat')
 EL_mode = 1; % 0 = no eyelink; 1 = eyelink
 EL_modes = {'OFF','ON'};
 
-const.DEBUG = 0; % Debug flag
+const.DEBUG = 0; % Debug flag (if debug mode, forces no eyetracking)
+if const.DEBUG, EL_mode = 0; end
 
 % exp_mode is either practice, threshold to find thresh using staircase procedure, or experiment
 % which uses manual input determined from staircase
@@ -93,7 +94,7 @@ end
 % Screen
 screen_details = Screen('Computer');
 
-if strcmp(screen_details.system, 'NT-10.0.9200 - ')
+if strcmp(screen_details.system, 'NT-10.0.9200 - ') % PC in RM 956
     const.desiredFD    = 60;   % Desired refresh rate (change this later)
     const.desiredRes   = [1152, 864]; %[1024 768];  % Desired resolution
     const.experimenter = 'RM-956';
@@ -145,7 +146,8 @@ end
 const.sjctCode = sprintf('%s_%s',const.sjct,const.expName);
 
 % eyetracker state (controlled by user)
-fprintf('Subject: %s, %s, if available, eye-tracker %s.\n ',const.sjct, const.session_type, EL_modes{EL_mode+1})
+fprintf('Subject: %s, %s, if available, eye-tracker %s.\n ', ...
+    const.sjct, const.session_type, EL_modes{EL_mode+1}) % +1 for matlab indexing
 const.EL_mode = EL_mode;
 
 %% Main experimental code
