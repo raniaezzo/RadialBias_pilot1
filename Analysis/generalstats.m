@@ -4,8 +4,8 @@ clear all;
 % general stats
 
 % subject list
-subjects = {'RE'}; % RE, SK
-conditions = {'UR','UL','LL','LR'}; %{'VU','LL','HL','UR','VL','UL','HR','LR'};
+subjects = {'FH'}; % RE, SK
+conditions = {'LL', 'UR', 'VL','HR'}; %,
 %{'LL','UR','UL','LR'};
 %{'VU','HL','VL','HR'};
 %{'VU','LL','HL','UR','VL','UL','HR','LR'};
@@ -93,6 +93,7 @@ conditions = {'radial_out','radial_in','tang'};
 
 for sub=1:length(subjects)
     for cond=1:length(conditions)
+        sprintf('~~~~~~~~%s~~~~~~~~~~~', conditions{1,cond})
         % import data
         subject = subjects{1,sub}; condition = conditions{1, cond};
         path = sprintf('../Experimental_SetUp/Data/%s/ExpData/Block1/expRes%s_RadialBias_pilot1_%s.csv', subject,subject, condition);
@@ -107,6 +108,25 @@ for sub=1:length(subjects)
         total_pc = sum(M_raw(:,14))/length(M_raw(:,14));
         disp('Total calculated percent correct = ')
         disp(total_pc)
+        %disp('dprime assuming no bias in criterion (PSYCHOPHYSICS COURSE):')
+        %disp(2*norminv(total_pc))
+        % dPrime Calculation, accounting for difference in criterion
+        Clockwise_stim = M_raw(M_raw(:,11) == 1,:);
+        PC_Clockwise = size(Clockwise_stim(Clockwise_stim(:,14) == 1),1)/size(Clockwise_stim,1);
+        Hits = size(Clockwise_stim(Clockwise_stim(:,12) == 2,:),1);
+        Misses = size(Clockwise_stim(Clockwise_stim(:,12) == 1,:),1);
+        CounterClockwise_stim = M_raw(M_raw(:,11) == 0,:);
+        PC_CClockwise = size(CounterClockwise_stim(CounterClockwise_stim(:,14) == 1),1)/size(CounterClockwise_stim,1);
+        FalseAlarms = size(CounterClockwise_stim(CounterClockwise_stim(:,12) == 2,:),1);
+        CorrRejs = size(CounterClockwise_stim(CounterClockwise_stim(:,12) == 1,:),1);
+        % hit rate and false alarm rate: https://openwetware.org/wiki/Beauchamp:dprime
+        HR = Hits/ (Hits + Misses);
+        FAR = FalseAlarms/ (FalseAlarms + CorrRejs);
+        dPrime = norminv(HR) - norminv(FAR); % same as above (sometimes)
+        %disp('dprime with bias in criterion (PSYCHOPHYSICS COURSE):')
+        %disp(norminv(PC_Clockwise)+norminv(PC_CClockwise));
+        %disp('dprime (raw calculation)= ')
+        %disp(dPrime)
 
         anglep_clockwans = [];
         anglep_nTrials = [];
@@ -139,7 +159,10 @@ for sub=1:length(subjects)
         
         clockAnsData.('rownames') = {'NumTrials';'AnsClockwise';'PercAnsClockwise';'AddedTilt'};
         
-        filename = sprintf('Datasummary_%s_%s',subject, condition);
+        if ~isdir(subject)
+            mkdir(subject)
+        end
+        filename = sprintf('%s/Datasummary_%s_%s',subject,subject, condition);
         save(filename, 'clockAnsData')
     end
     
@@ -222,31 +245,36 @@ M_allcond = [M_allcond; M_tang];
 
 m_vector_0 = M_allcond(M_allcond(:,4) == 7,:); pc_vector_0 = sum(m_vector_0(:,14))/length(m_vector_0(:,14));
 m_vector_45 = M_allcond(M_allcond(:,4) == 1,:); pc_vector_45 = sum(m_vector_45(:,14))/length(m_vector_45(:,14));
-m_vector_90 = M_allcond(M_allcond(:,4) == 5,:); pc_vector_90 = sum(m_vector_90(:,14))/length(m_vector_90(:,14));
-m_vector_135 = M_allcond(M_allcond(:,4) == 3,:); pc_vector_135 = sum(m_vector_135(:,14))/length(m_vector_135(:,14));
-m_vector_180 = M_allcond(M_allcond(:,4) == 8,:); pc_vector_180 = sum(m_vector_180(:,14))/length(m_vector_180(:,14));
+%m_vector_90 = M_allcond(M_allcond(:,4) == 5,:); pc_vector_90 = sum(m_vector_90(:,14))/length(m_vector_90(:,14));
+%m_vector_135 = M_allcond(M_allcond(:,4) == 3,:); pc_vector_135 = sum(m_vector_135(:,14))/length(m_vector_135(:,14));
+%m_vector_180 = M_allcond(M_allcond(:,4) == 8,:); pc_vector_180 = sum(m_vector_180(:,14))/length(m_vector_180(:,14));
 m_vector_225 = M_allcond(M_allcond(:,4) == 2,:); pc_vector_225 = sum(m_vector_225(:,14))/length(m_vector_225(:,14));
 m_vector_270 = M_allcond(M_allcond(:,4) == 6,:); pc_vector_270 = sum(m_vector_270(:,14))/length(m_vector_270(:,14));
-m_vector_315 = M_allcond(M_allcond(:,4) == 4,:); pc_vector_315 = sum(m_vector_315(:,14))/length(m_vector_315(:,14));
+%m_vector_315 = M_allcond(M_allcond(:,4) == 4,:); pc_vector_315 = sum(m_vector_315(:,14))/length(m_vector_315(:,14));
 
 figure(2)
 hold on
-mydata = [pc_vector_135 pc_vector_0 pc_vector_315 pc_vector_270 ...
-    pc_vector_45 pc_vector_180 pc_vector_270 pc_vector_90];
+%mydata = [pc_vector_135 pc_vector_0 pc_vector_315 pc_vector_270 ...
+%    pc_vector_45 pc_vector_180 pc_vector_270 pc_vector_90];
+%mydata = [pc_vector_90 pc_vector_135 pc_vector_270 pc_vector_315 ...
+%    pc_vector_90 pc_vector_225 pc_vector_0 pc_vector_45];
+mydata = [pc_vector_45 pc_vector_270 pc_vector_225 pc_vector_0 ];
 
 for i = 1:length(mydata)
     h=bar(i,mydata(i));
     if rem(i, 2) == 0
-        set(h,'FaceColor','c');
-    else
         set(h,'FaceColor','b');
+    else
+        set(h,'FaceColor','c');
     end
 end
 hold off
 ylim([0.5 1])
 xticks([1 2 3 4 5 6 7 8])
-xticklabels({'UL','HR','LR','VL','UR','HL','LL','VU'})
-legend('oblique directions','cardinal directions')
+%xticklabels({'UL','HR','LR','VL','UR','HL','LL','VU'})
+%xticklabels({'HL','UL','VL','LR','VU','LL','HR','UR'})
+xticklabels({'UR','VL','LL','HR'})
+legend('cardinal directions','oblique directions')
 title('Percent Correct per block (collapsed 4 locations)', 'FontSize', 14)
 
 
@@ -262,22 +290,22 @@ m_vector_0_loc_90 = m_vector_0(m_vector_0(:,3) == 6,:); m_vector_0_pc_loc_90 = s
 m_vector_0_loc_270 = m_vector_0(m_vector_0(:,3) == 5,:); m_vector_0_pc_loc_270 = sum(m_vector_0_loc_270(:,14))/length(m_vector_0_loc_270(:,14));
 
 % vector HL location HR
-m_vector_180_loc_0 = m_vector_180(m_vector_180(:,3) == 8,:); m_vector_180_pc_loc_0 = sum(m_vector_180_loc_0(:,14))/length(m_vector_180_loc_0(:,14));
+%m_vector_180_loc_0 = m_vector_180(m_vector_180(:,3) == 8,:); m_vector_180_pc_loc_0 = sum(m_vector_180_loc_0(:,14))/length(m_vector_180_loc_0(:,14));
 % vector HL location HL
-m_vector_180_loc_180 = m_vector_180(m_vector_180(:,3) == 7,:); m_vector_180_pc_loc_180 = sum(m_vector_180_loc_180(:,14))/length(m_vector_180_loc_180(:,14));
+%m_vector_180_loc_180 = m_vector_180(m_vector_180(:,3) == 7,:); m_vector_180_pc_loc_180 = sum(m_vector_180_loc_180(:,14))/length(m_vector_180_loc_180(:,14));
 % vector HL location VU
-m_vector_180_loc_90 = m_vector_180(m_vector_180(:,3) == 6,:); m_vector_180_pc_loc_90 = sum(m_vector_180_loc_90(:,14))/length(m_vector_180_loc_90(:,14));
+%m_vector_180_loc_90 = m_vector_180(m_vector_180(:,3) == 6,:); m_vector_180_pc_loc_90 = sum(m_vector_180_loc_90(:,14))/length(m_vector_180_loc_90(:,14));
 % vector HL location VL
-m_vector_180_loc_270 = m_vector_180(m_vector_180(:,3) == 5,:); m_vector_180_pc_loc_270 = sum(m_vector_180_loc_270(:,14))/length(m_vector_180_loc_270(:,14));
+%m_vector_180_loc_270 = m_vector_180(m_vector_180(:,3) == 5,:); m_vector_180_pc_loc_270 = sum(m_vector_180_loc_270(:,14))/length(m_vector_180_loc_270(:,14));
 
 % vector VU location HR
-m_vector_90_loc_0 = m_vector_90(m_vector_90(:,3) == 8,:); m_vector_90_pc_loc_0 = sum(m_vector_90_loc_0(:,14))/length(m_vector_90_loc_0(:,14));
+%m_vector_90_loc_0 = m_vector_90(m_vector_90(:,3) == 8,:); m_vector_90_pc_loc_0 = sum(m_vector_90_loc_0(:,14))/length(m_vector_90_loc_0(:,14));
 % vector VU location HL
-m_vector_90_loc_180 = m_vector_90(m_vector_90(:,3) == 7,:); m_vector_90_pc_loc_180 = sum(m_vector_90_loc_180(:,14))/length(m_vector_90_loc_180(:,14));
+%m_vector_90_loc_180 = m_vector_90(m_vector_90(:,3) == 7,:); m_vector_90_pc_loc_180 = sum(m_vector_90_loc_180(:,14))/length(m_vector_90_loc_180(:,14));
 % vector VU location VU
-m_vector_90_loc_90 = m_vector_90(m_vector_90(:,3) == 6,:); m_vector_90_pc_loc_90 = sum(m_vector_90_loc_90(:,14))/length(m_vector_90_loc_90(:,14));
+%m_vector_90_loc_90 = m_vector_90(m_vector_90(:,3) == 6,:); m_vector_90_pc_loc_90 = sum(m_vector_90_loc_90(:,14))/length(m_vector_90_loc_90(:,14));
 % vector VU location VL
-m_vector_90_loc_270 = m_vector_90(m_vector_90(:,3) == 5,:); m_vector_90_pc_loc_270 = sum(m_vector_90_loc_270(:,14))/length(m_vector_90_loc_270(:,14));
+%m_vector_90_loc_270 = m_vector_90(m_vector_90(:,3) == 5,:); m_vector_90_pc_loc_270 = sum(m_vector_90_loc_270(:,14))/length(m_vector_90_loc_270(:,14));
 
 % vector VL location HR
 m_vector_270_loc_0 = m_vector_270(m_vector_270(:,3) == 8,:); m_vector_270_pc_loc_0 = sum(m_vector_270_loc_0(:,14))/length(m_vector_270_loc_0(:,14));
@@ -296,18 +324,19 @@ rho_out = [m_vector_0_pc_loc_0 m_vector_0_pc_loc_90 m_vector_0_pc_loc_180 m_vect
 rho_out = rho_out-0.5;
 p1 = polarplot(theta, rho_out, 'b');
 hold on
-rho_out = [m_vector_180_pc_loc_0 m_vector_180_pc_loc_90 m_vector_180_pc_loc_180 m_vector_180_pc_loc_270 m_vector_180_pc_loc_0]';
-rho_out = rho_out-0.5;
-p2 = polarplot(theta, rho_out, 'g');
-hold on
-rho_out = [m_vector_90_pc_loc_0 m_vector_90_pc_loc_90 m_vector_90_pc_loc_180 m_vector_90_pc_loc_270 m_vector_90_pc_loc_0]';
-rho_out = rho_out-0.5;
-p3 = polarplot(theta, rho_out, 'm--');
-hold on
+%rho_out = [m_vector_180_pc_loc_0 m_vector_180_pc_loc_90 m_vector_180_pc_loc_180 m_vector_180_pc_loc_270 m_vector_180_pc_loc_0]';
+%rho_out = rho_out-0.5;
+%p2 = polarplot(theta, rho_out, 'g');
+%hold on
+%rho_out = [m_vector_90_pc_loc_0 m_vector_90_pc_loc_90 m_vector_90_pc_loc_180 m_vector_90_pc_loc_270 m_vector_90_pc_loc_0]';
+%rho_out = rho_out-0.5;
+%p3 = polarplot(theta, rho_out, 'm--');
+%hold on
 rho_out = [m_vector_270_pc_loc_0 m_vector_270_pc_loc_90 m_vector_270_pc_loc_180 m_vector_270_pc_loc_270 m_vector_270_pc_loc_0]';
 rho_out = rho_out-0.5;
 p4 = polarplot(theta, rho_out, 'r--');
-legend(['Motion HR';'Motion HL'; 'Motion VU'; 'Motion VL'])
+%legend(['Motion HR';'Motion HL'; 'Motion VU'; 'Motion VL'])
+legend(['Motion HR';'Motion VL'])
 rlim([0 0.5])
 rticks([0 0.1 0.2 0.3 0.4 0.5])
 rticklabels({'50%','60%','70%','80%','90%','100%'});
@@ -325,14 +354,14 @@ m_vector_45_loc_225 = m_vector_45(m_vector_45(:,3) == 3,:); m_vector_45_pc_loc_2
 % vector UR location LR
 m_vector_45_loc_315 = m_vector_45(m_vector_45(:,3) == 1,:); m_vector_45_pc_loc_315 = sum(m_vector_45_loc_315(:,14))/length(m_vector_45_loc_315(:,14));
 
-% vector UR location UL
-m_vector_135_loc_45 = m_vector_135(m_vector_135(:,3) == 4,:); m_vector_135_pc_loc_45 = sum(m_vector_135_loc_45(:,14))/length(m_vector_135_loc_45(:,14));
-% vector UR location UL
-m_vector_135_loc_135 = m_vector_135(m_vector_135(:,3) == 2,:); m_vector_135_pc_loc_135 = sum(m_vector_135_loc_135(:,14))/length(m_vector_135_loc_135(:,14));
-% vector UR location LL
-m_vector_135_loc_225 = m_vector_135(m_vector_135(:,3) == 3,:); m_vector_135_pc_loc_225 = sum(m_vector_135_loc_225(:,14))/length(m_vector_135_loc_225(:,14));
-% vector UR location LR
-m_vector_135_loc_315 = m_vector_135(m_vector_135(:,3) == 1,:); m_vector_135_pc_loc_315 = sum(m_vector_135_loc_315(:,14))/length(m_vector_135_loc_315(:,14));
+% vector UL location UR
+%m_vector_135_loc_45 = m_vector_135(m_vector_135(:,3) == 4,:); m_vector_135_pc_loc_45 = sum(m_vector_135_loc_45(:,14))/length(m_vector_135_loc_45(:,14));
+% vector UL location UL
+%m_vector_135_loc_135 = m_vector_135(m_vector_135(:,3) == 2,:); m_vector_135_pc_loc_135 = sum(m_vector_135_loc_135(:,14))/length(m_vector_135_loc_135(:,14));
+% vector UL location LL
+%m_vector_135_loc_225 = m_vector_135(m_vector_135(:,3) == 3,:); m_vector_135_pc_loc_225 = sum(m_vector_135_loc_225(:,14))/length(m_vector_135_loc_225(:,14));
+% vector UL location LR
+%m_vector_135_loc_315 = m_vector_135(m_vector_135(:,3) == 1,:); m_vector_135_pc_loc_315 = sum(m_vector_135_loc_315(:,14))/length(m_vector_135_loc_315(:,14));
 
 % vector LL location UL
 m_vector_225_loc_45 = m_vector_225(m_vector_225(:,3) == 4,:); m_vector_225_pc_loc_45 = sum(m_vector_225_loc_45(:,14))/length(m_vector_225_loc_45(:,14));
@@ -344,13 +373,13 @@ m_vector_225_loc_225 = m_vector_225(m_vector_225(:,3) == 3,:); m_vector_225_pc_l
 m_vector_225_loc_315 = m_vector_225(m_vector_225(:,3) == 1,:); m_vector_225_pc_loc_315 = sum(m_vector_225_loc_315(:,14))/length(m_vector_225_loc_315(:,14));
 
 % vector LR location UL
-m_vector_315_loc_45 = m_vector_315(m_vector_315(:,3) == 4,:); m_vector_315_pc_loc_45 = sum(m_vector_315_loc_45(:,14))/length(m_vector_315_loc_45(:,14));
+%m_vector_315_loc_45 = m_vector_315(m_vector_315(:,3) == 4,:); m_vector_315_pc_loc_45 = sum(m_vector_315_loc_45(:,14))/length(m_vector_315_loc_45(:,14));
 % vector LR location UL
-m_vector_315_loc_135 = m_vector_315(m_vector_315(:,3) == 2,:); m_vector_315_pc_loc_135 = sum(m_vector_315_loc_135(:,14))/length(m_vector_315_loc_135(:,14));
+%m_vector_315_loc_135 = m_vector_315(m_vector_315(:,3) == 2,:); m_vector_315_pc_loc_135 = sum(m_vector_315_loc_135(:,14))/length(m_vector_315_loc_135(:,14));
 % vector LR location LL
-m_vector_315_loc_225 = m_vector_315(m_vector_315(:,3) == 3,:); m_vector_315_pc_loc_225 = sum(m_vector_315_loc_225(:,14))/length(m_vector_315_loc_225(:,14));
+%m_vector_315_loc_225 = m_vector_315(m_vector_315(:,3) == 3,:); m_vector_315_pc_loc_225 = sum(m_vector_315_loc_225(:,14))/length(m_vector_315_loc_225(:,14));
 % vector LR location LR
-m_vector_315_loc_315 = m_vector_315(m_vector_315(:,3) == 1,:); m_vector_315_pc_loc_315 = sum(m_vector_315_loc_315(:,14))/length(m_vector_315_loc_315(:,14));
+%m_vector_315_loc_315 = m_vector_315(m_vector_315(:,3) == 1,:); m_vector_315_pc_loc_315 = sum(m_vector_315_loc_315(:,14))/length(m_vector_315_loc_315(:,14));
 
 
 figure
@@ -360,19 +389,20 @@ rho_out = [m_vector_45_pc_loc_45 m_vector_45_pc_loc_135 m_vector_45_pc_loc_225 m
 rho_out = rho_out-0.5;
 p1 = polarplot(theta, rho_out, 'b');
 hold on
-rho_out = [m_vector_135_pc_loc_45 m_vector_135_pc_loc_135 m_vector_135_pc_loc_225 m_vector_135_pc_loc_315 m_vector_135_pc_loc_45]';
-rho_out = rho_out-0.5;
-p2 = polarplot(theta, rho_out, 'g');
-hold on
+%rho_out = [m_vector_135_pc_loc_45 m_vector_135_pc_loc_135 m_vector_135_pc_loc_225 m_vector_135_pc_loc_315 m_vector_135_pc_loc_45]';
+%rho_out = rho_out-0.5;
+%p2 = polarplot(theta, rho_out, 'g');
+%hold on
 rho_out = [m_vector_225_pc_loc_45 m_vector_225_pc_loc_135 m_vector_225_pc_loc_225 m_vector_225_pc_loc_315 m_vector_225_pc_loc_45]';
 rho_out = rho_out-0.5;
 p3 = polarplot(theta, rho_out, 'm--');
+%hold on
+%rho_out = [m_vector_315_pc_loc_45 m_vector_315_pc_loc_135 m_vector_315_pc_loc_225 m_vector_315_pc_loc_315 m_vector_315_pc_loc_45]';
+%rho_out = rho_out-0.5;
+%p4 = polarplot(theta, rho_out, 'r--');
 hold on
-rho_out = [m_vector_315_pc_loc_45 m_vector_315_pc_loc_135 m_vector_315_pc_loc_225 m_vector_315_pc_loc_315 m_vector_315_pc_loc_45]';
-rho_out = rho_out-0.5;
-p4 = polarplot(theta, rho_out, 'r--');
-hold on
-legend(['Motion UL';'Motion UR';'Motion LL';'Motion LR'])
+%legend(['Motion UL';'Motion UR';'Motion LL';'Motion LR'])
+legend(['Motion UR';'Motion LL'])
 rlim([0 0.5])
 rticks([0 0.1 0.2 0.3 0.4 0.5])
 rticklabels({'50%','60%','70%','80%','90%','100%'});

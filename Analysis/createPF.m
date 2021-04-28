@@ -7,9 +7,9 @@ clear all;
 % create PF figure
 rng('default')
 
-sets = {'SF_3'};
+sets = {'BB_oblique'};
 %{'Final_ecc7_speed8_cardobl'}; %{'Sets_Combined'}; %{'SetA'}; %{'Set1','Set2','Sets_Combined'};
-subject = 'RE'; %'RE','SK'
+subject = 'BB'; %'RE','SK'
 figure
 
 
@@ -201,7 +201,7 @@ for ss=1:length(sets)
     hold on
     alpha(.3)
     legend('outward','inward','tang', 'Location','Northwest')
-    title('Cumulative Normal Fit (SF-3, LR Loc)')
+    title('BB (Oblique data)') %Cumulative Normal Fit
     ax = gca; 
     ax.FontSize = 40;
     stringsave = sprintf('PF_%s',subject);
@@ -227,8 +227,8 @@ n_highs = n_highs-n_means;
 er = errorbar(n_sets, n_means,n_lows,n_highs, 'r', 'LineStyle','none', 'linewidth', 2);
 set(gca,'xticklabel',{'radialout','radialin','tang'})
 ylabel('mean beta')
-title('RE Mean Slope w/ CI (SF-3, LR Loc)')
-%ylim([0.5 1])
+title('BB Mean Slope w/ CI (Oblique data)')
+ylim([0 1])
 ax = gca; 
 ax.FontSize = 20;
 stringsave = sprintf('MeanSlopeError_ci_%s',subject);
@@ -255,7 +255,7 @@ er = errorbar(n_sets, n_means,n_lows,n_highs, 'r', 'LineStyle','none', 'linewidt
 set(gca,'xticklabel',{'radialout','radialin','tang'})
 ylabel('mean alpha')
 ylim([-2,2])
-title('RE Mean Bias w/ CI (SF-3, LR Loc)')
+title('BB Mean Bias w/ CI (Oblique data)')
 ax = gca; 
 ax.FontSize = 20;
 stringsave = sprintf('MeanBiasError_ci_%s',subject);
