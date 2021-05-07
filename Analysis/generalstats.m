@@ -141,6 +141,10 @@ for sub=1:length(subjects)
             
             actual_clockwise_level = level(level(:,11) == 1,:);
             actual_cclockwise_level = level(level(:,11) ~= 1,:);
+            disp('angle')
+            disp(angle)
+            disp(length(actual_cclockwise_level))
+            disp(length(actual_clockwise_level))
 
             anglep_nTrials = [anglep_nTrials size(actual_clockwise_level,1)];
             anglep_clockwans = [anglep_clockwans size(actual_clockwise_level(actual_clockwise_level(:,12) == 2,:),1)];
