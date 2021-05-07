@@ -33,6 +33,7 @@ function [params,bootparams] = fit_PF(summary, bootsummary, b_iter)
             params.(fn{1}) = paramsValues;
             
             if ~isempty(bootsummary) || b_iter == 0
+                disp(sprintf('bootstrapping %s times...',num2str(b_iter)))
                 bootparams.(fn{1}) = bootsummary.(fn{1});
                 bootParamValues = nan(b_iter,length(paramsValues));
                 for bi=1:b_iter
@@ -41,8 +42,6 @@ function [params,bootparams] = fit_PF(summary, bootsummary, b_iter)
                     [paramsValues LL exitflag] = PAL_PFML_Fit(total_conditions,NumPos, ...
                     OutOfNum,searchGrid,bool_paramsFree, PF);
                     bootParamValues(bi,:) = paramsValues;
-                    %disp('bootstrap param values')
-                    disp(paramsValues)
                 end
                 bootparams.(fn{1}) = bootParamValues;
             else
