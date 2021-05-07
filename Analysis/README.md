@@ -23,7 +23,7 @@ plotpolar: called by preprocess; plots the polar plot figures
 
 Output
 
-<subject>/summarydata.mat: contains structs for each condition produced by compute_summary function; each location is organized within condition struct
+$subject/summarydata.mat: contains structs for each condition produced by compute_summary function; each location is organized within condition struct
 
 	summary_radialin
 	summary_radialout
@@ -34,7 +34,7 @@ Output
 	bootsummary_tangleft
 	bootsummary_tangright
 
-<subject>/analyzedata.mat: contains structs for each condition produced by fit_PF function; each location in organized within condition struct
+$subject/analyzedata.mat: contains structs for each condition produced by fit_PF function; each location in organized within condition struct
 
 	params_radialin
 	params_radialout
@@ -45,6 +45,6 @@ Output
 	bootparams_tangleft
 	bootparams_tangright
 
-<subject>/figures: contains all figures analyzed by main script
+$subject/figures: contains all figures analyzed by main script
 
 
