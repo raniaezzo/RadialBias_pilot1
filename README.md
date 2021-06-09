@@ -7,12 +7,16 @@ determine optimal spacing of the clockwise/counterclockwise tilt relative to the
 
 Experimental Code Requires:
 
+PsychToolbox (version 3 used)
+
 Palamedes Toolbox: http://www.palamedestoolbox.org
+(used for staircase procedure)
 
 Analysis Requires:
 
-JAGS: http://mcmc-jags.sourceforge.net/
+Palamedes Toolbox: http://www.palamedestoolbox.org
+(not used for fitting, just for plotting)
 
-Running instructions:
+Experiment Running instructions:
 
 In Matlab run Experimental_Setup/Main/expLauncher

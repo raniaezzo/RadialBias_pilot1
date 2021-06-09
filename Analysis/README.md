@@ -1,6 +1,9 @@
 Analysis Code Requires:
 
-Palamedes Toolbox: http://www.palamedestoolbox.org
+PsychToolbox
+Matlab Optimization Toolbox from Mathworks
+Palamedes Toolbox: http://www.palamedestoolbox.org (only uses plotting function PF, not used for fitting)
+If not using Matlab_R2020a or later, you might get an error in the FitCumNormYN, not detecting optimation toolbox. To fix this, either (1) download R2020a or later, or (2)  change line in FitCumNormYN.m from if (exist('fmincon') == 2) to if (exist('fmincon') == 2) || (exist('fmincon') == 6)
 
 Running instructions:
 

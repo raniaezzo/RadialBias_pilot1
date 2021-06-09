@@ -1,0 +1,21 @@
+
+
+rho_saved = [2 3 4 5 ; 5 6 9 7; 1 3 3 2];
+b = bar(rho_saved, 'grouped');
+hold on
+%b = gscatter([],[],[1 2 3 4]);
+for i=1:length(rho_saved)
+    
+end
+
+%%
+figure
+plot(rho_saved, 'ro-')
+
+%%
+%figure
+x = linspace(0,10,50);
+y = sin(x);
+plot(y,x,'-o','MarkerSize',5,...
+    'MarkerEdgeColor','r',...
+    'MarkerFaceColor','r')

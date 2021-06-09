@@ -1,0 +1,34 @@
+\contentsline {section}{\numberline {1}Experiment Description of Pilot 1}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Parameters}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Subject Instructions}{2}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Experimental Design}{2}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Block sequence}{3}{subsection.1.4}%
+\contentsline {section}{\numberline {2}Subject Data}{5}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Psychometric Fits}{5}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Sensitivity Polar Plots}{6}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Sensitivity Cartesian Bar Plots}{7}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Sensitivity Cartesian Line Plots}{8}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Bias Polar Plots}{9}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Bias Cartesian Bar Plots}{10}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Bias Cartesian Line Plots}{11}{subsection.2.7}%
+\contentsline {section}{\numberline {3}Group Data}{12}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Sensitivity Polar Plots}{12}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Sensitivity Cartesian Line Plots}{12}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Bias Polar Plots}{13}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Bias Cartesian Line Plots}{13}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Supplementary Images: PFs per location}{14}{section.4}%
+\contentsline {subsection}{\numberline {4.1}RE PFs Per Location}{14}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}FH PFs Per Location}{16}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}BB PFs Per Location}{18}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Current Goals}{20}{section.5}%
+\contentsline {section}{\numberline {6}Extending to Plaid Stimuli}{21}{section.6}%
+\contentsline {section}{\numberline {7}Supplemental Questions}{21}{section.7}%
+\contentsline {section}{\numberline {8}Updates}{22}{section.8}%
+\contentsline {section}{\numberline {9}To Do}{22}{section.9}%
+\contentsline {section}{\numberline {10}Software to Cite}{23}{section.10}%
+\contentsline {section}{\numberline {11}Data that still needs updating}{24}{section.11}%
+\contentsline {subsection}{\numberline {11.1}RE Psychometric Fits (Cardinal/Oblique)}{24}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}RE Polar Plots Percent Correct (W/ eyetracking vs. No eyetracking)}{25}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Quality Control \& Misc.}{25}{subsection.11.3}%
+\contentsline {subsection}{\numberline {11.4}FH Psychometric Fits (Cardinal/Oblique)}{26}{subsection.11.4}%
+\contentsline {subsection}{\numberline {11.5}BB Psychometric Fits (Cardinal/Oblique)}{27}{subsection.11.5}%

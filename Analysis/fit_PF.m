@@ -1,7 +1,7 @@
 function [params,bootparams] = fit_PF(summary, bootsummary, b_iter)
 
     for fn = fieldnames(summary)'
-        disp(fn{1})
+        %disp(fn{1})
         if strcmp(fn{1}, 'rownames')
             continue
         else
@@ -26,23 +26,36 @@ function [params,bootparams] = fit_PF(summary, bootsummary, b_iter)
             OutOfNum = numTrials;
             PC1 = clockResp./numTrials;
 
-            [paramsValues LL exitflag] = PAL_PFML_Fit(total_conditions,NumPos, ...
-            OutOfNum,searchGrid,bool_paramsFree, PF);
+            %[paramsValues LL exitflag] = PAL_PFML_Fit(total_conditions,NumPos, ...
+            %OutOfNum,searchGrid,bool_paramsFree, PF);
+        
+            NumNeg = OutOfNum - NumPos;
+            [uEst, varEst] = FitCumNormYN(total_conditions, NumPos, ...
+                        NumNeg);
+            paramsValues = [uEst, 1/sqrt(varEst), 0, 0];
+        
             %disp(paramsValues)
             % save alpha and beta values to new struct
             params.(fn{1}) = paramsValues;
             
-            if ~isempty(bootsummary) || b_iter == 0
+            if ~(isempty(bootsummary) || b_iter == 0)
+                tic;
                 disp(sprintf('bootstrapping %s times...',num2str(b_iter)))
                 bootparams.(fn{1}) = bootsummary.(fn{1});
                 bootParamValues = nan(b_iter,length(paramsValues));
                 for bi=1:b_iter
                     NumPos = bootsummary.(fn{1})(bi,:);
-                    disp(NumPos)
-                    [paramsValues LL exitflag] = PAL_PFML_Fit(total_conditions,NumPos, ...
-                    OutOfNum,searchGrid,bool_paramsFree, PF);
+                    %disp(NumPos)
+                    NumNeg = OutOfNum - NumPos;
+                    [uEst, varEst] = FitCumNormYN(total_conditions, NumPos, ...
+                        NumNeg);
+                    paramsValues = [uEst, 1/sqrt(varEst), 0, 0];
+                    %[paramsValues LL exitflag] = PAL_PFML_Fit(total_conditions,NumPos, ...
+                    %OutOfNum,searchGrid,bool_paramsFree, PF);
                     bootParamValues(bi,:) = paramsValues;
                 end
+                disp('elapsed time = ')
+                toc
                 bootparams.(fn{1}) = bootParamValues;
             else
                 bootparams.(fn{1}) = [];
