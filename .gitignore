@@ -6,3 +6,4 @@
 *.csv
 *.m~
 *.mat
+.DS_Store
