@@ -24,11 +24,11 @@
 \contentsline {section}{\numberline {6}Extending to Plaid Stimuli}{21}{section.6}%
 \contentsline {section}{\numberline {7}Supplemental Questions}{21}{section.7}%
 \contentsline {section}{\numberline {8}Updates}{22}{section.8}%
-\contentsline {section}{\numberline {9}To Do}{22}{section.9}%
-\contentsline {section}{\numberline {10}Software to Cite}{23}{section.10}%
-\contentsline {section}{\numberline {11}Data that still needs updating}{24}{section.11}%
-\contentsline {subsection}{\numberline {11.1}RE Psychometric Fits (Cardinal/Oblique)}{24}{subsection.11.1}%
-\contentsline {subsection}{\numberline {11.2}RE Polar Plots Percent Correct (W/ eyetracking vs. No eyetracking)}{25}{subsection.11.2}%
-\contentsline {subsection}{\numberline {11.3}Quality Control \& Misc.}{25}{subsection.11.3}%
-\contentsline {subsection}{\numberline {11.4}FH Psychometric Fits (Cardinal/Oblique)}{26}{subsection.11.4}%
-\contentsline {subsection}{\numberline {11.5}BB Psychometric Fits (Cardinal/Oblique)}{27}{subsection.11.5}%
+\contentsline {section}{\numberline {9}To Do}{23}{section.9}%
+\contentsline {section}{\numberline {10}Software to Cite}{24}{section.10}%
+\contentsline {section}{\numberline {11}Data that still needs updating}{25}{section.11}%
+\contentsline {subsection}{\numberline {11.1}RE Psychometric Fits (Cardinal/Oblique)}{25}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}RE Polar Plots Percent Correct (W/ eyetracking vs. No eyetracking)}{26}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Quality Control \& Misc.}{26}{subsection.11.3}%
+\contentsline {subsection}{\numberline {11.4}FH Psychometric Fits (Cardinal/Oblique)}{27}{subsection.11.4}%
+\contentsline {subsection}{\numberline {11.5}BB Psychometric Fits (Cardinal/Oblique)}{28}{subsection.11.5}%

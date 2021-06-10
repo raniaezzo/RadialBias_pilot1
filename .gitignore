@@ -1,4 +1,7 @@
-
+*.png
+*.bmp
+*.fig
+*.edf
 *.dat
 *.csv
 *.m~
