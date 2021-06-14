@@ -20,3 +20,10 @@ Palamedes Toolbox: http://www.palamedestoolbox.org
 Experiment Running instructions:
 
 In Matlab run Experimental_Setup/Main/expLauncher
+
+Storage & Backup:
+
+Scripts & behavioral data: github.com/raniaezzo/RadialBias_pilot1
+All images (.fig, .bmp, .png,) and eyelink files (.edf) are ignored to git push.
+
+Data storage: eyetracker PC, Rania local PC & Rania Google Drive

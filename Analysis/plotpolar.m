@@ -25,7 +25,7 @@ function plotpolar(numCond, paramsetting, figuresdir, main_conditions, ...
     end
     
     % extract subjectname
-    parts = strsplit(figuresdir, '/'); subjname = parts{end-1};
+    parts = strsplit(figuresdir, '/'); subjname = parts{end-2};
     possibleLocs = 8;
     addedconst= 1.5; % added const to min
     %main_conditions = {params_radialout,params_radialin,params_tangleft,params_tangright};

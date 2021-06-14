@@ -24,6 +24,8 @@ checkdir(projectname)
 subjectinfo = subjectinfo(1); 
 %subjectinfo = [subjectinfo(1),subjectinfo(3)]; % BB and RE
 
+analysis_type = ['RelativeMotion', 'AbsoluteMotion'];
+
 % iterate for each subject
 for si=1:length(subjectinfo)
     % create subject directory
@@ -31,9 +33,9 @@ for si=1:length(subjectinfo)
     if ~exist(subjectdir, 'dir')
         mkdir(subjectdir)
     end
-    if ~isfile(sprintf('%s/bootci.mat',subjectdir))
-        summary_radialout = []; summary_radialin = []; summary_tangleft = []; summary_tangright = [];
-        bootsummary_radialout = []; bootsummary_radialin = []; bootsummary_tangleft = []; bootsummary_tangright = [];
+    type_summarypath = sprintf('%s/RelativeMotion/',subjectdir);
+    if ~isfile(sprintf('%s/bootci.mat',type_summarypath))
+        initialize_summaryvars(type_summarypath)
         % iterate for each session
         for bi=1:length(subjectinfo(si).sessionlist_all)
             filepath = char(subjectinfo(si).sessionlist_all(bi));
@@ -42,68 +44,27 @@ for si=1:length(subjectinfo)
             [~, filename, ~] = fileparts(filepath);
             splitStr = regexp(filename,'\_','split'); motionref = char(splitStr(end));
             % compute summary stats per condition, per location
-            [summary_radialout, summary_radialin, summary_tangleft, ...
-                summary_tangright, bootsummary_radialout,bootsummary_radialin, ...
-                bootsummary_tangleft, bootsummary_tangright] = splitcondition(M_raw, ... 
-                motionref, maplocation, summary_radialout, summary_radialin, ...
-                summary_tangleft, summary_tangright, bootsummary_radialout, ...
-                bootsummary_radialin, bootsummary_tangleft, ...
-                bootsummary_tangright, b_iter);
+            splitcondition(M_raw, motionref, maplocation, b_iter, type_summarypath);
         end
 
-        % create radial and tang (for analysis combining them)
-        [summary_radial, summary_tang, bootsummary_radial, ...
-        bootsummary_tang] = create2conditions(summary_radialout, summary_radialin, ...
-            summary_tangleft, summary_tangright,bootsummary_radialout, ...
-            bootsummary_radialin, bootsummary_tangleft, bootsummary_tangright);
-
-        % save summarydata
-        save(sprintf('%s/summarydata',subjectdir), 'summary_radialout',...
-            'summary_radialin','summary_tangleft', 'summary_tangright',...
-            'summary_radial','summary_tang', 'bootsummary_radialout', ...
-            'bootsummary_radialin', 'bootsummary_tangleft', ...
-            'bootsummary_tangright','bootsummary_radial','bootsummary_tang')
-
-        % fit each condition, per location
-        [params_radialout, bootparams_radialout] = ...
-            fit_PF(summary_radialout, bootsummary_radialout,b_iter);
-        [params_radialin, bootparams_radialin] = ...
-            fit_PF(summary_radialin, bootsummary_radialin,b_iter);
-        [params_tangleft, bootparams_tangleft] = ...
-            fit_PF(summary_tangleft, bootsummary_tangleft,b_iter);
-        [params_tangright, bootparams_tangright] = ...
-            fit_PF(summary_tangright, bootsummary_tangright,b_iter);
-        [params_radial, bootparams_radial] = ...
-            fit_PF(summary_radial, bootsummary_radial,b_iter);
-        [params_tang, bootparams_tang] = ...
-            fit_PF(summary_tang, bootsummary_tang,b_iter);
-
-        % save analyzed data
-        save(sprintf('%s/analyzeddata',subjectdir), 'params_radialout',...
-            'bootparams_radialout','params_radialin', 'bootparams_radialin',...
-            'params_tangleft','bootparams_tangleft', ...
-            'params_tangright','bootparams_tangright', 'params_radial', ...
-            'bootparams_radial', 'params_tang', 'bootparams_tang')
-
-    else
-        load(sprintf('%s/summarydata.mat',subjectdir))
-        load(sprintf('%s/analyzeddata.mat',subjectdir))
+        % compute params & save in subject dir
+        compute_params(type_summarypath, b_iter)
+        
+        % compute CI from bootsamples & save in subject dir
+        compute_ci(type_summarypath);
     end
     
-    % compute CI froom bootsamples & save in subject dir
-    compute_ci(subjectdir, bootparams_radialout, ...
-    bootparams_radialin, bootparams_tangleft, bootparams_tangright, ...
-    bootparams_radial,bootparams_tang);
+    % load all summary stats
+    load(fullfile(type_summarypath,'summarydata.mat'))
+    load(fullfile(type_summarypath,'analyzeddata.mat'))
+    load(fullfile(type_summarypath,'bootci.mat'))
     
-    load(sprintf('%s/bootci.mat',subjectdir))
-    
-    figuresdir = fullfile(subjectdir, 'figures');
+    figuresdir = fullfile(type_summarypath, 'figures');
     if ~exist(figuresdir, 'dir')
         mkdir(fullfile(figuresdir,'pngs'));
         mkdir(fullfile(figuresdir,'figs'));
         mkdir(fullfile(figuresdir,'bmps'));
     end
-    
     
     % plot the polar angle plots for 4 conditions
     four_main_conditions = {params_radialout,params_radialin,params_tangleft,params_tangright};
@@ -121,6 +82,7 @@ for si=1:length(subjectinfo)
     plotpolar(2, 'bias', figuresdir, two_main_conditions, mapdegree,...
         two_ci_values)
 
+    % fix bug here
     four_cond = {summary_radialout,summary_radialin,summary_tangleft, ...
         summary_tangright};
     four_params = {params_radialout, params_radialin, params_tangleft, ...
