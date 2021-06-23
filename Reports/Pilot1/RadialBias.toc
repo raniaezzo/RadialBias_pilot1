@@ -21,14 +21,16 @@
 \contentsline {subsection}{\numberline {4.2}FH PFs Per Location}{16}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}BB PFs Per Location}{18}{subsection.4.3}%
 \contentsline {section}{\numberline {5}Current Goals}{20}{section.5}%
-\contentsline {section}{\numberline {6}Extending to Plaid Stimuli}{21}{section.6}%
-\contentsline {section}{\numberline {7}Supplemental Questions}{21}{section.7}%
-\contentsline {section}{\numberline {8}Updates}{22}{section.8}%
-\contentsline {section}{\numberline {9}To Do}{23}{section.9}%
-\contentsline {section}{\numberline {10}Software to Cite}{24}{section.10}%
-\contentsline {section}{\numberline {11}Data that still needs updating}{25}{section.11}%
-\contentsline {subsection}{\numberline {11.1}RE Psychometric Fits (Cardinal/Oblique)}{25}{subsection.11.1}%
-\contentsline {subsection}{\numberline {11.2}RE Polar Plots Percent Correct (W/ eyetracking vs. No eyetracking)}{26}{subsection.11.2}%
-\contentsline {subsection}{\numberline {11.3}Quality Control \& Misc.}{26}{subsection.11.3}%
-\contentsline {subsection}{\numberline {11.4}FH Psychometric Fits (Cardinal/Oblique)}{27}{subsection.11.4}%
-\contentsline {subsection}{\numberline {11.5}BB Psychometric Fits (Cardinal/Oblique)}{28}{subsection.11.5}%
+\contentsline {section}{\numberline {6}Incorporating fMRI}{21}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Goals}{21}{subsection.6.1}%
+\contentsline {section}{\numberline {7}Extending to Plaid Stimuli}{21}{section.7}%
+\contentsline {section}{\numberline {8}Supplemental Questions}{21}{section.8}%
+\contentsline {section}{\numberline {9}Updates}{22}{section.9}%
+\contentsline {section}{\numberline {10}To Do}{23}{section.10}%
+\contentsline {section}{\numberline {11}Software to Cite}{24}{section.11}%
+\contentsline {section}{\numberline {12}Data that still needs updating}{25}{section.12}%
+\contentsline {subsection}{\numberline {12.1}RE Psychometric Fits (Cardinal/Oblique)}{25}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}RE Polar Plots Percent Correct (W/ eyetracking vs. No eyetracking)}{26}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}Quality Control \& Misc.}{26}{subsection.12.3}%
+\contentsline {subsection}{\numberline {12.4}FH Psychometric Fits (Cardinal/Oblique)}{27}{subsection.12.4}%
+\contentsline {subsection}{\numberline {12.5}BB Psychometric Fits (Cardinal/Oblique)}{28}{subsection.12.5}%

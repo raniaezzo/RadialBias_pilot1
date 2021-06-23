@@ -21,10 +21,10 @@ checkdir(projectname)
 
 % for each subject, separate data for per condition, per location
 [subjectinfo] = getsubjinfo();
-subjectinfo = subjectinfo(1); 
+subjectinfo = subjectinfo(3); 
 %subjectinfo = [subjectinfo(1),subjectinfo(3)]; % BB and RE
 
-analysis_type = ['RelativeMotion', 'AbsoluteMotion'];
+analysis_type = {'RelativeMotion', 'AbsoluteMotion'};
 
 % iterate for each subject
 for si=1:length(subjectinfo)
@@ -33,9 +33,9 @@ for si=1:length(subjectinfo)
     if ~exist(subjectdir, 'dir')
         mkdir(subjectdir)
     end
-    type_summarypath = sprintf('%s/RelativeMotion/',subjectdir);
-    if ~isfile(sprintf('%s/bootci.mat',type_summarypath))
-        initialize_summaryvars(type_summarypath)
+    relative_summarypath = sprintf('%s/%s/',subjectdir, analysis_type{1});
+    if ~isfile(sprintf('%s/bootci.mat',relative_summarypath))
+        initialize_summaryvars(relative_summarypath)
         % iterate for each session
         for bi=1:length(subjectinfo(si).sessionlist_all)
             filepath = char(subjectinfo(si).sessionlist_all(bi));
@@ -44,56 +44,78 @@ for si=1:length(subjectinfo)
             [~, filename, ~] = fileparts(filepath);
             splitStr = regexp(filename,'\_','split'); motionref = char(splitStr(end));
             % compute summary stats per condition, per location
-            splitcondition(M_raw, motionref, maplocation, b_iter, type_summarypath);
+            splitcondition(M_raw, motionref, maplocation, b_iter, relative_summarypath);
         end
 
         % compute params & save in subject dir
-        compute_params(type_summarypath, b_iter)
+        compute_params(relative_summarypath, b_iter)
         
         % compute CI from bootsamples & save in subject dir
-        compute_ci(type_summarypath);
+        compute_ci(relative_summarypath);
     end
     
-    % load all summary stats
-    load(fullfile(type_summarypath,'summarydata.mat'))
-    load(fullfile(type_summarypath,'analyzeddata.mat'))
-    load(fullfile(type_summarypath,'bootci.mat'))
+    % also save in absolute coordinates
+    organize_absolutedirs(relative_summarypath, sprintf('%s/%s/',subjectdir, analysis_type{2}));
     
-    figuresdir = fullfile(type_summarypath, 'figures');
-    if ~exist(figuresdir, 'dir')
-        mkdir(fullfile(figuresdir,'pngs'));
-        mkdir(fullfile(figuresdir,'figs'));
-        mkdir(fullfile(figuresdir,'bmps'));
-    end
-    
-    % plot the polar angle plots for 4 conditions
-    four_main_conditions = {params_radialout,params_radialin,params_tangleft,params_tangright};
-    four_ci_values = {bootci_radialout,bootci_radialin,bootci_tangleft,bootci_tangright};
-    plotpolar(4, 'sensitivity', figuresdir, four_main_conditions, mapdegree,...
-        four_ci_values)
-    plotpolar(4, 'bias', figuresdir, four_main_conditions, mapdegree,...
-        four_ci_values)
-    
-    % plot the polar angle plots for 2 conditions
-    two_main_conditions = {params_radial,params_tang};
-    two_ci_values = {bootci_radial,bootci_tang};
-    plotpolar(2, 'sensitivity', figuresdir, two_main_conditions, mapdegree,...
-        two_ci_values)
-    plotpolar(2, 'bias', figuresdir, two_main_conditions, mapdegree,...
-        two_ci_values)
+    for i=1:length(analysis_type)
+        analysis_path = sprintf('%s/%s/',subjectdir, analysis_type{i});
+        %analysis_path = sprintf('%s/%s/',subjectdir, analysis_type{2});i = 2;
+        %disp(analysis_path)
+        
+        % load all summary stats for figures
+        load(fullfile(analysis_path,'summarydata.mat'))
+        load(fullfile(analysis_path,'analyzeddata.mat'))
+        load(fullfile(analysis_path,'bootci.mat'))
 
-    % fix bug here
-    four_cond = {summary_radialout,summary_radialin,summary_tangleft, ...
-        summary_tangright};
-    four_params = {params_radialout, params_radialin, params_tangleft, ...
-        params_tangright};
-    plot_PF(4, figuresdir, four_cond, four_params)
-    
-    two_cond = {summary_radial,summary_tang};
-    two_params = {params_radial, params_tang};
-    plot_PF(2, figuresdir, two_cond, two_params)
-    
-    close all;
+        figuresdir = fullfile(analysis_path, 'figures');
+        if ~exist(figuresdir, 'dir')
+            mkdir(fullfile(figuresdir,'pngs'));
+            mkdir(fullfile(figuresdir,'figs'));
+            mkdir(fullfile(figuresdir,'bmps'));
+        end
+
+        if strcmp(analysis_type{i}, 'AbsoluteMotion')
+        
+            % plot the polar angle plots for 4 conditions
+            four_main_conditions = {params_upwards,params_downwards,params_leftwards,params_rightwards};
+            four_ci_values = {bootci_upwards,bootci_downwards,bootci_leftwards,bootci_rightwards};
+            plotpolar(4, 'sensitivity', 'absolute', figuresdir, four_main_conditions, mapdegree,...
+                four_ci_values)
+            plotpolar(4, 'bias', 'absolute', figuresdir, four_main_conditions, mapdegree,...
+                four_ci_values)
+            
+        elseif strcmp(analysis_type{i}, 'RelativeMotion')
+        
+            % plot the polar angle plots for 4 conditions
+            four_main_conditions = {params_radialout,params_radialin,params_tangleft,params_tangright};
+            four_ci_values = {bootci_radialout,bootci_radialin,bootci_tangleft,bootci_tangright};
+            plotpolar(4, 'sensitivity', 'relative', figuresdir, four_main_conditions, mapdegree,...
+                four_ci_values)
+            plotpolar(4, 'bias', 'relative', figuresdir, four_main_conditions, mapdegree,...
+                four_ci_values)
+
+            % plot the polar angle plots for 2 conditions
+            two_main_conditions = {params_radial,params_tang};
+            two_ci_values = {bootci_radial,bootci_tang};
+            plotpolar(2, 'sensitivity', 'relative', figuresdir, two_main_conditions, mapdegree,...
+                two_ci_values)
+            plotpolar(2, 'bias', 'relative', figuresdir, two_main_conditions, mapdegree,...
+                two_ci_values)
+
+            % fix bug here
+            %four_cond = {summary_radialout,summary_radialin,summary_tangleft, ...
+            %    summary_tangright};
+            %four_params = {params_radialout, params_radialin, params_tangleft, ...
+            %    params_tangright};
+            %plot_PF(4, figuresdir, four_cond, four_params)
+
+            %two_cond = {summary_radial,summary_tang};
+            %two_params = {params_radial, params_tang};
+            %plot_PF(2, figuresdir, two_cond, two_params)
+
+            close all;
+        end
+    end
     
 end
 

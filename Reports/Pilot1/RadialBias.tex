@@ -25,7 +25,7 @@
 
 % declare the title, date and author
 \title{Radial Bias Pilot 1}
-\date{June 9, 2021}
+\date{June 22, 2021}
 \author{Rania Ezzo}
 
 % This is where the actual document starts
@@ -431,6 +431,25 @@ Example sequence of blocks for RE
 	\end{figure}
 	
 \newpage
+\section{Incorporating fMRI} 
+\subsection{Goals}
+\begin{enumerate}
+	\item Localize MT+ using moving vs. static stimuli
+	\item Map retinotopy of MT, MST, (and V1) using methods similar to Huk et al., 2002 and Amano et al., 2009
+	\begin{itemize}
+		\item Create polar angle maps and calculate cortical surface area dedicated to upper 45 deg wedge., lower 45 deg. wedge
+		\item Extend analysis to upper vs. lower visual field since found in macaque but not yet reported for human
+	\end{itemize}
+	\item Calculate difference in BOLD magnitude for upper vs. lower vertical meridian
+	\item Inverted encoding model (can we predict what stimulus was shown -- radial vs. tangential)
+	\begin{itemize}
+		\item{Use stimulus to map channel responses for each motion direction, and use as weights to reconstruct signal }
+		\item{First create encoding model by using basis functions for each motion direction}
+		\item{Then, for each ROI voxel, for each trial, calculate channel weights for each basis function ("forward model")}
+		\item{Fit to testing data on different trials/runs to reconstruct population-level stimulus representation}
+		\item{We would expect better decoding for radial motion directions in lower vertical meridian}
+	\end{itemize}
+\end{enumerate}
 \section{Extending to Plaid Stimuli} 
 \begin{enumerate}
 	\item How does this extend to plaid stimuli? Does the bias apply to the component motion direction or the perceived motion direction?

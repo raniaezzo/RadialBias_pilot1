@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  9 JUN 2021 10:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  22 JUN 2021 23:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -540,55 +540,55 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@toc=\write4
 \openout4 = `RadialBias.toc'.
 
-<Images/Radial_sequence.png, id=186, 712.6625pt x 326.21875pt>
+ [2]
+<Images/Radial_sequence.png, id=201, 712.6625pt x 326.21875pt>
 File: Images/Radial_sequence.png Graphic file (type png)
 <use Images/Radial_sequence.png>
 Package pdftex.def Info: Images/Radial_sequence.png  used on input line 75.
 (pdftex.def)             Requested size: 285.05995pt x 130.48518pt.
-<Images/Tang_sequence.png, id=188, 714.67pt x 326.21875pt>
+<Images/Tang_sequence.png, id=203, 714.67pt x 326.21875pt>
 File: Images/Tang_sequence.png Graphic file (type png)
 <use Images/Tang_sequence.png>
 Package pdftex.def Info: Images/Tang_sequence.png  used on input line 77.
 (pdftex.def)             Requested size: 285.86293pt x 130.48518pt.
- [2]
-<Images/Blocks.png, id=194, 539.01375pt x 295.1025pt>
+<Images/Blocks.png, id=204, 539.01375pt x 295.1025pt>
 File: Images/Blocks.png Graphic file (type png)
 <use Images/Blocks.png>
 Package pdftex.def Info: Images/Blocks.png  used on input line 86.
 (pdftex.def)             Requested size: 215.60167pt x 118.0389pt.
  [3 <./Images/Radial_sequence.png> <./Images/Tang_sequence.png> <./Images/Block
 s.png>] [4]
-<Images/RE_PF_Alldata_4conds.png, id=215, 1445.4pt x 755.9442pt>
+<Images/RE_PF_Alldata_4conds.png, id=225, 1445.4pt x 755.9442pt>
 File: Images/RE_PF_Alldata_4conds.png Graphic file (type png)
 <use Images/RE_PF_Alldata_4conds.png>
 Package pdftex.def Info: Images/RE_PF_Alldata_4conds.png  used on input line 11
 1.
 (pdftex.def)             Requested size: 231.26872pt x 120.95354pt.
-<Images/RE_PF_Alldata_2conds.png, id=216, 1445.4pt x 755.9442pt>
+<Images/RE_PF_Alldata_2conds.png, id=226, 1445.4pt x 755.9442pt>
 File: Images/RE_PF_Alldata_2conds.png Graphic file (type png)
 <use Images/RE_PF_Alldata_2conds.png>
 Package pdftex.def Info: Images/RE_PF_Alldata_2conds.png  used on input line 11
 2.
 (pdftex.def)             Requested size: 231.26872pt x 120.95354pt.
-<Images/FH_PF_Alldata_4conds.png, id=217, 1445.4pt x 755.9442pt>
+<Images/FH_PF_Alldata_4conds.png, id=227, 1445.4pt x 755.9442pt>
 File: Images/FH_PF_Alldata_4conds.png Graphic file (type png)
 <use Images/FH_PF_Alldata_4conds.png>
 Package pdftex.def Info: Images/FH_PF_Alldata_4conds.png  used on input line 11
 7.
 (pdftex.def)             Requested size: 231.26872pt x 120.95354pt.
-<Images/FH_PF_Alldata_2conds.png, id=218, 1445.4pt x 755.9442pt>
+<Images/FH_PF_Alldata_2conds.png, id=228, 1445.4pt x 755.9442pt>
 File: Images/FH_PF_Alldata_2conds.png Graphic file (type png)
 <use Images/FH_PF_Alldata_2conds.png>
 Package pdftex.def Info: Images/FH_PF_Alldata_2conds.png  used on input line 11
 8.
 (pdftex.def)             Requested size: 231.26872pt x 120.95354pt.
-<Images/BB_PF_Alldata_4conds.png, id=219, 1445.4pt x 755.9442pt>
+<Images/BB_PF_Alldata_4conds.png, id=229, 1445.4pt x 755.9442pt>
 File: Images/BB_PF_Alldata_4conds.png Graphic file (type png)
 <use Images/BB_PF_Alldata_4conds.png>
 Package pdftex.def Info: Images/BB_PF_Alldata_4conds.png  used on input line 12
 3.
 (pdftex.def)             Requested size: 231.26872pt x 120.95354pt.
-<Images/BB_PF_Alldata_2conds.png, id=220, 1445.4pt x 755.9442pt>
+<Images/BB_PF_Alldata_2conds.png, id=230, 1445.4pt x 755.9442pt>
 File: Images/BB_PF_Alldata_2conds.png Graphic file (type png)
 <use Images/BB_PF_Alldata_2conds.png>
 Package pdftex.def Info: Images/BB_PF_Alldata_2conds.png  used on input line 12
@@ -598,37 +598,37 @@ Package pdftex.def Info: Images/BB_PF_Alldata_2conds.png  used on input line 12
 ds.png (PNG copy)> <./Images/FH_PF_Alldata_4conds.png (PNG copy)> <./Images/FH_
 PF_Alldata_2conds.png (PNG copy)> <./Images/BB_PF_Alldata_4conds.png (PNG copy)
 > <./Images/BB_PF_Alldata_2conds.png (PNG copy)>]
-<Images/RE_PP_sensitivity_Alldata_4conds.png, id=228, 562.2606pt x 421.575pt>
+<Images/RE_PP_sensitivity_Alldata_4conds.png, id=238, 562.2606pt x 421.575pt>
 File: Images/RE_PP_sensitivity_Alldata_4conds.png Graphic file (type png)
 <use Images/RE_PP_sensitivity_Alldata_4conds.png>
 Package pdftex.def Info: Images/RE_PP_sensitivity_Alldata_4conds.png  used on i
 nput line 132.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/RE_PP_sensitivity_Alldata_2conds.png, id=229, 562.2606pt x 421.575pt>
+<Images/RE_PP_sensitivity_Alldata_2conds.png, id=239, 562.2606pt x 421.575pt>
 File: Images/RE_PP_sensitivity_Alldata_2conds.png Graphic file (type png)
 <use Images/RE_PP_sensitivity_Alldata_2conds.png>
 Package pdftex.def Info: Images/RE_PP_sensitivity_Alldata_2conds.png  used on i
 nput line 133.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/FH_PP_sensitivity_Alldata_4conds.png, id=230, 562.2606pt x 421.575pt>
+<Images/FH_PP_sensitivity_Alldata_4conds.png, id=240, 562.2606pt x 421.575pt>
 File: Images/FH_PP_sensitivity_Alldata_4conds.png Graphic file (type png)
 <use Images/FH_PP_sensitivity_Alldata_4conds.png>
 Package pdftex.def Info: Images/FH_PP_sensitivity_Alldata_4conds.png  used on i
 nput line 137.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/FH_PP_sensitivity_Alldata_2conds.png, id=231, 562.2606pt x 421.575pt>
+<Images/FH_PP_sensitivity_Alldata_2conds.png, id=241, 562.2606pt x 421.575pt>
 File: Images/FH_PP_sensitivity_Alldata_2conds.png Graphic file (type png)
 <use Images/FH_PP_sensitivity_Alldata_2conds.png>
 Package pdftex.def Info: Images/FH_PP_sensitivity_Alldata_2conds.png  used on i
 nput line 138.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/BB_PP_sensitivity_Alldata_4conds.png, id=232, 562.2606pt x 421.575pt>
+<Images/BB_PP_sensitivity_Alldata_4conds.png, id=242, 562.2606pt x 421.575pt>
 File: Images/BB_PP_sensitivity_Alldata_4conds.png Graphic file (type png)
 <use Images/BB_PP_sensitivity_Alldata_4conds.png>
 Package pdftex.def Info: Images/BB_PP_sensitivity_Alldata_4conds.png  used on i
 nput line 142.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/BB_PP_sensitivity_Alldata_2conds.png, id=233, 562.2606pt x 421.575pt>
+<Images/BB_PP_sensitivity_Alldata_2conds.png, id=243, 562.2606pt x 421.575pt>
 File: Images/BB_PP_sensitivity_Alldata_2conds.png Graphic file (type png)
 <use Images/BB_PP_sensitivity_Alldata_2conds.png>
 Package pdftex.def Info: Images/BB_PP_sensitivity_Alldata_2conds.png  used on i
@@ -640,37 +640,37 @@ ensitivity_Alldata_2conds.png (PNG copy)> <./Images/FH_PP_sensitivity_Alldata_4
 conds.png (PNG copy)> <./Images/FH_PP_sensitivity_Alldata_2conds.png (PNG copy)
 > <./Images/BB_PP_sensitivity_Alldata_4conds.png (PNG copy)> <./Images/BB_PP_se
 nsitivity_Alldata_2conds.png (PNG copy)>]
-<Images/RE_BP_sensitivity_Alldata_4conds.png, id=239, 562.2606pt x 421.575pt>
+<Images/RE_BP_sensitivity_Alldata_4conds.png, id=249, 562.2606pt x 421.575pt>
 File: Images/RE_BP_sensitivity_Alldata_4conds.png Graphic file (type png)
 <use Images/RE_BP_sensitivity_Alldata_4conds.png>
 Package pdftex.def Info: Images/RE_BP_sensitivity_Alldata_4conds.png  used on i
 nput line 151.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/RE_BP_sensitivity_Alldata_2conds.png, id=240, 562.2606pt x 421.575pt>
+<Images/RE_BP_sensitivity_Alldata_2conds.png, id=250, 562.2606pt x 421.575pt>
 File: Images/RE_BP_sensitivity_Alldata_2conds.png Graphic file (type png)
 <use Images/RE_BP_sensitivity_Alldata_2conds.png>
 Package pdftex.def Info: Images/RE_BP_sensitivity_Alldata_2conds.png  used on i
 nput line 152.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/FH_BP_sensitivity_Alldata_4conds.png, id=241, 562.2606pt x 421.575pt>
+<Images/FH_BP_sensitivity_Alldata_4conds.png, id=251, 562.2606pt x 421.575pt>
 File: Images/FH_BP_sensitivity_Alldata_4conds.png Graphic file (type png)
 <use Images/FH_BP_sensitivity_Alldata_4conds.png>
 Package pdftex.def Info: Images/FH_BP_sensitivity_Alldata_4conds.png  used on i
 nput line 156.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/FH_BP_sensitivity_Alldata_2conds.png, id=242, 562.2606pt x 421.575pt>
+<Images/FH_BP_sensitivity_Alldata_2conds.png, id=252, 562.2606pt x 421.575pt>
 File: Images/FH_BP_sensitivity_Alldata_2conds.png Graphic file (type png)
 <use Images/FH_BP_sensitivity_Alldata_2conds.png>
 Package pdftex.def Info: Images/FH_BP_sensitivity_Alldata_2conds.png  used on i
 nput line 157.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/BB_BP_sensitivity_Alldata_4conds.png, id=243, 562.2606pt x 421.575pt>
+<Images/BB_BP_sensitivity_Alldata_4conds.png, id=253, 562.2606pt x 421.575pt>
 File: Images/BB_BP_sensitivity_Alldata_4conds.png Graphic file (type png)
 <use Images/BB_BP_sensitivity_Alldata_4conds.png>
 Package pdftex.def Info: Images/BB_BP_sensitivity_Alldata_4conds.png  used on i
 nput line 161.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/BB_BP_sensitivity_Alldata_2conds.png, id=244, 562.2606pt x 421.575pt>
+<Images/BB_BP_sensitivity_Alldata_2conds.png, id=254, 562.2606pt x 421.575pt>
 File: Images/BB_BP_sensitivity_Alldata_2conds.png Graphic file (type png)
 <use Images/BB_BP_sensitivity_Alldata_2conds.png>
 Package pdftex.def Info: Images/BB_BP_sensitivity_Alldata_2conds.png  used on i
@@ -681,37 +681,37 @@ sensitivity_Alldata_2conds.png (PNG copy)> <./Images/FH_BP_sensitivity_Alldata_
 4conds.png (PNG copy)> <./Images/FH_BP_sensitivity_Alldata_2conds.png (PNG copy
 )> <./Images/BB_BP_sensitivity_Alldata_4conds.png (PNG copy)> <./Images/BB_BP_s
 ensitivity_Alldata_2conds.png (PNG copy)>]
-<Images/RE_LP_sensitivity_Alldata_4conds.png, id=251, 562.2606pt x 421.575pt>
+<Images/RE_LP_sensitivity_Alldata_4conds.png, id=261, 562.2606pt x 421.575pt>
 File: Images/RE_LP_sensitivity_Alldata_4conds.png Graphic file (type png)
 <use Images/RE_LP_sensitivity_Alldata_4conds.png>
 Package pdftex.def Info: Images/RE_LP_sensitivity_Alldata_4conds.png  used on i
 nput line 170.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/RE_LP_sensitivity_Alldata_2conds.png, id=252, 562.2606pt x 421.575pt>
+<Images/RE_LP_sensitivity_Alldata_2conds.png, id=262, 562.2606pt x 421.575pt>
 File: Images/RE_LP_sensitivity_Alldata_2conds.png Graphic file (type png)
 <use Images/RE_LP_sensitivity_Alldata_2conds.png>
 Package pdftex.def Info: Images/RE_LP_sensitivity_Alldata_2conds.png  used on i
 nput line 171.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/FH_LP_sensitivity_Alldata_4conds.png, id=253, 562.2606pt x 421.575pt>
+<Images/FH_LP_sensitivity_Alldata_4conds.png, id=263, 562.2606pt x 421.575pt>
 File: Images/FH_LP_sensitivity_Alldata_4conds.png Graphic file (type png)
 <use Images/FH_LP_sensitivity_Alldata_4conds.png>
 Package pdftex.def Info: Images/FH_LP_sensitivity_Alldata_4conds.png  used on i
 nput line 175.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/FH_LP_sensitivity_Alldata_2conds.png, id=254, 562.2606pt x 421.575pt>
+<Images/FH_LP_sensitivity_Alldata_2conds.png, id=264, 562.2606pt x 421.575pt>
 File: Images/FH_LP_sensitivity_Alldata_2conds.png Graphic file (type png)
 <use Images/FH_LP_sensitivity_Alldata_2conds.png>
 Package pdftex.def Info: Images/FH_LP_sensitivity_Alldata_2conds.png  used on i
 nput line 176.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/BB_LP_sensitivity_Alldata_4conds.png, id=255, 562.2606pt x 421.575pt>
+<Images/BB_LP_sensitivity_Alldata_4conds.png, id=265, 562.2606pt x 421.575pt>
 File: Images/BB_LP_sensitivity_Alldata_4conds.png Graphic file (type png)
 <use Images/BB_LP_sensitivity_Alldata_4conds.png>
 Package pdftex.def Info: Images/BB_LP_sensitivity_Alldata_4conds.png  used on i
 nput line 180.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/BB_LP_sensitivity_Alldata_2conds.png, id=256, 562.2606pt x 421.575pt>
+<Images/BB_LP_sensitivity_Alldata_2conds.png, id=266, 562.2606pt x 421.575pt>
 File: Images/BB_LP_sensitivity_Alldata_2conds.png Graphic file (type png)
 <use Images/BB_LP_sensitivity_Alldata_2conds.png>
 Package pdftex.def Info: Images/BB_LP_sensitivity_Alldata_2conds.png  used on i
@@ -722,37 +722,37 @@ sensitivity_Alldata_2conds.png (PNG copy)> <./Images/FH_LP_sensitivity_Alldata_
 4conds.png (PNG copy)> <./Images/FH_LP_sensitivity_Alldata_2conds.png (PNG copy
 )> <./Images/BB_LP_sensitivity_Alldata_4conds.png (PNG copy)> <./Images/BB_LP_s
 ensitivity_Alldata_2conds.png (PNG copy)>]
-<Images/RE_PP_bias_Alldata_4conds.png, id=262, 562.2606pt x 421.575pt>
+<Images/RE_PP_bias_Alldata_4conds.png, id=272, 562.2606pt x 421.575pt>
 File: Images/RE_PP_bias_Alldata_4conds.png Graphic file (type png)
 <use Images/RE_PP_bias_Alldata_4conds.png>
 Package pdftex.def Info: Images/RE_PP_bias_Alldata_4conds.png  used on input li
 ne 189.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/RE_PP_bias_Alldata_2conds.png, id=263, 562.2606pt x 421.575pt>
+<Images/RE_PP_bias_Alldata_2conds.png, id=273, 562.2606pt x 421.575pt>
 File: Images/RE_PP_bias_Alldata_2conds.png Graphic file (type png)
 <use Images/RE_PP_bias_Alldata_2conds.png>
 Package pdftex.def Info: Images/RE_PP_bias_Alldata_2conds.png  used on input li
 ne 190.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/FH_PP_bias_Alldata_4conds.png, id=264, 562.2606pt x 421.575pt>
+<Images/FH_PP_bias_Alldata_4conds.png, id=274, 562.2606pt x 421.575pt>
 File: Images/FH_PP_bias_Alldata_4conds.png Graphic file (type png)
 <use Images/FH_PP_bias_Alldata_4conds.png>
 Package pdftex.def Info: Images/FH_PP_bias_Alldata_4conds.png  used on input li
 ne 194.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/FH_PP_bias_Alldata_2conds.png, id=265, 562.2606pt x 421.575pt>
+<Images/FH_PP_bias_Alldata_2conds.png, id=275, 562.2606pt x 421.575pt>
 File: Images/FH_PP_bias_Alldata_2conds.png Graphic file (type png)
 <use Images/FH_PP_bias_Alldata_2conds.png>
 Package pdftex.def Info: Images/FH_PP_bias_Alldata_2conds.png  used on input li
 ne 195.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/BB_PP_bias_Alldata_4conds.png, id=266, 562.2606pt x 421.575pt>
+<Images/BB_PP_bias_Alldata_4conds.png, id=276, 562.2606pt x 421.575pt>
 File: Images/BB_PP_bias_Alldata_4conds.png Graphic file (type png)
 <use Images/BB_PP_bias_Alldata_4conds.png>
 Package pdftex.def Info: Images/BB_PP_bias_Alldata_4conds.png  used on input li
 ne 199.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/BB_PP_bias_Alldata_2conds.png, id=267, 562.2606pt x 421.575pt>
+<Images/BB_PP_bias_Alldata_2conds.png, id=277, 562.2606pt x 421.575pt>
 File: Images/BB_PP_bias_Alldata_2conds.png Graphic file (type png)
 <use Images/BB_PP_bias_Alldata_2conds.png>
 Package pdftex.def Info: Images/BB_PP_bias_Alldata_2conds.png  used on input li
@@ -762,37 +762,37 @@ ne 200.
 ldata_2conds.png (PNG copy)> <./Images/FH_PP_bias_Alldata_4conds.png (PNG copy)
 > <./Images/FH_PP_bias_Alldata_2conds.png (PNG copy)> <./Images/BB_PP_bias_Alld
 ata_4conds.png (PNG copy)> <./Images/BB_PP_bias_Alldata_2conds.png (PNG copy)>]
-<Images/RE_BP_bias_Alldata_4conds.png, id=273, 562.2606pt x 421.575pt>
+<Images/RE_BP_bias_Alldata_4conds.png, id=283, 562.2606pt x 421.575pt>
 File: Images/RE_BP_bias_Alldata_4conds.png Graphic file (type png)
 <use Images/RE_BP_bias_Alldata_4conds.png>
 Package pdftex.def Info: Images/RE_BP_bias_Alldata_4conds.png  used on input li
 ne 208.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/RE_BP_bias_Alldata_2conds.png, id=274, 562.2606pt x 421.575pt>
+<Images/RE_BP_bias_Alldata_2conds.png, id=284, 562.2606pt x 421.575pt>
 File: Images/RE_BP_bias_Alldata_2conds.png Graphic file (type png)
 <use Images/RE_BP_bias_Alldata_2conds.png>
 Package pdftex.def Info: Images/RE_BP_bias_Alldata_2conds.png  used on input li
 ne 209.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/FH_BP_bias_Alldata_4conds.png, id=275, 562.2606pt x 421.575pt>
+<Images/FH_BP_bias_Alldata_4conds.png, id=285, 562.2606pt x 421.575pt>
 File: Images/FH_BP_bias_Alldata_4conds.png Graphic file (type png)
 <use Images/FH_BP_bias_Alldata_4conds.png>
 Package pdftex.def Info: Images/FH_BP_bias_Alldata_4conds.png  used on input li
 ne 213.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/FH_BP_bias_Alldata_2conds.png, id=276, 562.2606pt x 421.575pt>
+<Images/FH_BP_bias_Alldata_2conds.png, id=286, 562.2606pt x 421.575pt>
 File: Images/FH_BP_bias_Alldata_2conds.png Graphic file (type png)
 <use Images/FH_BP_bias_Alldata_2conds.png>
 Package pdftex.def Info: Images/FH_BP_bias_Alldata_2conds.png  used on input li
 ne 214.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/BB_BP_bias_Alldata_4conds.png, id=277, 562.2606pt x 421.575pt>
+<Images/BB_BP_bias_Alldata_4conds.png, id=287, 562.2606pt x 421.575pt>
 File: Images/BB_BP_bias_Alldata_4conds.png Graphic file (type png)
 <use Images/BB_BP_bias_Alldata_4conds.png>
 Package pdftex.def Info: Images/BB_BP_bias_Alldata_4conds.png  used on input li
 ne 218.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/BB_BP_bias_Alldata_2conds.png, id=278, 562.2606pt x 421.575pt>
+<Images/BB_BP_bias_Alldata_2conds.png, id=288, 562.2606pt x 421.575pt>
 File: Images/BB_BP_bias_Alldata_2conds.png Graphic file (type png)
 <use Images/BB_BP_bias_Alldata_2conds.png>
 Package pdftex.def Info: Images/BB_BP_bias_Alldata_2conds.png  used on input li
@@ -803,37 +803,37 @@ lldata_2conds.png (PNG copy)> <./Images/FH_BP_bias_Alldata_4conds.png (PNG copy
 )> <./Images/FH_BP_bias_Alldata_2conds.png (PNG copy)> <./Images/BB_BP_bias_All
 data_4conds.png (PNG copy)> <./Images/BB_BP_bias_Alldata_2conds.png (PNG copy)>
 ]
-<Images/RE_LP_bias_Alldata_4conds.png, id=284, 562.2606pt x 421.575pt>
+<Images/RE_LP_bias_Alldata_4conds.png, id=294, 562.2606pt x 421.575pt>
 File: Images/RE_LP_bias_Alldata_4conds.png Graphic file (type png)
 <use Images/RE_LP_bias_Alldata_4conds.png>
 Package pdftex.def Info: Images/RE_LP_bias_Alldata_4conds.png  used on input li
 ne 227.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/RE_LP_bias_Alldata_2conds.png, id=285, 562.2606pt x 421.575pt>
+<Images/RE_LP_bias_Alldata_2conds.png, id=295, 562.2606pt x 421.575pt>
 File: Images/RE_LP_bias_Alldata_2conds.png Graphic file (type png)
 <use Images/RE_LP_bias_Alldata_2conds.png>
 Package pdftex.def Info: Images/RE_LP_bias_Alldata_2conds.png  used on input li
 ne 228.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/FH_LP_bias_Alldata_4conds.png, id=286, 562.2606pt x 421.575pt>
+<Images/FH_LP_bias_Alldata_4conds.png, id=296, 562.2606pt x 421.575pt>
 File: Images/FH_LP_bias_Alldata_4conds.png Graphic file (type png)
 <use Images/FH_LP_bias_Alldata_4conds.png>
 Package pdftex.def Info: Images/FH_LP_bias_Alldata_4conds.png  used on input li
 ne 232.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/FH_LP_bias_Alldata_2conds.png, id=287, 562.2606pt x 421.575pt>
+<Images/FH_LP_bias_Alldata_2conds.png, id=297, 562.2606pt x 421.575pt>
 File: Images/FH_LP_bias_Alldata_2conds.png Graphic file (type png)
 <use Images/FH_LP_bias_Alldata_2conds.png>
 Package pdftex.def Info: Images/FH_LP_bias_Alldata_2conds.png  used on input li
 ne 233.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/BB_LP_bias_Alldata_4conds.png, id=288, 562.2606pt x 421.575pt>
+<Images/BB_LP_bias_Alldata_4conds.png, id=298, 562.2606pt x 421.575pt>
 File: Images/BB_LP_bias_Alldata_4conds.png Graphic file (type png)
 <use Images/BB_LP_bias_Alldata_4conds.png>
 Package pdftex.def Info: Images/BB_LP_bias_Alldata_4conds.png  used on input li
 ne 237.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/BB_LP_bias_Alldata_2conds.png, id=289, 562.2606pt x 421.575pt>
+<Images/BB_LP_bias_Alldata_2conds.png, id=299, 562.2606pt x 421.575pt>
 File: Images/BB_LP_bias_Alldata_2conds.png Graphic file (type png)
 <use Images/BB_LP_bias_Alldata_2conds.png>
 Package pdftex.def Info: Images/BB_LP_bias_Alldata_2conds.png  used on input li
@@ -844,28 +844,28 @@ lldata_2conds.png (PNG copy)> <./Images/FH_LP_bias_Alldata_4conds.png (PNG copy
 )> <./Images/FH_LP_bias_Alldata_2conds.png (PNG copy)> <./Images/BB_LP_bias_All
 data_4conds.png (PNG copy)> <./Images/BB_LP_bias_Alldata_2conds.png (PNG copy)>
 ]
-<Images/ALLSUBJ_PP_sensitivity_Alldata_4conds.png, id=295, 562.2606pt x 421.575
+<Images/ALLSUBJ_PP_sensitivity_Alldata_4conds.png, id=305, 562.2606pt x 421.575
 pt>
 File: Images/ALLSUBJ_PP_sensitivity_Alldata_4conds.png Graphic file (type png)
 <use Images/ALLSUBJ_PP_sensitivity_Alldata_4conds.png>
 Package pdftex.def Info: Images/ALLSUBJ_PP_sensitivity_Alldata_4conds.png  used
  on input line 247.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/ALLSUBJ_PP_sensitivity_Alldata_2conds.png, id=296, 562.2606pt x 421.575
+<Images/ALLSUBJ_PP_sensitivity_Alldata_2conds.png, id=306, 562.2606pt x 421.575
 pt>
 File: Images/ALLSUBJ_PP_sensitivity_Alldata_2conds.png Graphic file (type png)
 <use Images/ALLSUBJ_PP_sensitivity_Alldata_2conds.png>
 Package pdftex.def Info: Images/ALLSUBJ_PP_sensitivity_Alldata_2conds.png  used
  on input line 248.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/ALLSUBJ_LP_sensitivity_Alldata_4conds.png, id=297, 562.2606pt x 421.575
+<Images/ALLSUBJ_LP_sensitivity_Alldata_4conds.png, id=307, 562.2606pt x 421.575
 pt>
 File: Images/ALLSUBJ_LP_sensitivity_Alldata_4conds.png Graphic file (type png)
 <use Images/ALLSUBJ_LP_sensitivity_Alldata_4conds.png>
 Package pdftex.def Info: Images/ALLSUBJ_LP_sensitivity_Alldata_4conds.png  used
  on input line 254.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/ALLSUBJ_LP_sensitivity_Alldata_2conds.png, id=298, 562.2606pt x 421.575
+<Images/ALLSUBJ_LP_sensitivity_Alldata_2conds.png, id=308, 562.2606pt x 421.575
 pt>
 File: Images/ALLSUBJ_LP_sensitivity_Alldata_2conds.png Graphic file (type png)
 <use Images/ALLSUBJ_LP_sensitivity_Alldata_2conds.png>
@@ -876,25 +876,25 @@ Package pdftex.def Info: Images/ALLSUBJ_LP_sensitivity_Alldata_2conds.png  used
 ALLSUBJ_PP_sensitivity_Alldata_2conds.png (PNG copy)> <./Images/ALLSUBJ_LP_sens
 itivity_Alldata_4conds.png (PNG copy)> <./Images/ALLSUBJ_LP_sensitivity_Alldata
 _2conds.png (PNG copy)>]
-<Images/ALLSUBJ_PP_bias_Alldata_4conds.png, id=304, 562.2606pt x 421.575pt>
+<Images/ALLSUBJ_PP_bias_Alldata_4conds.png, id=314, 562.2606pt x 421.575pt>
 File: Images/ALLSUBJ_PP_bias_Alldata_4conds.png Graphic file (type png)
 <use Images/ALLSUBJ_PP_bias_Alldata_4conds.png>
 Package pdftex.def Info: Images/ALLSUBJ_PP_bias_Alldata_4conds.png  used on inp
 ut line 261.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/ALLSUBJ_PP_bias_Alldata_2conds.png, id=305, 562.2606pt x 421.575pt>
+<Images/ALLSUBJ_PP_bias_Alldata_2conds.png, id=315, 562.2606pt x 421.575pt>
 File: Images/ALLSUBJ_PP_bias_Alldata_2conds.png Graphic file (type png)
 <use Images/ALLSUBJ_PP_bias_Alldata_2conds.png>
 Package pdftex.def Info: Images/ALLSUBJ_PP_bias_Alldata_2conds.png  used on inp
 ut line 262.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/ALLSUBJ_LP_bias_Alldata_4conds.png, id=306, 562.2606pt x 421.575pt>
+<Images/ALLSUBJ_LP_bias_Alldata_4conds.png, id=316, 562.2606pt x 421.575pt>
 File: Images/ALLSUBJ_LP_bias_Alldata_4conds.png Graphic file (type png)
 <use Images/ALLSUBJ_LP_bias_Alldata_4conds.png>
 Package pdftex.def Info: Images/ALLSUBJ_LP_bias_Alldata_4conds.png  used on inp
 ut line 267.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/ALLSUBJ_LP_bias_Alldata_2conds.png, id=307, 562.2606pt x 421.575pt>
+<Images/ALLSUBJ_LP_bias_Alldata_2conds.png, id=317, 562.2606pt x 421.575pt>
 File: Images/ALLSUBJ_LP_bias_Alldata_2conds.png Graphic file (type png)
 <use Images/ALLSUBJ_LP_bias_Alldata_2conds.png>
 Package pdftex.def Info: Images/ALLSUBJ_LP_bias_Alldata_2conds.png  used on inp
@@ -904,71 +904,71 @@ ut line 268.
 [13 <./Images/ALLSUBJ_PP_bias_Alldata_4conds.png (PNG copy)> <./Images/ALLSUBJ_
 PP_bias_Alldata_2conds.png (PNG copy)> <./Images/ALLSUBJ_LP_bias_Alldata_4conds
 .png (PNG copy)> <./Images/ALLSUBJ_LP_bias_Alldata_2conds.png (PNG copy)>]
-<Images/RE_PF_loc0_4conds.png, id=313, 1445.4pt x 755.9442pt>
+<Images/RE_PF_loc0_4conds.png, id=323, 1445.4pt x 755.9442pt>
 File: Images/RE_PF_loc0_4conds.png Graphic file (type png)
 <use Images/RE_PF_loc0_4conds.png>
 Package pdftex.def Info: Images/RE_PF_loc0_4conds.png  used on input line 276.
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/RE_PF_loc0_2conds.png, id=314, 1445.4pt x 755.9442pt>
+<Images/RE_PF_loc0_2conds.png, id=324, 1445.4pt x 755.9442pt>
 File: Images/RE_PF_loc0_2conds.png Graphic file (type png)
 <use Images/RE_PF_loc0_2conds.png>
 Package pdftex.def Info: Images/RE_PF_loc0_2conds.png  used on input line 277.
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/RE_PF_loc45_4conds.png, id=315, 1445.4pt x 755.9442pt>
+<Images/RE_PF_loc45_4conds.png, id=325, 1445.4pt x 755.9442pt>
 File: Images/RE_PF_loc45_4conds.png Graphic file (type png)
 <use Images/RE_PF_loc45_4conds.png>
 Package pdftex.def Info: Images/RE_PF_loc45_4conds.png  used on input line 281.
 
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/RE_PF_loc45_2conds.png, id=316, 1445.4pt x 755.9442pt>
+<Images/RE_PF_loc45_2conds.png, id=326, 1445.4pt x 755.9442pt>
 File: Images/RE_PF_loc45_2conds.png Graphic file (type png)
 <use Images/RE_PF_loc45_2conds.png>
 Package pdftex.def Info: Images/RE_PF_loc45_2conds.png  used on input line 282.
 
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/RE_PF_loc90_4conds.png, id=317, 1445.4pt x 755.9442pt>
+<Images/RE_PF_loc90_4conds.png, id=327, 1445.4pt x 755.9442pt>
 File: Images/RE_PF_loc90_4conds.png Graphic file (type png)
 <use Images/RE_PF_loc90_4conds.png>
 Package pdftex.def Info: Images/RE_PF_loc90_4conds.png  used on input line 286.
 
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/RE_PF_loc90_2conds.png, id=318, 1445.4pt x 755.9442pt>
+<Images/RE_PF_loc90_2conds.png, id=328, 1445.4pt x 755.9442pt>
 File: Images/RE_PF_loc90_2conds.png Graphic file (type png)
 <use Images/RE_PF_loc90_2conds.png>
 Package pdftex.def Info: Images/RE_PF_loc90_2conds.png  used on input line 287.
 
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/RE_PF_loc135_4conds.png, id=319, 1445.4pt x 755.9442pt>
+<Images/RE_PF_loc135_4conds.png, id=329, 1445.4pt x 755.9442pt>
 File: Images/RE_PF_loc135_4conds.png Graphic file (type png)
 <use Images/RE_PF_loc135_4conds.png>
 Package pdftex.def Info: Images/RE_PF_loc135_4conds.png  used on input line 291
 .
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/RE_PF_loc135_2conds.png, id=320, 1445.4pt x 755.9442pt>
+<Images/RE_PF_loc135_2conds.png, id=330, 1445.4pt x 755.9442pt>
 File: Images/RE_PF_loc135_2conds.png Graphic file (type png)
 <use Images/RE_PF_loc135_2conds.png>
 Package pdftex.def Info: Images/RE_PF_loc135_2conds.png  used on input line 292
 .
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/RE_PF_loc180_4conds.png, id=321, 1445.4pt x 755.9442pt>
+<Images/RE_PF_loc180_4conds.png, id=331, 1445.4pt x 755.9442pt>
 File: Images/RE_PF_loc180_4conds.png Graphic file (type png)
 <use Images/RE_PF_loc180_4conds.png>
 Package pdftex.def Info: Images/RE_PF_loc180_4conds.png  used on input line 296
 .
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/RE_PF_loc180_2conds.png, id=322, 1445.4pt x 755.9442pt>
+<Images/RE_PF_loc180_2conds.png, id=332, 1445.4pt x 755.9442pt>
 File: Images/RE_PF_loc180_2conds.png Graphic file (type png)
 <use Images/RE_PF_loc180_2conds.png>
 Package pdftex.def Info: Images/RE_PF_loc180_2conds.png  used on input line 297
 .
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/RE_PF_loc225_4conds.png, id=323, 1445.4pt x 755.9442pt>
+<Images/RE_PF_loc225_4conds.png, id=333, 1445.4pt x 755.9442pt>
 File: Images/RE_PF_loc225_4conds.png Graphic file (type png)
 <use Images/RE_PF_loc225_4conds.png>
 Package pdftex.def Info: Images/RE_PF_loc225_4conds.png  used on input line 301
 .
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/RE_PF_loc225_2conds.png, id=324, 1445.4pt x 755.9442pt>
+<Images/RE_PF_loc225_2conds.png, id=334, 1445.4pt x 755.9442pt>
 File: Images/RE_PF_loc225_2conds.png Graphic file (type png)
 <use Images/RE_PF_loc225_2conds.png>
 Package pdftex.def Info: Images/RE_PF_loc225_2conds.png  used on input line 302
@@ -980,25 +980,25 @@ Package pdftex.def Info: Images/RE_PF_loc225_2conds.png  used on input line 302
 _2conds.png (PNG copy)> <./Images/RE_PF_loc90_4conds.png (PNG copy)> <./Images/
 RE_PF_loc90_2conds.png (PNG copy)> <./Images/RE_PF_loc135_4conds.png (PNG copy)
 > <./Images/RE_PF_loc135_2conds.png (PNG copy)>]
-<Images/RE_PF_loc270_4conds.png, id=329, 1445.4pt x 755.9442pt>
+<Images/RE_PF_loc270_4conds.png, id=339, 1445.4pt x 755.9442pt>
 File: Images/RE_PF_loc270_4conds.png Graphic file (type png)
 <use Images/RE_PF_loc270_4conds.png>
 Package pdftex.def Info: Images/RE_PF_loc270_4conds.png  used on input line 306
 .
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/RE_PF_loc270_2conds.png, id=330, 1445.4pt x 755.9442pt>
+<Images/RE_PF_loc270_2conds.png, id=340, 1445.4pt x 755.9442pt>
 File: Images/RE_PF_loc270_2conds.png Graphic file (type png)
 <use Images/RE_PF_loc270_2conds.png>
 Package pdftex.def Info: Images/RE_PF_loc270_2conds.png  used on input line 307
 .
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/RE_PF_loc315_4conds.png, id=331, 1445.4pt x 755.9442pt>
+<Images/RE_PF_loc315_4conds.png, id=341, 1445.4pt x 755.9442pt>
 File: Images/RE_PF_loc315_4conds.png Graphic file (type png)
 <use Images/RE_PF_loc315_4conds.png>
 Package pdftex.def Info: Images/RE_PF_loc315_4conds.png  used on input line 311
 .
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/RE_PF_loc315_2conds.png, id=332, 1445.4pt x 755.9442pt>
+<Images/RE_PF_loc315_2conds.png, id=342, 1445.4pt x 755.9442pt>
 File: Images/RE_PF_loc315_2conds.png Graphic file (type png)
 <use Images/RE_PF_loc315_2conds.png>
 Package pdftex.def Info: Images/RE_PF_loc315_2conds.png  used on input line 312
@@ -1009,71 +1009,71 @@ s.png (PNG copy)> <./Images/RE_PF_loc225_4conds.png (PNG copy)> <./Images/RE_PF
 _loc225_2conds.png (PNG copy)> <./Images/RE_PF_loc270_4conds.png (PNG copy)> <.
 /Images/RE_PF_loc270_2conds.png (PNG copy)> <./Images/RE_PF_loc315_4conds.png (
 PNG copy)> <./Images/RE_PF_loc315_2conds.png (PNG copy)>]
-<Images/FH_PF_loc0_4conds.png, id=337, 1445.4pt x 755.9442pt>
+<Images/FH_PF_loc0_4conds.png, id=347, 1445.4pt x 755.9442pt>
 File: Images/FH_PF_loc0_4conds.png Graphic file (type png)
 <use Images/FH_PF_loc0_4conds.png>
 Package pdftex.def Info: Images/FH_PF_loc0_4conds.png  used on input line 319.
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/FH_PF_loc0_2conds.png, id=338, 1445.4pt x 755.9442pt>
+<Images/FH_PF_loc0_2conds.png, id=348, 1445.4pt x 755.9442pt>
 File: Images/FH_PF_loc0_2conds.png Graphic file (type png)
 <use Images/FH_PF_loc0_2conds.png>
 Package pdftex.def Info: Images/FH_PF_loc0_2conds.png  used on input line 320.
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/FH_PF_loc45_4conds.png, id=339, 1445.4pt x 755.9442pt>
+<Images/FH_PF_loc45_4conds.png, id=349, 1445.4pt x 755.9442pt>
 File: Images/FH_PF_loc45_4conds.png Graphic file (type png)
 <use Images/FH_PF_loc45_4conds.png>
 Package pdftex.def Info: Images/FH_PF_loc45_4conds.png  used on input line 324.
 
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/FH_PF_loc45_2conds.png, id=340, 1445.4pt x 755.9442pt>
+<Images/FH_PF_loc45_2conds.png, id=350, 1445.4pt x 755.9442pt>
 File: Images/FH_PF_loc45_2conds.png Graphic file (type png)
 <use Images/FH_PF_loc45_2conds.png>
 Package pdftex.def Info: Images/FH_PF_loc45_2conds.png  used on input line 325.
 
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/FH_PF_loc90_4conds.png, id=341, 1445.4pt x 755.9442pt>
+<Images/FH_PF_loc90_4conds.png, id=351, 1445.4pt x 755.9442pt>
 File: Images/FH_PF_loc90_4conds.png Graphic file (type png)
 <use Images/FH_PF_loc90_4conds.png>
 Package pdftex.def Info: Images/FH_PF_loc90_4conds.png  used on input line 329.
 
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/FH_PF_loc90_2conds.png, id=342, 1445.4pt x 755.9442pt>
+<Images/FH_PF_loc90_2conds.png, id=352, 1445.4pt x 755.9442pt>
 File: Images/FH_PF_loc90_2conds.png Graphic file (type png)
 <use Images/FH_PF_loc90_2conds.png>
 Package pdftex.def Info: Images/FH_PF_loc90_2conds.png  used on input line 330.
 
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/FH_PF_loc135_4conds.png, id=343, 1445.4pt x 755.9442pt>
+<Images/FH_PF_loc135_4conds.png, id=353, 1445.4pt x 755.9442pt>
 File: Images/FH_PF_loc135_4conds.png Graphic file (type png)
 <use Images/FH_PF_loc135_4conds.png>
 Package pdftex.def Info: Images/FH_PF_loc135_4conds.png  used on input line 334
 .
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/FH_PF_loc135_2conds.png, id=344, 1445.4pt x 755.9442pt>
+<Images/FH_PF_loc135_2conds.png, id=354, 1445.4pt x 755.9442pt>
 File: Images/FH_PF_loc135_2conds.png Graphic file (type png)
 <use Images/FH_PF_loc135_2conds.png>
 Package pdftex.def Info: Images/FH_PF_loc135_2conds.png  used on input line 335
 .
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/FH_PF_loc180_4conds.png, id=345, 1445.4pt x 755.9442pt>
+<Images/FH_PF_loc180_4conds.png, id=355, 1445.4pt x 755.9442pt>
 File: Images/FH_PF_loc180_4conds.png Graphic file (type png)
 <use Images/FH_PF_loc180_4conds.png>
 Package pdftex.def Info: Images/FH_PF_loc180_4conds.png  used on input line 339
 .
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/FH_PF_loc180_2conds.png, id=346, 1445.4pt x 755.9442pt>
+<Images/FH_PF_loc180_2conds.png, id=356, 1445.4pt x 755.9442pt>
 File: Images/FH_PF_loc180_2conds.png Graphic file (type png)
 <use Images/FH_PF_loc180_2conds.png>
 Package pdftex.def Info: Images/FH_PF_loc180_2conds.png  used on input line 340
 .
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/FH_PF_loc225_4conds.png, id=347, 1445.4pt x 755.9442pt>
+<Images/FH_PF_loc225_4conds.png, id=357, 1445.4pt x 755.9442pt>
 File: Images/FH_PF_loc225_4conds.png Graphic file (type png)
 <use Images/FH_PF_loc225_4conds.png>
 Package pdftex.def Info: Images/FH_PF_loc225_4conds.png  used on input line 344
 .
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/FH_PF_loc225_2conds.png, id=348, 1445.4pt x 755.9442pt>
+<Images/FH_PF_loc225_2conds.png, id=358, 1445.4pt x 755.9442pt>
 File: Images/FH_PF_loc225_2conds.png Graphic file (type png)
 <use Images/FH_PF_loc225_2conds.png>
 Package pdftex.def Info: Images/FH_PF_loc225_2conds.png  used on input line 345
@@ -1084,25 +1084,25 @@ g (PNG copy)> <./Images/FH_PF_loc45_4conds.png (PNG copy)> <./Images/FH_PF_loc4
 5_2conds.png (PNG copy)> <./Images/FH_PF_loc90_4conds.png (PNG copy)> <./Images
 /FH_PF_loc90_2conds.png (PNG copy)> <./Images/FH_PF_loc135_4conds.png (PNG copy
 )> <./Images/FH_PF_loc135_2conds.png (PNG copy)>]
-<Images/FH_PF_loc270_4conds.png, id=353, 1445.4pt x 755.9442pt>
+<Images/FH_PF_loc270_4conds.png, id=363, 1445.4pt x 755.9442pt>
 File: Images/FH_PF_loc270_4conds.png Graphic file (type png)
 <use Images/FH_PF_loc270_4conds.png>
 Package pdftex.def Info: Images/FH_PF_loc270_4conds.png  used on input line 349
 .
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/FH_PF_loc270_2conds.png, id=354, 1445.4pt x 755.9442pt>
+<Images/FH_PF_loc270_2conds.png, id=364, 1445.4pt x 755.9442pt>
 File: Images/FH_PF_loc270_2conds.png Graphic file (type png)
 <use Images/FH_PF_loc270_2conds.png>
 Package pdftex.def Info: Images/FH_PF_loc270_2conds.png  used on input line 350
 .
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/FH_PF_loc315_4conds.png, id=355, 1445.4pt x 755.9442pt>
+<Images/FH_PF_loc315_4conds.png, id=365, 1445.4pt x 755.9442pt>
 File: Images/FH_PF_loc315_4conds.png Graphic file (type png)
 <use Images/FH_PF_loc315_4conds.png>
 Package pdftex.def Info: Images/FH_PF_loc315_4conds.png  used on input line 354
 .
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/FH_PF_loc315_2conds.png, id=356, 1445.4pt x 755.9442pt>
+<Images/FH_PF_loc315_2conds.png, id=366, 1445.4pt x 755.9442pt>
 File: Images/FH_PF_loc315_2conds.png Graphic file (type png)
 <use Images/FH_PF_loc315_2conds.png>
 Package pdftex.def Info: Images/FH_PF_loc315_2conds.png  used on input line 355
@@ -1114,71 +1114,71 @@ Package pdftex.def Info: Images/FH_PF_loc315_2conds.png  used on input line 355
 loc225_2conds.png (PNG copy)> <./Images/FH_PF_loc270_4conds.png (PNG copy)> <./
 Images/FH_PF_loc270_2conds.png (PNG copy)> <./Images/FH_PF_loc315_4conds.png (P
 NG copy)> <./Images/FH_PF_loc315_2conds.png (PNG copy)>]
-<Images/BB_PF_loc0_4conds.png, id=361, 1445.4pt x 755.9442pt>
+<Images/BB_PF_loc0_4conds.png, id=372, 1445.4pt x 755.9442pt>
 File: Images/BB_PF_loc0_4conds.png Graphic file (type png)
 <use Images/BB_PF_loc0_4conds.png>
 Package pdftex.def Info: Images/BB_PF_loc0_4conds.png  used on input line 362.
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/BB_PF_loc0_2conds.png, id=362, 1445.4pt x 755.9442pt>
+<Images/BB_PF_loc0_2conds.png, id=373, 1445.4pt x 755.9442pt>
 File: Images/BB_PF_loc0_2conds.png Graphic file (type png)
 <use Images/BB_PF_loc0_2conds.png>
 Package pdftex.def Info: Images/BB_PF_loc0_2conds.png  used on input line 363.
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/BB_PF_loc45_4conds.png, id=363, 1445.4pt x 755.9442pt>
+<Images/BB_PF_loc45_4conds.png, id=374, 1445.4pt x 755.9442pt>
 File: Images/BB_PF_loc45_4conds.png Graphic file (type png)
 <use Images/BB_PF_loc45_4conds.png>
 Package pdftex.def Info: Images/BB_PF_loc45_4conds.png  used on input line 367.
 
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/BB_PF_loc45_2conds.png, id=364, 1445.4pt x 755.9442pt>
+<Images/BB_PF_loc45_2conds.png, id=375, 1445.4pt x 755.9442pt>
 File: Images/BB_PF_loc45_2conds.png Graphic file (type png)
 <use Images/BB_PF_loc45_2conds.png>
 Package pdftex.def Info: Images/BB_PF_loc45_2conds.png  used on input line 368.
 
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/BB_PF_loc90_4conds.png, id=365, 1445.4pt x 755.9442pt>
+<Images/BB_PF_loc90_4conds.png, id=376, 1445.4pt x 755.9442pt>
 File: Images/BB_PF_loc90_4conds.png Graphic file (type png)
 <use Images/BB_PF_loc90_4conds.png>
 Package pdftex.def Info: Images/BB_PF_loc90_4conds.png  used on input line 372.
 
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/BB_PF_loc90_2conds.png, id=366, 1445.4pt x 755.9442pt>
+<Images/BB_PF_loc90_2conds.png, id=377, 1445.4pt x 755.9442pt>
 File: Images/BB_PF_loc90_2conds.png Graphic file (type png)
 <use Images/BB_PF_loc90_2conds.png>
 Package pdftex.def Info: Images/BB_PF_loc90_2conds.png  used on input line 373.
 
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/BB_PF_loc135_4conds.png, id=367, 1445.4pt x 755.9442pt>
+<Images/BB_PF_loc135_4conds.png, id=378, 1445.4pt x 755.9442pt>
 File: Images/BB_PF_loc135_4conds.png Graphic file (type png)
 <use Images/BB_PF_loc135_4conds.png>
 Package pdftex.def Info: Images/BB_PF_loc135_4conds.png  used on input line 377
 .
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/BB_PF_loc135_2conds.png, id=368, 1445.4pt x 755.9442pt>
+<Images/BB_PF_loc135_2conds.png, id=379, 1445.4pt x 755.9442pt>
 File: Images/BB_PF_loc135_2conds.png Graphic file (type png)
 <use Images/BB_PF_loc135_2conds.png>
 Package pdftex.def Info: Images/BB_PF_loc135_2conds.png  used on input line 378
 .
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/BB_PF_loc180_4conds.png, id=369, 1445.4pt x 755.9442pt>
+<Images/BB_PF_loc180_4conds.png, id=380, 1445.4pt x 755.9442pt>
 File: Images/BB_PF_loc180_4conds.png Graphic file (type png)
 <use Images/BB_PF_loc180_4conds.png>
 Package pdftex.def Info: Images/BB_PF_loc180_4conds.png  used on input line 382
 .
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/BB_PF_loc180_2conds.png, id=370, 1445.4pt x 755.9442pt>
+<Images/BB_PF_loc180_2conds.png, id=381, 1445.4pt x 755.9442pt>
 File: Images/BB_PF_loc180_2conds.png Graphic file (type png)
 <use Images/BB_PF_loc180_2conds.png>
 Package pdftex.def Info: Images/BB_PF_loc180_2conds.png  used on input line 383
 .
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/BB_PF_loc225_4conds.png, id=371, 1445.4pt x 755.9442pt>
+<Images/BB_PF_loc225_4conds.png, id=382, 1445.4pt x 755.9442pt>
 File: Images/BB_PF_loc225_4conds.png Graphic file (type png)
 <use Images/BB_PF_loc225_4conds.png>
 Package pdftex.def Info: Images/BB_PF_loc225_4conds.png  used on input line 387
 .
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/BB_PF_loc225_2conds.png, id=372, 1445.4pt x 755.9442pt>
+<Images/BB_PF_loc225_2conds.png, id=383, 1445.4pt x 755.9442pt>
 File: Images/BB_PF_loc225_2conds.png Graphic file (type png)
 <use Images/BB_PF_loc225_2conds.png>
 Package pdftex.def Info: Images/BB_PF_loc225_2conds.png  used on input line 388
@@ -1189,25 +1189,25 @@ g (PNG copy)> <./Images/BB_PF_loc45_4conds.png (PNG copy)> <./Images/BB_PF_loc4
 5_2conds.png (PNG copy)> <./Images/BB_PF_loc90_4conds.png (PNG copy)> <./Images
 /BB_PF_loc90_2conds.png (PNG copy)> <./Images/BB_PF_loc135_4conds.png (PNG copy
 )> <./Images/BB_PF_loc135_2conds.png (PNG copy)>]
-<Images/BB_PF_loc270_4conds.png, id=378, 1445.4pt x 755.9442pt>
+<Images/BB_PF_loc270_4conds.png, id=388, 1445.4pt x 755.9442pt>
 File: Images/BB_PF_loc270_4conds.png Graphic file (type png)
 <use Images/BB_PF_loc270_4conds.png>
 Package pdftex.def Info: Images/BB_PF_loc270_4conds.png  used on input line 392
 .
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/BB_PF_loc270_2conds.png, id=379, 1445.4pt x 755.9442pt>
+<Images/BB_PF_loc270_2conds.png, id=389, 1445.4pt x 755.9442pt>
 File: Images/BB_PF_loc270_2conds.png Graphic file (type png)
 <use Images/BB_PF_loc270_2conds.png>
 Package pdftex.def Info: Images/BB_PF_loc270_2conds.png  used on input line 393
 .
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/BB_PF_loc315_4conds.png, id=380, 1445.4pt x 755.9442pt>
+<Images/BB_PF_loc315_4conds.png, id=390, 1445.4pt x 755.9442pt>
 File: Images/BB_PF_loc315_4conds.png Graphic file (type png)
 <use Images/BB_PF_loc315_4conds.png>
 Package pdftex.def Info: Images/BB_PF_loc315_4conds.png  used on input line 397
 .
 (pdftex.def)             Requested size: 216.80064pt x 113.38673pt.
-<Images/BB_PF_loc315_2conds.png, id=381, 1445.4pt x 755.9442pt>
+<Images/BB_PF_loc315_2conds.png, id=391, 1445.4pt x 755.9442pt>
 File: Images/BB_PF_loc315_2conds.png Graphic file (type png)
 <use Images/BB_PF_loc315_2conds.png>
 Package pdftex.def Info: Images/BB_PF_loc315_2conds.png  used on input line 398
@@ -1218,84 +1218,84 @@ s.png (PNG copy)> <./Images/BB_PF_loc225_4conds.png (PNG copy)> <./Images/BB_PF
 _loc225_2conds.png (PNG copy)> <./Images/BB_PF_loc270_4conds.png (PNG copy)> <.
 /Images/BB_PF_loc270_2conds.png (PNG copy)> <./Images/BB_PF_loc315_4conds.png (
 PNG copy)> <./Images/BB_PF_loc315_2conds.png (PNG copy)>]
-<Images/Cartoon1.png, id=387, 746.79pt x 349.305pt>
+<Images/Cartoon1.png, id=397, 746.79pt x 349.305pt>
 File: Images/Cartoon1.png Graphic file (type png)
 <use Images/Cartoon1.png>
 Package pdftex.def Info: Images/Cartoon1.png  used on input line 421.
 (pdftex.def)             Requested size: 186.69704pt x 87.32603pt.
-<Images/Cartoon2.png, id=388, 593.71812pt x 343.2825pt>
+<Images/Cartoon2.png, id=398, 593.71812pt x 343.2825pt>
 File: Images/Cartoon2.png Graphic file (type png)
 <use Images/Cartoon2.png>
 Package pdftex.def Info: Images/Cartoon2.png  used on input line 425.
 (pdftex.def)             Requested size: 148.42917pt x 85.8204pt.
-<Images/Cartoon3.png, id=389, 590.205pt x 355.3275pt>
+<Images/Cartoon3.png, id=399, 590.205pt x 355.3275pt>
 File: Images/Cartoon3.png Graphic file (type png)
 <use Images/Cartoon3.png>
 Package pdftex.def Info: Images/Cartoon3.png  used on input line 426.
 (pdftex.def)             Requested size: 147.55089pt x 88.83165pt.
-<Images/Cartoon4.png, id=390, 737.75626pt x 346.29375pt>
+<Images/Cartoon4.png, id=400, 737.75626pt x 346.29375pt>
 File: Images/Cartoon4.png Graphic file (type png)
 <use Images/Cartoon4.png>
 Package pdftex.def Info: Images/Cartoon4.png  used on input line 430.
 (pdftex.def)             Requested size: 184.43861pt x 86.57321pt.
  [20 <./Images/Cartoon1.png> <./Images/Cartoon2.png> <./Images/Cartoon3.png> <.
 /Images/Cartoon4.png>]
-<Images/Cartoon5.png, id=403, 746.79pt x 416.55624pt>
+<Images/Cartoon5.png, id=413, 746.79pt x 416.55624pt>
 File: Images/Cartoon5.png Graphic file (type png)
 <use Images/Cartoon5.png>
-Package pdftex.def Info: Images/Cartoon5.png  used on input line 439.
+Package pdftex.def Info: Images/Cartoon5.png  used on input line 458.
 (pdftex.def)             Requested size: 186.69704pt x 104.1388pt.
  [21 <./Images/Cartoon5.png>] [22] [23] [24]
-<Images/PF_RE_allcond.png, id=425, 2890.8pt x 1523.6925pt>
+<Images/PF_RE_allcond.png, id=439, 2890.8pt x 1523.6925pt>
 File: Images/PF_RE_allcond.png Graphic file (type png)
 <use Images/PF_RE_allcond.png>
-Package pdftex.def Info: Images/PF_RE_allcond.png  used on input line 540.
+Package pdftex.def Info: Images/PF_RE_allcond.png  used on input line 559.
 (pdftex.def)             Requested size: 173.44052pt x 91.4176pt.
-<Images/MeanSlopeError_ci_RE_allcond.png, id=426, 1124.2pt x 843.15pt>
+<Images/MeanSlopeError_ci_RE_allcond.png, id=440, 1124.2pt x 843.15pt>
 File: Images/MeanSlopeError_ci_RE_allcond.png Graphic file (type png)
 <use Images/MeanSlopeError_ci_RE_allcond.png>
 Package pdftex.def Info: Images/MeanSlopeError_ci_RE_allcond.png  used on input
- line 541.
+ line 560.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/MeanBiasError_ci_RE_allcond.png, id=427, 1124.2pt x 843.15pt>
+<Images/MeanBiasError_ci_RE_allcond.png, id=441, 1124.2pt x 843.15pt>
 File: Images/MeanBiasError_ci_RE_allcond.png Graphic file (type png)
 <use Images/MeanBiasError_ci_RE_allcond.png>
 Package pdftex.def Info: Images/MeanBiasError_ci_RE_allcond.png  used on input 
-line 542.
+line 561.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/PF_RE_oblique.png, id=428, 2890.8pt x 1523.6925pt>
+<Images/PF_RE_oblique.png, id=442, 2890.8pt x 1523.6925pt>
 File: Images/PF_RE_oblique.png Graphic file (type png)
 <use Images/PF_RE_oblique.png>
-Package pdftex.def Info: Images/PF_RE_oblique.png  used on input line 543.
+Package pdftex.def Info: Images/PF_RE_oblique.png  used on input line 562.
 (pdftex.def)             Requested size: 173.44052pt x 91.4176pt.
-<Images/MeanSlopeError_ci_RE_oblique.png, id=429, 1124.2pt x 843.15pt>
+<Images/MeanSlopeError_ci_RE_oblique.png, id=443, 1124.2pt x 843.15pt>
 File: Images/MeanSlopeError_ci_RE_oblique.png Graphic file (type png)
 <use Images/MeanSlopeError_ci_RE_oblique.png>
 Package pdftex.def Info: Images/MeanSlopeError_ci_RE_oblique.png  used on input
- line 544.
+ line 563.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/MeanBiasError_ci_RE_oblique.png, id=430, 1124.2pt x 843.15pt>
+<Images/MeanBiasError_ci_RE_oblique.png, id=444, 1124.2pt x 843.15pt>
 File: Images/MeanBiasError_ci_RE_oblique.png Graphic file (type png)
 <use Images/MeanBiasError_ci_RE_oblique.png>
 Package pdftex.def Info: Images/MeanBiasError_ci_RE_oblique.png  used on input 
-line 545.
+line 564.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/PF_RE_cardinal.png, id=431, 2890.8pt x 1523.6925pt>
+<Images/PF_RE_cardinal.png, id=445, 2890.8pt x 1523.6925pt>
 File: Images/PF_RE_cardinal.png Graphic file (type png)
 <use Images/PF_RE_cardinal.png>
-Package pdftex.def Info: Images/PF_RE_cardinal.png  used on input line 546.
+Package pdftex.def Info: Images/PF_RE_cardinal.png  used on input line 565.
 (pdftex.def)             Requested size: 173.44052pt x 91.4176pt.
-<Images/MeanSlopeError_ci_RE_cardinal.png, id=432, 1124.2pt x 843.15pt>
+<Images/MeanSlopeError_ci_RE_cardinal.png, id=446, 1124.2pt x 843.15pt>
 File: Images/MeanSlopeError_ci_RE_cardinal.png Graphic file (type png)
 <use Images/MeanSlopeError_ci_RE_cardinal.png>
 Package pdftex.def Info: Images/MeanSlopeError_ci_RE_cardinal.png  used on inpu
-t line 547.
+t line 566.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/MeanBiasError_ci_RE_cardinal.png, id=433, 1124.2pt x 843.15pt>
+<Images/MeanBiasError_ci_RE_cardinal.png, id=447, 1124.2pt x 843.15pt>
 File: Images/MeanBiasError_ci_RE_cardinal.png Graphic file (type png)
 <use Images/MeanBiasError_ci_RE_cardinal.png>
 Package pdftex.def Info: Images/MeanBiasError_ci_RE_cardinal.png  used on input
- line 548.
+ line 567.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
  [25 <./Images/PF_RE_allcond.png (PNG copy)> <./Images/MeanSlopeError_ci_RE_all
 cond.png (PNG copy)> <./Images/MeanBiasError_ci_RE_allcond.png (PNG copy)> <./I
@@ -1303,81 +1303,81 @@ mages/PF_RE_oblique.png (PNG copy)> <./Images/MeanSlopeError_ci_RE_oblique.png
 (PNG copy)> <./Images/MeanBiasError_ci_RE_oblique.png (PNG copy)> <./Images/PF_
 RE_cardinal.png (PNG copy)> <./Images/MeanSlopeError_ci_RE_cardinal.png (PNG co
 py)> <./Images/MeanBiasError_ci_RE_cardinal.png (PNG copy)>]
-<Images/polarplot_new.png, id=440, 1124.2pt x 843.15pt>
+<Images/polarplot_new.png, id=454, 1124.2pt x 843.15pt>
 File: Images/polarplot_new.png Graphic file (type png)
 <use Images/polarplot_new.png>
-Package pdftex.def Info: Images/polarplot_new.png  used on input line 572.
+Package pdftex.def Info: Images/polarplot_new.png  used on input line 591.
 (pdftex.def)             Requested size: 202.34726pt x 151.76045pt.
-<Images/performance_polarplot.png, id=441, 562.1pt x 421.575pt>
+<Images/performance_polarplot.png, id=455, 562.1pt x 421.575pt>
 File: Images/performance_polarplot.png Graphic file (type png)
 <use Images/performance_polarplot.png>
 Package pdftex.def Info: Images/performance_polarplot.png  used on input line 5
-73.
+92.
 (pdftex.def)             Requested size: 196.73795pt x 147.55345pt.
-<Images/block_performance_new.png, id=442, 1124.2pt x 843.15pt>
+<Images/block_performance_new.png, id=456, 1124.2pt x 843.15pt>
 File: Images/block_performance_new.png Graphic file (type png)
 <use Images/block_performance_new.png>
 Package pdftex.def Info: Images/block_performance_new.png  used on input line 5
-79.
+98.
 (pdftex.def)             Requested size: 168.62273pt x 126.46704pt.
-<Images/block_performance.png, id=443, 1124.2pt x 843.15pt>
+<Images/block_performance.png, id=457, 1124.2pt x 843.15pt>
 File: Images/block_performance.png Graphic file (type png)
 <use Images/block_performance.png>
-Package pdftex.def Info: Images/block_performance.png  used on input line 580.
+Package pdftex.def Info: Images/block_performance.png  used on input line 599.
 (pdftex.def)             Requested size: 168.62273pt x 126.46704pt.
  [26 <./Images/polarplot_new.png (PNG copy)> <./Images/performance_polarplot.pn
 g (PNG copy)> <./Images/block_performance_new.png (PNG copy)> <./Images/block_p
 erformance.png (PNG copy)>]
-<Images/PF_FH_allcond.png, id=450, 2890.8pt x 1587.9325pt>
+<Images/PF_FH_allcond.png, id=464, 2890.8pt x 1587.9325pt>
 File: Images/PF_FH_allcond.png Graphic file (type png)
 <use Images/PF_FH_allcond.png>
-Package pdftex.def Info: Images/PF_FH_allcond.png  used on input line 588.
+Package pdftex.def Info: Images/PF_FH_allcond.png  used on input line 607.
 (pdftex.def)             Requested size: 173.44052pt x 95.27184pt.
-<Images/MeanSlopeError_ci_FH_allcond.png, id=451, 1124.2pt x 843.15pt>
+<Images/MeanSlopeError_ci_FH_allcond.png, id=465, 1124.2pt x 843.15pt>
 File: Images/MeanSlopeError_ci_FH_allcond.png Graphic file (type png)
 <use Images/MeanSlopeError_ci_FH_allcond.png>
 Package pdftex.def Info: Images/MeanSlopeError_ci_FH_allcond.png  used on input
- line 589.
+ line 608.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/MeanBiasError_ci_FH_allcond.png, id=452, 1124.2pt x 843.15pt>
+<Images/MeanBiasError_ci_FH_allcond.png, id=466, 1124.2pt x 843.15pt>
 File: Images/MeanBiasError_ci_FH_allcond.png Graphic file (type png)
 <use Images/MeanBiasError_ci_FH_allcond.png>
 Package pdftex.def Info: Images/MeanBiasError_ci_FH_allcond.png  used on input 
-line 590.
+line 609.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/PF_FH_oblique.png, id=453, 2890.8pt x 1587.9325pt>
+<Images/PF_FH_oblique.png, id=467, 2890.8pt x 1587.9325pt>
 File: Images/PF_FH_oblique.png Graphic file (type png)
 <use Images/PF_FH_oblique.png>
-Package pdftex.def Info: Images/PF_FH_oblique.png  used on input line 591.
+Package pdftex.def Info: Images/PF_FH_oblique.png  used on input line 610.
 (pdftex.def)             Requested size: 173.44052pt x 95.27184pt.
-<Images/MeanSlopeError_ci_FH_oblique.png, id=454, 1124.2pt x 843.15pt>
+<Images/MeanSlopeError_ci_FH_oblique.png, id=468, 1124.2pt x 843.15pt>
 File: Images/MeanSlopeError_ci_FH_oblique.png Graphic file (type png)
 <use Images/MeanSlopeError_ci_FH_oblique.png>
 Package pdftex.def Info: Images/MeanSlopeError_ci_FH_oblique.png  used on input
- line 592.
+ line 611.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/MeanBiasError_ci_FH_oblique.png, id=455, 1124.2pt x 843.15pt>
+<Images/MeanBiasError_ci_FH_oblique.png, id=469, 1124.2pt x 843.15pt>
 File: Images/MeanBiasError_ci_FH_oblique.png Graphic file (type png)
 <use Images/MeanBiasError_ci_FH_oblique.png>
 Package pdftex.def Info: Images/MeanBiasError_ci_FH_oblique.png  used on input 
-line 593.
+line 612.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/PF_FH_cardinal.png, id=456, 2890.8pt x 1587.9325pt>
+<Images/PF_FH_cardinal.png, id=470, 2890.8pt x 1587.9325pt>
 File: Images/PF_FH_cardinal.png Graphic file (type png)
 <use Images/PF_FH_cardinal.png>
-Package pdftex.def Info: Images/PF_FH_cardinal.png  used on input line 594.
+Package pdftex.def Info: Images/PF_FH_cardinal.png  used on input line 613.
 (pdftex.def)             Requested size: 173.44052pt x 95.27184pt.
-<Images/MeanSlopeError_ci_FH_cardinal.png, id=457, 1124.2pt x 843.15pt>
+<Images/MeanSlopeError_ci_FH_cardinal.png, id=471, 1124.2pt x 843.15pt>
 File: Images/MeanSlopeError_ci_FH_cardinal.png Graphic file (type png)
 <use Images/MeanSlopeError_ci_FH_cardinal.png>
 Package pdftex.def Info: Images/MeanSlopeError_ci_FH_cardinal.png  used on inpu
-t line 595.
+t line 614.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/MeanBiasError_ci_FH_cardinal.png, id=458, 1124.2pt x 843.15pt>
+<Images/MeanBiasError_ci_FH_cardinal.png, id=472, 1124.2pt x 843.15pt>
 File: Images/MeanBiasError_ci_FH_cardinal.png Graphic file (type png)
 <use Images/MeanBiasError_ci_FH_cardinal.png>
 Package pdftex.def Info: Images/MeanBiasError_ci_FH_cardinal.png  used on input
- line 596.
+ line 615.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
 
 [27 <./Images/PF_FH_allcond.png (PNG copy)> <./Images/MeanSlopeError_ci_FH_allc
@@ -1386,77 +1386,77 @@ ages/PF_FH_oblique.png (PNG copy)> <./Images/MeanSlopeError_ci_FH_oblique.png (
 PNG copy)> <./Images/MeanBiasError_ci_FH_oblique.png (PNG copy)> <./Images/PF_F
 H_cardinal.png (PNG copy)> <./Images/MeanSlopeError_ci_FH_cardinal.png (PNG cop
 y)> <./Images/MeanBiasError_ci_FH_cardinal.png (PNG copy)>]
-<Images/PF_BB_allcond.png, id=464, 2890.8pt x 1587.9325pt>
+<Images/PF_BB_allcond.png, id=478, 2890.8pt x 1587.9325pt>
 File: Images/PF_BB_allcond.png Graphic file (type png)
 <use Images/PF_BB_allcond.png>
-Package pdftex.def Info: Images/PF_BB_allcond.png  used on input line 620.
+Package pdftex.def Info: Images/PF_BB_allcond.png  used on input line 639.
 (pdftex.def)             Requested size: 173.44052pt x 95.27184pt.
-<Images/MeanSlopeError_ci_BB_allcond.png, id=465, 1124.2pt x 843.15pt>
+<Images/MeanSlopeError_ci_BB_allcond.png, id=479, 1124.2pt x 843.15pt>
 File: Images/MeanSlopeError_ci_BB_allcond.png Graphic file (type png)
 <use Images/MeanSlopeError_ci_BB_allcond.png>
 Package pdftex.def Info: Images/MeanSlopeError_ci_BB_allcond.png  used on input
- line 621.
+ line 640.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/MeanBiasError_ci_BB_allcond.png, id=466, 1124.2pt x 843.15pt>
+<Images/MeanBiasError_ci_BB_allcond.png, id=480, 1124.2pt x 843.15pt>
 File: Images/MeanBiasError_ci_BB_allcond.png Graphic file (type png)
 <use Images/MeanBiasError_ci_BB_allcond.png>
 Package pdftex.def Info: Images/MeanBiasError_ci_BB_allcond.png  used on input 
-line 622.
+line 641.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/PF_BB_oblique.png, id=467, 2890.8pt x 1587.9325pt>
+<Images/PF_BB_oblique.png, id=481, 2890.8pt x 1587.9325pt>
 File: Images/PF_BB_oblique.png Graphic file (type png)
 <use Images/PF_BB_oblique.png>
-Package pdftex.def Info: Images/PF_BB_oblique.png  used on input line 623.
+Package pdftex.def Info: Images/PF_BB_oblique.png  used on input line 642.
 (pdftex.def)             Requested size: 173.44052pt x 95.27184pt.
-<Images/MeanSlopeError_ci_BB_oblique.png, id=468, 1124.2pt x 843.15pt>
+<Images/MeanSlopeError_ci_BB_oblique.png, id=482, 1124.2pt x 843.15pt>
 File: Images/MeanSlopeError_ci_BB_oblique.png Graphic file (type png)
 <use Images/MeanSlopeError_ci_BB_oblique.png>
 Package pdftex.def Info: Images/MeanSlopeError_ci_BB_oblique.png  used on input
- line 624.
+ line 643.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/MeanBiasError_ci_BB_oblique.png, id=469, 1124.2pt x 843.15pt>
+<Images/MeanBiasError_ci_BB_oblique.png, id=483, 1124.2pt x 843.15pt>
 File: Images/MeanBiasError_ci_BB_oblique.png Graphic file (type png)
 <use Images/MeanBiasError_ci_BB_oblique.png>
 Package pdftex.def Info: Images/MeanBiasError_ci_BB_oblique.png  used on input 
-line 625.
+line 644.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/PF_BB_cardinal.png, id=470, 2890.8pt x 1587.9325pt>
+<Images/PF_BB_cardinal.png, id=484, 2890.8pt x 1587.9325pt>
 File: Images/PF_BB_cardinal.png Graphic file (type png)
 <use Images/PF_BB_cardinal.png>
-Package pdftex.def Info: Images/PF_BB_cardinal.png  used on input line 626.
+Package pdftex.def Info: Images/PF_BB_cardinal.png  used on input line 645.
 (pdftex.def)             Requested size: 173.44052pt x 95.27184pt.
-<Images/MeanSlopeError_ci_BB_cardinal.png, id=471, 1124.2pt x 843.15pt>
+<Images/MeanSlopeError_ci_BB_cardinal.png, id=485, 1124.2pt x 843.15pt>
 File: Images/MeanSlopeError_ci_BB_cardinal.png Graphic file (type png)
 <use Images/MeanSlopeError_ci_BB_cardinal.png>
 Package pdftex.def Info: Images/MeanSlopeError_ci_BB_cardinal.png  used on inpu
-t line 627.
+t line 646.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/MeanBiasError_ci_BB_cardinal.png, id=472, 1124.2pt x 843.15pt>
+<Images/MeanBiasError_ci_BB_cardinal.png, id=486, 1124.2pt x 843.15pt>
 File: Images/MeanBiasError_ci_BB_cardinal.png Graphic file (type png)
 <use Images/MeanBiasError_ci_BB_cardinal.png>
 Package pdftex.def Info: Images/MeanBiasError_ci_BB_cardinal.png  used on input
- line 628.
+ line 647.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 648.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 667.
  [28 <./Images/PF_BB_allcond.png (PNG copy)> <./Images/MeanSlopeError_ci_BB_all
 cond.png (PNG copy)> <./Images/MeanBiasError_ci_BB_allcond.png (PNG copy)> <./I
 mages/PF_BB_oblique.png (PNG copy)> <./Images/MeanSlopeError_ci_BB_oblique.png 
 (PNG copy)> <./Images/MeanBiasError_ci_BB_oblique.png (PNG copy)> <./Images/PF_
 BB_cardinal.png (PNG copy)> <./Images/MeanSlopeError_ci_BB_cardinal.png (PNG co
 py)> <./Images/MeanBiasError_ci_BB_cardinal.png (PNG copy)>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 648.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 667.
  (./RadialBias.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 648.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 648.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 667.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 667.
 Package rerunfilecheck Info: File `RadialBias.out' has not changed.
-(rerunfilecheck)             Checksum: 6308E4C2C31D2D069B9FD96B3EB64104;2362.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 648.
+(rerunfilecheck)             Checksum: 4CAB854FE211D1364EC1693A824EB095;2472.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 667.
  ) 
 Here is how much of TeX's memory you used:
- 11540 strings out of 480608
- 232212 string characters out of 5903631
- 475923 words of memory out of 5000000
- 27027 multiletter control sequences out of 15000+600000
+ 11548 strings out of 480608
+ 232292 string characters out of 5903631
+ 475927 words of memory out of 5000000
+ 27029 multiletter control sequences out of 15000+600000
  542629 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  39i,7n,46p,834b,834s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1468,10 +1468,10 @@ sr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
 /local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/l
 ocal/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/lo
 cal/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on RadialBias.pdf (28 pages, 14318767 bytes).
+Output written on RadialBias.pdf (28 pages, 14319895 bytes).
 PDF statistics:
- 526 PDF objects out of 1000 (max. 8388607)
- 340 compressed objects within 4 object streams
- 95 named destinations out of 1000 (max. 500000)
- 958 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 541 PDF objects out of 1000 (max. 8388607)
+ 355 compressed objects within 4 object streams
+ 101 named destinations out of 1000 (max. 500000)
+ 974 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,4 +1,4 @@
-function plotpolar(numCond, paramsetting, figuresdir, main_conditions, ...
+function plotpolar(numCond, paramsetting, analysiscond,figuresdir, main_conditions, ...
     mapdegree, ci_values)
     
     withbars = 0;
@@ -12,7 +12,11 @@ function plotpolar(numCond, paramsetting, figuresdir, main_conditions, ...
 
     if numCond == 4
         colors = ['c','b','r','m'];
-        condNames = {'radialout', 'radialin','tangleft','tangright'};
+        if strcmp(analysiscond, 'relative')
+            condNames = {'radialout', 'radialin','tangleft','tangright'};
+        elseif strcmp(analysiscond, 'absolute')
+            condNames = {'upwards', 'downwards','leftwards','rightwards'};
+        end
     elseif numCond == 2
         colors = ['b','r'];
         condNames = {'radial','tangential'};
@@ -162,9 +166,9 @@ function plotpolar(numCond, paramsetting, figuresdir, main_conditions, ...
     end
     hold off
     
-    saveas(gcf,sprintf('%s/pngs/%s_PP_%s_Alldata_%sconds.png',figuresdir,subjname, paramsetting,num2str(numCond)))
-    saveas(gcf,sprintf('%s/figs/%s_PP_%s_Alldata_%sconds.fig',figuresdir,subjname, paramsetting,num2str(numCond)))
-    saveas(gcf,sprintf('%s/bmps/%s_PP_%s_Alldata_%sconds.bmp',figuresdir,subjname, paramsetting,num2str(numCond)))
+    saveas(gcf,sprintf('%s/pngs/%s_PP_%s_Alldata_%sconds_%s.png',figuresdir,subjname, paramsetting,num2str(numCond), analysiscond))
+    saveas(gcf,sprintf('%s/figs/%s_PP_%s_Alldata_%sconds_%s.fig',figuresdir,subjname, paramsetting,num2str(numCond), analysiscond))
+    saveas(gcf,sprintf('%s/bmps/%s_PP_%s_Alldata_%sconds_%s.bmp',figuresdir,subjname, paramsetting,num2str(numCond), analysiscond))
     
     figure
     b = bar(rho_saved, 'grouped');
@@ -296,8 +300,8 @@ function plotpolar(numCond, paramsetting, figuresdir, main_conditions, ...
     
     hold off
     
-    saveas(gcf,sprintf('%s/pngs/%s_%s_%s_Alldata_%sconds.png',figuresdir,subjname,plotname, paramsetting,num2str(numCond)))
-    saveas(gcf,sprintf('%s/figs/%s_%s_%s_Alldata_%sconds.fig',figuresdir,subjname,plotname, paramsetting,num2str(numCond)))
-    saveas(gcf,sprintf('%s/bmps/%s_%s_%s_Alldata_%sconds.bmp',figuresdir,subjname,plotname, paramsetting,num2str(numCond)))
+    saveas(gcf,sprintf('%s/pngs/%s_%s_%s_Alldata_%sconds_%s.png',figuresdir,subjname,plotname, paramsetting,num2str(numCond),analysiscond))
+    saveas(gcf,sprintf('%s/figs/%s_%s_%s_Alldata_%sconds_%s.fig',figuresdir,subjname,plotname, paramsetting,num2str(numCond),analysiscond))
+    saveas(gcf,sprintf('%s/bmps/%s_%s_%s_Alldata_%sconds_%s.bmp',figuresdir,subjname,plotname, paramsetting,num2str(numCond),analysiscond))
     
 end

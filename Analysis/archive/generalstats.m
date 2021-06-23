@@ -4,8 +4,8 @@ clear all;
 % general stats
 
 % subject list
-subjects = {'FH'}; % RE, SK
-conditions = {'LL', 'UR', 'VL','HR'}; %,
+subjects = {'PW'}; % RE, SK
+conditions = {'UL','HR'}; %{'LL', 'UR', 'VL','HR'}; %,
 %{'LL','UR','UL','LR'};
 %{'VU','HL','VL','HR'};
 %{'VU','LL','HL','UR','VL','UL','HR','LR'};
@@ -20,8 +20,8 @@ for sub=1:length(subjects)
     for cond=1:length(conditions)
         % import data
         subject = subjects{1,sub}; condition = conditions{1, cond};
-        savedir = sprintf('../Experimental_SetUp/Data/%s/ExpData/Block1/', subject);
-        path = sprintf('../Experimental_SetUp/Data/%s/ExpData/Block1/expRes%s_RadialBias_pilot1_%s.csv', subject,subject, condition);
+        savedir = sprintf('../../Experimental_SetUp/Data/%s/ExpData/Block1/', subject);
+        path = sprintf('../../Experimental_SetUp/Data/%s/ExpData/Block1/expRes%s_RadialBias_pilot1_%s.csv', subject,subject, condition);
         if isfile(path)
             M_raw = csvread(path);
             if strcmp(condition, 'LR') % lower right vector
@@ -96,7 +96,7 @@ for sub=1:length(subjects)
         sprintf('~~~~~~~~%s~~~~~~~~~~~', conditions{1,cond})
         % import data
         subject = subjects{1,sub}; condition = conditions{1, cond};
-        path = sprintf('../Experimental_SetUp/Data/%s/ExpData/Block1/expRes%s_RadialBias_pilot1_%s.csv', subject,subject, condition);
+        path = sprintf('../../Experimental_SetUp/Data/%s/ExpData/Block1/expRes%s_RadialBias_pilot1_%s.csv', subject,subject, condition);
         disp(path)
         M_raw = csvread(path);
         
