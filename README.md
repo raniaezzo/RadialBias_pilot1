@@ -17,6 +17,8 @@ Analysis Requires:
 Palamedes Toolbox: http://www.palamedestoolbox.org
 (not used for fitting, just for plotting)
 
+Optimization Toolbox (Matlab) for FitCumNorm function
+
 Experiment Running instructions:
 
 In Matlab run Experimental_Setup/Main/expLauncher

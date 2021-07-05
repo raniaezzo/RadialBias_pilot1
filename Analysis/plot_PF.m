@@ -107,4 +107,5 @@ for li=1:length(distinct_locs)
     end
     
 end
+close all;
 end

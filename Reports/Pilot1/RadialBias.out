@@ -6,23 +6,23 @@
 \BOOKMARK [1][-]{section.2}{Subject Data}{}% 6
 \BOOKMARK [2][-]{subsection.2.1}{Psychometric Fits}{section.2}% 7
 \BOOKMARK [2][-]{subsection.2.2}{Sensitivity Polar Plots}{section.2}% 8
-\BOOKMARK [2][-]{subsection.2.3}{Sensitivity Cartesian Bar Plots}{section.2}% 9
-\BOOKMARK [2][-]{subsection.2.4}{Sensitivity Cartesian Line Plots}{section.2}% 10
-\BOOKMARK [2][-]{subsection.2.5}{Bias Polar Plots}{section.2}% 11
-\BOOKMARK [2][-]{subsection.2.6}{Bias Cartesian Bar Plots}{section.2}% 12
-\BOOKMARK [2][-]{subsection.2.7}{Bias Cartesian Line Plots}{section.2}% 13
-\BOOKMARK [1][-]{section.3}{Group Data}{}% 14
-\BOOKMARK [2][-]{subsection.3.1}{Sensitivity Polar Plots}{section.3}% 15
-\BOOKMARK [2][-]{subsection.3.2}{Sensitivity Cartesian Line Plots}{section.3}% 16
-\BOOKMARK [2][-]{subsection.3.3}{Bias Polar Plots}{section.3}% 17
-\BOOKMARK [2][-]{subsection.3.4}{Bias Cartesian Line Plots}{section.3}% 18
-\BOOKMARK [1][-]{section.4}{Supplementary Images: PFs per location}{}% 19
-\BOOKMARK [2][-]{subsection.4.1}{RE PFs Per Location}{section.4}% 20
-\BOOKMARK [2][-]{subsection.4.2}{FH PFs Per Location}{section.4}% 21
-\BOOKMARK [2][-]{subsection.4.3}{BB PFs Per Location}{section.4}% 22
-\BOOKMARK [1][-]{section.5}{Current Goals}{}% 23
-\BOOKMARK [1][-]{section.6}{Incorporating fMRI}{}% 24
-\BOOKMARK [2][-]{subsection.6.1}{Goals}{section.6}% 25
+\BOOKMARK [2][-]{subsection.2.3}{Sensitivity Cartesian Line Plots}{section.2}% 9
+\BOOKMARK [2][-]{subsection.2.4}{Bias Polar Plots}{section.2}% 10
+\BOOKMARK [2][-]{subsection.2.5}{Bias Cartesian Line Plots}{section.2}% 11
+\BOOKMARK [1][-]{section.3}{Group Data}{}% 12
+\BOOKMARK [2][-]{subsection.3.1}{Sensitivity Polar Plots}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.2}{Sensitivity Cartesian Line Plots}{section.3}% 14
+\BOOKMARK [2][-]{subsection.3.3}{Bias Polar Plots}{section.3}% 15
+\BOOKMARK [2][-]{subsection.3.4}{Bias Cartesian Line Plots}{section.3}% 16
+\BOOKMARK [1][-]{section.4}{Supplementary Images: PFs per location}{}% 17
+\BOOKMARK [2][-]{subsection.4.1}{RE PFs Per Location}{section.4}% 18
+\BOOKMARK [2][-]{subsection.4.2}{FH PFs Per Location}{section.4}% 19
+\BOOKMARK [2][-]{subsection.4.3}{BB PFs Per Location}{section.4}% 20
+\BOOKMARK [1][-]{section.5}{Current Goals}{}% 21
+\BOOKMARK [1][-]{section.6}{Incorporating fMRI}{}% 22
+\BOOKMARK [2][-]{subsection.6.1}{Goals}{section.6}% 23
+\BOOKMARK [2][-]{subsection.6.2}{Runs needed}{section.6}% 24
+\BOOKMARK [2][-]{subsection.6.3}{Inverted Encoding Model}{section.6}% 25
 \BOOKMARK [1][-]{section.7}{Extending to Plaid Stimuli}{}% 26
 \BOOKMARK [1][-]{section.8}{Supplemental Questions}{}% 27
 \BOOKMARK [1][-]{section.9}{Updates}{}% 28
@@ -34,3 +34,5 @@
 \BOOKMARK [2][-]{subsection.12.3}{Quality Control \046 Misc.}{section.12}% 34
 \BOOKMARK [2][-]{subsection.12.4}{FH Psychometric Fits \(Cardinal/Oblique\)}{section.12}% 35
 \BOOKMARK [2][-]{subsection.12.5}{BB Psychometric Fits \(Cardinal/Oblique\)}{section.12}% 36
+\BOOKMARK [2][-]{subsection.12.6}{Sensitivity Cartesian Bar Plots}{section.12}% 37
+\BOOKMARK [2][-]{subsection.12.7}{Bias Cartesian Bar Plots}{section.12}% 38

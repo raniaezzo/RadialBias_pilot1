@@ -29,7 +29,7 @@ function plotpolar(numCond, paramsetting, analysiscond,figuresdir, main_conditio
     end
     
     % extract subjectname
-    parts = strsplit(figuresdir, '/'); subjname = parts{end-2};
+    pathparts = strsplit(figuresdir, '/'); subjname = pathparts{end-2};
     possibleLocs = 8;
     addedconst= 1.5; % added const to min
     %main_conditions = {params_radialout,params_radialin,params_tangleft,params_tangright};
@@ -304,4 +304,5 @@ function plotpolar(numCond, paramsetting, analysiscond,figuresdir, main_conditio
     saveas(gcf,sprintf('%s/figs/%s_%s_%s_Alldata_%sconds_%s.fig',figuresdir,subjname,plotname, paramsetting,num2str(numCond),analysiscond))
     saveas(gcf,sprintf('%s/bmps/%s_%s_%s_Alldata_%sconds_%s.bmp',figuresdir,subjname,plotname, paramsetting,num2str(numCond),analysiscond))
     
+    close all;
 end

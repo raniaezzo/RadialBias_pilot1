@@ -21,8 +21,8 @@ checkdir(projectname)
 
 % for each subject, separate data for per condition, per location
 [subjectinfo] = getsubjinfo();
-subjectinfo = subjectinfo(3); 
-%subjectinfo = [subjectinfo(1),subjectinfo(3)]; % BB and RE
+%subjectinfo = subjectinfo(4); 
+%subjectinfo = [subjectinfo(1),subjectinfo(3)]; % BB and PW
 
 analysis_type = {'RelativeMotion', 'AbsoluteMotion'};
 
@@ -84,6 +84,8 @@ for si=1:length(subjectinfo)
             plotpolar(4, 'bias', 'absolute', figuresdir, four_main_conditions, mapdegree,...
                 four_ci_values)
             
+            plot_VP(figuresdir,analysis_type{i})
+            
         elseif strcmp(analysis_type{i}, 'RelativeMotion')
         
             % plot the polar angle plots for 4 conditions
@@ -103,17 +105,16 @@ for si=1:length(subjectinfo)
                 two_ci_values)
 
             % fix bug here
-            %four_cond = {summary_radialout,summary_radialin,summary_tangleft, ...
-            %    summary_tangright};
-            %four_params = {params_radialout, params_radialin, params_tangleft, ...
-            %    params_tangright};
-            %plot_PF(4, figuresdir, four_cond, four_params)
+            four_cond = {summary_radialout,summary_radialin,summary_tangleft, ...
+                summary_tangright};
+            four_params = {params_radialout, params_radialin, params_tangleft, ...
+                params_tangright};
+            plot_PF(4, figuresdir, four_cond, four_params)
 
-            %two_cond = {summary_radial,summary_tang};
-            %two_params = {params_radial, params_tang};
-            %plot_PF(2, figuresdir, two_cond, two_params)
+            two_cond = {summary_radial,summary_tang};
+            two_params = {params_radial, params_tang};
+            plot_PF(2, figuresdir, two_cond, two_params)
 
-            close all;
         end
     end
     
@@ -131,7 +132,7 @@ mapdegree = containers.Map(locationlabels,locationdegrees);
 
 for si=1:length(subjectinfo)
     % create subject directory
-    subjectdata = fullfile(pwd,subjectinfo(si).name,'analyzeddata.mat');
+    subjectdata = fullfile(pwd,subjectinfo(si).name,'RelativeMotion','analyzeddata.mat');
     init.(subjectinfo(si).name) = load(subjectdata);
 end
 
@@ -161,7 +162,7 @@ end
 % this is std(paramest)/sqrt(n) :: is paramest not of bootstrap?
 
 allsubjectsdir = fullfile(pwd, 'ALLSUBJ');
-figuresdir = fullfile(allsubjectsdir, 'figures');
+figuresdir = fullfile(allsubjectsdir, 'RelativeMotion','figures');
 if ~exist(figuresdir, 'dir')
     mkdir(fullfile(figuresdir,'pngs'));
     mkdir(fullfile(figuresdir,'figs'));
@@ -177,22 +178,22 @@ end
 [params_tangleft, sem_tangleft] = MeanStructFields(data_tangleft);
 
 
-% plot the polar angle plots for 4 conditions
-four_main_conditions = {params_radialout,params_radialin,params_tangleft,params_tangright};
-four_sem_values = {sem_radialout,sem_radialin,sem_tangleft,sem_tangright};
-plotpolar(4, 'sensitivity', figuresdir, four_main_conditions, mapdegree,...
-    four_sem_values)
-plotpolar(4, 'bias', figuresdir, four_main_conditions, mapdegree,...
-    four_sem_values)
-    
 % plot the polar angle plots for 2 conditions
 two_main_conditions = {params_radial,params_tang};
 two_sem_values = {sem_radial,sem_tang};
-plotpolar(2, 'sensitivity', figuresdir, two_main_conditions, mapdegree,...
+plotpolar(2, 'sensitivity', 'relative', figuresdir, two_main_conditions, mapdegree,...
     two_sem_values)
-plotpolar(2, 'bias', figuresdir, two_main_conditions, mapdegree,...
+plotpolar(2, 'bias', 'relative', figuresdir, two_main_conditions, mapdegree,...
     two_sem_values)
 
+% plot the polar angle plots for 4 conditions
+four_main_conditions = {params_radialout,params_radialin,params_tangleft,params_tangright};
+four_sem_values = {sem_radialout,sem_radialin,sem_tangleft,sem_tangright};
+plotpolar(4, 'sensitivity', 'relative', figuresdir, four_main_conditions, mapdegree,...
+    four_sem_values)
+plotpolar(4, 'bias', 'relative', figuresdir, four_main_conditions, mapdegree,...
+    four_sem_values)
+    
 
 % https://statquest.org/the-standard-error-and-a-bootstrapping-bonus/
 
