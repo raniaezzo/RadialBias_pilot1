@@ -5,7 +5,7 @@ paramNames = {'bias','sensitivity'};
 paramValues = {'bias','slope'};
 
 % extract subjectname
-parts = strsplit(figuresdir, '/'); subjname = parts{end-1};
+pathparts = strsplit(figuresdir, '/'); subjname = pathparts{end-2};
 
 if numCond==2
     colors = ['b','r'];

@@ -25,7 +25,7 @@
 
 % declare the title, date and author
 \title{Radial Bias Pilot 1}
-\date{June 22, 2021}
+\date{July 5, 2021}
 \author{Rania Ezzo}
 
 % This is where the actual document starts
@@ -110,19 +110,27 @@ Example sequence of blocks for RE
 \centering % centers the figure
 \includegraphics[scale=.16]{Images/RE_PF_Alldata_4conds.png}
 \includegraphics[scale=.16]{Images/RE_PF_Alldata_2conds.png}
-\caption{LEFT: 200 trials per point. RIGHT: Each point is 400 trials.}
 \end{figure}
 \begin{figure}[H]
 \centering % centers the figure
 \includegraphics[scale=.16]{Images/FH_PF_Alldata_4conds.png}
 \includegraphics[scale=.16]{Images/FH_PF_Alldata_2conds.png}
-\caption{LEFT: 200 trials per point. RIGHT: Each point is 400 trials.}
 \end{figure}
 \begin{figure}[H]
 \centering % centers the figure
 \includegraphics[scale=.16]{Images/BB_PF_Alldata_4conds.png}
 \includegraphics[scale=.16]{Images/BB_PF_Alldata_2conds.png}
-\caption{LEFT: 200 trials per point. RIGHT: Points are either 200 or 400 trials.}
+\end{figure}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.16]{Images/PW_PF_Alldata_4conds.png}
+\includegraphics[scale=.16]{Images/PW_PF_Alldata_2conds.png}
+\end{figure}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.16]{Images/NH_PF_Alldata_4conds.png}
+\includegraphics[scale=.16]{Images/NH_PF_Alldata_2conds.png}
+\caption{LEFT: 200 trials per point. RIGHT: Each point is 400 trials.}
 \end{figure}
 
 \newpage
@@ -146,6 +154,11 @@ Example sequence of blocks for RE
 \centering % centers the figure
 \includegraphics[scale=.3]{Images/PW_PP_sensitivity_Alldata_4conds_relative.png}
 \includegraphics[scale=.3]{Images/PW_PP_sensitivity_Alldata_2conds_relative.png}
+\end{figure}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.3]{Images/NH_PP_sensitivity_Alldata_4conds_relative.png}
+\includegraphics[scale=.3]{Images/NH_PP_sensitivity_Alldata_2conds_relative.png}
 \caption{LEFT: 200 trials per point. RIGHT: 400 trials per point. 95\% CI from 1000 bootstraps.}
 \end{figure}
 
@@ -170,7 +183,24 @@ Example sequence of blocks for RE
 \centering % centers the figure
 \includegraphics[scale=.3]{Images/PW_LP_sensitivity_Alldata_4conds_relative.png}
 \includegraphics[scale=.3]{Images/PW_LP_sensitivity_Alldata_2conds_relative.png}
+\end{figure}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.3]{Images/NH_LP_sensitivity_Alldata_4conds_relative.png}
+\includegraphics[scale=.3]{Images/NH_LP_sensitivity_Alldata_2conds_relative.png}
 \caption{LEFT: 200 trials per point. RIGHT: 400 trials per point. 95\% CI from 1000 bootstraps.}
+\end{figure}
+
+\newpage
+\subsection{Sensitivity of Absolute Motion Direction}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.3]{Images/RE_VP_Alldata_4conds_AbsoluteMotion.png}
+\includegraphics[scale=.3]{Images/FH_VP_Alldata_4conds_AbsoluteMotion.png}
+\includegraphics[scale=.3]{Images/BB_VP_Alldata_4conds_AbsoluteMotion.png}
+\includegraphics[scale=.3]{Images/PW_VP_Alldata_4conds_AbsoluteMotion.png}
+\includegraphics[scale=.3]{Images/NH_VP_Alldata_4conds_AbsoluteMotion.png}
+\caption{Vector direction corresponds to direction of drift; magnitude corresponds to sensitivity.}
 \end{figure}
 
 \newpage
@@ -194,6 +224,11 @@ Example sequence of blocks for RE
 \centering % centers the figure
 \includegraphics[scale=.3]{Images/PW_PP_bias_Alldata_4conds_relative.png}
 \includegraphics[scale=.3]{Images/PW_PP_bias_Alldata_2conds_relative.png}
+\end{figure}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.3]{Images/NH_PP_bias_Alldata_4conds_relative.png}
+\includegraphics[scale=.3]{Images/NH_PP_bias_Alldata_2conds_relative.png}
 \caption{LEFT: 200 trials per point. RIGHT: 400 trials per point. 95\% CI from 1000 bootstraps.}
 \end{figure}
 
@@ -218,6 +253,11 @@ Example sequence of blocks for RE
 \centering % centers the figure
 \includegraphics[scale=.3]{Images/PW_LP_bias_Alldata_4conds_relative.png}
 \includegraphics[scale=.3]{Images/PW_LP_bias_Alldata_2conds_relative.png}
+\end{figure}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.3]{Images/NH_LP_bias_Alldata_4conds_relative.png}
+\includegraphics[scale=.3]{Images/NH_LP_bias_Alldata_2conds_relative.png}
 \caption{LEFT: 200 trials per point. RIGHT: 400 trials per point. 95\% CI from 1000 bootstraps.}
 \end{figure}
 
@@ -226,28 +266,28 @@ Example sequence of blocks for RE
 \subsection{Sensitivity Polar Plots}
 \begin{figure}[H]
 \centering % centers the figure
-\includegraphics[scale=.35]{Images/ALLSUBJ_PP_sensitivity_Alldata_4conds.png}
-\includegraphics[scale=.35]{Images/ALLSUBJ_PP_sensitivity_Alldata_2conds.png}
+\includegraphics[scale=.35]{Images/ALLSUBJ_PP_sensitivity_Alldata_4conds_relative.png}
+\includegraphics[scale=.35]{Images/ALLSUBJ_PP_sensitivity_Alldata_2conds_relative.png}
 \caption{LEFT: 600 trials per point. RIGHT: Each point is 1200 trials. Error bars represent SEM across subjects.}
 \end{figure}
 \subsection{Sensitivity Cartesian Line Plots}
 \begin{figure}[H]
 \centering % centers the figure
-\includegraphics[scale=.35]{Images/ALLSUBJ_LP_sensitivity_Alldata_4conds.png}
-\includegraphics[scale=.35]{Images/ALLSUBJ_LP_sensitivity_Alldata_2conds.png}
+\includegraphics[scale=.35]{Images/ALLSUBJ_LP_sensitivity_Alldata_4conds_relative.png}
+\includegraphics[scale=.35]{Images/ALLSUBJ_LP_sensitivity_Alldata_2conds_relative.png}
 \end{figure}
 \newpage
 \subsection{Bias Polar Plots}
 \begin{figure}[H]
 \centering % centers the figure
-\includegraphics[scale=.35]{Images/ALLSUBJ_PP_bias_Alldata_4conds.png}
-\includegraphics[scale=.35]{Images/ALLSUBJ_PP_bias_Alldata_2conds.png}
+\includegraphics[scale=.35]{Images/ALLSUBJ_PP_bias_Alldata_4conds_relative.png}
+\includegraphics[scale=.35]{Images/ALLSUBJ_PP_bias_Alldata_2conds_relative.png}
 \end{figure}
 \subsection{Bias Cartesian Line Plots}
 \begin{figure}[H]
 \centering % centers the figure
-\includegraphics[scale=.35]{Images/ALLSUBJ_LP_bias_Alldata_4conds.png}
-\includegraphics[scale=.35]{Images/ALLSUBJ_LP_bias_Alldata_2conds.png}
+\includegraphics[scale=.35]{Images/ALLSUBJ_LP_bias_Alldata_4conds_relative.png}
+\includegraphics[scale=.35]{Images/ALLSUBJ_LP_bias_Alldata_2conds_relative.png}
 \end{figure}
 
 \newpage
@@ -380,6 +420,91 @@ Example sequence of blocks for RE
 \includegraphics[scale=.15]{Images/BB_PF_loc315_2conds.png}
 \end{figure}
 
+\newpage
+\subsection{PW PFs Per Location}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.15]{Images/PW_PF_loc0_4conds.png}
+\includegraphics[scale=.15]{Images/PW_PF_loc0_2conds.png}
+\end{figure}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.15]{Images/PW_PF_loc45_4conds.png}
+\includegraphics[scale=.15]{Images/PW_PF_loc45_2conds.png}
+\end{figure}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.15]{Images/PW_PF_loc90_4conds.png}
+\includegraphics[scale=.15]{Images/PW_PF_loc90_2conds.png}
+\end{figure}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.15]{Images/PW_PF_loc135_4conds.png}
+\includegraphics[scale=.15]{Images/PW_PF_loc135_2conds.png}
+\end{figure}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.15]{Images/PW_PF_loc180_4conds.png}
+\includegraphics[scale=.15]{Images/PW_PF_loc180_2conds.png}
+\end{figure}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.15]{Images/PW_PF_loc225_4conds.png}
+\includegraphics[scale=.15]{Images/PW_PF_loc225_2conds.png}
+\end{figure}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.15]{Images/PW_PF_loc270_4conds.png}
+\includegraphics[scale=.15]{Images/PW_PF_loc270_2conds.png}
+\end{figure}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.15]{Images/PW_PF_loc315_4conds.png}
+\includegraphics[scale=.15]{Images/PW_PF_loc315_2conds.png}
+\end{figure}
+
+\newpage
+\subsection{NH PFs Per Location}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.15]{Images/NH_PF_loc0_4conds.png}
+\includegraphics[scale=.15]{Images/NH_PF_loc0_2conds.png}
+\end{figure}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.15]{Images/NH_PF_loc45_4conds.png}
+\includegraphics[scale=.15]{Images/NH_PF_loc45_2conds.png}
+\end{figure}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.15]{Images/NH_PF_loc90_4conds.png}
+\includegraphics[scale=.15]{Images/NH_PF_loc90_2conds.png}
+\end{figure}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.15]{Images/NH_PF_loc135_4conds.png}
+\includegraphics[scale=.15]{Images/NH_PF_loc135_2conds.png}
+\end{figure}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.15]{Images/NH_PF_loc180_4conds.png}
+\includegraphics[scale=.15]{Images/NH_PF_loc180_2conds.png}
+\end{figure}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.15]{Images/NH_PF_loc225_4conds.png}
+\includegraphics[scale=.15]{Images/NH_PF_loc225_2conds.png}
+\end{figure}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.15]{Images/NH_PF_loc270_4conds.png}
+\includegraphics[scale=.15]{Images/NH_PF_loc270_2conds.png}
+\end{figure}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.15]{Images/NH_PF_loc315_4conds.png}
+\includegraphics[scale=.15]{Images/NH_PF_loc315_2conds.png}
+\end{figure}
 
 \newpage
 \section{Current Goals} 
