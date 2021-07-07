@@ -55,7 +55,7 @@ for si=1:length(subjectinfo)
     end
     
     % also save in absolute coordinates
-    organize_absolutedirs(relative_summarypath, sprintf('%s/%s/',subjectdir, analysis_type{2}));
+    organize_absolutedirs(relative_summarypath, sprintf('%s/%s/',subjectdir, analysis_type{2}), 'individual');
     
     for i=1:length(analysis_type)
         analysis_path = sprintf('%s/%s/',subjectdir, analysis_type{i});
@@ -123,6 +123,7 @@ end
 %%
 clc;
 clear all;
+analysis_type = {'RelativeMotion', 'AbsoluteMotion'};
 [subjectinfo] = getsubjinfo();
 % define locationids
 locationids = 1:8; locationdegrees = {315,135,225,45,270,90,180,0};
@@ -162,7 +163,8 @@ end
 % this is std(paramest)/sqrt(n) :: is paramest not of bootstrap?
 
 allsubjectsdir = fullfile(pwd, 'ALLSUBJ');
-figuresdir = fullfile(allsubjectsdir, 'RelativeMotion','figures');
+relative_summarypath = sprintf('%s/%s/',allsubjectsdir, analysis_type{1});
+figuresdir = fullfile(relative_summarypath,'figures');
 if ~exist(figuresdir, 'dir')
     mkdir(fullfile(figuresdir,'pngs'));
     mkdir(fullfile(figuresdir,'figs'));
@@ -177,6 +179,12 @@ end
 [params_tangright, sem_tangright] = MeanStructFields(data_tangright);
 [params_tangleft, sem_tangleft] = MeanStructFields(data_tangleft);
 
+% need to save this to relative directory for ALLSUBJ!
+save(fullfile(relative_summarypath,'analyzeddata'), 'params_radialout',...
+    'sem_radialout','params_radialin', 'sem_radialin',...
+    'params_tangleft','sem_tangleft', ...
+    'params_tangright','sem_tangright', 'params_radial', ...
+    'sem_radial', 'params_tang', 'sem_tang')
 
 % plot the polar angle plots for 2 conditions
 two_main_conditions = {params_radial,params_tang};
@@ -194,6 +202,20 @@ plotpolar(4, 'sensitivity', 'relative', figuresdir, four_main_conditions, mapdeg
 plotpolar(4, 'bias', 'relative', figuresdir, four_main_conditions, mapdegree,...
     four_sem_values)
     
+
+% ABSOLUTE MOTION
+% also save in absolute coordinates
+absolute_summarypath = sprintf('%s/%s/',allsubjectsdir, analysis_type{2});
+figuresdir = fullfile(absolute_summarypath,'figures');
+if ~exist(figuresdir, 'dir')
+    mkdir(fullfile(figuresdir,'pngs'));
+    mkdir(fullfile(figuresdir,'figs'));
+    mkdir(fullfile(figuresdir,'bmps'));
+end
+
+organize_absolutedirs(relative_summarypath, absolute_summarypath, 'group');
+
+plot_VP(figuresdir,analysis_type{2})
 
 % https://statquest.org/the-standard-error-and-a-bootstrapping-bonus/
 
@@ -213,7 +235,6 @@ function [average,sem] = MeanStructFields(S)
       sem.(fields{k}) = param_cis;
     end
 end
-
 
 
 
