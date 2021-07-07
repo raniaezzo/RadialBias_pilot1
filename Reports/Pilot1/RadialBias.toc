@@ -29,13 +29,13 @@
 \contentsline {section}{\numberline {7}Extending to Plaid Stimuli}{29}{section.7}%
 \contentsline {section}{\numberline {8}Supplemental Questions}{30}{section.8}%
 \contentsline {section}{\numberline {9}Updates}{31}{section.9}%
-\contentsline {section}{\numberline {10}To Do}{32}{section.10}%
-\contentsline {section}{\numberline {11}Software to Cite}{33}{section.11}%
-\contentsline {section}{\numberline {12}Data that still needs updating}{34}{section.12}%
-\contentsline {subsection}{\numberline {12.1}RE Psychometric Fits (Cardinal/Oblique)}{34}{subsection.12.1}%
-\contentsline {subsection}{\numberline {12.2}RE Polar Plots Percent Correct (W/ eyetracking vs. No eyetracking)}{35}{subsection.12.2}%
-\contentsline {subsection}{\numberline {12.3}Quality Control \& Misc.}{35}{subsection.12.3}%
-\contentsline {subsection}{\numberline {12.4}FH Psychometric Fits (Cardinal/Oblique)}{36}{subsection.12.4}%
-\contentsline {subsection}{\numberline {12.5}BB Psychometric Fits (Cardinal/Oblique)}{37}{subsection.12.5}%
-\contentsline {subsection}{\numberline {12.6}Sensitivity Cartesian Bar Plots}{38}{subsection.12.6}%
-\contentsline {subsection}{\numberline {12.7}Bias Cartesian Bar Plots}{39}{subsection.12.7}%
+\contentsline {section}{\numberline {10}To Do}{31}{section.10}%
+\contentsline {section}{\numberline {11}Software to Cite}{32}{section.11}%
+\contentsline {section}{\numberline {12}Data that still needs updating}{33}{section.12}%
+\contentsline {subsection}{\numberline {12.1}RE Psychometric Fits (Cardinal/Oblique)}{33}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}RE Polar Plots Percent Correct (W/ eyetracking vs. No eyetracking)}{34}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}Quality Control \& Misc.}{34}{subsection.12.3}%
+\contentsline {subsection}{\numberline {12.4}FH Psychometric Fits (Cardinal/Oblique)}{35}{subsection.12.4}%
+\contentsline {subsection}{\numberline {12.5}BB Psychometric Fits (Cardinal/Oblique)}{36}{subsection.12.5}%
+\contentsline {subsection}{\numberline {12.6}Sensitivity Cartesian Bar Plots}{37}{subsection.12.6}%
+\contentsline {subsection}{\numberline {12.7}Bias Cartesian Bar Plots}{38}{subsection.12.7}%

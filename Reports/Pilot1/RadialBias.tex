@@ -25,7 +25,7 @@
 
 % declare the title, date and author
 \title{Radial Bias Pilot 1}
-\date{July 5, 2021}
+\date{July 7, 2021}
 \author{Rania Ezzo}
 
 % This is where the actual document starts
@@ -584,19 +584,14 @@ Example sequence of blocks for RE
 \begin{itemize}
 \item Design Related
 	\begin{itemize}
-	\item Fixed beep volume (lower pitch sounded lower in volume)
-	\item Keeping fixation dot throughout trials (better eye tracking data this way)
-	\item Fixed the short delay between stimulus and response period
+	\item Fixed so that data (latex images/eyelink file) does not upload to github
+	\item Fixed physical aperture for monitor so it's more optimal for people of different heights
 	\end{itemize}
 \item Analysis Related
 	\begin{itemize}
+	\item Added NH and PW
 	\item Computed averages across subjects (for the above plots), with SEM error bars
-	\item PFs match the bias/slope values in the histograms/barplots
-	\item Fixed error bars (all data is bootstrapped), and bias plots axes (intervals even for all subjects), and labeled bias direction
-	\item Added cartesian plots with CIs and stats
-	\item Replaced Palamedes functions with FitCumNormYN throughout scripts, but Palamedes function PF still used for plotting the fit.
-	\item Plotted psychometric functions per subject : per condition, per location
-	\item Added/Changed all bar plots to line plots (includes a jitter on the x-axis, and excludes asterisks for significance)
+	\item Added plots with each MOTION VECTOR per condition (per subject)
 	\end{itemize}
 \item Other improvements
 	\begin{itemize}
@@ -606,15 +601,15 @@ Example sequence of blocks for RE
 	\end{itemize}
 \item For discussion
 	\begin{itemize}
-	\item Go over mock VSS abstract
-	\item Go over individual PFs?
-	\item Should continue with data collection with current paradigm?
+	\item Go over new data and individual PFs, especially for Nina?
+	\item Wonder why bias is not higher for off-cardinal locations?
 	\item fMRI design
 	\item Plaid design
-	\item Eye-tracking to ensure to breaks in fixation (how many ms prior to stimulus? Currently it is 300 ms to maximize trials.)
+	\item Reference repulsion/attraction
+	\item Results Section for paper
 	\item Eye tracker in RM 956
 		\begin{itemize}
-			\item{Afp server not compatible with PC? -- where to backup data?}
+			\item{Afp server not compatible with PC? -- currently backing up data on my GDrive}
 			\item{CRT monitor calibration.}
 		\end{itemize}
 	\end{itemize}
@@ -628,25 +623,21 @@ Example sequence of blocks for RE
 	\item Plot TangRight Sensitivity against TangLeft Senstivity; then on top RadialIn vs RadialOut in a different color
 	\item Add CIs to bar plots per condition of sensitivity/bias across all locations
 	\item *Update PF functions for cardinal/oblique separately
-	\item *Plot polar plots based on each MOTION VECTOR per condition (per subject)
 	\item Create bar plots of sensitivity/bias within (first/second half) per block and across blocks
 	\item Check in with Nina about the Eyelink File
 	\item LATER: fit linear mixed effects model to include condition (radial/tang) and location as covariates -- should see effects for both. Can also do conditions (radialin, radialout, tangright, tangleft).
 	\end{itemize}
 \item Feedback for Experiment Design
 	\begin{itemize}
-	\item *Equally distribute difficulty levels and clock/counterclockwise within each block
+	\item *Equally distribute difficulty levels and clock/counterclockwise within each block?
 	\item *Explore 2-up 1-down converging staircases as method to compute slope and bias for my purposes (try this on myself)
 	\item *Print thank you message before saving eyelink data (last trial)
-	\item *Save data outside of Experiment directory so that it does not upload to github
-	\item *Fix physical aperture for monitor so it's more optimal for people of different heights
 	\item *Ensure speed is the same across locations (Billy \& Jon both mention some seem faster)
 	\item *Billy also reported that LL radial motion seemed more clockwise -- double check that CRT monitor does not cause issues with stretching
 	\end{itemize}
 \item Feedback for Presentation/Other
 	\begin{itemize}
 	\item Type up instructions for experiment
-	\item Latex image directory needs to be outside of directory loaded to github
 	\item Latex file -- any way to generate in parent folder?
 	\item Can let subjects rotate keyboard when right/left if more intuitive for subject
 	\item Table for now: If we want to capture polar angle differences, might need to increase SF? (confirmed in other exp around 6 cpd, 6 deg ecc)
@@ -658,7 +649,6 @@ Example sequence of blocks for RE
 \begin{itemize}
 \item PsychToolbox Extensions (Brainard, 1997; Pelli, 1997; Kleiner et al, 2007)
 \item Prins, N \& Kingdom, F. A. A. (2018) Applying the Model-Comparison Approach to Test Specific Research Hypotheses in Psychophysical Research Using the Palamedes Toolbox. Frontiers in Psychology, 9:1250. doi: 10.3389/fpsyg.2018.01250
-\item Plummer, M. (2003, March). JAGS: A program for analysis of Bayesian graphical models using Gibbs sampling. In Proceedings of the 3rd international workshop on distributed statistical computing (Vol. 124, No. 125.10, pp. 1-10). (http://mcmc-jags.sourceforge.net/)
 \end{itemize}
 
 \newpage

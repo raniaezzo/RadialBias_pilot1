@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  6 JUL 2021 12:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  7 JUL 2021 09:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1583,298 +1583,297 @@ File: Images/Cartoon5.png Graphic file (type png)
 <use Images/Cartoon5.png>
 Package pdftex.def Info: Images/Cartoon5.png  used on input line 569.
 (pdftex.def)             Requested size: 186.69704pt x 104.1388pt.
- [29 <./Images/Cartoon5.png>] [30] [31] [32] [33]
-<Images/PF_RE_allcond.png, id=542, 2890.8pt x 1523.6925pt>
+ [29 <./Images/Cartoon5.png>] [30] [31] [32]
+<Images/PF_RE_allcond.png, id=538, 2890.8pt x 1523.6925pt>
 File: Images/PF_RE_allcond.png Graphic file (type png)
 <use Images/PF_RE_allcond.png>
-Package pdftex.def Info: Images/PF_RE_allcond.png  used on input line 670.
+Package pdftex.def Info: Images/PF_RE_allcond.png  used on input line 661.
 (pdftex.def)             Requested size: 173.44052pt x 91.4176pt.
-<Images/MeanSlopeError_ci_RE_allcond.png, id=543, 1124.2pt x 843.15pt>
+<Images/MeanSlopeError_ci_RE_allcond.png, id=539, 1124.2pt x 843.15pt>
 File: Images/MeanSlopeError_ci_RE_allcond.png Graphic file (type png)
 <use Images/MeanSlopeError_ci_RE_allcond.png>
 Package pdftex.def Info: Images/MeanSlopeError_ci_RE_allcond.png  used on input
- line 671.
+ line 662.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/MeanBiasError_ci_RE_allcond.png, id=544, 1124.2pt x 843.15pt>
+<Images/MeanBiasError_ci_RE_allcond.png, id=540, 1124.2pt x 843.15pt>
 File: Images/MeanBiasError_ci_RE_allcond.png Graphic file (type png)
 <use Images/MeanBiasError_ci_RE_allcond.png>
 Package pdftex.def Info: Images/MeanBiasError_ci_RE_allcond.png  used on input 
-line 672.
+line 663.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/PF_RE_oblique.png, id=545, 2890.8pt x 1523.6925pt>
+<Images/PF_RE_oblique.png, id=541, 2890.8pt x 1523.6925pt>
 File: Images/PF_RE_oblique.png Graphic file (type png)
 <use Images/PF_RE_oblique.png>
-Package pdftex.def Info: Images/PF_RE_oblique.png  used on input line 673.
+Package pdftex.def Info: Images/PF_RE_oblique.png  used on input line 664.
 (pdftex.def)             Requested size: 173.44052pt x 91.4176pt.
-<Images/MeanSlopeError_ci_RE_oblique.png, id=546, 1124.2pt x 843.15pt>
+<Images/MeanSlopeError_ci_RE_oblique.png, id=542, 1124.2pt x 843.15pt>
 File: Images/MeanSlopeError_ci_RE_oblique.png Graphic file (type png)
 <use Images/MeanSlopeError_ci_RE_oblique.png>
 Package pdftex.def Info: Images/MeanSlopeError_ci_RE_oblique.png  used on input
- line 674.
+ line 665.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/MeanBiasError_ci_RE_oblique.png, id=547, 1124.2pt x 843.15pt>
+<Images/MeanBiasError_ci_RE_oblique.png, id=543, 1124.2pt x 843.15pt>
 File: Images/MeanBiasError_ci_RE_oblique.png Graphic file (type png)
 <use Images/MeanBiasError_ci_RE_oblique.png>
 Package pdftex.def Info: Images/MeanBiasError_ci_RE_oblique.png  used on input 
-line 675.
+line 666.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/PF_RE_cardinal.png, id=548, 2890.8pt x 1523.6925pt>
+<Images/PF_RE_cardinal.png, id=544, 2890.8pt x 1523.6925pt>
 File: Images/PF_RE_cardinal.png Graphic file (type png)
 <use Images/PF_RE_cardinal.png>
-Package pdftex.def Info: Images/PF_RE_cardinal.png  used on input line 676.
+Package pdftex.def Info: Images/PF_RE_cardinal.png  used on input line 667.
 (pdftex.def)             Requested size: 173.44052pt x 91.4176pt.
-<Images/MeanSlopeError_ci_RE_cardinal.png, id=549, 1124.2pt x 843.15pt>
+<Images/MeanSlopeError_ci_RE_cardinal.png, id=545, 1124.2pt x 843.15pt>
 File: Images/MeanSlopeError_ci_RE_cardinal.png Graphic file (type png)
 <use Images/MeanSlopeError_ci_RE_cardinal.png>
 Package pdftex.def Info: Images/MeanSlopeError_ci_RE_cardinal.png  used on inpu
-t line 677.
+t line 668.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/MeanBiasError_ci_RE_cardinal.png, id=550, 1124.2pt x 843.15pt>
+<Images/MeanBiasError_ci_RE_cardinal.png, id=546, 1124.2pt x 843.15pt>
 File: Images/MeanBiasError_ci_RE_cardinal.png Graphic file (type png)
 <use Images/MeanBiasError_ci_RE_cardinal.png>
 Package pdftex.def Info: Images/MeanBiasError_ci_RE_cardinal.png  used on input
- line 678.
+ line 669.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
- [34 <./Images/PF_RE_allcond.png (PNG copy)> <./Images/MeanSlopeError_ci_RE_all
+ [33 <./Images/PF_RE_allcond.png (PNG copy)> <./Images/MeanSlopeError_ci_RE_all
 cond.png (PNG copy)> <./Images/MeanBiasError_ci_RE_allcond.png (PNG copy)> <./I
 mages/PF_RE_oblique.png (PNG copy)> <./Images/MeanSlopeError_ci_RE_oblique.png 
 (PNG copy)> <./Images/MeanBiasError_ci_RE_oblique.png (PNG copy)> <./Images/PF_
 RE_cardinal.png (PNG copy)> <./Images/MeanSlopeError_ci_RE_cardinal.png (PNG co
 py)> <./Images/MeanBiasError_ci_RE_cardinal.png (PNG copy)>]
-<Images/polarplot_new.png, id=556, 1124.2pt x 843.15pt>
+<Images/polarplot_new.png, id=552, 1124.2pt x 843.15pt>
 File: Images/polarplot_new.png Graphic file (type png)
 <use Images/polarplot_new.png>
-Package pdftex.def Info: Images/polarplot_new.png  used on input line 702.
+Package pdftex.def Info: Images/polarplot_new.png  used on input line 693.
 (pdftex.def)             Requested size: 202.34726pt x 151.76045pt.
-<Images/performance_polarplot.png, id=557, 562.1pt x 421.575pt>
+<Images/performance_polarplot.png, id=553, 562.1pt x 421.575pt>
 File: Images/performance_polarplot.png Graphic file (type png)
 <use Images/performance_polarplot.png>
-Package pdftex.def Info: Images/performance_polarplot.png  used on input line 7
-03.
+Package pdftex.def Info: Images/performance_polarplot.png  used on input line 6
+94.
 (pdftex.def)             Requested size: 196.73795pt x 147.55345pt.
-<Images/block_performance_new.png, id=558, 1124.2pt x 843.15pt>
+<Images/block_performance_new.png, id=554, 1124.2pt x 843.15pt>
 File: Images/block_performance_new.png Graphic file (type png)
 <use Images/block_performance_new.png>
 Package pdftex.def Info: Images/block_performance_new.png  used on input line 7
-09.
+00.
 (pdftex.def)             Requested size: 168.62273pt x 126.46704pt.
-<Images/block_performance.png, id=559, 1124.2pt x 843.15pt>
+<Images/block_performance.png, id=555, 1124.2pt x 843.15pt>
 File: Images/block_performance.png Graphic file (type png)
 <use Images/block_performance.png>
-Package pdftex.def Info: Images/block_performance.png  used on input line 710.
+Package pdftex.def Info: Images/block_performance.png  used on input line 701.
 (pdftex.def)             Requested size: 168.62273pt x 126.46704pt.
- [35 <./Images/polarplot_new.png (PNG copy)> <./Images/performance_polarplot.pn
+ [34 <./Images/polarplot_new.png (PNG copy)> <./Images/performance_polarplot.pn
 g (PNG copy)> <./Images/block_performance_new.png (PNG copy)> <./Images/block_p
 erformance.png (PNG copy)>]
-<Images/PF_FH_allcond.png, id=566, 2890.8pt x 1587.9325pt>
+<Images/PF_FH_allcond.png, id=562, 2890.8pt x 1587.9325pt>
 File: Images/PF_FH_allcond.png Graphic file (type png)
 <use Images/PF_FH_allcond.png>
-Package pdftex.def Info: Images/PF_FH_allcond.png  used on input line 718.
+Package pdftex.def Info: Images/PF_FH_allcond.png  used on input line 709.
 (pdftex.def)             Requested size: 173.44052pt x 95.27184pt.
-<Images/MeanSlopeError_ci_FH_allcond.png, id=567, 1124.2pt x 843.15pt>
+<Images/MeanSlopeError_ci_FH_allcond.png, id=563, 1124.2pt x 843.15pt>
 File: Images/MeanSlopeError_ci_FH_allcond.png Graphic file (type png)
 <use Images/MeanSlopeError_ci_FH_allcond.png>
 Package pdftex.def Info: Images/MeanSlopeError_ci_FH_allcond.png  used on input
- line 719.
+ line 710.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/MeanBiasError_ci_FH_allcond.png, id=568, 1124.2pt x 843.15pt>
+<Images/MeanBiasError_ci_FH_allcond.png, id=564, 1124.2pt x 843.15pt>
 File: Images/MeanBiasError_ci_FH_allcond.png Graphic file (type png)
 <use Images/MeanBiasError_ci_FH_allcond.png>
 Package pdftex.def Info: Images/MeanBiasError_ci_FH_allcond.png  used on input 
-line 720.
+line 711.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/PF_FH_oblique.png, id=569, 2890.8pt x 1587.9325pt>
+<Images/PF_FH_oblique.png, id=565, 2890.8pt x 1587.9325pt>
 File: Images/PF_FH_oblique.png Graphic file (type png)
 <use Images/PF_FH_oblique.png>
-Package pdftex.def Info: Images/PF_FH_oblique.png  used on input line 721.
+Package pdftex.def Info: Images/PF_FH_oblique.png  used on input line 712.
 (pdftex.def)             Requested size: 173.44052pt x 95.27184pt.
-<Images/MeanSlopeError_ci_FH_oblique.png, id=570, 1124.2pt x 843.15pt>
+<Images/MeanSlopeError_ci_FH_oblique.png, id=566, 1124.2pt x 843.15pt>
 File: Images/MeanSlopeError_ci_FH_oblique.png Graphic file (type png)
 <use Images/MeanSlopeError_ci_FH_oblique.png>
 Package pdftex.def Info: Images/MeanSlopeError_ci_FH_oblique.png  used on input
- line 722.
+ line 713.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/MeanBiasError_ci_FH_oblique.png, id=571, 1124.2pt x 843.15pt>
+<Images/MeanBiasError_ci_FH_oblique.png, id=567, 1124.2pt x 843.15pt>
 File: Images/MeanBiasError_ci_FH_oblique.png Graphic file (type png)
 <use Images/MeanBiasError_ci_FH_oblique.png>
 Package pdftex.def Info: Images/MeanBiasError_ci_FH_oblique.png  used on input 
-line 723.
+line 714.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/PF_FH_cardinal.png, id=572, 2890.8pt x 1587.9325pt>
+<Images/PF_FH_cardinal.png, id=568, 2890.8pt x 1587.9325pt>
 File: Images/PF_FH_cardinal.png Graphic file (type png)
 <use Images/PF_FH_cardinal.png>
-Package pdftex.def Info: Images/PF_FH_cardinal.png  used on input line 724.
+Package pdftex.def Info: Images/PF_FH_cardinal.png  used on input line 715.
 (pdftex.def)             Requested size: 173.44052pt x 95.27184pt.
-<Images/MeanSlopeError_ci_FH_cardinal.png, id=573, 1124.2pt x 843.15pt>
+<Images/MeanSlopeError_ci_FH_cardinal.png, id=569, 1124.2pt x 843.15pt>
 File: Images/MeanSlopeError_ci_FH_cardinal.png Graphic file (type png)
 <use Images/MeanSlopeError_ci_FH_cardinal.png>
 Package pdftex.def Info: Images/MeanSlopeError_ci_FH_cardinal.png  used on inpu
-t line 725.
+t line 716.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/MeanBiasError_ci_FH_cardinal.png, id=574, 1124.2pt x 843.15pt>
+<Images/MeanBiasError_ci_FH_cardinal.png, id=570, 1124.2pt x 843.15pt>
 File: Images/MeanBiasError_ci_FH_cardinal.png Graphic file (type png)
 <use Images/MeanBiasError_ci_FH_cardinal.png>
 Package pdftex.def Info: Images/MeanBiasError_ci_FH_cardinal.png  used on input
- line 726.
+ line 717.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
- [36 <./Images/PF_FH_allcond.png (PNG copy)> <./Images/MeanSlopeError_ci_FH_all
+ [35 <./Images/PF_FH_allcond.png (PNG copy)> <./Images/MeanSlopeError_ci_FH_all
 cond.png (PNG copy)> <./Images/MeanBiasError_ci_FH_allcond.png (PNG copy)> <./I
 mages/PF_FH_oblique.png (PNG copy)> <./Images/MeanSlopeError_ci_FH_oblique.png 
 (PNG copy)> <./Images/MeanBiasError_ci_FH_oblique.png (PNG copy)> <./Images/PF_
 FH_cardinal.png (PNG copy)> <./Images/MeanSlopeError_ci_FH_cardinal.png (PNG co
 py)> <./Images/MeanBiasError_ci_FH_cardinal.png (PNG copy)>]
-<Images/PF_BB_allcond.png, id=581, 2890.8pt x 1587.9325pt>
+<Images/PF_BB_allcond.png, id=576, 2890.8pt x 1587.9325pt>
 File: Images/PF_BB_allcond.png Graphic file (type png)
 <use Images/PF_BB_allcond.png>
-Package pdftex.def Info: Images/PF_BB_allcond.png  used on input line 750.
+Package pdftex.def Info: Images/PF_BB_allcond.png  used on input line 741.
 (pdftex.def)             Requested size: 173.44052pt x 95.27184pt.
-<Images/MeanSlopeError_ci_BB_allcond.png, id=582, 1124.2pt x 843.15pt>
+<Images/MeanSlopeError_ci_BB_allcond.png, id=577, 1124.2pt x 843.15pt>
 File: Images/MeanSlopeError_ci_BB_allcond.png Graphic file (type png)
 <use Images/MeanSlopeError_ci_BB_allcond.png>
 Package pdftex.def Info: Images/MeanSlopeError_ci_BB_allcond.png  used on input
- line 751.
+ line 742.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/MeanBiasError_ci_BB_allcond.png, id=583, 1124.2pt x 843.15pt>
+<Images/MeanBiasError_ci_BB_allcond.png, id=578, 1124.2pt x 843.15pt>
 File: Images/MeanBiasError_ci_BB_allcond.png Graphic file (type png)
 <use Images/MeanBiasError_ci_BB_allcond.png>
 Package pdftex.def Info: Images/MeanBiasError_ci_BB_allcond.png  used on input 
-line 752.
+line 743.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/PF_BB_oblique.png, id=584, 2890.8pt x 1587.9325pt>
+<Images/PF_BB_oblique.png, id=579, 2890.8pt x 1587.9325pt>
 File: Images/PF_BB_oblique.png Graphic file (type png)
 <use Images/PF_BB_oblique.png>
-Package pdftex.def Info: Images/PF_BB_oblique.png  used on input line 753.
+Package pdftex.def Info: Images/PF_BB_oblique.png  used on input line 744.
 (pdftex.def)             Requested size: 173.44052pt x 95.27184pt.
-<Images/MeanSlopeError_ci_BB_oblique.png, id=585, 1124.2pt x 843.15pt>
+<Images/MeanSlopeError_ci_BB_oblique.png, id=580, 1124.2pt x 843.15pt>
 File: Images/MeanSlopeError_ci_BB_oblique.png Graphic file (type png)
 <use Images/MeanSlopeError_ci_BB_oblique.png>
 Package pdftex.def Info: Images/MeanSlopeError_ci_BB_oblique.png  used on input
- line 754.
+ line 745.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/MeanBiasError_ci_BB_oblique.png, id=586, 1124.2pt x 843.15pt>
+<Images/MeanBiasError_ci_BB_oblique.png, id=581, 1124.2pt x 843.15pt>
 File: Images/MeanBiasError_ci_BB_oblique.png Graphic file (type png)
 <use Images/MeanBiasError_ci_BB_oblique.png>
 Package pdftex.def Info: Images/MeanBiasError_ci_BB_oblique.png  used on input 
-line 755.
+line 746.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/PF_BB_cardinal.png, id=587, 2890.8pt x 1587.9325pt>
+<Images/PF_BB_cardinal.png, id=582, 2890.8pt x 1587.9325pt>
 File: Images/PF_BB_cardinal.png Graphic file (type png)
 <use Images/PF_BB_cardinal.png>
-Package pdftex.def Info: Images/PF_BB_cardinal.png  used on input line 756.
+Package pdftex.def Info: Images/PF_BB_cardinal.png  used on input line 747.
 (pdftex.def)             Requested size: 173.44052pt x 95.27184pt.
-<Images/MeanSlopeError_ci_BB_cardinal.png, id=588, 1124.2pt x 843.15pt>
+<Images/MeanSlopeError_ci_BB_cardinal.png, id=583, 1124.2pt x 843.15pt>
 File: Images/MeanSlopeError_ci_BB_cardinal.png Graphic file (type png)
 <use Images/MeanSlopeError_ci_BB_cardinal.png>
 Package pdftex.def Info: Images/MeanSlopeError_ci_BB_cardinal.png  used on inpu
-t line 757.
+t line 748.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
-<Images/MeanBiasError_ci_BB_cardinal.png, id=589, 1124.2pt x 843.15pt>
+<Images/MeanBiasError_ci_BB_cardinal.png, id=584, 1124.2pt x 843.15pt>
 File: Images/MeanBiasError_ci_BB_cardinal.png Graphic file (type png)
 <use Images/MeanBiasError_ci_BB_cardinal.png>
 Package pdftex.def Info: Images/MeanBiasError_ci_BB_cardinal.png  used on input
- line 758.
+ line 749.
 (pdftex.def)             Requested size: 123.66238pt x 92.74678pt.
- [37 <./Images/PF_BB_allcond.png (PNG copy)> <./Images/MeanSlopeError_ci_BB_all
+ [36 <./Images/PF_BB_allcond.png (PNG copy)> <./Images/MeanSlopeError_ci_BB_all
 cond.png (PNG copy)> <./Images/MeanBiasError_ci_BB_allcond.png (PNG copy)> <./I
 mages/PF_BB_oblique.png (PNG copy)> <./Images/MeanSlopeError_ci_BB_oblique.png 
 (PNG copy)> <./Images/MeanBiasError_ci_BB_oblique.png (PNG copy)> <./Images/PF_
 BB_cardinal.png (PNG copy)> <./Images/MeanSlopeError_ci_BB_cardinal.png (PNG co
 py)> <./Images/MeanBiasError_ci_BB_cardinal.png (PNG copy)>]
-<Images/RE_BP_sensitivity_Alldata_4conds.png, id=596, 562.2606pt x 421.575pt>
+<Images/RE_BP_sensitivity_Alldata_4conds.png, id=591, 562.2606pt x 421.575pt>
 File: Images/RE_BP_sensitivity_Alldata_4conds.png Graphic file (type png)
 <use Images/RE_BP_sensitivity_Alldata_4conds.png>
 Package pdftex.def Info: Images/RE_BP_sensitivity_Alldata_4conds.png  used on i
-nput line 782.
+nput line 773.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/RE_BP_sensitivity_Alldata_2conds.png, id=597, 562.2606pt x 421.575pt>
+<Images/RE_BP_sensitivity_Alldata_2conds.png, id=592, 562.2606pt x 421.575pt>
 File: Images/RE_BP_sensitivity_Alldata_2conds.png Graphic file (type png)
 <use Images/RE_BP_sensitivity_Alldata_2conds.png>
 Package pdftex.def Info: Images/RE_BP_sensitivity_Alldata_2conds.png  used on i
-nput line 783.
+nput line 774.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/FH_BP_sensitivity_Alldata_4conds.png, id=598, 562.2606pt x 421.575pt>
+<Images/FH_BP_sensitivity_Alldata_4conds.png, id=593, 562.2606pt x 421.575pt>
 File: Images/FH_BP_sensitivity_Alldata_4conds.png Graphic file (type png)
 <use Images/FH_BP_sensitivity_Alldata_4conds.png>
 Package pdftex.def Info: Images/FH_BP_sensitivity_Alldata_4conds.png  used on i
-nput line 787.
+nput line 778.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/FH_BP_sensitivity_Alldata_2conds.png, id=599, 562.2606pt x 421.575pt>
+<Images/FH_BP_sensitivity_Alldata_2conds.png, id=594, 562.2606pt x 421.575pt>
 File: Images/FH_BP_sensitivity_Alldata_2conds.png Graphic file (type png)
 <use Images/FH_BP_sensitivity_Alldata_2conds.png>
 Package pdftex.def Info: Images/FH_BP_sensitivity_Alldata_2conds.png  used on i
-nput line 788.
+nput line 779.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/BB_BP_sensitivity_Alldata_4conds.png, id=600, 562.2606pt x 421.575pt>
+<Images/BB_BP_sensitivity_Alldata_4conds.png, id=595, 562.2606pt x 421.575pt>
 File: Images/BB_BP_sensitivity_Alldata_4conds.png Graphic file (type png)
 <use Images/BB_BP_sensitivity_Alldata_4conds.png>
 Package pdftex.def Info: Images/BB_BP_sensitivity_Alldata_4conds.png  used on i
-nput line 792.
+nput line 783.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/BB_BP_sensitivity_Alldata_2conds.png, id=601, 562.2606pt x 421.575pt>
+<Images/BB_BP_sensitivity_Alldata_2conds.png, id=596, 562.2606pt x 421.575pt>
 File: Images/BB_BP_sensitivity_Alldata_2conds.png Graphic file (type png)
 <use Images/BB_BP_sensitivity_Alldata_2conds.png>
 Package pdftex.def Info: Images/BB_BP_sensitivity_Alldata_2conds.png  used on i
-nput line 793.
+nput line 784.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
- [38 <./Images/RE_BP_sensitivity_Alldata_4conds.png (PNG copy)> <./Images/RE_BP
+ [37 <./Images/RE_BP_sensitivity_Alldata_4conds.png (PNG copy)> <./Images/RE_BP
 _sensitivity_Alldata_2conds.png (PNG copy)> <./Images/FH_BP_sensitivity_Alldata
 _4conds.png (PNG copy)> <./Images/FH_BP_sensitivity_Alldata_2conds.png (PNG cop
 y)> <./Images/BB_BP_sensitivity_Alldata_4conds.png (PNG copy)> <./Images/BB_BP_
 sensitivity_Alldata_2conds.png (PNG copy)>]
-<Images/RE_BP_bias_Alldata_4conds.png, id=607, 562.2606pt x 421.575pt>
+<Images/RE_BP_bias_Alldata_4conds.png, id=603, 562.2606pt x 421.575pt>
 File: Images/RE_BP_bias_Alldata_4conds.png Graphic file (type png)
 <use Images/RE_BP_bias_Alldata_4conds.png>
 Package pdftex.def Info: Images/RE_BP_bias_Alldata_4conds.png  used on input li
-ne 801.
+ne 792.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/RE_BP_bias_Alldata_2conds.png, id=608, 562.2606pt x 421.575pt>
+<Images/RE_BP_bias_Alldata_2conds.png, id=604, 562.2606pt x 421.575pt>
 File: Images/RE_BP_bias_Alldata_2conds.png Graphic file (type png)
 <use Images/RE_BP_bias_Alldata_2conds.png>
 Package pdftex.def Info: Images/RE_BP_bias_Alldata_2conds.png  used on input li
-ne 802.
+ne 793.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/FH_BP_bias_Alldata_4conds.png, id=609, 562.2606pt x 421.575pt>
+<Images/FH_BP_bias_Alldata_4conds.png, id=605, 562.2606pt x 421.575pt>
 File: Images/FH_BP_bias_Alldata_4conds.png Graphic file (type png)
 <use Images/FH_BP_bias_Alldata_4conds.png>
 Package pdftex.def Info: Images/FH_BP_bias_Alldata_4conds.png  used on input li
-ne 806.
+ne 797.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/FH_BP_bias_Alldata_2conds.png, id=610, 562.2606pt x 421.575pt>
+<Images/FH_BP_bias_Alldata_2conds.png, id=606, 562.2606pt x 421.575pt>
 File: Images/FH_BP_bias_Alldata_2conds.png Graphic file (type png)
 <use Images/FH_BP_bias_Alldata_2conds.png>
 Package pdftex.def Info: Images/FH_BP_bias_Alldata_2conds.png  used on input li
-ne 807.
+ne 798.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/BB_BP_bias_Alldata_4conds.png, id=611, 562.2606pt x 421.575pt>
+<Images/BB_BP_bias_Alldata_4conds.png, id=607, 562.2606pt x 421.575pt>
 File: Images/BB_BP_bias_Alldata_4conds.png Graphic file (type png)
 <use Images/BB_BP_bias_Alldata_4conds.png>
 Package pdftex.def Info: Images/BB_BP_bias_Alldata_4conds.png  used on input li
-ne 811.
+ne 802.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-<Images/BB_BP_bias_Alldata_2conds.png, id=612, 562.2606pt x 421.575pt>
+<Images/BB_BP_bias_Alldata_2conds.png, id=608, 562.2606pt x 421.575pt>
 File: Images/BB_BP_bias_Alldata_2conds.png Graphic file (type png)
 <use Images/BB_BP_bias_Alldata_2conds.png>
 Package pdftex.def Info: Images/BB_BP_bias_Alldata_2conds.png  used on input li
-ne 812.
+ne 803.
 (pdftex.def)             Requested size: 196.79416pt x 147.55345pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 816.
- [39 <./Images/RE_BP_bias_Alldata_4conds.png (PNG copy)> <./Images/RE_BP_bias_A
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 807.
+ [38 <./Images/RE_BP_bias_Alldata_4conds.png (PNG copy)> <./Images/RE_BP_bias_A
 lldata_2conds.png (PNG copy)> <./Images/FH_BP_bias_Alldata_4conds.png (PNG copy
 )> <./Images/FH_BP_bias_Alldata_2conds.png (PNG copy)> <./Images/BB_BP_bias_All
 data_4conds.png (PNG copy)> <./Images/BB_BP_bias_Alldata_2conds.png (PNG copy)>
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 816.
-
-(./RadialBias.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 816.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 816.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 807.
+ (./RadialBias.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 807.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 807.
 Package rerunfilecheck Info: File `RadialBias.out' has not changed.
 (rerunfilecheck)             Checksum: 4942FF5AFC789B2D803F7047C81E2E43;2838.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 816.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 807.
  ) 
 Here is how much of TeX's memory you used:
- 11908 strings out of 480608
- 246060 string characters out of 5903631
+ 11907 strings out of 480608
+ 246053 string characters out of 5903631
  475926 words of memory out of 5000000
  27319 multiletter control sequences out of 15000+600000
  542629 words of font info for 63 fonts, out of 8000000 for 9000
@@ -1888,10 +1887,10 @@ sr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
 /local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/l
 ocal/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/lo
 cal/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on RadialBias.pdf (39 pages, 21039860 bytes).
+Output written on RadialBias.pdf (38 pages, 21038691 bytes).
 PDF statistics:
- 672 PDF objects out of 1000 (max. 8388607)
- 417 compressed objects within 5 object streams
- 114 named destinations out of 1000 (max. 500000)
+ 668 PDF objects out of 1000 (max. 8388607)
+ 414 compressed objects within 5 object streams
+ 113 named destinations out of 1000 (max. 500000)
  1299 words of extra memory for PDF output out of 10000 (max. 10000000)
 
