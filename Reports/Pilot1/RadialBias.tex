@@ -56,7 +56,7 @@ Black circular aperature was put onto screen to avoid perceptual artifacts from 
 \\
 Aborts trials that have breaks in fixation during stimulus presentation (stimulus\_start - 300 ms TO stimulus\_end)
 \\
-Number of subjects: 3
+Number of subjects: 5
 
 \subsection{Subject Instructions}
 For each of the following trials, a fixation dot will appear on the screen. A drifting pattern will appear at some distance from the center. Your task is to determine whether the pattern is drifting clockwise or counterclockwise relative to the reference.
@@ -262,6 +262,35 @@ Example sequence of blocks for RE
 \end{figure}
 
 \newpage
+\subsection{Bias Polar Plots (Absolute Value)}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.3]{Images/RE_PP_bias_abs_Alldata_4conds_relative.png}
+\includegraphics[scale=.3]{Images/RE_PP_bias_abs_Alldata_2conds_relative.png}
+\end{figure}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.3]{Images/FH_PP_bias_abs_Alldata_4conds_relative.png}
+\includegraphics[scale=.3]{Images/FH_PP_bias_abs_Alldata_2conds_relative.png}
+\end{figure}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.3]{Images/BB_PP_bias_abs_Alldata_4conds_relative.png}
+\includegraphics[scale=.3]{Images/BB_PP_bias_abs_Alldata_2conds_relative.png}
+\end{figure}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.3]{Images/PW_PP_bias_abs_Alldata_4conds_relative.png}
+\includegraphics[scale=.3]{Images/PW_PP_bias_abs_Alldata_2conds_relative.png}
+\end{figure}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.3]{Images/NH_PP_bias_abs_Alldata_4conds_relative.png}
+\includegraphics[scale=.3]{Images/NH_PP_bias_abs_Alldata_2conds_relative.png}
+\caption{LEFT: 200 trials per point. RIGHT: 400 trials per point. 95\% CI from 1000 bootstraps.}
+\end{figure}
+
+\newpage
 \section{Group Data}
 \subsection{Sensitivity Polar Plots}
 \begin{figure}[H]
@@ -288,6 +317,11 @@ Example sequence of blocks for RE
 \centering % centers the figure
 \includegraphics[scale=.35]{Images/ALLSUBJ_LP_bias_Alldata_4conds_relative.png}
 \includegraphics[scale=.35]{Images/ALLSUBJ_LP_bias_Alldata_2conds_relative.png}
+\end{figure}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.35]{Images/ALLSUBJ_PP_bias_abs_Alldata_4conds_relative.png}
+\includegraphics[scale=.35]{Images/ALLSUBJ_PP_bias_abs_Alldata_2conds_relative.png}
 \end{figure}
 
 \newpage
@@ -590,19 +624,16 @@ Example sequence of blocks for RE
 \item Analysis Related
 	\begin{itemize}
 	\item Added NH and PW
-	\item Computed averages across subjects (for the above plots), with SEM error bars
-	\item Added plots with each MOTION VECTOR per condition (per subject)
+	\item Added absolute value bias plots
 	\end{itemize}
 \item Other improvements
 	\begin{itemize}
-	\item Showing legend for each location somehow in barplots
-	\item Made sure all y-axes are labeled
-	\item For PF curves, plotted dots of different sizes so we can see (largest in back))
+	\item n/a
 	\end{itemize}
 \item For discussion
 	\begin{itemize}
-	\item Go over new data and individual PFs, especially for Nina?
-	\item Wonder why bias is not higher for off-cardinal locations?
+	\item Is bias higher for off-cardinal locations? Look into Albright 1989
+	\item Reasoning for LVF radial bias? (Edwards/Badcok 1993, Von Helmholtz 1909/1962)
 	\item fMRI design
 	\item Plaid design
 	\item Reference repulsion/attraction
@@ -619,6 +650,15 @@ Example sequence of blocks for RE
 \begin{itemize}
 \item Feedback for Analysis
 	\begin{itemize}
+	\item Create branching logic for possible mechanisms
+	\item Test myself on new parameters (ecc, SF, speed)
+	\item Re-collect data for certain sessions (Nina)
+	\item Plot absolute terms of direction in polar plot (8 colors)
+	\item Create a table of r-squared values (maybe per fit? Per session? Per subject?)
+	\item Can also use precision-weighted average, goodness of fit, or likelihood to weight subjects for average plots
+	\item Can even normalize (z-score?), or subtract/divide by mean, average, and then add/multiply by mean (to make error bars relative across subjects)
+	\item Do I need to fix CIs for 2 condition?
+	\item I think I can get rid of 95 pct CIs, only keep 68 pct CIs
 	\item Can try adding 6 random data points each of the 4 conditions at each tilt value to see if plots significantly change
 	\item Plot TangRight Sensitivity against TangLeft Senstivity; then on top RadialIn vs RadialOut in a different color
 	\item Add CIs to bar plots per condition of sensitivity/bias across all locations

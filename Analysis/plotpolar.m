@@ -36,6 +36,7 @@ function plotpolar(numCond, paramsetting, analysiscond,figuresdir, main_conditio
     %ci_values = {bootci_radialout,bootci_radialin,bootci_tangleft,bootci_tangright};
     
     if strcmp(paramsetting, 'bias')
+        absv = [1,0]; % run 2 iterations (absolute value,regular)
         paramidx = 1;
         % calculate min (bias value - 95% error) across all conditions - const across
         % plot a circle on polar plot
@@ -51,6 +52,7 @@ function plotpolar(numCond, paramsetting, analysiscond,figuresdir, main_conditio
         end
         set_min = abs(min(minlist_bias)-addedconst);
     elseif strcmp(paramsetting, 'sensitivity')
+        absv = [0];
         paramidx = 2;
         set_min = 0;
     end
@@ -64,66 +66,89 @@ function plotpolar(numCond, paramsetting, analysiscond,figuresdir, main_conditio
     
     possiblethetas_deg = linspace(0,315,8);
     rtick_array = cell(1,length(main_conditions));
-    for i=1:length(main_conditions) % conditions   
-        theta = []; rho = []; ci_95_lb = []; ci_68_lb = []; ci_95_ub = []; ci_68_ub = [];
-        for fn = fieldnames(main_conditions{i})' % locations
-            %disp(fn{1})
-            theta = [theta deg2rad(mapdegree(fn{1}))];
-            rho = [rho main_conditions{i}.(fn{1})(paramidx)];
-            ci_95_lb = [ci_95_lb ci_values{i}.(fn{1})(1, paramidx, 1)];
-            ci_95_ub = [ci_95_ub ci_values{i}.(fn{1})(2, paramidx, 1)];
-            ci_68_lb = [ci_68_lb ci_values{i}.(fn{1})(1, paramidx, 2)];
-            ci_68_ub = [ci_68_ub ci_values{i}.(fn{1})(2, paramidx, 2)];
-        end
-        rho = rho+set_min; % will be +0 for sensitivity
-        ci_95_lb = ci_95_lb+set_min; ci_95_ub = ci_95_ub+set_min; 
-        ci_68_lb = ci_68_lb+set_min; ci_68_ub = ci_68_ub+set_min;
-        
-        [theta,idx] = sort(theta); % order theta from least to greatest
-        rho = rho(idx); ci_95_lb = ci_95_lb(idx); ci_68_lb = ci_68_lb(idx);
-        ci_95_ub = ci_95_ub(idx); ci_68_ub = ci_68_ub(idx);
-       
-        % insert empty [] for data not yet collected -- clean this up later
-        possiblethetas_rad = deg2rad(possiblethetas_deg);
-        emtyidx = ismember(num2str(possiblethetas_rad'), num2str(theta'), 'rows')';
-        emtyidx = double(emtyidx); emtyidx(~emtyidx)=nan;
+    for aa=1:length(absv)
+        abscond = absv(aa);
+        for i=1:length(main_conditions) % conditions   
+            theta = []; rho = []; ci_95_lb = []; ci_68_lb = []; ci_95_ub = []; ci_68_ub = [];
+            for fn = fieldnames(main_conditions{i})' % locations
+                %disp(fn{1})
+                theta = [theta deg2rad(mapdegree(fn{1}))];
+                rho = [rho main_conditions{i}.(fn{1})(paramidx)];
+                ci_95_lb = [ci_95_lb ci_values{i}.(fn{1})(1, paramidx, 1)];
+                ci_95_ub = [ci_95_ub ci_values{i}.(fn{1})(2, paramidx, 1)];
+                ci_68_lb = [ci_68_lb ci_values{i}.(fn{1})(1, paramidx, 2)];
+                ci_68_ub = [ci_68_ub ci_values{i}.(fn{1})(2, paramidx, 2)];
+            end
+            rho = rho+set_min; % will be +0 for sensitivity
+            ci_95_lb = ci_95_lb+set_min; ci_95_ub = ci_95_ub+set_min; 
+            ci_68_lb = ci_68_lb+set_min; ci_68_ub = ci_68_ub+set_min;
 
-        theta = possiblethetas_rad;
-        cnt = 1; new_rho = emtyidx; new_ci_95_lb = emtyidx; new_ci_68_lb = emtyidx;
-        new_ci_95_ub = emtyidx; new_ci_68_ub = emtyidx;
-        for pp=1:length(emtyidx)
-            if isnan(emtyidx(pp))
-                continue
-            else
-               new_rho(pp) = rho(cnt); new_ci_95_lb(pp) = ci_95_lb(cnt);
-               new_ci_68_lb(pp) = ci_68_lb(cnt); new_ci_95_ub(pp) = ci_95_ub(cnt);
-               new_ci_68_ub(pp) = ci_68_ub(cnt);
-               cnt = cnt+1;
+            [theta,idx] = sort(theta); % order theta from least to greatest
+            rho = rho(idx); ci_95_lb = ci_95_lb(idx); ci_68_lb = ci_68_lb(idx);
+            ci_95_ub = ci_95_ub(idx); ci_68_ub = ci_68_ub(idx);
+
+            % insert empty [] for data not yet collected -- clean this up later
+            possiblethetas_rad = deg2rad(possiblethetas_deg);
+            emtyidx = ismember(num2str(possiblethetas_rad'), num2str(theta'), 'rows')';
+            emtyidx = double(emtyidx); emtyidx(~emtyidx)=nan;
+
+            theta = possiblethetas_rad;
+            cnt = 1; new_rho = emtyidx; new_ci_95_lb = emtyidx; new_ci_68_lb = emtyidx;
+            new_ci_95_ub = emtyidx; new_ci_68_ub = emtyidx;
+            for pp=1:length(emtyidx)
+                if isnan(emtyidx(pp))
+                    continue
+                else
+                   new_rho(pp) = rho(cnt); new_ci_95_lb(pp) = ci_95_lb(cnt);
+                   new_ci_68_lb(pp) = ci_68_lb(cnt); new_ci_95_ub(pp) = ci_95_ub(cnt);
+                   new_ci_68_ub(pp) = ci_68_ub(cnt);
+                   cnt = cnt+1;
+                end
+            end
+            rho = new_rho; ci_95_lb = new_ci_95_lb; ci_68_lb = new_ci_68_lb; 
+            ci_95_ub = new_ci_95_ub; ci_68_ub = new_ci_68_ub; 
+
+            if strcmp(paramsetting, 'bias')
+                rho_saved(:,i) = rho-set_min;
+                ci_95_lb_saved(:,i) = ci_95_lb-set_min; 
+                ci_95_ub_saved(:,i) = ci_95_ub-set_min;
+                ci_68_lb_saved(:,i) = ci_68_lb-set_min; 
+                ci_68_ub_saved(:,i) = ci_68_ub-set_min;
+            elseif strcmp(paramsetting, 'sensitivity')
+                rho_saved(:,i) = rho;
+                ci_95_lb_saved(:,i) = ci_95_lb; 
+                ci_95_ub_saved(:,i) = ci_95_ub;
+                ci_68_lb_saved(:,i) = ci_68_lb; 
+                ci_68_ub_saved(:,i) = ci_68_ub;
+            end
+            theta_saved(:,i) = theta;
+
+            % adding (1) to make full circle
+            if abscond == 0 % if absv == 0
+            polarwitherrorbar([theta theta(1)], [rho rho(1)], ...
+                    [ci_95_lb ci_95_lb(1)], [ci_95_ub ci_95_ub(1)], set_min, colors(i));
+            hold on
+            elseif abscond == 1 % if absv == 1
+                fixed_rho = [rho rho(1)]-set_min;
+                rho_poskeep = (fixed_rho > 0).*fixed_rho;
+                fixed_rho(fixed_rho > 0) = 0;
+                index_neg = (fixed_rho < 0); % neg values indices
+                index_pos = (fixed_rho == 0); % neg values indices
+                % switch upper and lower bounds
+                ci_95_lb_temp_neg = (set_min-[ci_95_ub ci_95_ub(1)]+set_min).*index_neg;
+                ci_95_ub_temp_neg = (set_min-[ci_95_lb ci_95_lb(1)]+set_min).*index_neg;
+                ci_95_lb_temp_pos = ([ci_95_ub ci_95_ub(1)]).*index_pos;
+                ci_95_ub_temp_pos = ([ci_95_lb ci_95_lb(1)]).*index_pos;
+                ci_95_lb_temp = ci_95_lb_temp_neg+ci_95_lb_temp_pos;
+                ci_95_ub_temp = ci_95_ub_temp_neg+ci_95_ub_temp_pos;
+                fixed_rho = (fixed_rho*-1) + rho_poskeep;
+                fixed_rho = fixed_rho+set_min;
+                polarwitherrorbar([theta theta(1)], fixed_rho, ...
+                    ci_95_lb_temp, ci_95_ub_temp, set_min, colors(i));
+                hold on
             end
         end
-        rho = new_rho; ci_95_lb = new_ci_95_lb; ci_68_lb = new_ci_68_lb; 
-        ci_95_ub = new_ci_95_ub; ci_68_ub = new_ci_68_ub; 
-            
-        if strcmp(paramsetting, 'bias')
-            rho_saved(:,i) = rho-set_min;
-            ci_95_lb_saved(:,i) = ci_95_lb-set_min; 
-            ci_95_ub_saved(:,i) = ci_95_ub-set_min;
-            ci_68_lb_saved(:,i) = ci_68_lb-set_min; 
-            ci_68_ub_saved(:,i) = ci_68_ub-set_min;
-        elseif strcmp(paramsetting, 'sensitivity')
-            rho_saved(:,i) = rho;
-            ci_95_lb_saved(:,i) = ci_95_lb; 
-            ci_95_ub_saved(:,i) = ci_95_ub;
-            ci_68_lb_saved(:,i) = ci_68_lb; 
-            ci_68_ub_saved(:,i) = ci_68_ub;
-        end
-        theta_saved(:,i) = theta;
-
-        % adding (1) to make full circle
-        polarwitherrorbar([theta theta(1)], [rho rho(1)], ...
-                [ci_95_lb ci_95_lb(1)], [ci_95_ub ci_95_ub(1)], set_min, colors(i));
-        hold on
-    end
+    
     
     rticks = get(gca,'RLim');
     thetaticks(possiblethetas_deg);
@@ -148,10 +173,16 @@ function plotpolar(numCond, paramsetting, analysiscond,figuresdir, main_conditio
         rohlabels3 = strrep(tempind,'-0', '');
         rohlabels4 = strrep(rohlabels3,'0', ''); 
         set(gca,'rticklabel',rohlabels4)
-        text(0,0,{'clockwise'},'HorizontalAlignment','center','VerticalAlignment','top')
+        if abscond ~= 1
+            text(0,0,{'clockwise'},'HorizontalAlignment','center','VerticalAlignment','top')
+        end
     end
     hold on
-    titlename = sprintf('%s Polar Plot: %s',subjname, paramsetting);
+    if abscond == 1
+        titlename = sprintf('%s Polar Plot: %s (abs)',subjname, paramsetting);
+    else
+        titlename = sprintf('%s Polar Plot: %s',subjname, paramsetting);
+    end
     title(titlename, 'FontSize', 14)
     if numCond==4
         L1 = polarplot(nan, nan, 'color', colors(1));
@@ -166,9 +197,16 @@ function plotpolar(numCond, paramsetting, analysiscond,figuresdir, main_conditio
     end
     hold off
     
-    saveas(gcf,sprintf('%s/pngs/%s_PP_%s_Alldata_%sconds_%s.png',figuresdir,subjname, paramsetting,num2str(numCond), analysiscond))
-    saveas(gcf,sprintf('%s/figs/%s_PP_%s_Alldata_%sconds_%s.fig',figuresdir,subjname, paramsetting,num2str(numCond), analysiscond))
-    saveas(gcf,sprintf('%s/bmps/%s_PP_%s_Alldata_%sconds_%s.bmp',figuresdir,subjname, paramsetting,num2str(numCond), analysiscond))
+    if abscond == 1
+        saveas(gcf,sprintf('%s/pngs/%s_PP_%s_abs_Alldata_%sconds_%s.png',figuresdir,subjname, paramsetting,num2str(numCond), analysiscond))
+        saveas(gcf,sprintf('%s/figs/%s_PP_%s_abs_Alldata_%sconds_%s.fig',figuresdir,subjname, paramsetting,num2str(numCond), analysiscond))
+        saveas(gcf,sprintf('%s/bmps/%s_PP_%s_abs_Alldata_%sconds_%s.bmp',figuresdir,subjname, paramsetting,num2str(numCond), analysiscond))
+    else
+        saveas(gcf,sprintf('%s/pngs/%s_PP_%s_Alldata_%sconds_%s.png',figuresdir,subjname, paramsetting,num2str(numCond), analysiscond))
+        saveas(gcf,sprintf('%s/figs/%s_PP_%s_Alldata_%sconds_%s.fig',figuresdir,subjname, paramsetting,num2str(numCond), analysiscond))
+        saveas(gcf,sprintf('%s/bmps/%s_PP_%s_Alldata_%sconds_%s.bmp',figuresdir,subjname, paramsetting,num2str(numCond), analysiscond))        
+    end
+    end
     
     figure
     b = bar(rho_saved, 'grouped');

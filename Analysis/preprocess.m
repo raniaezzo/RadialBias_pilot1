@@ -91,29 +91,28 @@ for si=1:length(subjectinfo)
             % plot the polar angle plots for 4 conditions
             four_main_conditions = {params_radialout,params_radialin,params_tangleft,params_tangright};
             four_ci_values = {bootci_radialout,bootci_radialin,bootci_tangleft,bootci_tangright};
-            plotpolar(4, 'sensitivity', 'relative', figuresdir, four_main_conditions, mapdegree,...
-                four_ci_values)
             plotpolar(4, 'bias', 'relative', figuresdir, four_main_conditions, mapdegree,...
                 four_ci_values)
+            %plotpolar(4, 'sensitivity', 'relative', figuresdir, four_main_conditions, mapdegree,...
+            %    four_ci_values)
 
             % plot the polar angle plots for 2 conditions
             two_main_conditions = {params_radial,params_tang};
             two_ci_values = {bootci_radial,bootci_tang};
-            plotpolar(2, 'sensitivity', 'relative', figuresdir, two_main_conditions, mapdegree,...
-                two_ci_values)
+            %plotpolar(2, 'sensitivity', 'relative', figuresdir, two_main_conditions, mapdegree,...
+            %    two_ci_values)
             plotpolar(2, 'bias', 'relative', figuresdir, two_main_conditions, mapdegree,...
                 two_ci_values)
 
-            % fix bug here
-            four_cond = {summary_radialout,summary_radialin,summary_tangleft, ...
-                summary_tangright};
-            four_params = {params_radialout, params_radialin, params_tangleft, ...
-                params_tangright};
-            plot_PF(4, figuresdir, four_cond, four_params)
+            %four_cond = {summary_radialout,summary_radialin,summary_tangleft, ...
+            %    summary_tangright};
+            %four_params = {params_radialout, params_radialin, params_tangleft, ...
+            %    params_tangright};
+            %plot_PF(4, figuresdir, four_cond, four_params)
 
-            two_cond = {summary_radial,summary_tang};
-            two_params = {params_radial, params_tang};
-            plot_PF(2, figuresdir, two_cond, two_params)
+            %two_cond = {summary_radial,summary_tang};
+            %two_params = {params_radial, params_tang};
+            %plot_PF(2, figuresdir, two_cond, two_params)
 
         end
     end
