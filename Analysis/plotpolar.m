@@ -11,14 +11,19 @@ function plotpolar(numCond, paramsetting, analysiscond,figuresdir, main_conditio
     conf_interval = 95;
 
     if numCond == 4
-        colors = ['c','b','r','m'];
+        colors = {'c','b','r','m'};
         if strcmp(analysiscond, 'relative')
             condNames = {'radialout', 'radialin','tangleft','tangright'};
-        elseif strcmp(analysiscond, 'absolute')
-            condNames = {'upwards', 'downwards','leftwards','rightwards'};
+        end
+    elseif numCond == 8
+        colors = {[0, 0, 1],[0, 0.75, 0.75],[0.8500, 0.3250, 0.0980],[1, 0, 0], ...
+            [0.4660, 0.6740, 0.1880],[0, 0.5, 0],[0.4940, 0.1840, 0.5560],[0.75, 0, 0.75]};
+        if strcmp(analysiscond, 'absolute')
+        condNames = {'upwards', 'downwards','leftwards','rightwards',...
+            'lowerleftwards', 'lowerrightwards', 'upperleftwards', 'upperrightwards'};
         end
     elseif numCond == 2
-        colors = ['b','r'];
+        colors = {'b','r'};
         condNames = {'radial','tangential'};
     end
     
@@ -123,11 +128,16 @@ function plotpolar(numCond, paramsetting, analysiscond,figuresdir, main_conditio
             end
             theta_saved(:,i) = theta;
 
+            % ommit any NaN values (for absolute value plot)
+            fullmatrix = [theta; rho; ci_95_lb; ci_95_ub];
+            fullmatrix(:,any(isnan(fullmatrix), 1)) = [];
+            fullmatrix = [fullmatrix, fullmatrix(:,1)]; % to connect last point
+            
             % adding (1) to make full circle
             if abscond == 0 % if absv == 0
-            polarwitherrorbar([theta theta(1)], [rho rho(1)], ...
-                    [ci_95_lb ci_95_lb(1)], [ci_95_ub ci_95_ub(1)], set_min, colors(i));
-            hold on
+                polarwitherrorbar(fullmatrix(1,:),fullmatrix(2,:),fullmatrix(3,:), ...
+                    fullmatrix(4,:), set_min, colors{i});
+                hold on
             elseif abscond == 1 % if absv == 1
                 fixed_rho = [rho rho(1)]-set_min;
                 rho_poskeep = (fixed_rho > 0).*fixed_rho;
@@ -144,7 +154,7 @@ function plotpolar(numCond, paramsetting, analysiscond,figuresdir, main_conditio
                 fixed_rho = (fixed_rho*-1) + rho_poskeep;
                 fixed_rho = fixed_rho+set_min;
                 polarwitherrorbar([theta theta(1)], fixed_rho, ...
-                    ci_95_lb_temp, ci_95_ub_temp, set_min, colors(i));
+                    ci_95_lb_temp, ci_95_ub_temp, set_min, colors{i});
                 hold on
             end
         end
@@ -184,15 +194,25 @@ function plotpolar(numCond, paramsetting, analysiscond,figuresdir, main_conditio
         titlename = sprintf('%s Polar Plot: %s',subjname, paramsetting);
     end
     title(titlename, 'FontSize', 14)
-    if numCond==4
-        L1 = polarplot(nan, nan, 'color', colors(1));
-        L2 = polarplot(nan, nan, 'color', colors(2));
-        L3 = polarplot(nan, nan, 'color', colors(3));
-        L4 = polarplot(nan, nan, 'color', colors(4));
+    if numCond==8
+        L1 = polarplot(nan, nan, 'color', colors{1});
+        L2 = polarplot(nan, nan, 'color', colors{2});
+        L3 = polarplot(nan, nan, 'color', colors{3});
+        L4 = polarplot(nan, nan, 'color', colors{4});
+        L5 = polarplot(nan, nan, 'color', colors{5});
+        L6 = polarplot(nan, nan, 'color', colors{6});
+        L7 = polarplot(nan, nan, 'color', colors{7});
+        L8 = polarplot(nan, nan, 'color', colors{8});
+        legend([L1, L2, L3,L4,L5,L6,L7,L8], condNames)
+    elseif numCond==4
+        L1 = polarplot(nan, nan, 'color', colors{1});
+        L2 = polarplot(nan, nan, 'color', colors{2});
+        L3 = polarplot(nan, nan, 'color', colors{3});
+        L4 = polarplot(nan, nan, 'color', colors{4});
         legend([L1, L2, L3,L4], condNames)
     elseif numCond==2
-        L1 = polarplot(nan, nan, 'color', colors(1));
-        L2 = polarplot(nan, nan, 'color', colors(2));
+        L1 = polarplot(nan, nan, 'color', colors{1});
+        L2 = polarplot(nan, nan, 'color', colors{2});
         legend([L1, L2], condNames)
     end
     hold off
@@ -208,139 +228,141 @@ function plotpolar(numCond, paramsetting, analysiscond,figuresdir, main_conditio
     end
     end
     
-    figure
-    b = bar(rho_saved, 'grouped');
-    if withbars == 1
-        hold on
-    end
-    % Calculate the number of groups and number of bars in each group
-    [ngroups,nbars] = size(rho_saved);
-    % Get the x coordinate of the bars
-    x = nan(nbars, ngroups);
-    for i = 1:nbars
-        b(i).FaceColor = colors(i);
-        x(i,:) = b(i).XEndPoints;
-    end
-    x_forplot = x';
-    
-    for ci=1:nbars
-        plot(x_forplot(:,ci),rho_saved(:,ci), sprintf('%so-',colors(ci)), 'LineWidth', 2, ...
-            'MarkerSize',5, 'MarkerEdgeColor',colors(ci),'MarkerFaceColor',colors(ci))
-        hold on
-    end
-    
-    % Plot the errorbars
-    errorbar(x_forplot,rho_saved,rho_saved-ci_95_lb_saved,ci_95_ub_saved-rho_saved,'k','linestyle','none');
-    hold on
-    errorbar(x_forplot,rho_saved,rho_saved-ci_68_lb_saved,ci_68_ub_saved-rho_saved,'g','linestyle','none');
-    titlename = sprintf('%s Bar Plot: %s',subjname, paramsetting);
-    title(titlename, 'FontSize', 14)
-    if withbars == 1
-        xticklabels({possiblethetas_deg})
-    elseif withbars == 0
-        xticklabels({[] possiblethetas_deg})
-    end
-    xlabel('Location (Degrees)', 'FontSize', 12)
-    hold on
-    
-    groupNum = ngroups;
-    groupsize = nbars;
-    if nbars <= 2
-        combinations = [1 2]; % workaround
-        rounds = 1;
-    else
-        combinations = nchoosek(1:nbars, nbars-2);
-        rounds = length(combinations);
-    end
-    
-    if withbars == 1
-    for i=1:groupNum
-        new_y = rho_saved(i,:); new_matrix = new_y(combinations);
-        new_ub_95 = ci_95_ub_saved(i,:); new_ub_95 = new_ub_95(combinations);
-        new_lb_95 = ci_95_lb_saved(i,:); new_lb_95 = new_lb_95(combinations);
-        new_ub_68 = ci_68_ub_saved(i,:); new_ub_68 = new_ub_68(combinations);
-        new_lb_68 = ci_68_lb_saved(i,:); new_lb_68 = new_lb_68(combinations);
-        M = max(new_matrix, [], 'all');        
-        globalmax_ci = max(new_ub_95, [], 'all');
-        jitter = 0.2;
-        
-        for ci=1:rounds
-            
-            % 95 CI
-            ci_upperbounds = [new_ub_95(ci,1), new_ub_95(ci,2)];
-            [greater_ci_val, greater_ci_idx] = max(ci_upperbounds);
-            [smaller_ci_val, smaller_ci_idx] = min(ci_upperbounds);
-            greater_ci_min = new_lb_95(ci,greater_ci_idx); % get lower bound
-            smaller_ci_max = new_ub_95(ci,smaller_ci_idx); % get upper bound
-            
-            % 68
-            ci_upperbounds_68 = [new_ub_68(ci,1), new_ub_68(ci,2)];
-            [greater_ci_val_68, greater_ci_idx_68] = max(ci_upperbounds_68);
-            [smaller_ci_val_68, smaller_ci_idx_68] = min(ci_upperbounds_68);
-            greater_ci_min_68 = new_lb_68(ci,greater_ci_idx_68); % get lower bound
-            smaller_ci_max_68 = new_ub_68(ci,smaller_ci_idx_68); % get upper bound
-            
+    if strcmp(analysiscond, 'relative')
+        figure
+        b = bar(rho_saved, 'grouped');
+        if withbars == 1
+            hold on
+        end
+        % Calculate the number of groups and number of bars in each group
+        [ngroups,nbars] = size(rho_saved);
+        % Get the x coordinate of the bars
+        x = nan(nbars, ngroups);
+        for i = 1:nbars
+            b(i).FaceColor = colors{i};
+            x(i,:) = b(i).XEndPoints;
+        end
+        x_forplot = x';
 
-            if greater_ci_min > smaller_ci_max
-                ctr2 = bsxfun(@plus, b(combinations(ci,1)).XData, [b(combinations(ci,1)).XOffset]');
-                ctr3 = bsxfun(@plus, b(combinations(ci,2)).XData, [b(combinations(ci,2)).XOffset]');
-                hold on
-                % using the largest value of greatest range CI to place
-                % star
-                plot([ctr2(i) ctr3(i)], [1 1]*(globalmax_ci+jitter), '-k', 'LineWidth',1)
-                plot(mean([ctr2(i) ctr3(i)]), (globalmax_ci+jitter), '*k')
-                jitter = jitter+0.12;
-            elseif greater_ci_min_68 > smaller_ci_max_68
-                ctr2 = bsxfun(@plus, b(combinations(ci,1)).XData, [b(combinations(ci,1)).XOffset]');
-                ctr3 = bsxfun(@plus, b(combinations(ci,2)).XData, [b(combinations(ci,2)).XOffset]');
-                hold on
-                % using the largest value of greatest range CI to place
-                % star
-                plot([ctr2(i) ctr3(i)], [1 1]*(globalmax_ci+jitter), '-g', 'LineWidth',1)
-                plot(mean([ctr2(i) ctr3(i)]), (globalmax_ci+jitter), '*g') %greater_ci_val
-                jitter = jitter+0.17;
+        for ci=1:nbars
+            plot(x_forplot(:,ci),rho_saved(:,ci), 'o-','color',colors{ci}, 'LineWidth', 2, ...
+                'MarkerSize',5, 'MarkerEdgeColor',colors{ci},'MarkerFaceColor',colors{ci})
+            hold on
+        end
+
+        % Plot the errorbars
+        errorbar(x_forplot,rho_saved,rho_saved-ci_95_lb_saved,ci_95_ub_saved-rho_saved,'k','linestyle','none');
+        hold on
+        errorbar(x_forplot,rho_saved,rho_saved-ci_68_lb_saved,ci_68_ub_saved-rho_saved,'g','linestyle','none');
+        titlename = sprintf('%s Bar Plot: %s',subjname, paramsetting);
+        title(titlename, 'FontSize', 14)
+        if withbars == 1
+            xticklabels({possiblethetas_deg})
+        elseif withbars == 0
+            xticklabels({[] possiblethetas_deg})
+        end
+        xlabel('Location (Degrees)', 'FontSize', 12)
+        hold on
+
+        groupNum = ngroups;
+        groupsize = nbars;
+        if nbars <= 2
+            combinations = [1 2]; % workaround
+            rounds = 1;
+        else
+            combinations = nchoosek(1:nbars, nbars-2);
+            rounds = length(combinations);
+        end
+
+        if withbars == 1
+        for i=1:groupNum
+            new_y = rho_saved(i,:); new_matrix = new_y(combinations);
+            new_ub_95 = ci_95_ub_saved(i,:); new_ub_95 = new_ub_95(combinations);
+            new_lb_95 = ci_95_lb_saved(i,:); new_lb_95 = new_lb_95(combinations);
+            new_ub_68 = ci_68_ub_saved(i,:); new_ub_68 = new_ub_68(combinations);
+            new_lb_68 = ci_68_lb_saved(i,:); new_lb_68 = new_lb_68(combinations);
+            M = max(new_matrix, [], 'all');        
+            globalmax_ci = max(new_ub_95, [], 'all');
+            jitter = 0.2;
+
+            for ci=1:rounds
+
+                % 95 CI
+                ci_upperbounds = [new_ub_95(ci,1), new_ub_95(ci,2)];
+                [greater_ci_val, greater_ci_idx] = max(ci_upperbounds);
+                [smaller_ci_val, smaller_ci_idx] = min(ci_upperbounds);
+                greater_ci_min = new_lb_95(ci,greater_ci_idx); % get lower bound
+                smaller_ci_max = new_ub_95(ci,smaller_ci_idx); % get upper bound
+
+                % 68
+                ci_upperbounds_68 = [new_ub_68(ci,1), new_ub_68(ci,2)];
+                [greater_ci_val_68, greater_ci_idx_68] = max(ci_upperbounds_68);
+                [smaller_ci_val_68, smaller_ci_idx_68] = min(ci_upperbounds_68);
+                greater_ci_min_68 = new_lb_68(ci,greater_ci_idx_68); % get lower bound
+                smaller_ci_max_68 = new_ub_68(ci,smaller_ci_idx_68); % get upper bound
+
+
+                if greater_ci_min > smaller_ci_max
+                    ctr2 = bsxfun(@plus, b(combinations(ci,1)).XData, [b(combinations(ci,1)).XOffset]');
+                    ctr3 = bsxfun(@plus, b(combinations(ci,2)).XData, [b(combinations(ci,2)).XOffset]');
+                    hold on
+                    % using the largest value of greatest range CI to place
+                    % star
+                    plot([ctr2(i) ctr3(i)], [1 1]*(globalmax_ci+jitter), '-k', 'LineWidth',1)
+                    plot(mean([ctr2(i) ctr3(i)]), (globalmax_ci+jitter), '*k')
+                    jitter = jitter+0.12;
+                elseif greater_ci_min_68 > smaller_ci_max_68
+                    ctr2 = bsxfun(@plus, b(combinations(ci,1)).XData, [b(combinations(ci,1)).XOffset]');
+                    ctr3 = bsxfun(@plus, b(combinations(ci,2)).XData, [b(combinations(ci,2)).XOffset]');
+                    hold on
+                    % using the largest value of greatest range CI to place
+                    % star
+                    plot([ctr2(i) ctr3(i)], [1 1]*(globalmax_ci+jitter), '-g', 'LineWidth',1)
+                    plot(mean([ctr2(i) ctr3(i)]), (globalmax_ci+jitter), '*g') %greater_ci_val
+                    jitter = jitter+0.17;
+                end
             end
         end
+        end
+
+        % increase ylim slightly
+        yl = ylim; yl = [yl(1)*1, yl(2)*1.2];
+        ylim(yl)
+        if strcmp(paramsetting, 'bias')
+            ylabel('bias (alpha)')
+        elseif strcmp(paramsetting, 'sensitivity')
+            ylabel('slope (1/sigma)')
+        end
+
+        legend(condNames, 'Location','Northwest')
+        hLegend = findobj(gcf, 'Type', 'Legend'); % [0.1446 0.7881 0.1375 0.1179]
+
+        % inset
+        if numCond == 4
+            positionvalues = hLegend.Position+[.22, 0.02 -.05 -.05];
+        elseif numCond == 2
+            positionvalues = hLegend.Position+[.20, -0.03 0 0]; %[.20, -0.05 .02 .02];
+        end
+        if withbars == 0
+            positionvalues = positionvalues + [-0.05 0 0 0];
+        end
+
+        axes('Position',positionvalues); %[.2 .2 .05 .05])
+        box on
+        tvalues = [0 90 180 270];
+        tvalues = deg2rad(tvalues);
+        polarplot(tvalues, tvalues*0);
+        thetatickformat('degrees')
+        thetaticks(0:90:315)
+        thetaticklabels = (0:90:270);
+        rticklabels('manual')
+
+        hold off
+
+        saveas(gcf,sprintf('%s/pngs/%s_%s_%s_Alldata_%sconds_%s.png',figuresdir,subjname,plotname, paramsetting,num2str(numCond),analysiscond))
+        saveas(gcf,sprintf('%s/figs/%s_%s_%s_Alldata_%sconds_%s.fig',figuresdir,subjname,plotname, paramsetting,num2str(numCond),analysiscond))
+        saveas(gcf,sprintf('%s/bmps/%s_%s_%s_Alldata_%sconds_%s.bmp',figuresdir,subjname,plotname, paramsetting,num2str(numCond),analysiscond))
     end
-    end
-    
-    % increase ylim slightly
-    yl = ylim; yl = [yl(1)*1, yl(2)*1.2];
-    ylim(yl)
-    if strcmp(paramsetting, 'bias')
-        ylabel('bias (alpha)')
-    elseif strcmp(paramsetting, 'sensitivity')
-        ylabel('slope (1/sigma)')
-    end
-    
-    legend(condNames, 'Location','Northwest')
-    hLegend = findobj(gcf, 'Type', 'Legend'); % [0.1446 0.7881 0.1375 0.1179]
-    
-    % inset
-    if numCond == 4
-        positionvalues = hLegend.Position+[.22, 0.02 -.05 -.05];
-    elseif numCond == 2
-        positionvalues = hLegend.Position+[.20, -0.03 0 0]; %[.20, -0.05 .02 .02];
-    end
-    if withbars == 0
-        positionvalues = positionvalues + [-0.05 0 0 0];
-    end
-    
-    axes('Position',positionvalues); %[.2 .2 .05 .05])
-    box on
-    tvalues = [0 90 180 270];
-    tvalues = deg2rad(tvalues);
-    polarplot(tvalues, tvalues*0);
-    thetatickformat('degrees')
-    thetaticks(0:90:315)
-    thetaticklabels = (0:90:270);
-    rticklabels('manual')
-    
-    hold off
-    
-    saveas(gcf,sprintf('%s/pngs/%s_%s_%s_Alldata_%sconds_%s.png',figuresdir,subjname,plotname, paramsetting,num2str(numCond),analysiscond))
-    saveas(gcf,sprintf('%s/figs/%s_%s_%s_Alldata_%sconds_%s.fig',figuresdir,subjname,plotname, paramsetting,num2str(numCond),analysiscond))
-    saveas(gcf,sprintf('%s/bmps/%s_%s_%s_Alldata_%sconds_%s.bmp',figuresdir,subjname,plotname, paramsetting,num2str(numCond),analysiscond))
     
     close all;
 end

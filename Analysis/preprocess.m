@@ -1,10 +1,3 @@
-%% TO DO:
-% also do across locations -- cardinal/oblique (later)
-% plot sensitivity per block (later)
-% plot error within block (later)
-% later: fit LME model (later)
-% make sure that bootstrapping method is ok (esp for 2 cond)
-
 clc;
 clear all; 
 projectname = 'RadialBias_pilot1';
@@ -14,7 +7,7 @@ locationids = 1:8; locationdegrees = {315,135,225,45,270,90,180,0};
 locationlabels = strcat('loc_',cellfun(@num2str,locationdegrees,'un',0));
 maplocation = containers.Map(locationids,locationlabels);
 mapdegree = containers.Map(locationlabels,locationdegrees);
-b_iter = 5; %200; %1000; % # of iterations (0 = no bootstrap)
+b_iter = 1000; % # of iterations (0 = no bootstrap)
 
 % ensure current directory is correct
 checkdir(projectname)
@@ -22,7 +15,6 @@ checkdir(projectname)
 % for each subject, separate data for per condition, per location
 [subjectinfo] = getsubjinfo();
 %subjectinfo = subjectinfo(4); 
-%subjectinfo = [subjectinfo(1),subjectinfo(3)]; % BB and PW
 
 analysis_type = {'RelativeMotion', 'AbsoluteMotion'};
 
@@ -59,8 +51,6 @@ for si=1:length(subjectinfo)
     
     for i=1:length(analysis_type)
         analysis_path = sprintf('%s/%s/',subjectdir, analysis_type{i});
-        %analysis_path = sprintf('%s/%s/',subjectdir, analysis_type{2});i = 2;
-        %disp(analysis_path)
         
         % load all summary stats for figures
         load(fullfile(analysis_path,'summarydata.mat'))
@@ -76,14 +66,17 @@ for si=1:length(subjectinfo)
 
         if strcmp(analysis_type{i}, 'AbsoluteMotion')
         
-            % plot the polar angle plots for 4 conditions
-            four_main_conditions = {params_upwards,params_downwards,params_leftwards,params_rightwards};
-            four_ci_values = {bootci_upwards,bootci_downwards,bootci_leftwards,bootci_rightwards};
-            plotpolar(4, 'sensitivity', 'absolute', figuresdir, four_main_conditions, mapdegree,...
-                four_ci_values)
-            plotpolar(4, 'bias', 'absolute', figuresdir, four_main_conditions, mapdegree,...
-                four_ci_values)
+            % plot the polar angle plots for 8 absolute dirs
+            eight_main_conditions = {params_upwards,params_downwards,params_leftwards,params_rightwards, ...
+                params_lowerleftwards, params_lowerrightwards, params_upperleftwards, params_upperrightwards};
+            eight_ci_values = {bootci_upwards,bootci_downwards,bootci_leftwards,bootci_rightwards, ...
+                bootci_lowerleftwards, bootci_lowerrightwards, bootci_upperleftwards, bootci_upperrightwards};
+            plotpolar(8, 'sensitivity', 'absolute', figuresdir, eight_main_conditions, mapdegree,...
+                eight_ci_values)
+            plotpolar(8, 'bias', 'absolute', figuresdir, eight_main_conditions, mapdegree,...
+                eight_ci_values)
             
+            % plot vector plot for 8 absolute dirs
             plot_VP(figuresdir,analysis_type{i})
             
         elseif strcmp(analysis_type{i}, 'RelativeMotion')
@@ -93,26 +86,26 @@ for si=1:length(subjectinfo)
             four_ci_values = {bootci_radialout,bootci_radialin,bootci_tangleft,bootci_tangright};
             plotpolar(4, 'bias', 'relative', figuresdir, four_main_conditions, mapdegree,...
                 four_ci_values)
-            %plotpolar(4, 'sensitivity', 'relative', figuresdir, four_main_conditions, mapdegree,...
-            %    four_ci_values)
+            plotpolar(4, 'sensitivity', 'relative', figuresdir, four_main_conditions, mapdegree,...
+                four_ci_values)
 
             % plot the polar angle plots for 2 conditions
             two_main_conditions = {params_radial,params_tang};
             two_ci_values = {bootci_radial,bootci_tang};
-            %plotpolar(2, 'sensitivity', 'relative', figuresdir, two_main_conditions, mapdegree,...
-            %    two_ci_values)
+            plotpolar(2, 'sensitivity', 'relative', figuresdir, two_main_conditions, mapdegree,...
+                two_ci_values)
             plotpolar(2, 'bias', 'relative', figuresdir, two_main_conditions, mapdegree,...
                 two_ci_values)
 
-            %four_cond = {summary_radialout,summary_radialin,summary_tangleft, ...
-            %    summary_tangright};
-            %four_params = {params_radialout, params_radialin, params_tangleft, ...
-            %    params_tangright};
-            %plot_PF(4, figuresdir, four_cond, four_params)
+            four_cond = {summary_radialout,summary_radialin,summary_tangleft, ...
+                summary_tangright};
+            four_params = {params_radialout, params_radialin, params_tangleft, ...
+                params_tangright};
+            plot_PF(4, figuresdir, four_cond, four_params)
 
-            %two_cond = {summary_radial,summary_tang};
-            %two_params = {params_radial, params_tang};
-            %plot_PF(2, figuresdir, two_cond, two_params)
+            two_cond = {summary_radial,summary_tang};
+            two_params = {params_radial, params_tang};
+            plot_PF(2, figuresdir, two_cond, two_params)
 
         end
     end
@@ -215,6 +208,48 @@ end
 organize_absolutedirs(relative_summarypath, absolute_summarypath, 'group');
 
 plot_VP(figuresdir,analysis_type{2})
+
+% not create sem for polar plots
+
+for si=1:length(subjectinfo)
+    % create subject directory
+    subjectdata = fullfile(pwd,subjectinfo(si).name,'AbsoluteMotion','analyzeddata.mat');
+    init.(subjectinfo(si).name) = load(subjectdata);
+end
+
+data_downwards = []; data_upwards = []; data_rightwards = [];
+data_leftwards = []; data_lowerleftwards = []; data_lowerrightwards = [];
+data_upperleftwards = []; data_upperrightwards = [];
+
+for si=1:length(subjectinfo)
+    data_downwards = [data_downwards init.(subjectinfo(si).name).params_downwards];
+    data_upwards = [data_upwards init.(subjectinfo(si).name).params_upwards];
+    data_rightwards = [data_rightwards init.(subjectinfo(si).name).params_rightwards];
+    data_leftwards = [data_leftwards init.(subjectinfo(si).name).params_leftwards];
+    data_lowerleftwards = [data_lowerleftwards init.(subjectinfo(si).name).params_lowerleftwards];
+    data_lowerrightwards = [data_lowerrightwards init.(subjectinfo(si).name).params_lowerrightwards];
+    data_upperleftwards = [data_upperleftwards init.(subjectinfo(si).name).params_upperleftwards];
+    data_upperrightwards = [data_upperrightwards init.(subjectinfo(si).name).params_upperrightwards];
+end
+
+[params_downwards, sem_downwards] = MeanStructFields(data_downwards);
+[params_upwards, sem_upwards] = MeanStructFields(data_upwards);
+[params_rightwards, sem_rightwards] = MeanStructFields(data_rightwards);
+[params_leftwards, sem_leftwards] = MeanStructFields(data_leftwards);
+[params_lowerleftwards, sem_lowerleftwards] = MeanStructFields(data_lowerleftwards);
+[params_lowerrightwards, sem_lowerrightwards] = MeanStructFields(data_lowerrightwards);
+[params_upperleftwards, sem_upperleftwards] = MeanStructFields(data_upperleftwards);
+[params_upperrightwards, sem_upperrightwards] = MeanStructFields(data_upperrightwards);
+
+% add other abs plots
+eight_main_conditions = {params_upwards,params_downwards,params_leftwards,params_rightwards, ...
+    params_lowerleftwards, params_lowerrightwards, params_upperleftwards, params_upperrightwards};
+eight_ci_values = {sem_upwards,sem_downwards,sem_leftwards,sem_rightwards, ...
+    sem_lowerleftwards, sem_lowerrightwards, sem_upperleftwards, sem_upperrightwards};
+plotpolar(8, 'sensitivity', 'absolute', figuresdir, eight_main_conditions, mapdegree,...
+    eight_ci_values)
+plotpolar(8, 'bias', 'absolute', figuresdir, eight_main_conditions, mapdegree,...
+    eight_ci_values)
 
 % https://statquest.org/the-standard-error-and-a-bootstrapping-bonus/
 

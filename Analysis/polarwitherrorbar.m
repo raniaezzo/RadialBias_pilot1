@@ -10,11 +10,10 @@ function [] = polarwitherrorbar(angle,avg,error_lb,error_ub, min, color)
 % The 'if loop' is for making sure that we dont have negative values  when
 % an error value is substrated from its corresponding average value. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 n_data = length(angle);
 %fake = polarplot(angle,max(avg+error)*ones(1,n_data), color); set(fake,'Visible','off'); hold on; 
-fake = polarplot(angle,max(avg+error_ub)*ones(1,n_data), color); set(fake,'Visible','off'); hold on; 
-polarplot(angle,avg,horzcat('-s',color));
+fake = polarplot(angle,max(avg+error_ub)*ones(1,n_data), 'color',color); set(fake,'Visible','off'); hold on; 
+polarplot(angle,avg,'-s','color',color);
 for ni = 1 : n_data
     if isnan(avg(ni))
         continue
@@ -30,7 +29,7 @@ for ni = 1 : n_data
         %    polarplot(angle(ni)*ones(1,3),[avg(ni)-error_lb(ni), avg(ni), avg(ni)+error_ub(ni)],color,'LineWidth',1);
         %end
     %polarplot(angle(ni)*ones(1,3),[error_lb(ni), avg(ni), avg(ni)+error_ub(ni)],color,'LineWidth',1);
-    polarplot(angle(ni)*ones(1,3),[error_lb(ni), avg(ni), error_ub(ni)],color,'LineWidth',1);
+    polarplot(angle(ni)*ones(1,3),[error_lb(ni), avg(ni), error_ub(ni)],'color',color,'LineWidth',1);
     end
 end
 hold on

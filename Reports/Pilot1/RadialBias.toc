@@ -1,42 +1,52 @@
 \contentsline {section}{\numberline {1}Experiment Description of Pilot 1}{2}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Parameters}{2}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Subject Instructions}{2}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.2}Subject Instructions}{3}{subsection.1.2}%
 \contentsline {subsection}{\numberline {1.3}Experimental Design}{3}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Block sequence}{3}{subsection.1.4}%
-\contentsline {section}{\numberline {2}Subject Data}{5}{section.2}%
+\contentsline {subsection}{\numberline {1.4}Block sequence}{4}{subsection.1.4}%
+\contentsline {section}{\numberline {2}Subject Data (Relative motion)}{5}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Psychometric Fits}{5}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Sensitivity Polar Plots}{7}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Sensitivity Cartesian Line Plots}{9}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Sensitivity of Absolute Motion Direction}{11}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Bias Polar Plots}{12}{subsection.2.5}%
-\contentsline {subsection}{\numberline {2.6}Bias Cartesian Line Plots}{14}{subsection.2.6}%
-\contentsline {subsection}{\numberline {2.7}Bias Polar Plots (Absolute Value)}{16}{subsection.2.7}%
-\contentsline {section}{\numberline {3}Group Data}{18}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Sensitivity Polar Plots}{18}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Sensitivity Cartesian Line Plots}{18}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Bias Polar Plots}{19}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Bias Cartesian Line Plots}{19}{subsection.3.4}%
-\contentsline {section}{\numberline {4}Supplementary Images: PFs per location}{20}{section.4}%
-\contentsline {subsection}{\numberline {4.1}RE PFs Per Location}{20}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}FH PFs Per Location}{22}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}BB PFs Per Location}{24}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}PW PFs Per Location}{26}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}NH PFs Per Location}{28}{subsection.4.5}%
-\contentsline {section}{\numberline {5}Current Goals}{30}{section.5}%
-\contentsline {section}{\numberline {6}Incorporating fMRI}{31}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Goals}{31}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Runs needed}{31}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Inverted Encoding Model}{31}{subsection.6.3}%
-\contentsline {section}{\numberline {7}Extending to Plaid Stimuli}{31}{section.7}%
-\contentsline {section}{\numberline {8}Supplemental Questions}{32}{section.8}%
-\contentsline {section}{\numberline {9}Updates}{33}{section.9}%
-\contentsline {section}{\numberline {10}To Do}{33}{section.10}%
-\contentsline {section}{\numberline {11}Software to Cite}{34}{section.11}%
-\contentsline {section}{\numberline {12}Data that still needs updating}{35}{section.12}%
-\contentsline {subsection}{\numberline {12.1}RE Psychometric Fits (Cardinal/Oblique)}{35}{subsection.12.1}%
-\contentsline {subsection}{\numberline {12.2}RE Polar Plots Percent Correct (W/ eyetracking vs. No eyetracking)}{36}{subsection.12.2}%
-\contentsline {subsection}{\numberline {12.3}Quality Control \& Misc.}{36}{subsection.12.3}%
-\contentsline {subsection}{\numberline {12.4}FH Psychometric Fits (Cardinal/Oblique)}{37}{subsection.12.4}%
-\contentsline {subsection}{\numberline {12.5}BB Psychometric Fits (Cardinal/Oblique)}{38}{subsection.12.5}%
-\contentsline {subsection}{\numberline {12.6}Sensitivity Cartesian Bar Plots}{39}{subsection.12.6}%
-\contentsline {subsection}{\numberline {12.7}Bias Cartesian Bar Plots}{40}{subsection.12.7}%
+\contentsline {subsection}{\numberline {2.2}Sensitivity Polar Plots: Relative Motion}{7}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Bias Polar Plots: Relative Motion}{9}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Bias Polar Plots (Absolute Value): Relative Motion}{11}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Subject Data (Absolute motion)}{13}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Sensitivity Polar Plots: Absolute Motion}{13}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Sensitivity Vector Plots: Absolute Motion}{14}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Sensitivity Bias Plots: Absolute Motion}{15}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Sensitivity Bias Plots (Absolute Value): Absolute Motion}{16}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Group Data (Relative motion)}{17}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Sensitivity Polar Plots: Relative Motion}{17}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Bias Polar Plots: Relative Motion}{17}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Bias Polor Plots (Absolute Value): Relative Motion}{17}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Group Data (Absolute motion)}{18}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Sensitivity Polar Plots: Absolute Motion}{18}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Sensitivity Bias Plots: Absolute Motion}{18}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Supplementary Images: PFs per location}{19}{section.6}%
+\contentsline {subsection}{\numberline {6.1}RE PFs Per Location}{19}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}FH PFs Per Location}{21}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}BB PFs Per Location}{23}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}PW PFs Per Location}{25}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}NH PFs Per Location}{27}{subsection.6.5}%
+\contentsline {section}{\numberline {7}Supplementary Images: Subject Cartesian Line Plots}{29}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Sensitivity Cartesian Line Plots: Relative Motion}{29}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Bias Cartesian Line Plots: Relative Motion}{30}{subsection.7.2}%
+\contentsline {section}{\numberline {8}Supplementary Images: Group Cartesian Line Plots}{31}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Sensitivity Cartesian Line Plots: Relative Motion}{31}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Bias Cartesian Line Plots: Relative Motion}{32}{subsection.8.2}%
+\contentsline {section}{\numberline {9}Current Goals}{33}{section.9}%
+\contentsline {section}{\numberline {10}Incorporating fMRI}{34}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Goals}{34}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Runs needed}{34}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Inverted Encoding Model}{34}{subsection.10.3}%
+\contentsline {section}{\numberline {11}Extending to Plaid Stimuli}{34}{section.11}%
+\contentsline {section}{\numberline {12}Supplemental Questions}{35}{section.12}%
+\contentsline {section}{\numberline {13}Updates}{36}{section.13}%
+\contentsline {section}{\numberline {14}To Do}{36}{section.14}%
+\contentsline {section}{\numberline {15}Software to Cite}{37}{section.15}%
+\contentsline {section}{\numberline {16}Data that still needs updating}{38}{section.16}%
+\contentsline {subsection}{\numberline {16.1}RE Psychometric Fits (Cardinal/Oblique)}{38}{subsection.16.1}%
+\contentsline {subsection}{\numberline {16.2}RE Polar Plots Percent Correct (W/ eyetracking vs. No eyetracking)}{39}{subsection.16.2}%
+\contentsline {subsection}{\numberline {16.3}Quality Control \& Misc.}{39}{subsection.16.3}%
+\contentsline {subsection}{\numberline {16.4}FH Psychometric Fits (Cardinal/Oblique)}{40}{subsection.16.4}%
+\contentsline {subsection}{\numberline {16.5}BB Psychometric Fits (Cardinal/Oblique)}{41}{subsection.16.5}%
+\contentsline {subsection}{\numberline {16.6}Sensitivity Cartesian Bar Plots}{42}{subsection.16.6}%
+\contentsline {subsection}{\numberline {16.7}Bias Cartesian Bar Plots}{43}{subsection.16.7}%

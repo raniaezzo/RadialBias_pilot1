@@ -62,13 +62,13 @@ for li=1:length(cartesian_locationdegrees)
         condition = T_example(dirlabel,loclabel); 
         slope_mag = condition{1,1}(2); % just for reference (mag)
         if strcmp(dirlabel,'downwards')
-            U=0; V=-slope_mag; colorselect = 'm';
+            U=0; V=-slope_mag; colorselect = [0, 0.75, 0.75];
         elseif strcmp(dirlabel,'upwards')
-            U=0; V=slope_mag; colorselect = 'r';
+            U=0; V=slope_mag; colorselect = [0, 0, 1];
         elseif strcmp(dirlabel,'rightwards')
-            U=slope_mag; V=0; colorselect = [0, 0.75, 0.75];
+            U=slope_mag; V=0; colorselect = [1, 0, 0];
         elseif strcmp(dirlabel,'leftwards')
-            U=-slope_mag; V=0; colorselect = 'b';
+            U=-slope_mag; V=0; colorselect = [0.8500, 0.3250, 0.0980];
         end
         q = quiver(X,Y,U,V);
         q.ShowArrowHead = 'on';
@@ -106,11 +106,11 @@ for li=1:length(oblique_locationdegrees)
         condition = T_example(dirlabel,loclabel); 
         slope_mag = condition{1,1}(2); % just for reference (mag)
         if strcmp(dirlabel,'upperrightwards')
-            U=sqrt((slope_mag^2)/2); V=sqrt((slope_mag^2)/2); colorselect = 'g';
+            U=sqrt((slope_mag^2)/2); V=sqrt((slope_mag^2)/2); colorselect = [0.75, 0, 0.75];
         elseif strcmp(dirlabel,'upperleftwards')
-            U=-sqrt((slope_mag^2)/2); V=sqrt((slope_mag^2)/2); colorselect = [0.8500, 0.3250, 0.0980];
+            U=-sqrt((slope_mag^2)/2); V=sqrt((slope_mag^2)/2); colorselect = [0.4940, 0.1840, 0.5560];
         elseif strcmp(dirlabel,'lowerrightwards')
-            U=sqrt((slope_mag^2)/2); V=-sqrt((slope_mag^2)/2); colorselect = [0.9290, 0.6940, 0.1250];
+            U=sqrt((slope_mag^2)/2); V=-sqrt((slope_mag^2)/2); colorselect = [0, 0.5, 0];
         elseif strcmp(dirlabel,'lowerleftwards')
             U=-sqrt((slope_mag^2)/2); V=-sqrt((slope_mag^2)/2); colorselect = [0.4660, 0.6740, 0.1880];
         end
