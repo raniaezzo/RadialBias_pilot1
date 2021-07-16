@@ -40,7 +40,7 @@ function plotpolar(numCond, paramsetting, analysiscond,figuresdir, main_conditio
     %main_conditions = {params_radialout,params_radialin,params_tangleft,params_tangright};
     %ci_values = {bootci_radialout,bootci_radialin,bootci_tangleft,bootci_tangright};
     
-    if strcmp(paramsetting, 'bias')
+    if strcmp(paramsetting, 'bias') || strcmp(paramsetting, 'z-score bias')
         absv = [1,0]; % run 2 iterations (absolute value,regular)
         paramidx = 1;
         % calculate min (bias value - 95% error) across all conditions - const across
@@ -50,16 +50,30 @@ function plotpolar(numCond, paramsetting, analysiscond,figuresdir, main_conditio
             for fn = fieldnames(main_conditions{i})'
                 % (1,1,select_index) refers to (lowerbound, biasparam, 95ci)
                 select_idx = 1; % always set to 95 for max range
-                biaswerror = main_conditions{i}.(fn{1})(:,1)+ ci_values{i}.(fn{1})(1,1,select_idx);
+                biaswerror = main_conditions{i}.(fn{1})(:,paramidx)+ ci_values{i}.(fn{1})(1,paramidx,select_idx);
                 minlimit_bias = min(biaswerror);
                 minlist_bias = [minlist_bias minlimit_bias];
             end
         end
         set_min = abs(min(minlist_bias)-addedconst);
-    elseif strcmp(paramsetting, 'sensitivity')
+    elseif strcmp(paramsetting, 'sensitivity') || strcmp(paramsetting, 'z-score sensitivity')
         absv = [0];
         paramidx = 2;
-        set_min = 0;
+        if strcmp(paramsetting, 'sensitivity')
+            set_min = 0;
+        elseif strcmp(paramsetting, 'z-score sensitivity')
+            minlist_sensitivity = [];
+            for i=1:length(main_conditions)
+                for fn = fieldnames(main_conditions{i})'
+                    % (1,1,select_index) refers to (lowerbound, sensitivityparam, 95ci)
+                    select_idx = 1; % always set to 95 for max range
+                    sensitivitywerror = main_conditions{i}.(fn{1})(:,paramidx)+ ci_values{i}.(fn{1})(1,paramidx,select_idx);
+                    minlimit_sensitivity = min(sensitivitywerror);
+                    minlist_sensitivity = [minlist_sensitivity minlimit_sensitivity];
+                end
+            end
+            set_min = abs(min(minlist_sensitivity)-addedconst);
+        end
     end
     
     figure
@@ -113,7 +127,7 @@ function plotpolar(numCond, paramsetting, analysiscond,figuresdir, main_conditio
             rho = new_rho; ci_95_lb = new_ci_95_lb; ci_68_lb = new_ci_68_lb; 
             ci_95_ub = new_ci_95_ub; ci_68_ub = new_ci_68_ub; 
 
-            if strcmp(paramsetting, 'bias')
+            if strcmp(paramsetting, 'bias') || strcmp(paramsetting, 'z-score bias') || strcmp(paramsetting, 'z-score sensitivity')
                 rho_saved(:,i) = rho-set_min;
                 ci_95_lb_saved(:,i) = ci_95_lb-set_min; 
                 ci_95_ub_saved(:,i) = ci_95_ub-set_min;
@@ -167,7 +181,7 @@ function plotpolar(numCond, paramsetting, analysiscond,figuresdir, main_conditio
         up = max(ceil(rticks)); down = min(floor(rticks));
         rticks_redefined = [down:0.5:up];
         set(gca,'RTick',rticks_redefined)
-    elseif strcmp(paramsetting, 'bias')
+    elseif strcmp(paramsetting, 'bias') || strcmp(paramsetting, 'z-score bias') || strcmp(paramsetting, 'z-score sensitivity')
         in = rticks-set_min; %up = max(ceil(in * 4) / 4); down = min(floor(in * 4) / 4);
         up = max(ceil(in)); down = min(floor(in));
         rticks_redefined = [down:0.5:up] + set_min;
@@ -330,8 +344,12 @@ function plotpolar(numCond, paramsetting, analysiscond,figuresdir, main_conditio
         ylim(yl)
         if strcmp(paramsetting, 'bias')
             ylabel('bias (alpha)')
+        elseif strcmp(paramsetting, 'z-score bias')
+            ylabel('bias (z-score)')
         elseif strcmp(paramsetting, 'sensitivity')
             ylabel('slope (1/sigma)')
+        elseif strcmp(paramsetting, 'z-score sensitivity')
+            ylabel('slope (z-score)')
         end
 
         legend(condNames, 'Location','Northwest')

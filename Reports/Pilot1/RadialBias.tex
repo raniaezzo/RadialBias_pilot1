@@ -25,7 +25,7 @@
 
 % declare the title, date and author
 \title{Radial Bias Pilot 1}
-\date{July 7, 2021}
+\date{July 10, 2021}
 \author{Rania Ezzo}
 
 % This is where the actual document starts
@@ -35,7 +35,7 @@
 
 
 \section{Experiment Description of Pilot 1}
-To measure radial direction bias with 1D drifting gratings at 8 polar angle locations at 7 deg eccentricity. A total of 3 motion conditions will be tested, 2 radial (inwards and outwards) and 1 tangential (combined), to measure the performance differences between (1) centrifugal and centripetal motion directions, and (2) radial and tangential motion directions. 
+To compare discriminability for radial motion directions compared to tangential motion directions with 1D drifting gratings at 8 polar angle locations at 7 deg eccentricity. A total of 4 motion directions will be per location, 2 radial (inwards and outwards) and 2 tangential.
 
 \subsection{Parameters}
 Eccentricity from central fixation: 7 degrees
@@ -242,7 +242,7 @@ Example sequence of blocks for RE
 \includegraphics[scale=.3]{Images/NH_VP_Alldata_4conds_AbsoluteMotion.png}
 \caption{Vector direction corresponds to direction of drift; magnitude corresponds to sensitivity.}
 \end{figure}
-\subsection{Sensitivity Bias Plots: Absolute Motion}
+\subsection{Bias Polar Plots: Absolute Motion}
 \begin{figure}[H]
 \centering % centers the figure
 \includegraphics[scale=.3]{Images/RE_PP_bias_Alldata_8conds_absolute.png}
@@ -252,7 +252,7 @@ Example sequence of blocks for RE
 \includegraphics[scale=.3]{Images/NH_PP_bias_Alldata_8conds_absolute.png}
 \caption{200 trials per point. 95\% CI from 1000 bootstraps.}
 \end{figure}
-\subsection{Sensitivity Bias Plots (Absolute Value): Absolute Motion}
+\subsection{Bias Polar Plots (Absolute Value): Absolute Motion}
 \begin{figure}[H]
 \centering % centers the figure
 \includegraphics[scale=.3]{Images/RE_PP_bias_abs_Alldata_8conds_absolute.png}
@@ -272,17 +272,36 @@ Example sequence of blocks for RE
 \includegraphics[scale=.35]{Images/ALLSUBJ_PP_sensitivity_Alldata_2conds_relative.png}
 \caption{LEFT: 600 trials per point. RIGHT: Each point is 1200 trials. Error bars represent SEM across subjects.}
 \end{figure}
+\subsection{Z-score Sensitivity Polar Plots: Relative Motion}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.35]{Images/ALLSUBJ_PP_z-score sensitivity_Alldata_4conds_relative.png}
+\includegraphics[scale=.35]{Images/ALLSUBJ_PP_z-score sensitivity_Alldata_2conds_relative.png}
+\caption{LEFT: 600 trials per point. RIGHT: Each point is 1200 trials. Error bars represent SEM across subject z-scores.}
+\end{figure}
 \subsection{Bias Polar Plots: Relative Motion}
 \begin{figure}[H]
 \centering % centers the figure
 \includegraphics[scale=.35]{Images/ALLSUBJ_PP_bias_Alldata_4conds_relative.png}
 \includegraphics[scale=.35]{Images/ALLSUBJ_PP_bias_Alldata_2conds_relative.png}
 \end{figure}
-\subsection{Bias Polor Plots (Absolute Value): Relative Motion}
+\subsection{Z-score Bias Polar Plots: Relative Motion}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.35]{Images/ALLSUBJ_PP_z-score bias_Alldata_4conds_relative.png}
+\includegraphics[scale=.35]{Images/ALLSUBJ_PP_z-score bias_Alldata_2conds_relative.png}
+\end{figure}
+\subsection{Bias Polar Plots (Absolute Value): Relative Motion}
 \begin{figure}[H]
 \centering % centers the figure
 \includegraphics[scale=.35]{Images/ALLSUBJ_PP_bias_abs_Alldata_4conds_relative.png}
 \includegraphics[scale=.35]{Images/ALLSUBJ_PP_bias_abs_Alldata_2conds_relative.png}
+\end{figure}
+\subsection{Z-score Bias Polar Plots (Absolute Value): Relative Motion}
+\begin{figure}[H]
+\centering % centers the figure
+\includegraphics[scale=.35]{Images/ALLSUBJ_PP_z-score bias_abs_Alldata_4conds_relative.png}
+\includegraphics[scale=.35]{Images/ALLSUBJ_PP_z-score bias_abs_Alldata_2conds_relative.png}
 \end{figure}
 
 \newpage
@@ -294,7 +313,7 @@ Example sequence of blocks for RE
 \includegraphics[scale=.35]{Images/ALLSUBJ_VP_Alldata_4conds_AbsoluteMotion.png}
 \caption{LEFT: Polar plots of average sensitivity, CIs represent SEM. RIGHT: Vector plots of average sensitivity.}
 \end{figure}
-\subsection{Sensitivity Bias Plots: Absolute Motion}
+\subsection{Bias Polar Plots: Absolute Motion}
 \begin{figure}[H]
 \centering % centers the figure
 \includegraphics[scale=.35]{Images/ALLSUBJ_PP_bias_Alldata_8conds_absolute.png}
@@ -675,6 +694,7 @@ Example sequence of blocks for RE
 	\begin{itemize}
 	\item Added absolute value bias plots
 	\item Plotted absolute terms of direction in polar plot (8 colors)
+	\item Probably best not to recollect Nina's data (fits are good, but high bias; will show individual subject data in supplementary)
 	\end{itemize}
 \item Other improvements
 	\begin{itemize}
@@ -701,11 +721,11 @@ Example sequence of blocks for RE
 \item Feedback for Analysis
 	\begin{itemize}
 	\item Create branching logic for possible mechanisms
-	\item Test myself on new parameters (ecc, SF, speed)
-	\item Re-collect data for certain sessions (Nina)
-	\item Create a table of r-squared values (maybe per fit? Per session? Per subject?)
-	\item Can also use precision-weighted average, goodness of fit, or likelihood to weight subjects for average plots
-	\item Can even normalize (z-score?), or subtract/divide by mean, average, and then add/multiply by mean (to make error bars relative across subjects)
+	\item Test myself with monitor at half viewing distance (new params: stimulus diameter x2, SF /2, speed x2)
+	\item Create a table of r-squared values (per fit)
+	\item Create an addition average sensitivity by z-score (use norm function), and SEM would be of the weighted average.
+	\item IGNORE: Can also use precision-weighted average, goodness of fit, or likelihood to weight subjects for average plots
+	\item IGNORE: Can even normalize (z-score?), or subtract/divide by mean, average, and then add/multiply by mean (to make error bars relative across subjects)
 	\item Do I need to fix CIs for 2 condition?
 	\item I think I can get rid of 95 pct CIs, only keep 68 pct CIs
 	\item Can try adding 6 random data points each of the 4 conditions at each tilt value to see if plots significantly change

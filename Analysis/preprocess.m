@@ -194,6 +194,45 @@ plotpolar(4, 'sensitivity', 'relative', figuresdir, four_main_conditions, mapdeg
 plotpolar(4, 'bias', 'relative', figuresdir, four_main_conditions, mapdegree,...
     four_sem_values)
     
+%% transform to z-score
+[output] = MeanStructFields_zscore({data_radial, data_tang});
+zscore_data_radial = output{1}; zscore_data_tang = output{2};
+[output] = MeanStructFields_zscore({data_radialin, data_radialout, ...
+    data_tangright, data_tangleft});
+zscore_data_radialin = output{1}; zscore_data_radialout = output{2}; 
+zscore_data_tangright = output{3}; zscore_data_tangleft = output{4};
+
+[zscore_params_radial, zscore_sem_radial] = MeanStructFields(zscore_data_radial);
+[zscore_params_tang, zscore_sem_tang] = MeanStructFields(zscore_data_tang);
+[zscore_params_radialin, zscore_sem_radialin] = MeanStructFields(zscore_data_radialin);
+[zscore_params_radialout, zscore_sem_radialout] = MeanStructFields(zscore_data_radialout);
+[zscore_params_tangright, zscore_sem_tangright] = MeanStructFields(zscore_data_tangright);
+[zscore_params_tangleft, zscore_sem_tangleft] = MeanStructFields(zscore_data_tangleft);
+
+% need to save this to relative directory for ALLSUBJ!
+save(fullfile(relative_summarypath,'zscoredata'), 'zscore_params_radialout',...
+    'zscore_sem_radialout','zscore_params_radialin', 'zscore_sem_radialin',...
+    'zscore_params_tangleft','zscore_sem_tangleft', ...
+    'zscore_params_tangright','zscore_sem_tangright', 'zscore_params_radial', ...
+    'zscore_sem_radial', 'zscore_params_tang', 'zscore_sem_tang')
+
+% plot the polar angle plots for 2 conditions
+two_main_conditions = {zscore_params_radial,zscore_params_tang};
+two_sem_values = {zscore_sem_radial,zscore_sem_tang};
+plotpolar(2, 'z-score sensitivity', 'relative', figuresdir, two_main_conditions, mapdegree,...
+    two_sem_values)
+plotpolar(2, 'z-score bias', 'relative', figuresdir, two_main_conditions, mapdegree,...
+    two_sem_values)
+
+% plot the polar angle plots for 4 conditions
+four_main_conditions = {zscore_params_radialout,zscore_params_radialin,zscore_params_tangleft,zscore_params_tangright};
+four_sem_values = {zscore_sem_radialout,zscore_sem_radialin,zscore_sem_tangleft,zscore_sem_tangright};
+plotpolar(4, 'z-score sensitivity', 'relative', figuresdir, four_main_conditions, mapdegree,...
+    four_sem_values)
+plotpolar(4, 'z-score bias', 'relative', figuresdir, four_main_conditions, mapdegree,...
+    four_sem_values)
+
+%%
 
 % ABSOLUTE MOTION
 % also save in absolute coordinates
@@ -251,6 +290,44 @@ plotpolar(8, 'sensitivity', 'absolute', figuresdir, eight_main_conditions, mapde
 plotpolar(8, 'bias', 'absolute', figuresdir, eight_main_conditions, mapdegree,...
     eight_ci_values)
 
+%%
+
+% need to include all conditions
+function [output] = MeanStructFields_zscore(conditionarray)
+    S = conditionarray{1};
+    init_zscore = conditionarray; % to return identical conds in input
+    fields = fieldnames(S);
+    allsubj_bias = []; allsubj_sensitivity = []; 
+    for ss = 1:length(S) % # of subj = # of rows
+        bias_vector = []; sensitivity_vector = [];
+        for cc = 1:length(conditionarray)
+            C = conditionarray{cc};
+            for k = 1:numel(fields)
+                fieldname = fields(k); fieldname = fieldname{1};
+                bias_vector = [bias_vector, C(ss).(fieldname)(1)];
+                sensitivity_vector = [sensitivity_vector, C(ss).(fieldname)(2)];
+            end
+        end
+        subjmean_bias = mean(bias_vector); 
+        subjstd_bias = std(bias_vector);
+        subjmean_sensitivity = mean(sensitivity_vector); 
+        subjstd_sensitivity = std(sensitivity_vector);
+        % calculate z-score
+        for cc = 1:length(init_zscore)
+            for k = 1:numel(fields)
+                fieldname = fields(k); fieldname = fieldname{1};
+                %bias_vector = [bias_vector, C(ss).(fieldname)(1)];
+                init_zscore{cc}(ss).(fieldname)(1) = (init_zscore{cc}(ss).(fieldname)(1) - subjmean_bias)/subjstd_bias;
+                %sensitivity_vector = [sensitivity_vector, C(ss).(fieldname)(2)];
+                init_zscore{cc}(ss).(fieldname)(2) = (init_zscore{cc}(ss).(fieldname)(2) - subjmean_sensitivity)/subjstd_sensitivity;
+            end
+        end
+        %allloc_bias = [allsubj_bias, zscore(bias_vector, 0, 'all')];
+        %allloc_sensitivity = [allsubj_sensitivity, zscore(sensitivity_vector, 0, 'all')];
+    end
+    output = init_zscore
+end
+
 % https://statquest.org/the-standard-error-and-a-bootstrapping-bonus/
 
 function [average,sem] = MeanStructFields(S)
@@ -269,6 +346,7 @@ function [average,sem] = MeanStructFields(S)
       sem.(fields{k}) = param_cis;
     end
 end
+
 
 
 
