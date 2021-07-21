@@ -28,7 +28,7 @@ expDes.twoV = [str2double(const.motion_type)]';  % [1:4]';  to include radial & 
 expDes.threeV = [1:2]';
 
 % Var 4 : Angles
-tilts=exp(linspace(log(0.5),log(8),5)); % logarithmically spaced from 0.5 - 8
+tilts= exp(linspace(log(0.5),log(8),5)); % logarithmically spaced from 0.5 - 8
 expDes.fourV = tilts'; %[0.5, 1, 1.5, 2.5, 4]'; %tilts';
 % FIRST BLOCK RE RUN [0.5, 0.75, 1, 1.25, 1.5]'; % angles (constants)
 % SECOND BLOCK RE RUN [2, 2.5, 3, 4]'

@@ -1,5 +1,10 @@
-
+*.png
+*.bmp
+*.fig
+*.edf
 *.dat
 *.csv
 *.m~
 *.mat
+Analysis.zip
+.DS_Store

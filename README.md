@@ -7,12 +7,25 @@ determine optimal spacing of the clockwise/counterclockwise tilt relative to the
 
 Experimental Code Requires:
 
+PsychToolbox (version 3 used)
+
 Palamedes Toolbox: http://www.palamedestoolbox.org
+(used for staircase procedure)
 
 Analysis Requires:
 
-JAGS: http://mcmc-jags.sourceforge.net/
+Palamedes Toolbox: http://www.palamedestoolbox.org
+(not used for fitting, just for plotting)
 
-Running instructions:
+Optimization Toolbox (Matlab) for FitCumNorm function
+
+Experiment Running instructions:
 
 In Matlab run Experimental_Setup/Main/expLauncher
+
+Storage & Backup:
+
+Scripts & behavioral data: github.com/raniaezzo/RadialBias_pilot1
+All images (.fig, .bmp, .png,) and eyelink files (.edf) are ignored to git push.
+
+Data storage: eyetracker PC, Rania local PC & Rania Google Drive

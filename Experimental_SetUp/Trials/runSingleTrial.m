@@ -111,49 +111,56 @@ fixation = 1; % for both eyetracking and no eyetracking
 stopThisTrial = 0;
 for tframes = 1:const.numFrm_Tot
     Screen('FillRect',scr.main,const.colBG);
-
-    %% First interval
-    % T1
-    if ((tframes >= const.numFrm_T1_start) && (tframes <= const.numFrm_T1_end) && (stopThisTrial == 0))
+    
+    % fixation throughout
+    if ((tframes >= const.numFrm_T1_start) && (tframes <= const.numFrm_Tot) && (stopThisTrial == 0))
         my_fixation(scr,const,const.black);
-        % eyetracking
-    end
+    
+        % First interval
+        % T1 & T2: fixation breaks allowed
+        %if ((tframes >= const.numFrm_T1_start) && (tframes <= const.numFrm_T1_end) && (stopThisTrial == 0))
+        %    continue
 
-    % T2 (pause)
-    if (tframes >= const.numFrm_T2_start) && (tframes <= const.numFrm_T2_end) && (stopThisTrial == 0)
-         if const.EL_mode
-            fixation = initEyelinkStates('fixcheck', scr.main, {scr.x_mid, scr.y_mid, scr.rad});
-         end
-        if ~ fixation
-            DrawFormattedText(scr.main, sprintf('Please fixate'), 'center', 'center')
-            Screen('Flip', scr.main); WaitSecs(1)
-            stopThisTrial = 1;
-            tframes = const.numFrm_Tot; % trying this?
+        % T2 : fixation breaks not allowed
+        if (tframes >= const.numFrm_T2_start) && (tframes <= const.numFrm_T2_end) && (stopThisTrial == 0)
+             %my_fixation(scr,const,const.black);
+             if const.EL_mode
+                fixation = initEyelinkStates('fixcheck', scr.main, {scr.x_mid, scr.y_mid, scr.rad});
+             end
+            if ~ fixation
+                DrawFormattedText(scr.main, sprintf('Please fixate'), 'center', 'center')
+                Screen('Flip', scr.main); WaitSecs(1)
+                stopThisTrial = 1;
+                tframes = const.numFrm_Tot; % trying this?
+            end
+
+        % T3
+        %if tframes >= const.numFrm_T3_start && tframes <= const.numFrm_T3_end
+        elseif tframes == const.numFrm_T3_start
+            complete = my_stim(scr,const,const.black, tframes, const.numFrm_T3_end,xDist,yDist, orientation, t, fixation);
+            if (const.EL_mode) && (complete == 0)
+                fixation = 0;
+                DrawFormattedText(scr.main, sprintf('Please fixate'), 'center', 'center')
+                Screen('Flip', scr.main); WaitSecs(1)
+                stopThisTrial = 1;
+                tframes = const.numFrm_Tot; % trying this?
+            elseif complete == 1
+                tframes = const.numFrm_Tot; % added
+                break;
+            end
         end
     end
-
-    % T3
-    %if tframes >= const.numFrm_T3_start && tframes <= const.numFrm_T3_end
-    if tframes == const.numFrm_T3_start
-        complete = my_stim(scr,const,const.black, tframes, const.numFrm_T3_end,xDist,yDist, orientation, t, fixation);
-        if (const.EL_mode) && (complete == 0)
-            fixation = 0;
-            DrawFormattedText(scr.main, sprintf('Please fixate'), 'center', 'center')
-            Screen('Flip', scr.main); WaitSecs(1)
-            stopThisTrial = 1;
-            tframes = const.numFrm_Tot; % trying this?
-        end
-    end
-
     vbl = Screen('Flip',scr.main);
 
-    % Answer screen
-    if (tframes >= const.numFrm_T3_end) && (stopThisTrial == 0)
-        [key_press,tRT]=getAnswer(scr,const,my_key);
-        tRT = tRT - vbl;
-    end
-
 end
+
+% Outside of loop: Answer screen (unlimited time)
+if (tframes >= const.numFrm_T3_end) && (stopThisTrial == 0)
+    [key_press,tRT]=getAnswer(scr,const,my_key);
+    tRT = tRT - vbl;
+end
+
+%end
 
 %% saving some EYELINK data (not sure what this actually does?)
 switch fixation
@@ -213,9 +220,9 @@ else % if trial was completed successfully
     if (key_press.rightShift == 1) || (key_press.leftShift == 1)
         % sound feedback
         if correct == 0
-            makeBeep(.1,400)
+            makeBeep(.1,400, .2) % using .2 bc lower beep seemed less loud
         elseif correct == 1
-            makeBeep(.1,800)
+            makeBeep(.1,800, .15)
         end
         disp('Correct = ')
         disp(correct)

@@ -159,7 +159,8 @@ while (vbl < vblendtime) && fixation
     srcRect=[xoffset 0 xoffset + visiblesize visiblesize];
        
     % Draw the fixation point
-    Screen('DrawDots', scr.main, [xCenter; yCenter], const.fixation_xdiam, color, [], 2);
+    %Screen('DrawDots', scr.main, [xCenter; yCenter], const.fixation_xdiam, color, [], 2);
+    my_fixation(scr,const,const.black);
     
     % Draw grating texture, rotated by "angle": % this was prior settings (1 line
     % below)
@@ -193,10 +194,10 @@ while (vbl < vblendtime) && fixation
      %    movieframe_n = movieframe_n + 1;
      %end
 
-    % Abort demo if any key is pressed:
-    if KbCheck
-        break;
-    end
+    % Allow subject to break stimulus period to answer quicker.
+    %if KbCheck
+    %    break;
+    %end
 end
 
 complete = 1;
