@@ -15,6 +15,7 @@ checkdir(projectname)
 % for each subject, separate data for per condition, per location
 [subjectinfo] = getsubjinfo();
 subjectinfo = subjectinfo(2); 
+%subjectinfo = subjectinfo(4); 
 
 analysis_type = {'RelativeMotion', 'AbsoluteMotion'};
 
@@ -89,6 +90,12 @@ for si=1:length(subjectinfo)
             %    four_ci_values)
             %plotpolar(4, 'sensitivity', 'relative', figuresdir, four_main_conditions, mapdegree,...
             %    four_ci_values)
+            four_main_conditions = {params_radialout,params_radialin,params_tangleft,params_tangright};
+            four_ci_values = {bootci_radialout,bootci_radialin,bootci_tangleft,bootci_tangright};
+            plotpolar(4, 'bias', 'relative', figuresdir, four_main_conditions, mapdegree,...
+                four_ci_values)
+            plotpolar(4, 'sensitivity', 'relative', figuresdir, four_main_conditions, mapdegree,...
+                four_ci_values)
 
             % plot the polar angle plots for 2 conditions
             two_main_conditions = {params_radial,params_tang};

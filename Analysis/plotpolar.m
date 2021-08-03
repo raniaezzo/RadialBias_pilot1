@@ -198,6 +198,7 @@ function plotpolar(numCond, paramsetting, analysiscond,figuresdir, main_conditio
         rohlabels4 = strrep(rohlabels3,'0', ''); 
         set(gca,'rticklabel',rohlabels4)
         if (abscond ~= 1) && ~(strcmp(paramsetting, 'z-score sensitivity'))
+        if abscond ~= 1
             text(0,0,{'clockwise'},'HorizontalAlignment','center','VerticalAlignment','top')
         end
     end

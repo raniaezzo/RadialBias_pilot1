@@ -6,5 +6,8 @@
 *.csv
 *.m~
 *.mat
+<<<<<<< HEAD
 Analysis.zip
+=======
+>>>>>>> 34c5efb959d1a380cfdb3aacb5661b6c2ac21558
 .DS_Store
