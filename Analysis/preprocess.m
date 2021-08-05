@@ -14,7 +14,7 @@ checkdir(projectname)
 
 % for each subject, separate data for per condition, per location
 [subjectinfo] = getsubjinfo();
-subjectinfo = subjectinfo(2); 
+subjectinfo = subjectinfo(1); 
 %subjectinfo = subjectinfo(4); 
 
 analysis_type = {'RelativeMotion', 'AbsoluteMotion'};
