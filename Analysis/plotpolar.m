@@ -1,17 +1,22 @@
 function plotpolar(numCond, paramsetting, analysiscond,figuresdir, main_conditions, ...
     mapdegree, ci_values)
     
+    newblue = [26 133 255]/255;
+    newblue2 = [0 90 181]/255;
+    newred = [212 17 89]/255; % put back
+    newred2 = [230 97 0]/255;
     withbars = 0;
+    
     if withbars == 0
         plotname = 'LP'; % line plot
     else
         plotname = 'BP'; % bar plot
     end
     
-    conf_interval = 95;
+    conf_interval = 68;
 
     if numCond == 4
-        colors = {'c','b','r','m'};
+        colors = {newblue,newblue2,newred,newred2};
         if strcmp(analysiscond, 'relative')
             condNames = {'radialout', 'radialin','tangleft','tangright'};
         end
@@ -23,7 +28,7 @@ function plotpolar(numCond, paramsetting, analysiscond,figuresdir, main_conditio
             'lowerleftwards', 'lowerrightwards', 'upperleftwards', 'upperrightwards'};
         end
     elseif numCond == 2
-        colors = {'b','r'};
+        colors = {newblue2,newred};
         condNames = {'radial','tangential'};
     end
     
@@ -40,8 +45,9 @@ function plotpolar(numCond, paramsetting, analysiscond,figuresdir, main_conditio
     %main_conditions = {params_radialout,params_radialin,params_tangleft,params_tangright};
     %ci_values = {bootci_radialout,bootci_radialin,bootci_tangleft,bootci_tangright};
     
-    if strcmp(paramsetting, 'bias') || strcmp(paramsetting, 'z-score bias')
-        absv = [1,0]; % run 2 iterations (absolute value,regular)
+    if strcmp(paramsetting, 'z-score bias')
+        % before was [1,0] but now I calculated abs beforehand
+        absv = [0]; % run 2 iterations (absolute value,regular)
         paramidx = 1;
         % calculate min (bias value - 95% error) across all conditions - const across
         % plot a circle on polar plot
@@ -49,13 +55,15 @@ function plotpolar(numCond, paramsetting, analysiscond,figuresdir, main_conditio
         for i=1:length(main_conditions)
             for fn = fieldnames(main_conditions{i})'
                 % (1,1,select_index) refers to (lowerbound, biasparam, 95ci)
-                select_idx = 1; % always set to 95 for max range
+                select_idx = 2; % (changing from: always set to 95 for max range)
                 biaswerror = main_conditions{i}.(fn{1})(:,paramidx)+ ci_values{i}.(fn{1})(1,paramidx,select_idx);
                 minlimit_bias = min(biaswerror);
                 minlist_bias = [minlist_bias minlimit_bias];
             end
         end
         set_min = abs(min(minlist_bias)-addedconst);
+    elseif strcmp(paramsetting, 'bias')
+        set_min = 0;
     elseif strcmp(paramsetting, 'sensitivity') || strcmp(paramsetting, 'z-score sensitivity')
         absv = [0];
         paramidx = 2;
@@ -143,7 +151,8 @@ function plotpolar(numCond, paramsetting, analysiscond,figuresdir, main_conditio
             theta_saved(:,i) = theta;
 
             % ommit any NaN values (for absolute value plot)
-            fullmatrix = [theta; rho; ci_95_lb; ci_95_ub];
+            %fullmatrix = [theta; rho; ci_95_lb; ci_95_ub];
+            fullmatrix = [theta; rho; ci_68_lb; ci_68_ub];
             fullmatrix(:,any(isnan(fullmatrix), 1)) = [];
             fullmatrix = [fullmatrix, fullmatrix(:,1)]; % to connect last point
             
@@ -159,33 +168,75 @@ function plotpolar(numCond, paramsetting, analysiscond,figuresdir, main_conditio
                 index_neg = (fixed_rho < 0); % neg values indices
                 index_pos = (fixed_rho == 0); % neg values indices
                 % switch upper and lower bounds
-                ci_95_lb_temp_neg = (set_min-[ci_95_ub ci_95_ub(1)]+set_min).*index_neg;
-                ci_95_ub_temp_neg = (set_min-[ci_95_lb ci_95_lb(1)]+set_min).*index_neg;
-                ci_95_lb_temp_pos = ([ci_95_ub ci_95_ub(1)]).*index_pos;
-                ci_95_ub_temp_pos = ([ci_95_lb ci_95_lb(1)]).*index_pos;
-                ci_95_lb_temp = ci_95_lb_temp_neg+ci_95_lb_temp_pos;
-                ci_95_ub_temp = ci_95_ub_temp_neg+ci_95_ub_temp_pos;
+                ci_68_lb_temp_neg = (set_min-[ci_68_ub ci_68_ub(1)]+set_min).*index_neg;
+                ci_68_ub_temp_neg = (set_min-[ci_68_lb ci_68_lb(1)]+set_min).*index_neg;
+                ci_68_lb_temp_pos = ([ci_68_ub ci_68_ub(1)]).*index_pos;
+                ci_68_ub_temp_pos = ([ci_68_lb ci_68_lb(1)]).*index_pos;
+                ci_68_lb_temp = ci_68_lb_temp_neg+ci_68_lb_temp_pos;
+                ci_68_ub_temp = ci_68_ub_temp_neg+ci_68_ub_temp_pos;
                 fixed_rho = (fixed_rho*-1) + rho_poskeep;
                 fixed_rho = fixed_rho+set_min;
                 polarwitherrorbar([theta theta(1)], fixed_rho, ...
-                    ci_95_lb_temp, ci_95_ub_temp, set_min, colors{i});
+                    ci_68_lb_temp, ci_68_ub_temp, set_min, colors{i});
                 hold on
             end
         end
     
+    disp(subjname)
+    if strcmp(subjname, 'BB') && strcmp(paramsetting, 'sensitivity')
+        custom_polarmax = 2; custom_barmax = 3;
+    elseif strcmp(subjname, 'BB') && strcmp(paramsetting, 'bias')
+        custom_polarmax = 3; custom_barmax = 3.5;
+    elseif strcmp(subjname, 'FH') && strcmp(paramsetting, 'sensitivity')
+        custom_polarmax = 1; custom_barmax = 1.5;
+    elseif strcmp(subjname, 'FH') && strcmp(paramsetting, 'bias')
+        custom_polarmax = 4.5; custom_barmax = 6;
+    elseif strcmp(subjname, 'NH') && strcmp(paramsetting, 'sensitivity')
+        custom_polarmax = 0.5; custom_barmax = 0.5;
+    elseif strcmp(subjname, 'NH') && strcmp(paramsetting, 'bias')
+        custom_polarmax = 15; custom_barmax = 25;
+    elseif strcmp(subjname, 'PW') && strcmp(paramsetting, 'sensitivity')
+        custom_polarmax = 1; custom_barmax = 1.5;
+    elseif strcmp(subjname, 'PW') && strcmp(paramsetting, 'bias')
+        custom_polarmax = 4; custom_barmax = 5.5;
+    elseif strcmp(subjname, 'RE') && strcmp(paramsetting, 'sensitivity')
+        custom_polarmax = 2.5; custom_barmax = 3.5;
+    elseif strcmp(subjname, 'RE') && strcmp(paramsetting, 'bias')
+        custom_polarmax = 2.5; custom_barmax = 3.5;
+    elseif strcmp(subjname, 'ER') && strcmp(paramsetting, 'sensitivity')
+        custom_polarmax = 2.5; custom_barmax = 3.5;
+    elseif strcmp(subjname, 'ER') && strcmp(paramsetting, 'bias')
+        custom_polarmax = 2.5; custom_barmax = 3.5;
+    elseif strcmp(subjname, 'HF') && strcmp(paramsetting, 'sensitivity')
+        custom_polarmax = 1; custom_barmax = 1;
+    elseif strcmp(subjname, 'HF') && strcmp(paramsetting, 'bias')
+        custom_polarmax = 8; custom_barmax = 8.5;
+    elseif strcmp(subjname, 'ALLSUBJ') && strcmp(paramsetting, 'sensitivity')
+        custom_polarmax = 1.5; custom_barmax = 2;
+    elseif strcmp(subjname, 'ALLSUBJ') && strcmp(paramsetting, 'bias')
+        custom_polarmax = 4; custom_barmax = 5.5;
+    elseif strcmp(paramsetting, 'z-score sensitivity') || strcmp(paramsetting, 'z-score bias')
+        custom_polarmax = []; custom_barmax = [];
+    end
+        
     
     rticks = get(gca,'RLim');
+    if isempty(custom_polarmax)
+        custom_polarmax = rticks(2);
+    end
+    rlim([rticks(1) custom_polarmax])
     thetaticks(possiblethetas_deg);
     %rticks = get(gca,'rtick');
     if strcmp(paramsetting, 'sensitivity')
         up = max(ceil(rticks)); down = min(floor(rticks));
-        rticks_redefined = [down:0.5:up];
-        set(gca,'RTick',rticks_redefined)
+        rticks_redefined = [down:0.5:custom_polarmax];
+        set(gca,'RTick',rticks_redefined, 'fontsize',20)
     elseif strcmp(paramsetting, 'bias') || strcmp(paramsetting, 'z-score bias') || strcmp(paramsetting, 'z-score sensitivity')
         in = rticks-set_min; %up = max(ceil(in * 4) / 4); down = min(floor(in * 4) / 4);
         up = max(ceil(in)); down = min(floor(in));
-        rticks_redefined = [down:0.5:up] + set_min;
+        rticks_redefined = [down:0.5:custom_polarmax] + set_min;
         set(gca,'RTick',rticks_redefined)
+        
         %rohlabels = arrayfun(@(x) sprintf('%.1f', x-set_min), rticks_redefined, 'un', 0);
         rohlabels = arrayfun(@(x)  x-set_min, rticks_redefined, 'un', 0);
         rohlabelsmat = cell2mat(rohlabels);
@@ -197,11 +248,13 @@ function plotpolar(numCond, paramsetting, analysiscond,figuresdir, main_conditio
         rohlabels3 = strrep(tempind,'-0', '');
         rohlabels4 = strrep(rohlabels3,'0', ''); 
         set(gca,'rticklabel',rohlabels4)
-        if (abscond ~= 1) && ~(strcmp(paramsetting, 'z-score sensitivity'))
-        if abscond ~= 1
+        %if (abscond ~= 1) && ~(strcmp(paramsetting, 'z-score sensitivity'))
+        if abscond ~= 0
             text(0,0,{'clockwise'},'HorizontalAlignment','center','VerticalAlignment','top')
         end
     end
+    %rticklabels({})
+    ax = gca; ax.GridAlpha = 1;
     hold on
     if abscond == 1
         titlename = sprintf('%s Polar Plot: %s (abs)',subjname, paramsetting);
@@ -235,11 +288,11 @@ function plotpolar(numCond, paramsetting, analysiscond,figuresdir, main_conditio
     if abscond == 1
         saveas(gcf,sprintf('%s/pngs/%s_PP_%s_abs_Alldata_%sconds_%s.png',figuresdir,subjname, paramsetting,num2str(numCond), analysiscond))
         saveas(gcf,sprintf('%s/figs/%s_PP_%s_abs_Alldata_%sconds_%s.fig',figuresdir,subjname, paramsetting,num2str(numCond), analysiscond))
-        saveas(gcf,sprintf('%s/bmps/%s_PP_%s_abs_Alldata_%sconds_%s.bmp',figuresdir,subjname, paramsetting,num2str(numCond), analysiscond))
+        saveas(gcf,sprintf('%s/bmps/%s_PP_%s_abs_Alldata_%sconds_%s.pdf',figuresdir,subjname, paramsetting,num2str(numCond), analysiscond))
     else
         saveas(gcf,sprintf('%s/pngs/%s_PP_%s_Alldata_%sconds_%s.png',figuresdir,subjname, paramsetting,num2str(numCond), analysiscond))
         saveas(gcf,sprintf('%s/figs/%s_PP_%s_Alldata_%sconds_%s.fig',figuresdir,subjname, paramsetting,num2str(numCond), analysiscond))
-        saveas(gcf,sprintf('%s/bmps/%s_PP_%s_Alldata_%sconds_%s.bmp',figuresdir,subjname, paramsetting,num2str(numCond), analysiscond))        
+        saveas(gcf,sprintf('%s/bmps/%s_PP_%s_Alldata_%sconds_%s.pdf',figuresdir,subjname, paramsetting,num2str(numCond), analysiscond))        
     end
     end
     
@@ -341,7 +394,12 @@ function plotpolar(numCond, paramsetting, analysiscond,figuresdir, main_conditio
         end
 
         % increase ylim slightly
-        yl = ylim; yl = [yl(1)*1, yl(2)*1.2];
+        %yl = ylim; yl = [yl(1)*1, yl(2)*1.2];
+        yl = ylim; 
+        if isempty(custom_barmax)
+            custom_barmax = yl(2)*1.2;
+        end
+        yl = [yl(1)*1, custom_barmax];
         ylim(yl)
         if strcmp(paramsetting, 'bias')
             ylabel('bias (alpha)')

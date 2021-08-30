@@ -1,6 +1,6 @@
-function compute_ci(type_summarypath)
+function compute_ci(type_summarypath, analysis_flag)
 
-load(fullfile(type_summarypath,'analyzeddata'))
+load(fullfile(type_summarypath,strcat(analysis_flag, '.mat')))
 
 % this assumes normality:
 %CIFcn = @(x,p)std(x(:),'omitnan')/sqrt(sum(~isnan(x(:)))) ...
@@ -72,7 +72,7 @@ for fn = fieldnames(bootparams_radial)'
     bootci_radial.(fn{:}) = [];
     disp(fn{1})
     param_cis = nan(2,2,2);
-    for param=1:length(param_cis)
+    for param=1:length(param_cis) % bias, sensitivity
         x = bootparams_radial.(fn{1})(:,param);
         p = 95; CI_95 = CIFcn(x,p);  
         p = 68; CI_68 = CIFcn(x,p);

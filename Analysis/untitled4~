@@ -1,0 +1,25 @@
+figure
+narrow_color = [26 133 255]/255;
+wide_color = [212 17 89]/255;
+mu = 0;
+sigma1 = 1;
+sigma2 = 4;
+pd1 = makedist('Normal','mu',mu,'sigma',sigma1);
+pd2 = makedist('Normal','mu',mu,'sigma',sigma2);
+x = linspace(-10, 10, 101);
+y1 = cdf('Normal',x,mu,sigma1);
+y2 = cdf('Normal',x,mu,sigma2);
+n1 = pdf(pd1, x);
+n2 = pdf(pd2, x);
+plot(x,y1, 'LineWidth', 5, 'Color', narrow_color)
+hold on 
+plot(x,y2, 'LineWidth', 5, 'Color', wide_color)
+%p3 = plot(x, n1, 'LineWidth', 5);
+%p3.Color = [narrow_color 0.2];
+%hold on
+%p4 = plot(x, n2, 'LineWidth', 5);
+%p4.Color = [wide_color 0.2];
+xlabel('tilt angles')
+yticks([0 0.5 1])
+ax = gca;
+gca.FontSize = 18;

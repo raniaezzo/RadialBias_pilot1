@@ -1,4 +1,4 @@
-function organize_absolutedirs(relativemotion_dir, absolutemotion_dir, setting)    
+function organize_absolutedirs(relativemotion_dir, analysis_flag, absolutemotion_dir, setting)    
 
     if ~exist(absolutemotion_dir, 'dir')
         mkdir(absolutemotion_dir)
@@ -101,7 +101,7 @@ function organize_absolutedirs(relativemotion_dir, absolutemotion_dir, setting)
     end
     %%
     
-    load(fullfile(relativemotion_dir,'analyzeddata.mat'))
+    load(fullfile(relativemotion_dir,strcat(analysis_flag, '.mat')))
     
     % cardinal
     params_upwards.loc_0 = params_tangleft.loc_0;
@@ -145,7 +145,7 @@ function organize_absolutedirs(relativemotion_dir, absolutemotion_dir, setting)
     params_lowerleftwards.loc_315 = params_tangright.loc_315;
     
     if strcmp(setting, 'group')
-            save(fullfile(absolutemotion_dir,'analyzeddata'), 'params_upwards',...
+            save(fullfile(absolutemotion_dir,analysis_flag), 'params_upwards',...
         'params_downwards','params_leftwards', 'params_rightwards',...
         'params_upperrightwards','params_upperleftwards','params_lowerleftwards',...
         'params_lowerrightwards')
@@ -194,7 +194,7 @@ function organize_absolutedirs(relativemotion_dir, absolutemotion_dir, setting)
     bootparams_lowerleftwards.loc_315 = bootparams_tangright.loc_315;
     
     % save analyzed data
-    save(fullfile(absolutemotion_dir,'analyzeddata'), 'params_upwards',...
+    save(fullfile(absolutemotion_dir,analysis_flag), 'params_upwards',...
         'bootparams_upwards','params_downwards','bootparams_downwards',...
         'params_leftwards', 'bootparams_leftwards', 'params_rightwards',...
         'bootparams_rightwards','params_upperrightwards','bootparams_upperrightwards', ...

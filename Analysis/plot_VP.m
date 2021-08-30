@@ -1,7 +1,7 @@
-function plot_VP(figuresdir,analysiscond) % vector plot
+function plot_VP(figuresdir,analysiscond, analysis_flag) % vector plot
 
 pathparts = strsplit(figuresdir, '/'); subjname = pathparts{end-2};
-subjectdata = fullfile(pwd,subjname,'AbsoluteMotion','analyzeddata.mat');
+subjectdata = fullfile(pwd,subjname,'AbsoluteMotion',strcat(analysis_flag, '.mat'));
 disp(subjectdata)
 subjdata = load(subjectdata);
 plotname = 'VP';

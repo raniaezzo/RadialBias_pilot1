@@ -1,6 +1,7 @@
 clc;
 clear all; 
 projectname = 'RadialBias_pilot1';
+analysis_flag = 'analyzeddata_4fits_absmean';
 
 % define locationids
 locationids = 1:8; locationdegrees = {315,135,225,45,270,90,180,0};
@@ -14,7 +15,7 @@ checkdir(projectname)
 
 % for each subject, separate data for per condition, per location
 [subjectinfo] = getsubjinfo();
-subjectinfo = subjectinfo(1); 
+subjectinfo = subjectinfo(2); 
 %subjectinfo = subjectinfo(4); 
 
 analysis_type = {'RelativeMotion', 'AbsoluteMotion'};
@@ -43,20 +44,39 @@ for si=1:length(subjectinfo)
         % compute params & save in subject dir
         compute_params(relative_summarypath, b_iter)
         
-        % compute CI from bootsamples & save in subject dir
-        compute_ci(relative_summarypath);
     end
     
+    % RECOMPUTES EVERYTIME (B/C analysis_flag changes)
+    % alter params by 
+    % (1) taking abs from current 6cond w/fits [analyzeddata_6fits_abs.mat]
+    % (2) creating radial/tangential from means of abs(4 fits) [analyzeddata_4fits_absmean.mat]
+    % (3) creating radial/tangential from means of 4 fits [analyzeddata_4fits_mean.mat]
+    
+    %save_alternate_params_switch(relative_summarypath)
+    save_alternate_params(relative_summarypath)
+    
+    % take analyzeddata and combine across locations
+    % This is done with the (abs) 4 directions because we are naive
+    % to loction in this condition
+    average_locations2(relative_summarypath)
+    
+    % to average up/low
+    %average_upperthenlower(relative_summarypath)
+    average_conditions(relative_summarypath)
+    %average_conditions_switch(relative_summarypath)  % added for switchcond
+    
+    % compute CI from bootsamples & save in subject dir
+    compute_ci(relative_summarypath, analysis_flag);
+
     % also save in absolute coordinates
-    organize_absolutedirs(relative_summarypath, sprintf('%s/%s/',subjectdir, analysis_type{2}), 'individual');
+    organize_absolutedirs(relative_summarypath, analysis_flag, sprintf('%s/%s/',subjectdir, analysis_type{2}), 'individual');
     
     for i=1:length(analysis_type)
-        i = 2;
         analysis_path = sprintf('%s/%s/',subjectdir, analysis_type{i});
         
         % load all summary stats for figures
         load(fullfile(analysis_path,'summarydata.mat'))
-        load(fullfile(analysis_path,'analyzeddata.mat'))
+        load(fullfile(analysis_path,strcat(analysis_flag, '.mat')))
         load(fullfile(analysis_path,'bootci.mat'))
 
         figuresdir = fullfile(analysis_path, 'figures');
@@ -79,31 +99,26 @@ for si=1:length(subjectinfo)
                 eight_ci_values)
             
             % plot vector plot for 8 absolute dirs
-            plot_VP(figuresdir,analysis_type{i})
+            plot_VP(figuresdir,analysis_type{i}, analysis_flag)
             
         elseif strcmp(analysis_type{i}, 'RelativeMotion')
         
-            % plot the polar angle plots for 4 conditions
-            %four_main_conditions = {params_radialout,params_radialin,params_tangleft,params_tangright};
-            %four_ci_values = {bootci_radialout,bootci_radialin,bootci_tangleft,bootci_tangright};
-            %plotpolar(4, 'bias', 'relative', figuresdir, four_main_conditions, mapdegree,...
-            %    four_ci_values)
-            %plotpolar(4, 'sensitivity', 'relative', figuresdir, four_main_conditions, mapdegree,...
-            %    four_ci_values)
-            four_main_conditions = {params_radialout,params_radialin,params_tangleft,params_tangright};
-            four_ci_values = {bootci_radialout,bootci_radialin,bootci_tangleft,bootci_tangright};
-            plotpolar(4, 'bias', 'relative', figuresdir, four_main_conditions, mapdegree,...
-                four_ci_values)
-            plotpolar(4, 'sensitivity', 'relative', figuresdir, four_main_conditions, mapdegree,...
-                four_ci_values)
-
             % plot the polar angle plots for 2 conditions
             two_main_conditions = {params_radial,params_tang};
             two_ci_values = {bootci_radial,bootci_tang};
             plotpolar(2, 'sensitivity', 'relative', figuresdir, two_main_conditions, mapdegree,...
                 two_ci_values)
+            four_main_conditions = {params_radialout,params_radialin,params_tangleft,params_tangright};
+            four_ci_values = {bootci_radialout,bootci_radialin,bootci_tangleft,bootci_tangright};
+            plotpolar(4, 'sensitivity', 'relative', figuresdir, four_main_conditions, mapdegree,...
+                four_ci_values)
+
+            % plot the polar angle plots for 4 conditions
             plotpolar(2, 'bias', 'relative', figuresdir, two_main_conditions, mapdegree,...
                 two_ci_values)
+            plotpolar(4, 'bias', 'relative', figuresdir, four_main_conditions, mapdegree,...
+                four_ci_values)
+
 
             four_cond = {summary_radialout,summary_radialin,summary_tangleft, ...
                 summary_tangright};
@@ -117,12 +132,13 @@ for si=1:length(subjectinfo)
 
         end
     end
-    
+     
 end
 
 %%
 clc;
 clear all;
+analysis_flag = 'analyzeddata_4fits_absmean';
 analysis_type = {'RelativeMotion', 'AbsoluteMotion'};
 [subjectinfo] = getsubjinfo();
 % define locationids
@@ -131,16 +147,20 @@ locationlabels = strcat('loc_',cellfun(@num2str,locationdegrees,'un',0));
 maplocation = containers.Map(locationids,locationlabels);
 mapdegree = containers.Map(locationlabels,locationdegrees);
 
+%barplot_upperlower(subjectinfo)
+%barplot_radialtang(subjectinfo)
+
 for si=1:length(subjectinfo)
     % create subject directory
-    subjectdata = fullfile(pwd,subjectinfo(si).name,'RelativeMotion','analyzeddata.mat');
+    subjectdata = fullfile(pwd,subjectinfo(si).name,'RelativeMotion',...
+        (strcat(analysis_flag, '.mat')));
     init.(subjectinfo(si).name) = load(subjectdata);
 end
 
 data_radialin = []; data_radialout = []; data_tangright = [];
 data_tangleft = []; data_radial = []; data_tang = [];
 error_radialin = []; error_radialout = []; error_tangright = [];
-error_tangleft = []; error_radial = []; error_tang = [];
+error_tangleft = []; error_radial = []; error_tang = []; data_ratio = [];
 for si=1:length(subjectinfo)
     data_radialin = [data_radialin init.(subjectinfo(si).name).params_radialin];
     error_radialin = [error_radialin init.(subjectinfo(si).name).bootparams_radialin];
@@ -155,6 +175,11 @@ for si=1:length(subjectinfo)
     error_radial = [error_radial init.(subjectinfo(si).name).bootparams_radial];
     data_tang = [data_tang init.(subjectinfo(si).name).params_tang];
     error_tang = [error_tang init.(subjectinfo(si).name).bootparams_tang];
+    
+    for fn = fieldnames(init.(subjectinfo(si).name).params_radial)'
+        subj_ratio.(fn{1}) = init.(subjectinfo(si).name).params_radial.(fn{1})./init.(subjectinfo(si).name).params_tang.(fn{1});
+    end
+    data_ratio = [data_ratio subj_ratio];
 end
 
 % find mean (sensitivity/bias) per location across subjects
@@ -178,13 +203,20 @@ end
 [params_radialout, sem_radialout] = MeanStructFields(data_radialout);
 [params_tangright, sem_tangright] = MeanStructFields(data_tangright);
 [params_tangleft, sem_tangleft] = MeanStructFields(data_tangleft);
+[params_ratio, sem_ratio] = MeanStructFields(data_ratio);
 
 % need to save this to relative directory for ALLSUBJ!
-save(fullfile(relative_summarypath,'analyzeddata'), 'params_radialout',...
+save(fullfile(relative_summarypath,analysis_flag), 'params_radialout',...
     'sem_radialout','params_radialin', 'sem_radialin',...
     'params_tangleft','sem_tangleft', ...
     'params_tangright','sem_tangright', 'params_radial', ...
     'sem_radial', 'params_tang', 'sem_tang')
+
+% temp
+two_main_conditions = {params_ratio,params_ratio};
+two_sem_values = {sem_ratio,sem_ratio};
+plotpolar(2, 'sensitivity', 'relative', figuresdir, two_main_conditions, mapdegree,...
+    two_sem_values)
 
 % plot the polar angle plots for 2 conditions
 two_main_conditions = {params_radial,params_tang};
@@ -252,15 +284,15 @@ if ~exist(figuresdir, 'dir')
     mkdir(fullfile(figuresdir,'bmps'));
 end
 
-organize_absolutedirs(relative_summarypath, absolute_summarypath, 'group');
+organize_absolutedirs(relative_summarypath, analysis_flag, absolute_summarypath, 'group');
 
-plot_VP(figuresdir,analysis_type{2})
+plot_VP(figuresdir,analysis_type{2}, analysis_flag)
 
 % not create sem for polar plots
 
 for si=1:length(subjectinfo)
     % create subject directory
-    subjectdata = fullfile(pwd,subjectinfo(si).name,'AbsoluteMotion','analyzeddata.mat');
+    subjectdata = fullfile(pwd,subjectinfo(si).name,'AbsoluteMotion',strcat(analysis_flag,'.mat'));
     init.(subjectinfo(si).name) = load(subjectdata);
 end
 
@@ -333,7 +365,7 @@ function [output] = MeanStructFields_zscore(conditionarray)
         %allloc_bias = [allsubj_bias, zscore(bias_vector, 0, 'all')];
         %allloc_sensitivity = [allsubj_sensitivity, zscore(sensitivity_vector, 0, 'all')];
     end
-    output = init_zscore
+    output = init_zscore;
 end
 
 % https://statquest.org/the-standard-error-and-a-bootstrapping-bonus/
@@ -349,7 +381,9 @@ function [average,sem] = MeanStructFields(S)
       disp(sem_temp)
       param_cis = nan(2,2,2);
       param_cis(:,1,1) = [ave(1)-sem_temp(1);ave(1)+sem_temp(1)]; % sem bias
+      param_cis(:,1,2) = [ave(1)-sem_temp(1);ave(1)+sem_temp(1)]; % repeat (SEM)
       param_cis(:,2,1) = [ave(2)-sem_temp(2);ave(2)+sem_temp(2)]; % sem sensitivity
+      param_cis(:,2,2) = [ave(2)-sem_temp(2);ave(2)+sem_temp(2)]; % repeat (SEM)
       disp(param_cis)
       sem.(fields{k}) = param_cis;
     end
