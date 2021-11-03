@@ -18,7 +18,7 @@ close all;home;ListenChar(1);tic
 addpath(genpath(pwd));
 load('conditions.mat')
 
-EL_mode = 1; % 0 = no eyelink; 1 = eyelink
+EL_mode = 0; % 0 = no eyelink; 1 = eyelink
 EL_modes = {'OFF','ON'};
 
 const.DEBUG = 0; % Debug flag (if debug mode, forces no eyetracking)
@@ -27,7 +27,10 @@ if const.DEBUG, EL_mode = 0; end
 % exp_mode is either practice, threshold to find thresh using staircase procedure, or experiment
 % which uses manual input determined from staircase
 
-session_type = [];
+Prompt        = {'Experiment 0-HalfDistance, 1-OriginalDistance, 2-SwitchCondition:'};
+Answer    = inputdlg(Prompt,'Info',1);
+experiment_type   = Answer{1};
+
 Prompt        = {'Session Type (0-thresholding, 1-experimental, otherkey-practice):'};
 Answer        = inputdlg(Prompt,'Info',1);
 session_type   = Answer{1};
@@ -61,6 +64,15 @@ end
 
 disp('Motion type:')
 disp(const.motion_type)
+
+switch experiment_type
+    case '0'
+        const.experiment = 'HalfDistData';
+    case '1'
+        const.experiment = 'ExpData';
+    case '2'
+        const.experiment = 'SwitchCondData';
+end
 
 switch session_type
     case '0'

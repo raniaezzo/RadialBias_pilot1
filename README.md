@@ -29,3 +29,5 @@ Scripts & behavioral data: github.com/raniaezzo/RadialBias_pilot1
 All images (.fig, .bmp, .png,) and eyelink files (.edf) are ignored to git push.
 
 Data storage: eyetracker PC, Rania local PC & Rania Google Drive
+
+Data dictionaries in Experiment folder for more details on data and parameter variables saved from experimental code

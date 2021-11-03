@@ -28,6 +28,7 @@ FlushEvents('KeyDown');
 % etc., and add gaussian temporal envelope, also define the interval of the "standard" grating)
 
 % polar angle location (for now, 1 eccentricity)
+disp(expDes.expMat)
 loc_target = expDes.expMat(t, 3); % this is the first exp variable e.g. [1,2,3,4]
 %motiondir_target = expDes.expMat(t, 4); % this is the second exp variable
 %(instead reading directly from params below)

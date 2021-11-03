@@ -9,41 +9,44 @@
 \BOOKMARK [2][-]{subsection.2.3}{Bias \(absv\) Polar Plots: Relative Motion}{section.2}% 9
 \BOOKMARK [1][-]{section.3}{Subject Data \(Absolute motion\)}{}% 10
 \BOOKMARK [2][-]{subsection.3.1}{Sensitivity Vector Plots: Absolute Motion}{section.3}% 11
-\BOOKMARK [1][-]{section.4}{Group Data \(Relative motion\)}{}% 12
-\BOOKMARK [2][-]{subsection.4.1}{Sensitivity Polar Plots: Relative Motion}{section.4}% 13
-\BOOKMARK [2][-]{subsection.4.2}{Z-score Sensitivity Polar Plots: Relative Motion}{section.4}% 14
-\BOOKMARK [2][-]{subsection.4.3}{Bias \(Abs\) Polar Plots: Relative Motion}{section.4}% 15
-\BOOKMARK [2][-]{subsection.4.4}{Z-score Bias Polar Plots: Relative Motion}{section.4}% 16
-\BOOKMARK [1][-]{section.5}{Group Data \(Absolute motion\)}{}% 17
-\BOOKMARK [2][-]{subsection.5.1}{Sensitivity Polar Plots: Absolute Motion}{section.5}% 18
-\BOOKMARK [2][-]{subsection.5.2}{Bias Polar Plots: Absolute Motion}{section.5}% 19
-\BOOKMARK [1][-]{section.6}{Supplementary Images: PFs per location}{}% 20
-\BOOKMARK [2][-]{subsection.6.1}{RE PFs Per Location}{section.6}% 21
-\BOOKMARK [2][-]{subsection.6.2}{FH PFs Per Location}{section.6}% 22
-\BOOKMARK [2][-]{subsection.6.3}{BB PFs Per Location}{section.6}% 23
-\BOOKMARK [2][-]{subsection.6.4}{PW PFs Per Location}{section.6}% 24
-\BOOKMARK [2][-]{subsection.6.5}{NH PFs Per Location}{section.6}% 25
-\BOOKMARK [1][-]{section.7}{Supplementary Images: Subject Cartesian Line Plots}{}% 26
-\BOOKMARK [2][-]{subsection.7.1}{Sensitivity Cartesian Line Plots: Relative Motion}{section.7}% 27
-\BOOKMARK [2][-]{subsection.7.2}{Bias Cartesian Line Plots: Relative Motion}{section.7}% 28
-\BOOKMARK [1][-]{section.8}{Supplementary Images: Group Cartesian Line Plots}{}% 29
-\BOOKMARK [2][-]{subsection.8.1}{Sensitivity Cartesian Line Plots: Relative Motion}{section.8}% 30
-\BOOKMARK [2][-]{subsection.8.2}{Bias Cartesian Line Plots: Relative Motion}{section.8}% 31
-\BOOKMARK [1][-]{section.9}{Current Goals}{}% 32
-\BOOKMARK [1][-]{section.10}{Incorporating fMRI}{}% 33
-\BOOKMARK [2][-]{subsection.10.1}{Goals}{section.10}% 34
-\BOOKMARK [2][-]{subsection.10.2}{Runs needed}{section.10}% 35
-\BOOKMARK [2][-]{subsection.10.3}{Inverted Encoding Model}{section.10}% 36
-\BOOKMARK [1][-]{section.11}{Extending to Plaid Stimuli}{}% 37
-\BOOKMARK [1][-]{section.12}{Supplemental Questions}{}% 38
-\BOOKMARK [1][-]{section.13}{Updates}{}% 39
-\BOOKMARK [1][-]{section.14}{To Do}{}% 40
-\BOOKMARK [1][-]{section.15}{Software to Cite}{}% 41
-\BOOKMARK [1][-]{section.16}{Data that still needs updating}{}% 42
-\BOOKMARK [2][-]{subsection.16.1}{RE Psychometric Fits \(Cardinal/Oblique\)}{section.16}% 43
-\BOOKMARK [2][-]{subsection.16.2}{RE Polar Plots Percent Correct \(W/ eyetracking vs. No eyetracking\)}{section.16}% 44
-\BOOKMARK [2][-]{subsection.16.3}{Quality Control \046 Misc.}{section.16}% 45
-\BOOKMARK [2][-]{subsection.16.4}{FH Psychometric Fits \(Cardinal/Oblique\)}{section.16}% 46
-\BOOKMARK [2][-]{subsection.16.5}{BB Psychometric Fits \(Cardinal/Oblique\)}{section.16}% 47
-\BOOKMARK [2][-]{subsection.16.6}{Sensitivity Cartesian Bar Plots}{section.16}% 48
-\BOOKMARK [2][-]{subsection.16.7}{Bias Cartesian Bar Plots}{section.16}% 49
+\BOOKMARK [1][-]{section.4}{Subject Data \(Across Datasets\)}{}% 12
+\BOOKMARK [2][-]{subsection.4.1}{Sensitivity Polar Plots: Original vs Switched Condition}{section.4}% 13
+\BOOKMARK [2][-]{subsection.4.2}{Sensitivity Polar Plots: Cardinal vs Oblique Condition}{section.4}% 14
+\BOOKMARK [2][-]{subsection.4.3}{Sensitivity Vector Plots}{section.4}% 15
+\BOOKMARK [1][-]{section.5}{Group Data \(Relative motion\)}{}% 16
+\BOOKMARK [2][-]{subsection.5.1}{Sensitivity Polar Plots: Relative Motion}{section.5}% 17
+\BOOKMARK [2][-]{subsection.5.2}{Z-score Sensitivity Polar Plots: Relative Motion}{section.5}% 18
+\BOOKMARK [2][-]{subsection.5.3}{Bias \(Abs\) Polar Plots: Relative Motion}{section.5}% 19
+\BOOKMARK [2][-]{subsection.5.4}{Z-score Bias Polar Plots: Relative Motion}{section.5}% 20
+\BOOKMARK [1][-]{section.6}{Group Data \(Absolute motion\)}{}% 21
+\BOOKMARK [2][-]{subsection.6.1}{Sensitivity Polar Plots: Absolute Motion}{section.6}% 22
+\BOOKMARK [2][-]{subsection.6.2}{Bias Polar Plots: Absolute Motion}{section.6}% 23
+\BOOKMARK [1][-]{section.7}{Bias vs Sensitivity}{}% 24
+\BOOKMARK [2][-]{subsection.7.1}{Individual Plots \(each location\)}{section.7}% 25
+\BOOKMARK [2][-]{subsection.7.2}{All subjects Plot \(mean across locations\)}{section.7}% 26
+\BOOKMARK [1][-]{section.8}{Supplementary Images: PFs per location}{}% 27
+\BOOKMARK [2][-]{subsection.8.1}{RE PFs Per Location}{section.8}% 28
+\BOOKMARK [1][-]{section.9}{Supplementary Images: PFs per location}{}% 29
+\BOOKMARK [2][-]{subsection.9.1}{RE PFs Per Location \(at half distance\)}{section.9}% 30
+\BOOKMARK [2][-]{subsection.9.2}{FH PFs Per Location}{section.9}% 31
+\BOOKMARK [2][-]{subsection.9.3}{FH PFs Per Location \(at half distance\)}{section.9}% 32
+\BOOKMARK [2][-]{subsection.9.4}{BB PFs Per Location}{section.9}% 33
+\BOOKMARK [2][-]{subsection.9.5}{PW PFs Per Location}{section.9}% 34
+\BOOKMARK [2][-]{subsection.9.6}{NH PFs Per Location}{section.9}% 35
+\BOOKMARK [1][-]{section.10}{Supplementary Images: Subject Cartesian Line Plots}{}% 36
+\BOOKMARK [2][-]{subsection.10.1}{Sensitivity Cartesian Line Plots: Relative Motion}{section.10}% 37
+\BOOKMARK [2][-]{subsection.10.2}{Bias Cartesian Line Plots: Relative Motion}{section.10}% 38
+\BOOKMARK [1][-]{section.11}{Supplementary Images: Group Cartesian Line Plots}{}% 39
+\BOOKMARK [2][-]{subsection.11.1}{Sensitivity Cartesian Line Plots: Relative Motion}{section.11}% 40
+\BOOKMARK [2][-]{subsection.11.2}{Bias Cartesian Line Plots: Relative Motion}{section.11}% 41
+\BOOKMARK [1][-]{section.12}{Current Goals}{}% 42
+\BOOKMARK [1][-]{section.13}{Incorporating fMRI}{}% 43
+\BOOKMARK [2][-]{subsection.13.1}{Goals}{section.13}% 44
+\BOOKMARK [2][-]{subsection.13.2}{Runs needed}{section.13}% 45
+\BOOKMARK [2][-]{subsection.13.3}{Inverted Encoding Model}{section.13}% 46
+\BOOKMARK [1][-]{section.14}{Extending to Plaid Stimuli}{}% 47
+\BOOKMARK [1][-]{section.15}{Supplemental Questions}{}% 48
+\BOOKMARK [1][-]{section.16}{Updates}{}% 49
+\BOOKMARK [1][-]{section.17}{To Do}{}% 50
+\BOOKMARK [1][-]{section.18}{Questions from ECVP Attendees}{}% 51
+\BOOKMARK [1][-]{section.19}{Software to Cite}{}% 52

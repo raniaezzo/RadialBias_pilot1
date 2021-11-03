@@ -58,7 +58,7 @@ while ~expDone
         
         % create a directory for movie of that trial
         %mkdir(sprintf('%s/Movies/%i',pwd, t));
-        
+        disp(t)
         % break (just added)
         if ~rem(t,sectionsize) && (t~=expDes.j)
             instructions(scr,const,my_key,textExp.pause,button.pause);

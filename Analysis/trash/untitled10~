@@ -1,0 +1,33 @@
+function save_relative_params(relative_summarypath, cond_dirs)
+
+% create folders based on location (renamed)
+% FOLDER RADIALTANG_4
+% e.g. loc_0 (radial_in)
+% e.g. loc_0 (radial_out)
+% e.g. loc_0 (tang_right)
+% e.g. loc_0 (tang_left)
+% FOLDER RADIALTANG_2
+% e.g. loc_0 (radial)
+% e.g. loc_0 (tang)
+% FOLDER CARDINAL_VS_OBLIQUE
+% e.g. loc_0 (mean radialtang)
+% e.g. loc_0 (mean non-radialtang)
+
+% copy all location_dir folders
+
+radialtang4_dir = fullfile(relative_summarypath, RADIALTANG_4);
+radialtang2_dir = fullfile(relative_summarypath, RADIALTANG_2);
+cardinaloblique_dir = fullfile(relative_summarypath, RADIALTANG_2);
+
+if ~exist(radialtang4_dir, 'dir')
+    mkdir(radialtang4_dir)
+end
+
+for ci=1:length(cond_dirs)
+    % convert to radialtang4
+    % copy folder to Relative
+end
+
+
+
+end

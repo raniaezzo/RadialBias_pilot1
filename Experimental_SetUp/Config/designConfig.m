@@ -126,7 +126,7 @@ for t_trial = 1:expDes.nb_trials
     %expDes.expMat(expDes.j,:)= [const.fromBlock,t_trial,rand_var1,rand_var2,rand_var3,rand_random1];
     expDes.expMat(expDes.j,:)= [const.fromBlock,t_trial,rand_var1,rand_var2,rand_var3, rand_var4]; %,rand_random1];
 end
-
+ 
 
 %% Saving procedure :
 

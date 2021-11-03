@@ -29,11 +29,40 @@ end
 
 [currentpath] = fullfile(cd);
 
+if const.motion_type == '1'
+    motion_type = 'UR';
+elseif const.motion_type == '2'
+    motion_type = 'LL';
+elseif const.motion_type == '3'
+    motion_type = 'UL';
+elseif const.motion_type == '4'
+    motion_type = 'LR';
+elseif const.motion_type == '5'
+    motion_type = 'VU';
+elseif const.motion_type == '6'
+    motion_type = 'VL';
+elseif const.motion_type == '7'
+    motion_type = 'HR';
+elseif const.motion_type == '8'
+    motion_type = 'HL';
+end
+
+% Defines saving file names
+const.scr_fileDat =         sprintf('scr_file%s_%s.dat',const.sjctCode, motion_type);
+const.scr_fileMat =         sprintf('scr_file%s_%s.mat',const.sjctCode, motion_type);
+const.const_fileDat =       sprintf('const_file%s_%s.dat',const.sjctCode, motion_type);
+const.const_fileMat =       sprintf('const_file%s_%s.mat',const.sjctCode, motion_type);
+const.expRes_fileCsv =      sprintf('expRes%s_%s.csv',const.sjctCode, motion_type);
+const.design_fileMat =      sprintf('design%s_%s.mat',const.sjctCode, motion_type);
+
 if const.expStart
-    %expDir = sprintf('Data/%s/ExpData/Block%i',const.sjct,const.fromBlock);
-    expDir = sprintf('%s/ExpData/Block%i',currentpath,const.fromBlock);
-    if ~isfolder(expDir)
+    expDir = sprintf('%s/%s/Block%i',currentpath,const.experiment,const.fromBlock);
+    expFile = sprintf('%s/%s/Block%i/%s',currentpath,const.experiment, const.fromBlock, const.expRes_fileCsv);
+    
+    if ~isfolder(expDir) % no data at all for this Block
         mkdir(expDir);
+        cd(expDir);
+    elseif isfolder(expDir) && ~isfile(expFile) % data exist but not for this condition
         cd(expDir);
     else
         aswErase = input('\n This file allready exist, do you want to overwrite it ? (Y or N)    ','s');
@@ -66,36 +95,10 @@ else
 
 end
 
-if const.motion_type == '1'
-    motion_type = 'UR';
-elseif const.motion_type == '2'
-    motion_type = 'LL';
-elseif const.motion_type == '3'
-    motion_type = 'UL';
-elseif const.motion_type == '4'
-    motion_type = 'LR';
-elseif const.motion_type == '5'
-    motion_type = 'VU';
-elseif const.motion_type == '6'
-    motion_type = 'VL';
-elseif const.motion_type == '7'
-    motion_type = 'HR';
-elseif const.motion_type == '8'
-    motion_type = 'HL';
-end
-
 const.eyeDataDir = 'eyedata';
 const.eyeFile = sprintf('%s%s', motion_type,datestr(now, 'mmddHH'));
 
 if length(const.eyeFile) > 8, error('EYELINK SET UP: filename must be <= 8 digits!'),end
-
-% Defines saving file names
-const.scr_fileDat =         sprintf('scr_file%s_%s.dat',const.sjctCode, motion_type);
-const.scr_fileMat =         sprintf('scr_file%s_%s.mat',const.sjctCode, motion_type);
-const.const_fileDat =       sprintf('const_file%s_%s.dat',const.sjctCode, motion_type);
-const.const_fileMat =       sprintf('const_file%s_%s.mat',const.sjctCode, motion_type);
-const.expRes_fileCsv =      sprintf('expRes%s_%s.csv',const.sjctCode, motion_type);
-const.design_fileMat =      sprintf('design%s_%s.mat',const.sjctCode, motion_type);
 
 % Add path from the location of the data file folder
 addpath('../../../../Config/');
