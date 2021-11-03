@@ -9,7 +9,8 @@ locationlabels = strcat('loc_',cellfun(@num2str,locationdegrees,'un',0));
 maplocation = containers.Map(locationids,locationlabels);
 mapdegree = containers.Map(locationlabels,locationdegrees);
 directionids = 1:8; directiondegrees = {45,225,135,315,90,270,0,180};
-directionlabels = {'upperrightwards','lowerleftwards','upperleftwards','lowerrightwards','upwards','downwards','rightwards','leftwards'};
+directionlabels = {'upperrightwards','lowerleftwards','upperleftwards', ...
+    'lowerrightwards','upwards','downwards','rightwards','leftwards'};
 mapdirection = containers.Map(directionids,directionlabels);
 mapdirectiondegree = containers.Map(directionlabels,directiondegrees);
 b_iter = 1000; % # of iterations (0 = no bootstrap)
@@ -23,7 +24,7 @@ addpath('./_functions') % add folder with all functions
 
 % for each subject, separate data for per condition, per location
 [subjectinfo] = getsubjinfo();
-subjectinfo = subjectinfo(7);
+%subjectinfo = subjectinfo(1);
 
 analysis_type = {'AbsoluteMotion', 'RelativeMotion'};
 analysis_subtype = {'RADIALTANG_2','RADIALTANG_4','CARDINALOBLIQUE'};
@@ -111,8 +112,6 @@ for si=1:length(subjectinfo)
         
             % plot the polar angle plots for 8 absolute dirs
             plotpolar(length(organization), 'sensitivity', 'absolute', figuresdir, ...
-                main_conditions, mapdegree, ci_values, organization)
-            plotpolar(length(organization), 'bias', 'absolute', figuresdir, ...
                 main_conditions, mapdegree, ci_values, organization)
             
             % plot vector plot for 8 absolute dirs
