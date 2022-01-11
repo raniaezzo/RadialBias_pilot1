@@ -10,6 +10,9 @@ function [] = polarwitherrorbar(angle,avg,error_lb,error_ub, min, color)
 % The 'if loop' is for making sure that we dont have negative values  when
 % an error value is substrated from its corresponding average value. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%color = [.5 0 .5];
+
+set(gcf, 'renderer', 'painters')
 n_data = length(angle);
 %fake = polarplot(angle,max(avg+error)*ones(1,n_data), color); set(fake,'Visible','off'); hold on; 
 fake = polarplot(angle,max(avg+error_ub)*ones(1,n_data), 'color',color); set(fake,'Visible','off'); hold on; 
@@ -29,21 +32,22 @@ for ni = 1 : n_data
         %    polarplot(angle(ni)*ones(1,3),[avg(ni)-error_lb(ni), avg(ni), avg(ni)+error_ub(ni)],color,'LineWidth',1);
         %end
     %polarplot(angle(ni)*ones(1,3),[error_lb(ni), avg(ni), avg(ni)+error_ub(ni)],color,'LineWidth',1);
-    polarplot(angle(ni)*ones(1,3),[error_lb(ni), avg(ni), error_ub(ni)],'color',color,'LineWidth',3);
+    polarplot(angle(ni)*ones(1,3),[error_lb(ni), avg(ni), error_ub(ni)],'color',color,'LineWidth',4); %3);
     hold on
     end
 end
-p = polarplot(angle,avg,'-','color',color, 'LineWidth',3);
+p = polarplot(angle,avg,'-','color',color, 'LineWidth',4); %5); %3
 hold on
-p = polarplot(angle,avg,'-o','color',color, 'LineWidth',0.5);
-p.MarkerFaceColor = color;
-p.MarkerEdgeColor = 'w';
-p.MarkerSize = 6;
+p = polarplot(angle,avg,'-o','color',color, 'LineWidth',1.5); %1); %0.5
+p.MarkerFaceColor = color; %color;
+p.MarkerEdgeColor = 'w'; %'w';
+p.MarkerSize = 8; %6
 hold on
 % first plot the min circle
 th = linspace(0,2*pi,50);
 r = min;
 %disp('min')
 %disp(r)
-polarplot(th,r+zeros(size(th)),'k--','LineWidth',4)
+polarplot(th,r+zeros(size(th)),'k--','LineWidth',4) % put back (black %dashed line)
+%polarplot(th,1+zeros(size(th)),'k--','LineWidth',4) % put back (black %dashed line)
 hold off

@@ -9,6 +9,10 @@ function plotpolar(numCond, paramsetting, analysiscond,figuresdir, main_conditio
     newred2 = [230 97 0]/255;
     newgreen = [0 123 0]/255;
     newgreen2 = [0 255 0]/255;
+    green_polarangles = [0.4660, 0.6740, 0.1880];
+    purple = [0.5542    0.2797    0.7059];
+    teal = [89 168 143]/255; 
+    %[0.3478    0.6616    0.5592];
     withbars = 0;
     
     if withbars == 0
@@ -29,8 +33,11 @@ function plotpolar(numCond, paramsetting, analysiscond,figuresdir, main_conditio
             [0.4660, 0.6740, 0.1880],[0, 0.5, 0],[0.4940, 0.1840, 0.5560],[0.75, 0, 0.75]};
     elseif strcmp(cell2mat(organization),'cardinaloblique')
         colors = {newgreen, newgreen2};
+        %colors = {purple teal};
+    elseif strcmp(cell2mat(organization),'radial orientationtang orientation')
+        colors = {newred, newblue2};
     else
-        colors = {newgreen};
+        colors = {newgreen2};
         %condNames = {'switched cond'};    
     end
     
@@ -68,7 +75,8 @@ function plotpolar(numCond, paramsetting, analysiscond,figuresdir, main_conditio
             end
             set_min = abs(min(minlist_bias)-addedconst);
         elseif strcmp(paramsetting, 'bias')
-            set_min = 0;
+            %set_min = 0;
+            set_min = -0.4;
         end
     elseif strcmp(paramsetting, 'sensitivity') || strcmp(paramsetting, 'z-score sensitivity')
         absv = [0];
@@ -232,7 +240,7 @@ function plotpolar(numCond, paramsetting, analysiscond,figuresdir, main_conditio
     elseif strcmp(subjname, 'SX') && strcmp(paramsetting, 'bias')
         custom_polarmax = 2.5; custom_barmax = 3;
     elseif strcmp(subjname, 'ALLSUBJ') && strcmp(paramsetting, 'sensitivity')
-        custom_polarmax = 1.5; custom_barmax = 2;
+        custom_polarmax = 1; custom_barmax = 1.5;
     elseif strcmp(subjname, 'ALLSUBJ') && strcmp(paramsetting, 'bias')
         custom_polarmax = 4; custom_barmax = 5.5;
     elseif strcmp(subjname, 'RE_switch') && strcmp(paramsetting, 'sensitivity')
@@ -241,6 +249,8 @@ function plotpolar(numCond, paramsetting, analysiscond,figuresdir, main_conditio
         custom_polarmax = 4; custom_barmax = 5.5;
     elseif strcmp(paramsetting, 'z-score sensitivity') || strcmp(paramsetting, 'z-score bias')
         custom_polarmax = []; custom_barmax = [];
+    elseif strcmp(subjname, 'sasaki_figures') && strcmp(paramsetting, 'bias')
+        custom_polarmax = 35; custom_barmax = 35;
     end
         
     
@@ -311,6 +321,7 @@ function plotpolar(numCond, paramsetting, analysiscond,figuresdir, main_conditio
         L1 = polarplot(nan, nan, 'color', colors{1});
         legend([L1], condNames)
     end
+    
     hold off
     
     if abscond == 1

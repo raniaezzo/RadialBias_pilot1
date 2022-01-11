@@ -11,42 +11,42 @@
 \contentsline {subsection}{\numberline {3.1}Sensitivity Vector Plots: Absolute Motion}{14}{subsection.3.1}%
 \contentsline {section}{\numberline {4}Subject Data (Across Datasets)}{15}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Sensitivity Polar Plots: Original vs Switched Condition}{15}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Sensitivity Polar Plots: Cardinal vs Oblique Condition}{15}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Sensitivity Vector Plots}{16}{subsection.4.3}%
-\contentsline {section}{\numberline {5}Group Data (Relative motion)}{17}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Sensitivity Polar Plots: Relative Motion}{17}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Z-score Sensitivity Polar Plots: Relative Motion}{17}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Bias (Abs) Polar Plots: Relative Motion}{18}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Z-score Bias Polar Plots: Relative Motion}{18}{subsection.5.4}%
-\contentsline {section}{\numberline {6}Group Data (Absolute motion)}{19}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Sensitivity Polar Plots: Absolute Motion}{19}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Bias Polar Plots: Absolute Motion}{19}{subsection.6.2}%
-\contentsline {section}{\numberline {7}Bias vs Sensitivity}{20}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Individual Plots (each location)}{20}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}All subjects Plot (mean across locations)}{20}{subsection.7.2}%
-\contentsline {section}{\numberline {8}Supplementary Images: PFs per location}{21}{section.8}%
-\contentsline {subsection}{\numberline {8.1}RE PFs Per Location}{21}{subsection.8.1}%
-\contentsline {section}{\numberline {9}Supplementary Images: PFs per location}{23}{section.9}%
-\contentsline {subsection}{\numberline {9.1}RE PFs Per Location (at half distance)}{23}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}FH PFs Per Location}{25}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}FH PFs Per Location (at half distance)}{27}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}BB PFs Per Location}{29}{subsection.9.4}%
-\contentsline {subsection}{\numberline {9.5}PW PFs Per Location}{31}{subsection.9.5}%
-\contentsline {subsection}{\numberline {9.6}NH PFs Per Location}{33}{subsection.9.6}%
-\contentsline {section}{\numberline {10}Supplementary Images: Subject Cartesian Line Plots}{35}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Sensitivity Cartesian Line Plots: Relative Motion}{35}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}Bias Cartesian Line Plots: Relative Motion}{37}{subsection.10.2}%
-\contentsline {section}{\numberline {11}Supplementary Images: Group Cartesian Line Plots}{39}{section.11}%
-\contentsline {subsection}{\numberline {11.1}Sensitivity Cartesian Line Plots: Relative Motion}{39}{subsection.11.1}%
-\contentsline {subsection}{\numberline {11.2}Bias Cartesian Line Plots: Relative Motion}{39}{subsection.11.2}%
-\contentsline {section}{\numberline {12}Current Goals}{40}{section.12}%
-\contentsline {section}{\numberline {13}Incorporating fMRI}{41}{section.13}%
-\contentsline {subsection}{\numberline {13.1}Goals}{41}{subsection.13.1}%
-\contentsline {subsection}{\numberline {13.2}Runs needed}{41}{subsection.13.2}%
-\contentsline {subsection}{\numberline {13.3}Inverted Encoding Model}{41}{subsection.13.3}%
-\contentsline {section}{\numberline {14}Extending to Plaid Stimuli}{41}{section.14}%
-\contentsline {section}{\numberline {15}Supplemental Questions}{42}{section.15}%
-\contentsline {section}{\numberline {16}Updates}{43}{section.16}%
-\contentsline {section}{\numberline {17}To Do}{43}{section.17}%
-\contentsline {section}{\numberline {18}Questions from ECVP Attendees}{45}{section.18}%
-\contentsline {section}{\numberline {19}Software to Cite}{45}{section.19}%
+\contentsline {subsection}{\numberline {4.2}Sensitivity Polar Plots: Cardinal vs Oblique Condition}{16}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Sensitivity Vector Plots}{17}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Group Data (Relative motion)}{18}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Sensitivity Polar Plots: Relative Motion}{18}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Z-score Sensitivity Polar Plots: Relative Motion}{18}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Bias (Abs) Polar Plots: Relative Motion}{19}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Z-score Bias Polar Plots: Relative Motion}{19}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Group Data (Absolute motion)}{20}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Sensitivity Polar Plots: Absolute Motion}{20}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Bias Polar Plots: Absolute Motion}{20}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Bias vs Sensitivity}{21}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Individual Plots (each location)}{21}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}All subjects Plot (mean across locations)}{21}{subsection.7.2}%
+\contentsline {section}{\numberline {8}Supplementary Images: PFs per location}{22}{section.8}%
+\contentsline {subsection}{\numberline {8.1}RE PFs Per Location}{22}{subsection.8.1}%
+\contentsline {section}{\numberline {9}Supplementary Images: PFs per location}{24}{section.9}%
+\contentsline {subsection}{\numberline {9.1}RE PFs Per Location (at half distance)}{24}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}FH PFs Per Location}{26}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}FH PFs Per Location (at half distance)}{28}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}BB PFs Per Location}{30}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.5}PW PFs Per Location}{32}{subsection.9.5}%
+\contentsline {subsection}{\numberline {9.6}NH PFs Per Location}{34}{subsection.9.6}%
+\contentsline {section}{\numberline {10}Supplementary Images: Subject Cartesian Line Plots}{36}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Sensitivity Cartesian Line Plots: Relative Motion}{36}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Bias Cartesian Line Plots: Relative Motion}{38}{subsection.10.2}%
+\contentsline {section}{\numberline {11}Supplementary Images: Group Cartesian Line Plots}{40}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Sensitivity Cartesian Line Plots: Relative Motion}{40}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Bias Cartesian Line Plots: Relative Motion}{40}{subsection.11.2}%
+\contentsline {section}{\numberline {12}Current Goals}{41}{section.12}%
+\contentsline {section}{\numberline {13}Incorporating fMRI}{42}{section.13}%
+\contentsline {subsection}{\numberline {13.1}Goals}{42}{subsection.13.1}%
+\contentsline {subsection}{\numberline {13.2}Runs needed}{42}{subsection.13.2}%
+\contentsline {subsection}{\numberline {13.3}Inverted Encoding Model}{42}{subsection.13.3}%
+\contentsline {section}{\numberline {14}Extending to Plaid Stimuli}{42}{section.14}%
+\contentsline {section}{\numberline {15}Supplemental Questions}{43}{section.15}%
+\contentsline {section}{\numberline {16}Updates}{44}{section.16}%
+\contentsline {section}{\numberline {17}To Do}{44}{section.17}%
+\contentsline {section}{\numberline {18}Questions from ECVP Attendees}{46}{section.18}%
+\contentsline {section}{\numberline {19}Software to Cite}{46}{section.19}%

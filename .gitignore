@@ -1,5 +1,6 @@
 Analysis/*/*/*/*/*.pdf
 Analysis/*/*/*.pdf
+*.pdf
 *.png
 *.bmp
 *.fig

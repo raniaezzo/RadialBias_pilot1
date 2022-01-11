@@ -24,7 +24,7 @@ addpath('./_functions') % add folder with all functions
 
 % for each subject, separate data for per condition, per location
 [subjectinfo] = getsubjinfo();
-%subjectinfo = subjectinfo(1);
+%subjectinfo = subjectinfo(4); % choose subject
 
 analysis_type = {'AbsoluteMotion', 'RelativeMotion'};
 analysis_subtype = {'RADIALTANG_2','RADIALTANG_4','CARDINALOBLIQUE'};
@@ -37,8 +37,8 @@ for si=1:length(subjectinfo)
     if ~exist(subjectdir, 'dir')
         mkdir(subjectdir)
     end
-    absolute_summarypath = sprintf('%s/%s/',subjectdir, analysis_type{1});
-    relative_summarypath = sprintf('%s/%s/',subjectdir, analysis_type{2});
+    absolute_summarypath = sprintf('%s/%s/',subjectdir, 'AbsoluteMotion');
+    relative_summarypath = sprintf('%s/%s/',subjectdir, 'RelativeMotion');
     if ~isfile(sprintf('%s/loc_0/downwards/params_boot.mat',absolute_summarypath))
         M_raw_concatenated = [];
         % iterate for each session
@@ -107,8 +107,8 @@ for si=1:length(subjectinfo)
             
             organization = {'upwards', 'downwards','leftwards','rightwards', ...
                 'lowerleftwards','lowerrightwards','upperleftwards','upperrightwards'};
-            [main_conditions, ci_values] = select_mainconditions(absolute_summarypath, ...
-                organization);
+            [main_conditions, ci_values, boot] = select_mainconditions(analysis_path, ...
+                    organization, b_iter);
         
             % plot the polar angle plots for 8 absolute dirs
             plotpolar(length(organization), 'sensitivity', 'absolute', figuresdir, ...
@@ -116,21 +116,14 @@ for si=1:length(subjectinfo)
             
             % plot vector plot for 8 absolute dirs
             plot_VP(figuresdir,main_conditions, organization)
+
+            % all directions per location
+            [mean_acrossloc, locvalues, ci_acrossloc] = average_direction(main_conditions, boot, organization, b_iter);
+            organization = {'lower VF', 'upper VF'};
+            plotbar(figuresdir, mean_acrossloc, locvalues, ci_acrossloc, organization);
             
-            % load original 6 fit data for PF mapping
-%                 load(fullfile(analysis_path,'analyzeddata.mat'))
-% 
-%                 four_cond = {summary_radialout,summary_radialin,summary_tangleft, ...
-%                     summary_tangright};
-%                 four_params = {params_radialout, params_radialin, params_tangleft, ...
-%                     params_tangright};
-%                 plot_PF(4, figuresdir, four_cond, four_params)
-% 
-%                 two_cond = {summary_radial,summary_tang};
-%                 two_params = {params_radial, params_tang};
-%                 plot_PF(2, figuresdir, two_cond, two_params)
-            
-            
+%             % add PFs
+                 
         elseif strcmp(analysis_type{i}, 'RelativeMotion')
             
             for ai=1:length(analysis_subtype)
@@ -145,8 +138,11 @@ for si=1:length(subjectinfo)
 
                 if strcmp(analysis_subtype{ai}, 'RADIALTANG_2')
                     organization = {'radial','tang'};
-                    [main_conditions, ci_values] = select_mainconditions(analysis_path, ...
-                    organization);
+                    [main_conditions, ci_values, boot] = select_mainconditions(analysis_path, ...
+                    organization, b_iter);
+                
+                    [mean_acrossloc, locvalues, ci_acrossloc] = average_condition(main_conditions, boot, organization);
+                    plotbar(figuresdir, mean_acrossloc, locvalues, ci_acrossloc, organization);
 
                     % plot the polar angle plots for 2 conditions
                     plotpolar(length(organization), 'sensitivity', 'relative', figuresdir, ...
@@ -156,8 +152,12 @@ for si=1:length(subjectinfo)
 
                 elseif strcmp(analysis_subtype{ai}, 'RADIALTANG_4')
                     organization = {'radial_in','radial_out','tang_right','tang_left'};
-                    [main_conditions, ci_values] = select_mainconditions(analysis_path, ...
-                    organization);
+                    [main_conditions, ci_values, boot] = select_mainconditions(analysis_path, ...
+                    organization, b_iter);
+               
+                    [mean_acrossloc, locvalues, ci_acrossloc] = average_condition(main_conditions, boot, organization);
+                    plotbar(figuresdir, mean_acrossloc, locvalues, ci_acrossloc, organization);
+                
                     plotpolar(length(organization), 'sensitivity', 'relative', figuresdir, ...
                         main_conditions, mapdegree, ci_values, organization)
                     plotpolar(length(organization), 'bias', 'relative', figuresdir, ...
@@ -165,8 +165,12 @@ for si=1:length(subjectinfo)
                     
                 elseif strcmp(analysis_subtype{ai}, 'CARDINALOBLIQUE')
                     organization = {'cardinal','oblique'};
-                    [main_conditions, ci_values] = select_mainconditions(analysis_path, ...
-                    organization);
+                    [main_conditions, ci_values, boot] = select_mainconditions(analysis_path, ...
+                    organization, b_iter);
+                
+                    [mean_acrossloc, locvalues, ci_acrossloc] = average_condition(main_conditions, boot, organization);
+                    plotbar(figuresdir, mean_acrossloc, locvalues, ci_acrossloc, organization);
+                    
                     plotpolar(length(organization), 'sensitivity', 'relative', figuresdir, ...
                         main_conditions, mapdegree, ci_values, organization)
                     plotpolar(length(organization), 'bias', 'relative', figuresdir, ...
@@ -180,8 +184,35 @@ for si=1:length(subjectinfo)
      
 end
 
-%% MEAN SUBJECT DATA
+%% BAR PLOTS
 
+% %%%%% BAR PLOTS %%%%%%
+% average_locations2(relative_summarypath)
+% %%%%average across locations%%%%
+% (1) upper vs. lower
+% (2) radial-cardinal vs. tang-cardinal vs. radial-off-cardinal vs.
+% tang-off-cardinal
+% (3) radial/tang cardinal, radial/tang off-cardinal,
+% oblique-cardinal, oblique-off-cardinal
+% (4) each absolute direction?
+
+for si=1:length(subjectinfo)
+    % create subject directory
+    subjectdir = fullfile(pwd,subjectinfo(si).name);
+    absolute_summarypath = fullfile(subjectdir, analysis_type{1});
+    relative_summarypath = fullfile(subjectdir, analysis_type{2});
+    radialtang_dir = fullfile(relative_summarypath, 'RADIALTANG_2');
+    cardinaloblique_dir = fullfile(relative_summarypath, 'CARDINALOBLIQUE');
+    
+    average_condition(main_conditions, organization)
+    
+    
+end
+
+%% MEAN SUBJECT DATA
+analysis_type = {'RelativeMotion'};
+analysis_subtype = {'RADIALTANG_2','RADIALTANG_4','CARDINALOBLIQUE'};
+b_iter = 0;
 % create mean params, and sem
 for i=1:length(analysis_type) % relative or absolute motion
     
@@ -189,13 +220,12 @@ for i=1:length(analysis_type) % relative or absolute motion
     if strcmp(analysis_type{i}, 'RelativeMotion')
         
         for ai=1:length(analysis_subtype) % RADIALTANG or CARDINALOBLIQUE
+            disp('~~~~~~')
+            disp(analysis_subtype{ai})
             
             % temporary, until all data is collected
-            if strcmp(analysis_subtype{ai}, 'RADIALTANG_2') || strcmp(analysis_subtype{ai}, 'RADIALTANG_4')
-                subjects = {'BB','FH','NH','PW','RE'};
-            elseif strcmp(analysis_subtype{ai}, 'CARDINALOBLIQUE')
-                subjects = {'RE'}; % two full datasets
-            end
+            subjects_w_radialtang = {'BB','FH','NH','PW','RE','ME','SX'};
+            subjects_w_all = {'RE','ME','SX'}; % two full datasets
                 
             analysis_path = fullfile(analysis_type_path, analysis_subtype{ai});
 
@@ -206,13 +236,18 @@ for i=1:length(analysis_type) % relative or absolute motion
                 mkdir(fullfile(figuresdir,'pdfs'));
             end
 
-            mean_sem_allsubjects(analysis_path, subjects);
+            %mean_sem_allsubjects(analysis_path, subjects_w_radialtang, 'off');
             
             if strcmp(analysis_subtype{ai}, 'RADIALTANG_2')
-                organization = {'radial','tang'};
-                [main_conditions, ci_values] = select_mainconditions(analysis_path, ...
-                organization);
-
+                mean_sem_allsubjects(analysis_path, subjects_w_radialtang, 'on');
+                organization = {'radial', 'tang'};
+                [main_conditions, ci_values, boot] = select_mainconditions(analysis_path, ...
+                    organization, b_iter);
+                
+                %organization = {'ratio'};
+                %main_conditions = {main_conditions{1,2}};
+                %ci_values = {ci_values{1,2}};
+                
                 % plot the polar angle plots for 2 conditions
                 plotpolar(length(organization), 'sensitivity', 'relative', figuresdir, ...
                     main_conditions, mapdegree, ci_values, organization)
@@ -220,18 +255,20 @@ for i=1:length(analysis_type) % relative or absolute motion
                     main_conditions, mapdegree, ci_values, organization)
 
             elseif strcmp(analysis_subtype{ai}, 'RADIALTANG_4')
+                mean_sem_allsubjects(analysis_path, subjects_w_radialtang, 'off');
                 organization = {'radial_in','radial_out','tang_right','tang_left'};
-                [main_conditions, ci_values] = select_mainconditions(analysis_path, ...
-                organization);
+                [main_conditions, ci_values, boot] = select_mainconditions(analysis_path, ...
+                    organization, b_iter);
                 plotpolar(length(organization), 'sensitivity', 'relative', figuresdir, ...
                     main_conditions, mapdegree, ci_values, organization)
                 plotpolar(length(organization), 'bias', 'relative', figuresdir, ...
                     main_conditions, mapdegree, ci_values, organization)
 
             elseif strcmp(analysis_subtype{ai}, 'CARDINALOBLIQUE')
+                mean_sem_allsubjects(analysis_path, subjects_w_all, 'off');
                 organization = {'cardinal','oblique'};
-                [main_conditions, ci_values] = select_mainconditions(analysis_path, ...
-                organization);
+                [main_conditions, ci_values, boot] = select_mainconditions(analysis_path, ...
+                    organization, b_iter);
                 plotpolar(length(organization), 'sensitivity', 'relative', figuresdir, ...
                     main_conditions, mapdegree, ci_values, organization)
                 plotpolar(length(organization), 'bias', 'relative', figuresdir, ...
@@ -250,12 +287,12 @@ for i=1:length(analysis_type) % relative or absolute motion
             mkdir(fullfile(figuresdir,'pdfs'));
         end
     
-        mean_sem_allsubjects(analysis_path, subjects);
+        mean_sem_allsubjects(analysis_path, subjects, 'off');
         
         organization = {'upwards', 'downwards','leftwards','rightwards', ...
                 'lowerleftwards','lowerrightwards','upperleftwards','upperrightwards'};
-        [main_conditions, ci_values] = select_mainconditions(analysis_type_path, ...
-            organization);
+        [main_conditions, ci_values, boot] = select_mainconditions(analysis_path, ...
+                    organization, b_iter);
 
         % plot the polar angle plots for 8 absolute dirs
         plotpolar(length(organization), 'sensitivity', 'absolute', figuresdir, ...
@@ -268,4 +305,4 @@ for i=1:length(analysis_type) % relative or absolute motion
     end
 
 end
-    
+

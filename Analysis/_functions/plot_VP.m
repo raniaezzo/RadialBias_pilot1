@@ -16,6 +16,9 @@ cartesian_directions = cartesian_locationdegrees; % loc & direction are same
 cartesian_locationlabels = strcat('loc_',cellfun(@num2str,cartesian_locationdegrees,'un',0));
 cartesian_directionlabels = {organization{1:8}};
 
+alldata = T_example;
+% save this is subject dir later
+
 figure
 % Plot a circle.
 angles = linspace(0, 2*pi, 9); % 720 is the total number of points
